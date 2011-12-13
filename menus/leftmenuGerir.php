@@ -12,7 +12,7 @@
         </ul>
         <h3>Submissões</h3>
         <ul>
-            <li><a href="#">Listar</a></li>
+            <li><a href="gerirS_Listar.php">Listar</a></li>
             <li><a href="#">Alterar</a></li>
             <li><a href="#">Remover</a></li>
         </ul>

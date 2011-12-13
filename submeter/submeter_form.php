@@ -18,8 +18,7 @@
                 <div id="content_top"></div>
                 <div id="content_main">
                     <h2>Project Record</h2>
-                    <br/>
-                    <br/>
+
                     <?php
                     require_once 'forms/submeter_dados.php';
                     ?>

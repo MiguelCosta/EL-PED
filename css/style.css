@@ -299,6 +299,13 @@ td.user
 {
     clear: both;
 }
+#form_submeter h3
+{
+    margin-top: 20px;
+    padding: 5px;
+    background-color: #EAEAEA;
+    text-align: center;
+}
 
 #form_submeter label
 {
@@ -307,7 +314,6 @@ td.user
 
 .required
 {
-    font-size: smaller;
     border-bottom: 2px;
     border-bottom-style: dotted;
     border-bottom-color: #ff0000;
@@ -368,6 +374,83 @@ td.user
     font-size: 13px;
 }
 
+#form_submeter_supervisor
+{
+    padding-top: 20px;
+    width: 100%;
+}
+
+#form_submeter_supervisor label
+{
+    width: 5%;
+}
+
+#form_submeter_supervisor input
+{
+    width: 15%;
+}
+
+#form_submeter_workteam
+{
+    width: 100%;
+}
+
+#form_submeter_workteam label
+{
+    width: 5%;
+}
+
+#form_submeter_workteam input
+{
+    width: 25%;
+}
+
+#form_submeter_abstract
+{
+    width: 100%;
+}
+
+textarea#abstract {
+    font-size: 12px;
+    width: 99%;
+    height: 120px;
+    border: 3px solid #cccccc;
+    font-family: Tahoma, sans-serif;
+    background-image: url(bg.gif);
+    background-position: bottom right;
+    background-repeat: no-repeat;
+}
+
+textarea#abstract:b
+{
+    font-weight: bold;
+}
+
+#form_submeter_workteam label
+{
+    width: 5%;
+}
+
+#form_submeter_workteam input
+{
+    width: 25%;
+}
+
+#form_submeter_deliverables
+{
+    width: 100%;
+}
+
+#form_submeter_deliverables label
+{
+    width: 5%;
+}
+
+#form_submeter_deliverables input
+{
+    width: 40%;
+}
+
 .clr
 {
     clear: both;
@@ -402,16 +485,7 @@ td.user
 
 }
 
-textarea#styled {
-    width: 600px;
-    height: 120px;
-    border: 3px solid #cccccc;
-    padding: 5px;
-    font-family: Tahoma, sans-serif;
-    background-image: url(bg.gif);
-    background-position: bottom right;
-    background-repeat: no-repeat;
-}
+
 
 #menu a:hover{
     background-image:url(images/link_background.png);

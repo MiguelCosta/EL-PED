@@ -44,10 +44,6 @@
                                 $msg_erro .= "Campo Password incorrecto!<br/>";
                             } else if ($email == null) {
                                 $msg_erro .= "Campo Email incorrecto!<br/>";
-                            } else if ($affil == null) {
-                                $msg_erro .= "Campo Affil incorrecto!<br/>";
-                            } else if ($url == null) {
-                                $msg_erro .= "Campo url incorrecto!<br/>";
                             } else if ($type == null) {
                                 $msg_erro .= "Campo Type incorrecto!<br/>";
                             }

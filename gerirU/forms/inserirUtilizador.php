@@ -5,38 +5,51 @@
         if(document.getElementById("username").valueOf().value == ""){alert("Campo Username inválido!");return;}
         if(document.getElementById("password").valueOf().value == ""){alert("Campo Password inválido!");return;}
         if(document.getElementById("email").valueOf().value == ""){alert("Campo Email inválido!");return;}
-        if(document.getElementById("affil").valueOf().value == ""){alert("Campo Affil inválido!");return;}
-        if(document.getElementById("url").valueOf().value == ""){alert("Campo url inválido!");return;}
-        if(document.getElementById("type").valueOf().value == ""){alert("Campo Type inválido!");return;}
 
         if (confirm('Pertende submeter a informação?')) document.forms["inserir"].submit(); else alert("Utilizador não foi inserido!"); 
     }
 </script>
 
-<form name="inserir" method="post" action="gerirU_Inserir_resp.php"  enctype="multipart/form-data">
+<div id="formInsertUser">
+    <form id="formUser" name="inserir" method="post" action="gerirU_Inserir_resp.php"  enctype="multipart/form-data">
 
-    <div class="user_insert">Name:*</div>
-    <input id="name" name="name" type="text" size="25" />
-    <br/>
-    <div class="user_insert">Username:* </div>
-    <input id="username" name="username" type="text" size="25" />
-    <br/>
-    <b class="user_insert">Password:* </b>
-    <input id="password" name="password" type="password" size="25" />
-    <br/>
-    <b class="user_insert">Email:* </b>
-    <input id="email" name="email" type="text" size="25" />
-    <br/>
-    <b class="user_insert">Affil:* </b>
-    <input id="affil" name="affil" type="text" size="25" />
-    <br/>
-    <b class="user_insert">url:* </b>
-    <input id="url" name="url" type="text" size="25" />
-    <br/>
-    <b class="user_insert">Type:* </b>
-    <input id="type" name="type" type="text" size="25" />
-    <br/>
-    <input type="button" value="Enviar" onclick="inserir_user()" />
-</form>
+        <label class="required">Name:</label>
+        <input id="name" name="name" type="text" size="25" />
+        <div class="clr"></div>
 
-<span class="required_fields">* Campo Obrigatório</span>
+        <label class="required">Username:</label>
+        <input id="username" name="username" type="text" size="25" />
+        <div class="clr"></div>
+
+        <label class="required">Password:</label>
+        <input id="password" name="password" type="password" size="25" />
+        <div class="clr"></div>
+
+        <label class="required">Email:</label>
+        <input id="email" name="email" type="text" size="25" />
+        <div class="clr"></div>
+
+        <label>Affil:</label>
+        <input id="affil" name="affil" type="text" size="25" />
+        <div class="clr"></div>
+
+        <label>url:</label>
+        <input id="url" name="url" type="text" size="25" />
+        <div class="clr"></div>
+
+        <label class="required">Type:</label>
+        <div id="formUserType">
+            <input type="radio" name="type" value="a" CHECKED/> Managment
+            <input type="radio" name="type" value="p"/> Producer
+            <input type="radio" name="type" value="c"/> Consumer
+        </div>
+        <div class="clr"></div>
+
+        <div id="btn_user">
+            <input type="button" value="Enviar" onclick="inserir_user()" />
+        </div>
+        <div class="clr"></div>
+    </form>
+</div>
+<div class="clr"></div>
+<span class="required" style="float: right">Campo Obrigatório</span>

@@ -6,9 +6,6 @@
         if(document.getElementById("username").valueOf().value == ""){alert("Campo Username inválido!");return;}
         if(document.getElementById("password").valueOf().value == ""){alert("Campo Password inválido!");return;}
         if(document.getElementById("email").valueOf().value == ""){alert("Campo Email inválido!");return;}
-        if(document.getElementById("affil").valueOf().value == ""){alert("Campo Affil inválido!");return;}
-        if(document.getElementById("url").valueOf().value == ""){alert("Campo url inválido!");return;}
-        if(document.getElementById("type").valueOf().value == ""){alert("Campo Type inválido!");return;}
 
         if (confirm('Pertende submeter a informação?')) document.forms["alterar"].submit(); else alert("Utilizador não foi alterado!"); 
     }
@@ -41,31 +38,59 @@ if ($name == null || $name == "") {
 }
 ?>
 
+<div id="formInsertUser">
+    <form id="formUser" name="alterar" method="post" action="gerirU_Alterar_Dados_resp.php"  enctype="multipart/form-data">
 
-<form name="alterar" method="post" action="gerirU_Alterar_Dados_resp.php"  enctype="multipart/form-data">
+        <label class="required">Name:</label>
+        <input id="name" name="name" type="text" size="25" value="<?php echo $name ?>"/>
+        <div class="clr"></div>
 
-    <div class="user_insert">Name:*</div>
-    <input id="name" name="name" type="text" size="25" value="<?php echo $name ?>"/>
-    <br/>
-    <div class="user_insert">Username:*</div>
-    <input id="username" name="username" type="text" size="25" readonly="readonly" value="<?php echo $username ?>"/>
-    <br/>
-    <b class="user_insert">Password:* </b>
-    <input id="password" name="password" type="password" size="25" value="<?php echo $password ?>"/>
-    <br/>
-    <b class="user_insert">Email:* </b>
-    <input id="email" name="email" type="text" size="25" value="<?php echo $email ?>"/>
-    <br/>
-    <b class="user_insert">Affil:* </b>
-    <input id="affil" name="affil" type="text" size="25" value="<?php echo $affil ?>"/>
-    <br/>
-    <b class="user_insert">url:* </b>
-    <input id="url" name="url" type="text" size="25" value="<?php echo $url ?>"/>
-    <br/>
-    <b class="user_insert">Type:* </b>
-    <input id="type" name="type" type="text" size="25" value="<?php echo $type ?>"/>
-    <br/>
-    <input type="button" value="Enviar" onclick="alterar_user()" />
-</form>
+        <label class="required">Username:</label>
+        <input id="username" name="username" type="text" size="25" readonly="readonly" value="<?php echo $username ?>"/>
+        <div class="clr"></div>
 
-<span class="required_fields">* Campo Obrigatório</span>
+        <label class="required">Password:</label>
+        <input id="password" name="password" type="password" size="25" value="<?php echo $password ?>"/>
+        <div class="clr"></div>
+
+        <label class="required">Email:</label>
+        <input id="email" name="email" type="text" size="25" value="<?php echo $email ?>"/>
+        <div class="clr"></div>
+
+        <label class="required">Affil:</label>
+        <input id="affil" name="affil" type="text" size="25" value="<?php echo $affil ?>"/>
+        <div class="clr"></div>
+
+        <label class="required">url:</label>
+        <input id="url" name="url" type="text" size="25" value="<?php echo $url ?>"/>
+        <div class="clr"></div>
+
+        <label class="required">Type:</label>
+        <div id="formUserType">
+            <?php
+            $admin_status = 'unchecked';
+            $producer_status = 'unchecked';
+            $consumer_status = 'unchecked';
+            if ($type == 'a')
+                $admin_status = 'checked';
+            else if ($type == 'p')
+                $producer_status = 'checked';
+            else if ($type == 'c')
+                $consumer_status = 'checked';
+            ?>
+            <input type="radio" name="type" value="a" <?PHP print $admin_status; ?>/> Managment
+            <input type="radio" name="type" value="p" <?PHP print $producer_status; ?>/> Producer
+            <input type="radio" name="type" value="c" <?PHP print $consumer_status; ?>/> Consumer
+        </div>
+
+        <div class="clr"></div>
+
+        <div id="btn_user">
+            <input type="button" value="Enviar" onclick="alterar_user()" />
+        </div>
+        <div class="clr"></div>
+
+    </form>
+</div>
+<div class="clr"></div>
+<span class="required" style="float: right">Campo Obrigatório</span>

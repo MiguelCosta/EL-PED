@@ -78,7 +78,7 @@
 
             <label class="user_insert">Name:</label>
             <input id="a_name_id" name="a_name" type="text"/>
-            
+
             <div class="clr"></div>
 
             <label class="user_insert">ID:</label>
@@ -124,7 +124,7 @@
             <div id="s_btn_submit">
                 <input type="button" value="Submit Supervisor" onclick="inserir_user()" />
             </div>
-            
+
             <div class="clr"></div>
         </form>
     </div>

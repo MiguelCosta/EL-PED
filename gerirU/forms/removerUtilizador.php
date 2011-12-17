@@ -8,15 +8,21 @@
     }
 </script>
 
+<div id="formInsertUser">
 
-<form name="remover" method="post" action="gerirU_Remover_resp.php"  enctype="multipart/form-data">
-    <div class="user_insert">Username:*</div>
-    <input id="username" name="username" type="text" size="25" />
-    <br/>
-    <b class="user_insert">Password:*</b>
-    <input id="password" name="password" type="password" size="25" />
-    <br/>
-    <input type="button" value="Enviar" onclick="remover_user()" />
-</form>
+    <form id="formUser" name="remover" method="post" action="gerirU_Remover_resp.php"  enctype="multipart/form-data">
+        <label class="required">Username:</label>
+        <input id="username" name="username" type="text" size="25" />
+        <div class="clr"></div>
 
-<span class="required_fields">* Campo Obrigatório</span>
+        <label class="required">Password:</label>
+        <input id="password" name="password" type="password" size="25" />
+        <div class="clr"></div>
+
+        <div id="btn_user">
+            <input type="button" value="Enviar" onclick="remover_user()" />
+        </div>
+    </form>
+</div>
+<div class="clr"></div>
+<span class="required" style="float: right">Campo Obrigatório</span>

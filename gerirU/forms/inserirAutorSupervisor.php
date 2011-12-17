@@ -14,21 +14,38 @@
 <script type="text/javascript">
     function inserir_user()
     {
-        if(document.getElementById("name").valueOf().value == ""){alert("Campo Name inválido!");return;}
-        if(document.getElementById("username").valueOf().value == ""){alert("Campo Username inválido!");return;}
-        if(document.getElementById("password").valueOf().value == ""){alert("Campo Password inválido!");return;}
-        if(document.getElementById("email").valueOf().value == ""){alert("Campo Email inválido!");return;}
-        if(document.getElementById("affil").valueOf().value == ""){alert("Campo Affil inválido!");return;}
-        if(document.getElementById("url").valueOf().value == ""){alert("Campo url inválido!");return;}
-        if(document.getElementById("type").valueOf().value == ""){alert("Campo Type inválido!");return;}
-
-        if (confirm('Pertende submeter a informação?')) document.forms["inserir"].submit(); else alert("Utilizador não foi inserido!"); 
+        if (radioCheck()=="author"){
+            if(document.getElementById("a_name_id").valueOf().value == ""){alert("Campo Name inválido!");return;}
+            if(document.getElementById("a_id_id").valueOf().value == ""){alert("Campo ID inválido!");return;}
+            if(document.getElementById("a_email_id").valueOf().value == ""){alert("Campo Email inválido!");return;}
+            if(document.getElementById("a_url_id").valueOf().value == ""){alert("Campo URL inválido!");return;}
+            
+            if (confirm('Pertende submeter a informação?')) document.forms["inserirAuthor"].submit(); else alert("Utilizador não foi inserido!");
+        }
+        
+        if (radioCheck()=="supervisor"){
+            if(document.getElementById("s_name_id").valueOf().value == ""){alert("Campo Name inválido!");return;}
+            if(document.getElementById("s_email_id").valueOf().value == ""){alert("Campo Email inválido!");return;}
+            if(document.getElementById("s_url_id").valueOf().value == ""){alert("Campo URL inválido!");return;}
+            if(document.getElementById("s_affil_id").valueOf().value == ""){alert("Campo Affil inválido!");return;}
+            
+            if (confirm('Pertende submeter a informação?')) document.forms["inserirSupervisor"].submit(); else alert("Utilizador não foi inserido!");
+        }
+                
+         
     }
-</script>
-
-
-<script type="text/javascript" language="JavaScript">
-    //<!-- 
+    
+    function radioCheck(){ 
+        var i 
+        for (i=0;i<document.tipos.tipo.length;i++){ 
+            if (document.tipos.tipo[i].checked){
+                var c = document.tipos.tipo[i].value;
+                break; 
+            }
+        } 
+        return c;
+    } 
+    
     function NameChanger()
     {
         if(document.tipos.author.checked == true) {
@@ -61,9 +78,7 @@
         }
         return true;
     }
-    // -->
 </script>
-
 
 <form id="formInsertAS_Type" name="tipos" method="post">
     <input id="author" type="radio" name="tipo" value="author" CHECKED onclick="NameChanger()"/> Author
@@ -72,7 +87,7 @@
 
 <div id="formInsertAS">
     <div id="formInsertAS_Author">
-        <form id="formAuthor" name="inserirAuthor" method="post" action="gerirU_Inserir_resp.php"  enctype="multipart/form-data">
+        <form id="formAuthor" name="inserirAuthor" method="post" action="gerirAS_Inserir_respAuthor.php"  enctype="multipart/form-data">
 
             <input type="hidden" name="tipo_utilizador" value="author"/>
 
@@ -101,7 +116,7 @@
     </div>
 
     <div id="formInsertAS_Supervisor">
-        <form id="formSupervisor" name="inserirSupervisor" method="post" action="gerirU_Inserir_resp.php"  enctype="multipart/form-data">
+        <form id="formSupervisor" name="inserirSupervisor" method="post" action="gerirAS_Inserir_respSupervisor.php"  enctype="multipart/form-data">
 
             <input type="hidden" name="tipo_utilizador" value="supervisor"/>
 
@@ -110,7 +125,7 @@
             <div class="clr"></div>
 
             <label class="required">Email:</label>
-            <input id="s_email" name="s_email" type="text"/>
+            <input id="s_email_id" name="s_email" type="text"/>
             <div class="clr"></div>
 
             <label class="required">URL:</label>
@@ -118,7 +133,7 @@
             <div class="clr"></div>
 
             <label class="required">Affil:</label>
-            <input id="s_affil" name="s_affil" type="text" />
+            <input id="s_affil_id" name="s_affil" type="text" />
             <div class="clr"></div>
 
             <div id="s_btn_submit">

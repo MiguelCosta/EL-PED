@@ -248,9 +248,9 @@ h3.user
 table.user
 {
     border: 1px solid black;
-    width:100%;
     padding:5px;
     word-wrap:break-word;
+    width: 100%;
     table-layout: fixed;
 }
 
@@ -262,9 +262,26 @@ th.user
     background-color:black;
 }
 
+tr.user
+{
+}
+
 td.user
 {
+    text-align: center;
+}
 
+td.user a
+{
+    color: black;
+    text-decoration: none;
+}
+
+td.user a:hover
+{
+    color: blue;
+    text-align: center;
+    text-decoration: underline;
 }
 
 .user_insert
@@ -292,7 +309,6 @@ td.user
     padding-top: 30px;
     border: 20px;
 }
-
 
 
 #form_submeter form

@@ -1,7 +1,7 @@
 
 <?php
 $con = mysql_connect("localhost", "miguel", "miguel");
-mysql_select_db("PED1", $con);
+mysql_select_db("PED", $con);
 
 
 

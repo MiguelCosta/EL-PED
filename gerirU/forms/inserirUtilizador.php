@@ -1,16 +1,3 @@
-
-<script>
-
-
-    function autoForm()
-    {
-        NameChanger();
-    }
-
-    window.onload = autoForm;
-
-</script>
-
 <script type="text/javascript">
     function inserir_user()
     {
@@ -26,110 +13,30 @@
     }
 </script>
 
+<form name="inserir" method="post" action="gerirU_Inserir_resp.php"  enctype="multipart/form-data">
 
-<script type="text/javascript" language="JavaScript">
-    //<!-- 
-    function NameChanger()
-    {
-        if(document.tipos.author.checked == true) {
-            
-            var a = document.getElementById('formAuthor');
-            a.style.visibility = "visible";
-            
-            var div_a = document.getElementById('formInsertUser_Author')
-            div_a.style.zIndex="2";
-            
-            var s = document.getElementById('formSupervisor');
-            s.style.visibility = "hidden";
-            
-            var div_s = document.getElementById('formInsertUser_Supervisor')
-            div_s.style.zIndex="1";
-            
-        }
-        if(document.tipos.supervisor.checked == true) {
-            //window.alert("supervisor");
-            var a = document.getElementById('formAuthor');
-            a.style.visibility = "hidden";
-            var div_a = document.getElementById('formInsertUser_Author')
-            div_a.style.zIndex="1";
-            
-            var s = document.getElementById('formSupervisor');
-            s.style.visibility = "visible";
-            
-            var div_s = document.getElementById('formInsertUser_Supervisor')
-            div_s.style.zIndex="2";
-        }
-        return true;
-    }
-    // -->
-</script>
-
-
-<form id="formInsertUser_Type" name="tipos" method="post">
-    <input id="author" type="radio" name="tipo" value="author" CHECKED onclick="NameChanger()"/> Author
-    <input id="supervisor" type="radio" name="tipo" value="supervisor" onclick="NameChanger()"/> Supervisor
+    <div class="user_insert">Name:*</div>
+    <input id="name" name="name" type="text" size="25" />
+    <br/>
+    <div class="user_insert">Username:* </div>
+    <input id="username" name="username" type="text" size="25" />
+    <br/>
+    <b class="user_insert">Password:* </b>
+    <input id="password" name="password" type="password" size="25" />
+    <br/>
+    <b class="user_insert">Email:* </b>
+    <input id="email" name="email" type="text" size="25" />
+    <br/>
+    <b class="user_insert">Affil:* </b>
+    <input id="affil" name="affil" type="text" size="25" />
+    <br/>
+    <b class="user_insert">url:* </b>
+    <input id="url" name="url" type="text" size="25" />
+    <br/>
+    <b class="user_insert">Type:* </b>
+    <input id="type" name="type" type="text" size="25" />
+    <br/>
+    <input type="button" value="Enviar" onclick="inserir_user()" />
 </form>
-
-<div id="formInsertUser">
-    <div id="formInsertUser_Author">
-        <form id="formAuthor" name="inserirAuthor" method="post" action="gerirU_Inserir_resp.php"  enctype="multipart/form-data">
-
-            <input type="hidden" name="tipo_utilizador" value="author"/>
-
-            <label class="user_insert">Name:</label>
-            <input id="a_name_id" name="a_name" type="text"/>
-
-            <div class="clr"></div>
-
-            <label class="user_insert">ID:</label>
-            <input id="a_id_id" name="a_id" type="text" />
-            <div class="clr"></div>
-
-            <label class="user_insert">Email:</label>
-            <input id="a_email_id" name="a_email" type="text"/>
-            <div class="clr"></div>
-
-            <label class="user_insert">URL:</label>
-            <input id="a_url_id" name="a_url" type="text" />
-            <div class="clr"></div>
-
-            <div id="a_btn_submit">
-                <input type="button" value="Submit Author" onclick="inserir_user()" />
-            </div>
-
-        </form>
-    </div>
-
-    <div id="formInsertUser_Supervisor">
-        <form id="formSupervisor" name="inserirSupervisor" method="post" action="gerirU_Inserir_resp.php"  enctype="multipart/form-data">
-
-            <input type="hidden" name="tipo_utilizador" value="supervisor"/>
-
-            <label class="user_insert">Name:</label>
-            <input id="s_name_id" name="s_name" type="text"/>
-            <div class="clr"></div>
-
-            <label class="user_insert">Email:</label>
-            <input id="s_email" name="s_email" type="text"/>
-            <div class="clr"></div>
-
-            <label class="user_insert">URL:</label>
-            <input id="s_url_id" name="s_url" type="text" />
-            <div class="clr"></div>
-
-            <label class="user_insert">Affil:</label>
-            <input id="s_affil" name="s_affil" type="text" />
-            <div class="clr"></div>
-
-            <div id="s_btn_submit">
-                <input type="button" value="Submit Supervisor" onclick="inserir_user()" />
-            </div>
-
-            <div class="clr"></div>
-        </form>
-    </div>
-    <div class="clr"></div>
-</div>
-<div class="clr"></div>
 
 <span class="required_fields">* Campo Obrigatório</span>

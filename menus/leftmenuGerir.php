@@ -10,6 +10,14 @@
             <li><a href="gerirU_Alterar.php">Alterar</a></li>
             <li><a href="gerirU_Remover.php">Remover</a></li>
         </ul>
+        <h3>Autores e Supervisores</h3>
+        <ul>
+            <li><a href="gerirAS_Listar.php">Listar</a></li>
+            <li><a href="gerirAS_Inserir.php">Inserir</a></li>
+            <li><a href="#">Alterar</a></li>
+            <li><a href="#">Remover</a></li>
+        </ul>
+        
         <h3>Submissões</h3>
         <ul>
             <li><a href="gerirS_Listar.php">Listar</a></li>

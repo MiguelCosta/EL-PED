@@ -284,17 +284,12 @@ td.user a:hover
     text-decoration: underline;
 }
 
-.user_insert
-{
-    font-weight: bold;
-    width: 100px;
-}
 
-.required_fields
+.required
 {
-    color: red;
-    float: right;
-    font-size: 11px;
+    border-bottom: 2px;
+    border-bottom-style: dotted;
+    border-bottom-color: #ff0000;
 }
 
 .go_back a
@@ -309,8 +304,8 @@ td.user a:hover
     border: 20px;
 }
 
-/************************** INSERIR UTILIZADORES   ****************************/
-#formInsertUser_Type
+/********************* INSERIR Autores e Supervisores *************************/
+#formInsertAS_Type
 {
     border:1px solid;
     border-color:#f3f3f3 #bbb #bbb #f3f3f3;
@@ -323,12 +318,12 @@ td.user a:hover
     border-radius: 10px;
 }
 
-#formInsertUser_Type input
+#formInsertAS_Type input
 {
     margin-left: 10px;;
 }
 
-#formInsertUser
+#formInsertAS
 {
     text-align: center;
     width: 100%;
@@ -336,7 +331,7 @@ td.user a:hover
     position: relative;
 
 }
-#formInsertUser input
+#formInsertAS input
 {
     text-align: center;
     border:1px solid;
@@ -347,7 +342,7 @@ td.user a:hover
 
 }
 
-#formInsertUser label
+#formInsertAS label
 {
     width: 10%;
     font-variant: small-caps;
@@ -355,7 +350,7 @@ td.user a:hover
     font-size: 13px;
 }
 
-#formInsertUser_Author
+#formInsertAS_Author
 {
     width: 100%;
     text-align: center;
@@ -382,7 +377,7 @@ td.user a:hover
     float: right;
 }
 
-#formInsertUser_Supervisor
+#formInsertAS_Supervisor
 {   position: absolute;
     width: 100%;
     text-align: center;
@@ -415,12 +410,7 @@ td.user a:hover
     width: 30%;
 }
 
-.required
-{
-    border-bottom: 2px;
-    border-bottom-style: dotted;
-    border-bottom-color: #ff0000;
-}
+
 
 
 /*********************** FORMULÁRIO DE SUBMISSÃO    ***************************/

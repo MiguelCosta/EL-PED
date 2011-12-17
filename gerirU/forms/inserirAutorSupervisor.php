@@ -36,13 +36,13 @@
             var a = document.getElementById('formAuthor');
             a.style.visibility = "visible";
             
-            var div_a = document.getElementById('formInsertUser_Author')
+            var div_a = document.getElementById('formInsertAS_Author')
             div_a.style.zIndex="2";
             
             var s = document.getElementById('formSupervisor');
             s.style.visibility = "hidden";
             
-            var div_s = document.getElementById('formInsertUser_Supervisor')
+            var div_s = document.getElementById('formInsertAS_Supervisor')
             div_s.style.zIndex="1";
             
         }
@@ -50,13 +50,13 @@
             //window.alert("supervisor");
             var a = document.getElementById('formAuthor');
             a.style.visibility = "hidden";
-            var div_a = document.getElementById('formInsertUser_Author')
+            var div_a = document.getElementById('formInsertAS_Author')
             div_a.style.zIndex="1";
             
             var s = document.getElementById('formSupervisor');
             s.style.visibility = "visible";
             
-            var div_s = document.getElementById('formInsertUser_Supervisor')
+            var div_s = document.getElementById('formInsertAS_Supervisor')
             div_s.style.zIndex="2";
         }
         return true;
@@ -65,31 +65,31 @@
 </script>
 
 
-<form id="formInsertUser_Type" name="tipos" method="post">
+<form id="formInsertAS_Type" name="tipos" method="post">
     <input id="author" type="radio" name="tipo" value="author" CHECKED onclick="NameChanger()"/> Author
     <input id="supervisor" type="radio" name="tipo" value="supervisor" onclick="NameChanger()"/> Supervisor
 </form>
 
-<div id="formInsertUser">
-    <div id="formInsertUser_Author">
+<div id="formInsertAS">
+    <div id="formInsertAS_Author">
         <form id="formAuthor" name="inserirAuthor" method="post" action="gerirU_Inserir_resp.php"  enctype="multipart/form-data">
 
             <input type="hidden" name="tipo_utilizador" value="author"/>
 
-            <label class="user_insert">Name:</label>
+            <label class="required">Name:</label>
             <input id="a_name_id" name="a_name" type="text"/>
 
             <div class="clr"></div>
 
-            <label class="user_insert">ID:</label>
+            <label class="required">ID:</label>
             <input id="a_id_id" name="a_id" type="text" />
             <div class="clr"></div>
 
-            <label class="user_insert">Email:</label>
+            <label class="required">Email:</label>
             <input id="a_email_id" name="a_email" type="text"/>
             <div class="clr"></div>
 
-            <label class="user_insert">URL:</label>
+            <label class="required">URL:</label>
             <input id="a_url_id" name="a_url" type="text" />
             <div class="clr"></div>
 
@@ -100,24 +100,24 @@
         </form>
     </div>
 
-    <div id="formInsertUser_Supervisor">
+    <div id="formInsertAS_Supervisor">
         <form id="formSupervisor" name="inserirSupervisor" method="post" action="gerirU_Inserir_resp.php"  enctype="multipart/form-data">
 
             <input type="hidden" name="tipo_utilizador" value="supervisor"/>
 
-            <label class="user_insert">Name:</label>
+            <label class="required">Name:</label>
             <input id="s_name_id" name="s_name" type="text"/>
             <div class="clr"></div>
 
-            <label class="user_insert">Email:</label>
+            <label class="required">Email:</label>
             <input id="s_email" name="s_email" type="text"/>
             <div class="clr"></div>
 
-            <label class="user_insert">URL:</label>
+            <label class="required">URL:</label>
             <input id="s_url_id" name="s_url" type="text" />
             <div class="clr"></div>
 
-            <label class="user_insert">Affil:</label>
+            <label class="required">Affil:</label>
             <input id="s_affil" name="s_affil" type="text" />
             <div class="clr"></div>
 
@@ -132,4 +132,4 @@
 </div>
 <div class="clr"></div>
 
-<span class="required_fields">* Campo Obrigatório</span>
+<span class="required" style="float: right">Campo Obrigatório</span>

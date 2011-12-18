@@ -228,8 +228,8 @@ include '../ini.php';
             </div>
             <div class="clr"></div>
 
-            <input id="add_del" type="button" name="add_deli" value="add" onclick="addDeliverable()" style="width: 50px; text-align: center"/>
-            <input id="rem_del" type="button" name="rem_deli" value="remove" onclick="removeDeliverable()" style="width: 50px; text-align: center"/>
+            <input id="add_del" type="button" name="add_deli" value="add" onclick="addDeliverable()" style="width: 100px; text-align: center"/>
+            <input id="rem_del" type="button" name="rem_deli" value="remove" onclick="removeDeliverable()" style="width: 100px; text-align: center"/>
         </div>
         <hr />
 

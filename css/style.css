@@ -247,11 +247,14 @@ h3.user
 
 table.user
 {
+    clear: both;
     border: 1px solid black;
     padding:5px;
     word-wrap:break-word;
     width: 100%;
     table-layout: fixed;
+    height: 35px;
+    overflow: visible;
 }
 
 th.user

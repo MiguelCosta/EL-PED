@@ -3,6 +3,66 @@
 include '../ini.php';
 ?>
 
+
+<script type="text/javascript">
+    function submeter()
+    {
+        if(document.getElementById("key_name").valueOf().value == ""){alert("Campo Key Name inválido!");return;}
+        if(document.getElementById("title").valueOf().value == ""){alert("Campo Title inválido!");return;}
+        
+        /***    Begin Date     **/
+        var bg_date = document.getElementById("begin_date").valueOf().value
+        if( bg_date == ""){alert("Campo Begin Date inválido!");return;}
+        var bg_date_erro = validar_data(bg_date);
+        if(bg_date_erro != ""){
+            alert("Begin date: " + bg_date_erro);
+            return;
+        }
+        /***    End Date     **/
+        var end_date = document.getElementById("end_date").valueOf().value
+        if( end_date == ""){alert("Campo End Date inválido!");return;}
+        var end_date_erro = validar_data(end_date);
+        if(end_date_erro != ""){
+            alert("End date: " + end_date_erro);
+            return;
+        }
+
+        if(document.getElementById("abstract").valueOf().value == ""){alert("Campo Abstract inválido!");return;}
+        
+                     
+        if (confirm('Pertende submeter a informação?')) document.forms["projetc_record"].submit(); 
+        else alert("Não foi submetido!"); 
+    }
+    
+    function validar_data(data){
+        re = /\d{4}-\d{2}-\d{2}/i;
+        var found = data.match(re);
+        if(found==null || found == ""){
+            return "Data inválida!";
+        }
+        var found2 = found+"";
+        //alert(found2);
+        campos = found2.split("-");
+        if(campos.length != 3){
+            return "Data inválida!";
+        }
+        ano = campos[0];
+        mes = campos[1];
+        dia = campos[2];
+        if(ano > 2100 || ano < 2010){
+            return "Ano inválido";
+        }
+        if(mes > 12 || mes < 1){
+            return "Mes inválido";
+        }
+        if(dia > 31 || dia < 1){
+            return "Dia inválido";
+        }
+        return "";       
+    }
+</script>
+
+
 <div id="form_submeter">
     <form name="projetc_record" action="submeter_form_resp.php" method="post" enctype="multipart/form-data">
 
@@ -10,10 +70,10 @@ include '../ini.php';
 
         <div id="form_input_left">
             <label class="required">Key Name: </label>
-            <input name="key_name" type="text" size="25" />
+            <input id="key_name" name="key_name" type="text" size="25" />
             <div class="clr"></div>
             <label class="required">Title: </label>
-            <input name="title" type="text" size="25" />
+            <input id="title" name="title" type="text" size="25" />
             <div class="clr"></div>
             <label>Subtitle: </label>
             <input name="subtitle" type="text" size="25" />
@@ -21,10 +81,10 @@ include '../ini.php';
 
         <div id="form_input_right">
             <label class="required">Begin Date: </label>
-            <input name="begin_date" type="text" size="25" />
+            <input id="begin_date" name="begin_date" type="text" size="25" placeholder="aaaa-mm-dd" />
             <div class="clr"></div>
             <label class="required">End Date: </label>
-            <input name="end_date" type="text" size="25" />
+            <input id="end_date" name="end_date" type="text" size="25" placeholder="aaaa-mm-dd"/>
         </div>
 
         <div class="clr"></div>
@@ -39,9 +99,8 @@ include '../ini.php';
             } else {
                 $sql = "SELECT supcode, name, email,url, affil FROM Supervisor ORDER BY name";
                 $result = mysql_query($sql);
-                $count = mysql_num_rows($result);
+                $count_supervisors = mysql_num_rows($result);
                 ?>
-
                 <div style="height:100px; overflow: auto; border: 1px solid">
                     <table class="user">
                         <tr>
@@ -53,10 +112,11 @@ include '../ini.php';
                         </tr>
 
                         <?php
+                        $l = 0;
                         while ($rows = mysql_fetch_array($result)) {
                             ?>
                             <tr class="user">
-                                <td class="user"><input name="checkbox[]" type="checkbox" id="checkbox[]" value="<? echo $rows['supcode']; ?>"/></td>
+                                <td class="user"><input name="checkbox_supervisor[<?php echo "$l";?>]" type="checkbox" value="<? echo $rows['supcode']; ?>"/></td>
                                 <td class="user"><? echo $rows['name']; ?></td>
                                 <td class="user"><? echo $rows['email']; ?></td>
                                 <td class="user"><? echo $rows['url']; ?></td>
@@ -64,37 +124,13 @@ include '../ini.php';
                             </tr>
 
                             <?php
+                            $l++;
                         }
                         ?>
                     </table>
                 <?php } ?>
             </div>
 
-            <!-- ANTIGO
-                        <label for="supervisor1_email"> Email:</label> 
-                        <input id="supervisor1_email" name="supervisor1_email" type="text" size="10" maxlength="100" /> 
-            
-                        <label>Name:</label> 
-                        <input name="supervisor1_Name" type="text" size="10" maxlength="100" /> 
-            
-                        <label>Link:</label> 
-                        <input name="supervisor1_link" type="text" size="10" maxlength="100" />
-            
-                        <label>Department:</label>
-                        <input name="supervisor1_Department" type="text" size="10" maxlength="100" />
-                        <div class="clr"></div>
-            
-                        <label>Email:</label> 
-                        <input name="supervisor2_email" type="text" size="10" maxlength="100" /> 
-                        <label>Name:</label> 
-                        <input name="supervisor2_Name" type="text" size="10" maxlength="100" /> 
-            
-                        <label>Link:</label> 
-                        <input name="supervisor2_link" type="text" size="10" maxlength="100" />
-            
-                        <label>Department:</label> 
-                        <input name="supervisor2_Department" type="text" size="10" maxlength="100" />
-            -->
         </div>
 
         <div class="clr"></div>
@@ -121,10 +157,11 @@ include '../ini.php';
                         </tr>
 
                         <?php
+                        $l = 0;
                         while ($rows = mysql_fetch_array($result)) {
                             ?>
                             <tr class="user">
-                                <td class="user"><input name="checkbox[]" type="checkbox" id="checkbox[]" value="<? echo $rows['authorcode']; ?>"/></td>
+                                <td class="user"><input name="checkbox_author[<?php echo "$l";?>]" type="checkbox" value="<? echo $rows['authorcode']; ?>"/></td>
                                 <td class="user"><? echo $rows['name']; ?></td>
                                 <td class="user"><? echo $rows['id']; ?></td>
                                 <td class="user"><? echo $rows['email']; ?></td>
@@ -132,35 +169,13 @@ include '../ini.php';
                             </tr>
 
                             <?php
+                            $l++;
                         }
                         ?>
                     </table>
                 <?php } ?>
             </div>
-            <!-- ANTIGO
-                        <label>Email:</label> <input name="workteam1_email" type="text"
-                                                     size="25" maxlength="100" /> 
-                        <label>Name:</label> <input name="workteam1_Name"
-                                                    type="text" size="25" maxlength="100" /> 
-                        <label>ID:</label> <input
-                            name="workteam1_id" type="text" size="25" maxlength="100" />
-            
-                        <br/>
-                        <label>Email:</label> <input name="workteam2_email" type="text"
-                                                     size="25" maxlength="100" /> 
-                        <label>Name:</label> <input name="workteam2_Name"
-                                                    type="text" size="25" maxlength="100" /> 
-                        <label>ID:</label> <input
-                            name="workteam2_id" type="text" size="25" maxlength="100" />
-                        <br />
-            
-                        <label>Email:</label> <input name="workteam3_email" type="text"
-                                                     size="25" maxlength="100" /> 
-                        <label>Name:</label> <input name="workteam3_Name"
-                                                    type="text" size="25" maxlength="100" /> 
-                        <label>ID:</label> <input
-                            name="workteam3_id" type="text" size="25" maxlength="100" />
-            -->
+
         </div>
 
         <div class="clr"></div>
@@ -234,7 +249,7 @@ include '../ini.php';
         <hr />
 
         <div id="btn_user">
-            <input id="submit" type="button" value="Enviar" />
+            <input id="submit_btn" type="button" value="Enviar" onclick="submeter()" />
         </div>
     </form>
 </div>

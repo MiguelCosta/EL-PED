@@ -11,6 +11,7 @@
             include '../menus/header.php';
             include '../menus/menu_submeter.php';
             include '../menus/leftmenuSubmeter.php';
+            include '../ini.php';
             ?>
 
 
@@ -20,6 +21,8 @@
                     <h2>Project Record</h2>
 
                     <?php
+                    var_dump($_POST);
+
                     // Local onde vai ficar o ficheiro XML Submetido
                     $xml_file = "../uploads/pr/pr.xml";
                     $deliverable_path = "../uploads/deliverables";
@@ -35,6 +38,7 @@
                     $bdate = $_REQUEST["begin_date"];
                     $edate = $_REQUEST["end_date"];
                     $abstract = $_REQUEST["abstract_text"];
+                    
 
                     if ($_REQUEST["key_name"] == null) {
                         $msg_erro .= "key name invalid.<br/>";
@@ -44,47 +48,42 @@
                         $msg_erro .= "begin_date invalid.<br/>";
                     } else if ($_REQUEST["end_date"] == null) {
                         $msg_erro .= "end_date invalid.<br/>";
-                    } else if ($_REQUEST["abstract"] == null) {
+                    } else if ($_REQUEST["abstract_text"] == null) {
                         $msg_erro .= "abstract invalid.<br/>";
                     }
 
                     /* __________________________________________ SUPERVISORS _________________________________________ */
-                    $supervisor1 = array("email" => $_REQUEST["supervisor1_email"]);
-                    $supervisor1["name"] = $_REQUEST["supervisor1_Name"];
-                    $supervisor1["link"] = $_REQUEST["supervisor1_link"];
-                    $supervisor1["department"] = $_REQUEST["supervisor1_Department"];
 
-                    $supervisor2 = array("email" => $_REQUEST["supervisor2_email"]);
-                    $supervisor2["name"] = $_REQUEST["supervisor2_Name"];
-                    $supervisor2["link"] = $_REQUEST["supervisor2_link"];
-                    $supervisor2["department"] = $_REQUEST["supervisor2_Department"];
-
-                    $msg_erro .= supervisor_check($supervisor1);
-                    if (!empty($supervisor2["name"])) {
-                        $msg_erro .= supervisor_check($supervisor2);
+                    if ($_POST["checkbox_supervisor"] != null) {
+                        $num_sup = sizeof($_POST["checkbox_supervisor"]);
+                    } else {
+                        $num_sup = 0;
+                        $msg_erro .= "Nenhum Supervisor adicionado!<br/>";
                     }
+
+                    for ($i = 0; $i < $num_sup; $i++) {
+                        $sel_id = $_POST["checkbox_supervisor"][$i];
+                        $supervisors_id[$i] = $sel_id;
+                    }
+                    echo "<br/>Supervisores<br/>";
+                    var_dump($supervisors_id);
                     /* ________________________________________________________________________________________________ */
 
                     /* ___________________________________________ WORKTEAM ___________________________________________ */
-                    $workteam1 = array("email" => $_REQUEST["workteam1_email"]);
-                    $workteam1["name"] = $_REQUEST["workteam1_Name"];
-                    $workteam1["id"] = $_REQUEST["workteam1_id"];
-
-                    $workteam2 = array("email" => $_REQUEST["workteam2_email"]);
-                    $workteam2["name"] = $_REQUEST["workteam2_Name"];
-                    $workteam2["id"] = $_REQUEST["workteam2_id"];
-
-                    $workteam3 = array("email" => $_REQUEST["workteam3_email"]);
-                    $workteam3["name"] = $_REQUEST["workteam3_Name"];
-                    $workteam3["id"] = $_REQUEST["workteam3_id"];
-
-                    $msg_erro .= workteam_check($workteam1);
-                    if (!empty($workteam2["name"])) {
-                        $msg_erro .= workteam_check($workteam2);
+                    if ($_POST["checkbox_author"] != null) {
+                        $num_author = sizeof($_POST["checkbox_author"]);
+                    } else {
+                        $num_author = 0;
+                        $msg_erro .= "Nenhum Supervisor adicionado!<br/>";
                     }
-                    if (!empty($workteam3["name"])) {
-                        $msg_erro .= workteam_check($workteam3);
+
+                    for ($i = 0; $i < $num_author; $i++) {
+                        $sel_id = $_POST["checkbox_author"][$i];
+                        $authors_id[$i] = $sel_id;
                     }
+                    echo "<br/>Authors<br/>";
+                    var_dump($authors_id);
+                    
                     /* ________________________________________________________________________________________________ */
 
                     if ($msg_erro == "") {

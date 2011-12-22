@@ -39,30 +39,30 @@ if ($name == null || $name == "") {
 ?>
 
 <div id="formInsertUser">
-    <form id="formUser" name="alterar" method="post" action="gerirU_Alterar_Dados_resp.php"  enctype="multipart/form-data">
+    <form id="formUser" name="alterar" method="post" action="gerirU_Alterar_Dados_resp.php"  enctype="multipart/form-data" autocomplete="on">
 
         <label class="required">Name:</label>
-        <input id="name" name="name" type="text" size="25" value="<?php echo $name ?>"/>
+        <input id="name" name="name" type="text" value="<?php echo $name ?>"/>
         <div class="clr"></div>
 
         <label class="required">Username:</label>
-        <input id="username" name="username" type="text" size="25" readonly="readonly" value="<?php echo $username ?>"/>
+        <input id="username" name="username" type="text" readonly="readonly" value="<?php echo $username ?>"/>
         <div class="clr"></div>
 
         <label class="required">Password:</label>
-        <input id="password" name="password" type="password" size="25" value="<?php echo $password ?>"/>
+        <input id="password" name="password" type="password" value="<?php echo $password ?>"/>
         <div class="clr"></div>
 
         <label class="required">Email:</label>
-        <input id="email" name="email" type="text" size="25" value="<?php echo $email ?>"/>
+        <input id="email" name="email" type="email" value="<?php echo $email ?>"/>
         <div class="clr"></div>
 
         <label class="required">Affil:</label>
-        <input id="affil" name="affil" type="text" size="25" value="<?php echo $affil ?>"/>
+        <input id="affil" name="affil" type="text" value="<?php echo $affil ?>"/>
         <div class="clr"></div>
 
         <label class="required">url:</label>
-        <input id="url" name="url" type="text" size="25" value="<?php echo $url ?>"/>
+        <input id="url" name="url" type="url" value="<?php echo $url ?>"/>
         <div class="clr"></div>
 
         <label class="required">Type:</label>

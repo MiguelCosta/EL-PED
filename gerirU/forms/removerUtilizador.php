@@ -10,13 +10,13 @@
 
 <div id="formInsertUser">
 
-    <form id="formUser" name="remover" method="post" action="gerirU_Remover_resp.php"  enctype="multipart/form-data">
+    <form id="formUser" name="remover" method="post" action="gerirU_Remover_resp.php"  enctype="multipart/form-data" autocomplete="on">
         <label class="required">Username:</label>
-        <input id="username" name="username" type="text" size="25" />
+        <input id="username" name="username" type="text" required="required" />
         <div class="clr"></div>
 
         <label class="required">Password:</label>
-        <input id="password" name="password" type="password" size="25" />
+        <input id="password" name="password" type="password" required="required" />
         <div class="clr"></div>
 
         <div id="btn_user">

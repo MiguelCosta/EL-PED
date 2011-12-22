@@ -74,7 +74,7 @@
                         $num_author = sizeof($_POST["checkbox_author"]);
                     } else {
                         $num_author = 0;
-                        $msg_erro .= "Nenhum Supervisor adicionado!<br/>";
+                        $msg_erro .= "Nenhum Author adicionado!<br/>";
                     }
 
                     for ($i = 0; $i < $num_author; $i++) {

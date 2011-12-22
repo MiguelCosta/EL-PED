@@ -64,27 +64,27 @@ include '../ini.php';
 
 
 <div id="form_submeter">
-    <form name="projetc_record" action="submeter_form_resp.php" method="post" enctype="multipart/form-data">
+    <form name="projetc_record" action="submeter_form_resp.php" method="post" enctype="multipart/form-data" autocomplete="on">
 
         <h3>Header</h3>
 
         <div id="form_input_left">
             <label class="required">Key Name: </label>
-            <input id="key_name" name="key_name" type="text" size="25" />
+            <input id="key_name" name="key_name" type="text" required="required" />
             <div class="clr"></div>
             <label class="required">Title: </label>
-            <input id="title" name="title" type="text" size="25" />
+            <input id="title" name="title" type="text" required="required" />
             <div class="clr"></div>
             <label>Subtitle: </label>
-            <input name="subtitle" type="text" size="25" />
+            <input name="subtitle" type="text"/>
         </div>
 
         <div id="form_input_right">
             <label class="required">Begin Date: </label>
-            <input id="begin_date" name="begin_date" type="text" size="25" placeholder="aaaa-mm-dd" />
+            <input id="begin_date" name="begin_date" type="date" required="required" placeholder="aaaa-mm-dd" />
             <div class="clr"></div>
             <label class="required">End Date: </label>
-            <input id="end_date" name="end_date" type="text" size="25" placeholder="aaaa-mm-dd"/>
+            <input id="end_date" name="end_date" type="date" required="required" placeholder="aaaa-mm-dd"/>
         </div>
 
         <div class="clr"></div>
@@ -182,7 +182,7 @@ include '../ini.php';
 
         <div id="form_submeter_abstract">
             <h3>Abstract</h3>
-            <textarea name="abstract_text" id="abstract" placeholder="Insira aqui o seu resumo..." setbg('#E1F5A9');" onblur="setbg('#FBEFEF')"></textarea>
+            <textarea name="abstract_text" id="abstract" required="required" placeholder="Insira aqui o seu resumo..." setbg('#E1F5A9');" onblur="setbg('#FBEFEF')"></textarea>
             <input type="button" value="bold" onclick="insereTextoBold()"/>
             <input type="button" value="italic" onclick="insereTextoItalic()"/>
             <input type="button" value="underline" onclick="insereTextoUnderline()"/>

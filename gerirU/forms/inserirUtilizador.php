@@ -11,30 +11,30 @@
 </script>
 
 <div id="formInsertUser">
-    <form id="formUser" name="inserir" method="post" action="gerirU_Inserir_resp.php"  enctype="multipart/form-data">
+    <form id="formUser" name="inserir" method="post" action="gerirU_Inserir_resp.php"  enctype="multipart/form-data" autocomplete="on">
 
         <label class="required">Name:</label>
-        <input id="name" name="name" type="text" size="25" />
+        <input id="name" name="name" type="text"/>
         <div class="clr"></div>
 
         <label class="required">Username:</label>
-        <input id="username" name="username" type="text" size="25" />
+        <input id="username" name="username" type="text"/>
         <div class="clr"></div>
 
         <label class="required">Password:</label>
-        <input id="password" name="password" type="password" size="25" />
+        <input id="password" name="password" type="password" />
         <div class="clr"></div>
 
         <label class="required">Email:</label>
-        <input id="email" name="email" type="text" size="25" />
+        <input id="email" name="email" type="email"/>
         <div class="clr"></div>
 
         <label>Affil:</label>
-        <input id="affil" name="affil" type="text" size="25" />
+        <input id="affil" name="affil" type="text" />
         <div class="clr"></div>
 
         <label>url:</label>
-        <input id="url" name="url" type="text" size="25" />
+        <input id="url" name="url" type="url"/>
         <div class="clr"></div>
 
         <label class="required">Type:</label>

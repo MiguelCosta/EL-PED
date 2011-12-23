@@ -622,6 +622,21 @@ textarea#abstract:b
 {
     width: 40%;
 }
+
+#form_xml_submit
+{
+    width: 100%;
+    text-align: center;
+}
+
+#form_xml_submit input
+{
+    border:1px solid;
+    border-color:#f3f3f3 #bbb #bbb #f3f3f3;
+    margin:3px;
+    padding:.5em;
+    border-radius: 10px;
+}
 /*******************************************************************************/
 .clr
 {

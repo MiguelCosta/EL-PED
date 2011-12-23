@@ -21,26 +21,22 @@
                     <h2>Project Record</h2>
 
                     <?php
-                    var_dump($_POST);
-
+                    //var_dump($_POST);
                     // Local onde vai ficar o ficheiro XML Submetido
-                    $xml_file = "../uploads/pr/pr.xml";
-                    $deliverable_path = "../uploads/deliverables";
+                    $xml_file = "../uploads/pr/";                 // local onde vai ficar o xml
+                    $deliverable_path = "../uploads/deliverables/";     // local onde vão ser colocados os ficheiros do formulário
 
-                    $msg_erro = "";
+                    $msg_erro = "";                                     // mensagem que vai conter os erros
 
-                    $xml = "<?xml version=\"1.0\" encoding=\"ISO-8859-1\"?>";
-                    $xml .= "<meta>";
+                    $key_name = $_REQUEST["key_name"];                  // key_name
+                    $title = $_REQUEST["title"];                        // title
+                    $subtitle = $_REQUEST["subtitle"];                  // subtitle
+                    $bdate = $_REQUEST["begin_date"];                   // begin date
+                    $edate = $_REQUEST["end_date"];                     // end date
+                    $abstract = $_REQUEST["abstract_text"];             // abstract
 
-                    $key_name = $_REQUEST["key_name"];
-                    $title = $_REQUEST["title"];
-                    $subtitle = $_REQUEST["subtitle"];
-                    $bdate = $_REQUEST["begin_date"];
-                    $edate = $_REQUEST["end_date"];
-                    $abstract = $_REQUEST["abstract_text"];
-                    
 
-                    if ($_REQUEST["key_name"] == null) {
+                    if ($_REQUEST["key_name"] == null) {                // verifica se os campos estão preenchidos
                         $msg_erro .= "key name invalid.<br/>";
                     } else if ($_REQUEST["title"] == null) {
                         $msg_erro .= "title invalid.<br/>";
@@ -54,18 +50,22 @@
 
                     /* __________________________________________ SUPERVISORS _________________________________________ */
 
-                    if (!empty($_POST["checkbox_supervisor"])) {
-                        $num_sup = sizeof($_POST["checkbox_supervisor"]);
+                    if (!empty($_POST["checkbox_supervisor"])) {            // verifica se o array de supervisores existe
+                        $num_sup = sizeof($_POST["checkbox_supervisor"]);   // se existir guarda quantas posições tem
                     } else {
                         $num_sup = 0;
-                        $msg_erro .= "Nenhum Supervisor adicionado!<br/>";
+                        $msg_erro .= "Nenhum Supervisor adicionado!<br/>";  // se for 0 ocorre um erro porque não foi selecioado nenhum array
                     }
 
                     for ($i = 0; $i < $num_sup; $i++) {
-                        $sel_id = $_POST["checkbox_supervisor"][$i];
-                        $supervisors_id[$i] = $sel_id;
+                        if (!empty($_POST["checkbox_supervisor"][$i])) {
+                            $sel_id = $_POST["checkbox_supervisor"][$i];
+                            $supervisors_id[$i] = $sel_id;                  // coloca os ids dos supervisores num array
+                        }
                     }
+                    //echo "<br/><br/>";
                     //var_dump($supervisors_id);
+                    //echo "<br/><br/>";
                     /* ________________________________________________________________________________________________ */
 
                     /* ___________________________________________ WORKTEAM ___________________________________________ */
@@ -77,15 +77,18 @@
                     }
 
                     for ($i = 0; $i < $num_author; $i++) {
-                        $sel_id = $_POST["checkbox_author"][$i];
-                        $authors_id[$i] = $sel_id;
+                        if (!empty($_POST["checkbox_author"][$i])) {
+                            $sel_id = $_POST["checkbox_author"][$i];
+                            $authors_id[$i] = $sel_id;
+                        }
                     }
+                    //echo "<br/><br/>";
                     //var_dump($authors_id);
-                    
+                    //echo "<br/><br/>";
+
                     /* ________________________________________________________________________________________________ */
 
                     if ($msg_erro == "") {
-
                         /* ___________________________________________ XML ___________________________________________ */
                         $xml = "<?xml version=\"1.0\" encoding=\"ISO-8859-1\"?><pr><meta>";
                         $xml .= "<keyname>$key_name</keyname>";
@@ -102,87 +105,101 @@
                         $xml .= delivarables($deliverable_path);
                         $xml .= "</pr>";
 
-                        $xml_file = "../uploads/pr/pr.xml";
+                        $xml_md5 = md5($xml);   // atenção que aqui é o md5 do texto do ficheiro e não do ficheiro
+                        $xml_name = "$xml_md5.xml";
+                        $xml_file = "../uploads/pr/$xml_name";
                         //$xml_file = $key_name . ".xml";
                         $f = fopen($xml_file, "w");
                         fprintf($f, "$xml");
 
                         fclose($f);
-                        echo "<hr/><br/>Clique <a href=\"" . $xml_file . "\">para ver o resultado do que foi inserido.</a><br/><hr/><br/>";
+
+                        // aqui é preciso verificar se o ficheiro está correcto com o xsd
+
+                        echo "<a href=\"" . $xml_file . "\" target=\"_blank\">Clique para ver o resultado do que foi carregado.</a>";
+                        /* ________________________________________________________________________________________________ */
+
+
+                        /* ____________________________________ INSERIR NA BASE DE DADOS __________________________________ */
+                        ?>
+                        <div class="clr"></div>
+                        A informação apenas foi carregada para o servidor, para inserir o que foi carregado 
+                        terá de confirmar a informação.
+                        <div class="clr"></div>
+                        <form id ="form_xml_submit"
+                              name="xml_submit"
+                              method="get"
+                              autocomplete="on"
+                              action="submeter_form_resp_xml.php"
+                              >
+                            <input name="xml_file" type="text" readonly="" required="" value="<?php echo $xml_name ?>" style="display: none"/>
+                            <input name="btn_submit_form" type="submit" value="Confirmar Informação"/>
+                        </form>
+                        <div class="clr"></div>
+                        <?php
                         /* ________________________________________________________________________________________________ */
                     } else {
                         echo "$msg_erro";
                     }
 
+                    /**
+                     * Trata de colcar a informação dos supervisores no xml
+                     * @param type $sup_array Array de Supervisores
+                     * @return type 
+                     */
                     function supervisor_xml($sup_array) {
-                        $msg = "<supervisors>";
-                        
+                        $xml = "<supervisors>";
 
-                        $msg .= "<supervisor>";
-                        $msg .= "<name>" . $supervisor1["name"] . "</name>";
-                        $msg .= "<email>" . $supervisor1["email"] . "</email>";
-                        $msg .= "<url>" . $supervisor1["link"] . "</url>";
-                        $msg .= "<affil>" . $supervisor1["department"] . "</affil>";
-                        $msg .= "</supervisor>";
+                        for ($i = 0; $i < sizeof($sup_array); $i++) {
+                            $id = $sup_array[$i];
+                            $sql = "SELECT name, email, url, affil FROM Supervisor WHERE supcode='$id'";
+                            $result = mysql_query($sql);
 
-                        if (supervisor_check($supervisor2) == "") {
-                            $msg .= "<supervisor>";
-                            $msg .= "<name>" . $supervisor2["name"] . "</name>";
-                            $msg .= "<email>" . $supervisor2["email"] . "</email>";
-                            $msg .= "<url>" . $supervisor2["link"] . "</url>";
-                            $msg .= "<affil>" . $supervisor2["department"] . "</affil>";
-                            $msg .= "</supervisor>";
+                            $xml .= "<supervisor>";
+                            while ($rows = mysql_fetch_array($result)) {
+                                $xml .= "<name>" . $rows["name"] . "</name>";
+                                $xml .= "<email>" . $rows["email"] . "</email>";
+                                $xml .= "<url>" . $rows["url"] . "</url>";
+                                $xml .= "<affil>" . $rows["affil"] . "</affil>";
+                            }
+                            $xml .= "</supervisor>";
                         }
-
-                        $msg .= "</supervisors>";
-                        return ($msg);
+                        $xml .= "</supervisors>";
+                        return ($xml);
                     }
 
-                    function workteam_check($workteam) {
-                        $msg = "";
-                        if ($workteam["email"] == null) {
-                            $msg .= "Email workteam incorrect.";
-                            return $msg;
-                        } else if ($workteam["name"] == null) {
-                            $msg .= "Name workteam incorrect.";
-                            return $msg;
-                        } else if ($workteam["id"] == null) {
-                            $msg .= "ID workteam incorrect.";
-                            return $msg;
+                    /**
+                     * Trata de colocar a informação dos autores no xml
+                     * @param type $auth_array Array com ids de autores
+                     * @return type 
+                     */
+                    function workteam_xml($auth_array) {
+                        $xml = "<workteam>";
+
+                        for ($i = 0; $i < sizeof($auth_array); $i++) {
+                            $id = $auth_array[$i];
+                            $sql = "SELECT name, id, email, url FROM Author WHERE authorcode='$id'";
+                            $result = mysql_query($sql);
+
+                            $xml .= "<author>";
+                            while ($rows = mysql_fetch_array($result)) {
+                                $xml .= "<name>" . $rows["name"] . "</name>";
+                                $xml .= "<id>" . $rows["id"] . "</id>";
+                                $xml .= "<email>" . $rows["email"] . "</email>";
+                                $xml .= "<url>" . $rows["url"] . "</url>";
+                            }
+                            $xml .= "</author>";
                         }
 
-                        return ($msg);
+                        $xml .= "</workteam>";
+                        return ($xml);
                     }
 
-                    function workteam_xml($workteam1, $workteam2, $workteam3) {
-                        $msg = "<workteam>";
-
-                        $msg .= "<author>";
-                        $msg .= "<name>" . $workteam1["name"] . "</name>";
-                        $msg .= "<id>" . $workteam1["id"] . "</id>";
-                        $msg .= "<email>" . $workteam1["email"] . "</email>";
-                        $msg .= "</author>";
-
-                        if (workteam_check($workteam2) == "") {
-                            $msg .= "<author>";
-                            $msg .= "<name>" . $workteam2["name"] . "</name>";
-                            $msg .= "<id>" . $workteam2["id"] . "</id>";
-                            $msg .= "<email>" . $workteam2["email"] . "</email>";
-                            $msg .= "</author>";
-                        }
-
-                        if (workteam_check($workteam3) == "") {
-                            $msg .= "<author>";
-                            $msg .= "<name>" . $workteam3["name"] . "</name>";
-                            $msg .= "<id>" . $workteam3["id"] . "</id>";
-                            $msg .= "<email>" . $workteam3["email"] . "</email>";
-                            $msg .= "</author>";
-                        }
-
-                        $msg .= "</workteam>";
-                        return ($msg);
-                    }
-
+                    /**
+                     * Função que trata com a juda de uma função auxiliar de renoimear os ficheiros e colocar no sitio certo
+                     * @param type $delivarable_path local onde vai ser colocado o ficheiro
+                     * @return string 
+                     */
                     function delivarables($delivarable_path) {
                         $xml = "<deliverables>";
                         $xml .= delivarable_create("deliverable1_file", "deliverable1_name", $delivarable_path);
@@ -195,28 +212,42 @@
                         return $xml;
                     }
 
+                    /**
+                     * Função que trata um ficheiro adicionado no formulário
+                     * @param type $file
+                     * @param type $name
+                     * @param type $deliverable_path
+                     * @return string 
+                     */
                     function delivarable_create($file, $name, $deliverable_path) {
                         $xml = "";
                         if (!$_FILES[$file]["error"] > 0) {
-                            if (file_exists("uploads/" . $_FILES[$file]["name"])) {
+                            if (file_exists("uploads/" . $_FILES[$file]["name"])) {         // verifica se o ficheiro existe
                                 echo $_FILES[$file]["name"] . "já existe.";
                             } else {
                                 $xml .= "<deliverable>";
-                                $xml .= "<description>$_REQUEST[$name]</description>";
-                                $tmp_name = $_FILES[$file]["tmp_name"];
+                                $xml .= "<description>$_REQUEST[$name]</description>";      // nome do ficheiro inserido no formulário
+                                $tmp_name = $_FILES[$file]["tmp_name"];                     // path temporário do ficheiro submetido
 
-                                $key_name = $_REQUEST["key_name"];
-                                $edate = $_REQUEST["end_date"];
-                                $workteam1["name"] = $_REQUEST["workteam1_Name"];
-                                $file = str_replace("/", "-", $key_name . "_" . $edate . "_" . $workteam1["name"] . "_" . $_FILES[$file]["name"]);
-                                $namef = $deliverable_path . $file;
+                                $nome = $_FILES[$file]["name"];                             // nome do ficheiro
+                                $pattern = "/\.[a-zA-Z]{3,4}$/";                            // expressão regular para apanhar a extensão
+                                $extensao = "";                                             // variável onde vai ficar o resultado da expressão regular
+                                preg_match($pattern, $nome, $extensao_array);               // faz o match da expressão regular com o nome do ficheiro
+                                //echo "<br/>Extensoes: $extensao_array[0]<br/>";
+                                $extensao = $extensao_array[0];
 
-                                move_uploaded_file($tmp_name, $namef);
+                                $file_md5 = trim(md5_file($tmp_name));                      // calcula o md5 do ficheiro
 
-                                $xml .= "<path>$file</path>";
+                                $namef = $deliverable_path . $file_md5 . $extensao;         // local para onde vai ser movido o ficheiro
+                                move_uploaded_file($tmp_name, $namef);                      // acção de mover o ficheiro
+                                //var_dump($_FILES);
+                                //echo "MD5: $file_md5<br/>";
+
+                                $xml .= "<path>" . $file_md5 . $extensao . "</path>";       // path que vai ser colocado no xml
                                 $xml .= "</deliverable>";
-                                //echo "Guardado em: " . "uploads/" . $_FILES[$file]["name"] . "<br />";
-                                //echo "Use o link para aceder ao ficheiro carregado: " . "<a href=\"" . $namef . "\">" . $namef . "</a><br />";
+
+                                //echo "Guardado em: " . $namef . "<br />";
+                                echo "Use o link para aceder ao ficheiro carregado: " . "<a href=\"" . $namef . "\">" . $namef . "</a><br />";
                             }
                         }
                         return $xml;

@@ -143,11 +143,11 @@ include '../ini.php';
                         </tr>
 
                         <?php
-                        $l = 0;
                         while ($rows = mysql_fetch_array($result)) {
+                            /* <?php echo "$l"; ?> */
                             ?>
                             <tr class="user">
-                                <td class="user"><input name="checkbox_supervisor[<?php echo "$l"; ?>]" type="checkbox" value="<? echo $rows['supcode']; ?>"/></td>
+                                <td class="user"><input name="checkbox_supervisor[]" type="checkbox" value="<? echo $rows['supcode']; ?>"/></td>
                                 <td class="user"><? echo $rows['name']; ?></td>
                                 <td class="user"><? echo $rows['email']; ?></td>
                                 <td class="user"><? echo $rows['url']; ?></td>
@@ -155,7 +155,6 @@ include '../ini.php';
                             </tr>
 
                             <?php
-                            $l++;
                         }
                         ?>
                     </table>
@@ -188,11 +187,10 @@ include '../ini.php';
                         </tr>
 
                         <?php
-                        $l = 0;
                         while ($rows = mysql_fetch_array($result)) {
                             ?>
                             <tr class="user">
-                                <td class="user"><input name="checkbox_author[<?php echo "$l"; ?>]" type="checkbox" value="<? echo $rows['authorcode']; ?>"/></td>
+                                <td class="user"><input name="checkbox_author[]" type="checkbox" value="<? echo $rows['authorcode']; ?>"/></td>
                                 <td class="user"><? echo $rows['name']; ?></td>
                                 <td class="user"><? echo $rows['id']; ?></td>
                                 <td class="user"><? echo $rows['email']; ?></td>
@@ -200,7 +198,6 @@ include '../ini.php';
                             </tr>
 
                             <?php
-                            $l++;
                         }
                         ?>
                     </table>

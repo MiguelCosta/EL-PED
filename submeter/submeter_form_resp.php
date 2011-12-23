@@ -54,7 +54,7 @@
 
                     /* __________________________________________ SUPERVISORS _________________________________________ */
 
-                    if ($_POST["checkbox_supervisor"] != null) {
+                    if (!empty($_POST["checkbox_supervisor"])) {
                         $num_sup = sizeof($_POST["checkbox_supervisor"]);
                     } else {
                         $num_sup = 0;
@@ -65,12 +65,11 @@
                         $sel_id = $_POST["checkbox_supervisor"][$i];
                         $supervisors_id[$i] = $sel_id;
                     }
-                    echo "<br/>Supervisores<br/>";
-                    var_dump($supervisors_id);
+                    //var_dump($supervisors_id);
                     /* ________________________________________________________________________________________________ */
 
                     /* ___________________________________________ WORKTEAM ___________________________________________ */
-                    if ($_POST["checkbox_author"] != null) {
+                    if (!empty($_POST["checkbox_author"])) {
                         $num_author = sizeof($_POST["checkbox_author"]);
                     } else {
                         $num_author = 0;
@@ -81,8 +80,7 @@
                         $sel_id = $_POST["checkbox_author"][$i];
                         $authors_id[$i] = $sel_id;
                     }
-                    echo "<br/>Authors<br/>";
-                    var_dump($authors_id);
+                    //var_dump($authors_id);
                     
                     /* ________________________________________________________________________________________________ */
 
@@ -97,9 +95,9 @@
                         }
                         $xml .= "<bdate>$bdate</bdate>";
                         $xml .= "<edate>$edate</edate>";
-                        $xml .= supervisor_xml($supervisor1, $supervisor2);
+                        $xml .= supervisor_xml($supervisors_id);
                         $xml .= "</meta>";
-                        $xml .= workteam_xml($workteam1, $workteam2, $workteam3);
+                        $xml .= workteam_xml($authors_id);
                         $xml .= "<abstract>$abstract</abstract>";
                         $xml .= delivarables($deliverable_path);
                         $xml .= "</pr>";
@@ -116,27 +114,9 @@
                         echo "$msg_erro";
                     }
 
-                    function supervisor_check($supervisor) {
-                        $msg = "";
-                        if ($supervisor["email"] == null) {
-                            $msg .= "Email supervisor incorrect.";
-                            return $msg;
-                        } else if ($supervisor["name"] == null) {
-                            $msg .= "Name supervisor incorrect.";
-                            return $msg;
-                        } else if ($supervisor["link"] == null) {
-                            $msg .= "Link supervisor incorrect.";
-                            return $msg;
-                        } else if ($supervisor["department"] == null) {
-                            $msg .= "Department supervisor incorrect.";
-                            return $msg;
-                        }
-
-                        return ($msg);
-                    }
-
-                    function supervisor_xml($supervisor1, $supervisor2) {
+                    function supervisor_xml($sup_array) {
                         $msg = "<supervisors>";
+                        
 
                         $msg .= "<supervisor>";
                         $msg .= "<name>" . $supervisor1["name"] . "</name>";

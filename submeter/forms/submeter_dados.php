@@ -7,7 +7,7 @@ include '../ini.php';
 <script type="text/javascript">
     function submeter()
     {
-        if(document.getElementById("key_name").valueOf().value == ""){alert("Campo Key Name inválido!");return;}
+        //if(document.getElementById("key_name").valueOf().value == ""){alert("Campo Key Name inválido!");return;}
         if(document.getElementById("title").valueOf().value == ""){alert("Campo Title inválido!");return;}
         
         /***    Begin Date     **/
@@ -70,21 +70,52 @@ include '../ini.php';
 
         <div id="form_input_left">
             <label class="required">Key Name: </label>
-            <input id="key_name" name="key_name" type="text" required="required" />
+            <input id="key_name" 
+                   name="key_name" 
+                   type="text" 
+                   required="" 
+                   pattern="^[a-zA-Z][\w:_.&/|]*" 
+                   />
+
             <div class="clr"></div>
+
             <label class="required">Title: </label>
-            <input id="title" name="title" type="text" required="required" />
+            <input id="title" 
+                   name="title" 
+                   type="text" 
+                   required="" 
+                   pattern="^[a-zA-Z][\w:_.&/|\s]*" 
+                   />
+
             <div class="clr"></div>
+
             <label>Subtitle: </label>
-            <input name="subtitle" type="text"/>
+            <input name="subtitle" 
+                   type="text"
+                   pattern="^[a-zA-Z][\w:_.&/|\s]*" 
+                   />
         </div>
 
         <div id="form_input_right">
             <label class="required">Begin Date: </label>
-            <input id="begin_date" name="begin_date" type="date" required="required" placeholder="aaaa-mm-dd" />
+            <input id="begin_date" 
+                   name="begin_date" 
+                   type="date" 
+                   required="" 
+                   pattern="\d{4}\-\d{2}\-\d{2}" 
+                   placeholder="aaaa-mm-dd" 
+                   />
+
             <div class="clr"></div>
             <label class="required">End Date: </label>
-            <input id="end_date" name="end_date" type="date" required="required" placeholder="aaaa-mm-dd"/>
+            <input id="end_date" 
+                   name="end_date" 
+                   type="date" 
+                   required="" 
+                   pattern="\d{4}\-\d{2}\-\d{2}" 
+                   placeholder="aaaa-mm-dd"
+                   />
+
         </div>
 
         <div class="clr"></div>
@@ -116,7 +147,7 @@ include '../ini.php';
                         while ($rows = mysql_fetch_array($result)) {
                             ?>
                             <tr class="user">
-                                <td class="user"><input name="checkbox_supervisor[<?php echo "$l";?>]" type="checkbox" value="<? echo $rows['supcode']; ?>"/></td>
+                                <td class="user"><input name="checkbox_supervisor[<?php echo "$l"; ?>]" type="checkbox" value="<? echo $rows['supcode']; ?>"/></td>
                                 <td class="user"><? echo $rows['name']; ?></td>
                                 <td class="user"><? echo $rows['email']; ?></td>
                                 <td class="user"><? echo $rows['url']; ?></td>
@@ -161,7 +192,7 @@ include '../ini.php';
                         while ($rows = mysql_fetch_array($result)) {
                             ?>
                             <tr class="user">
-                                <td class="user"><input name="checkbox_author[<?php echo "$l";?>]" type="checkbox" value="<? echo $rows['authorcode']; ?>"/></td>
+                                <td class="user"><input name="checkbox_author[<?php echo "$l"; ?>]" type="checkbox" value="<? echo $rows['authorcode']; ?>"/></td>
                                 <td class="user"><? echo $rows['name']; ?></td>
                                 <td class="user"><? echo $rows['id']; ?></td>
                                 <td class="user"><? echo $rows['email']; ?></td>
@@ -182,7 +213,7 @@ include '../ini.php';
 
         <div id="form_submeter_abstract">
             <h3>Abstract</h3>
-            <textarea name="abstract_text" id="abstract" required="required" placeholder="Insira aqui o seu resumo..." setbg('#E1F5A9');" onblur="setbg('#FBEFEF')"></textarea>
+            <textarea name="abstract_text" id="abstract" required placeholder="Insira aqui o seu resumo..." setbg('#E1F5A9');" onblur="setbg('#FBEFEF')"></textarea>
             <input type="button" value="bold" onclick="insereTextoBold()"/>
             <input type="button" value="italic" onclick="insereTextoItalic()"/>
             <input type="button" value="underline" onclick="insereTextoUnderline()"/>

@@ -35,8 +35,8 @@ include '../ini.php';
     }
     
     function validar_data(data){
-        re = /\d{4}-\d{2}-\d{2}/i;
-        var found = data.match(re);
+        re = /\d{4}-\d{2}-\d{2}/i;          // expressão regular para o formato aaaa-mm-dd
+        var found = data.match(re);         // verifica se faz match com a expressão regular
         if(found==null || found == ""){
             return "Data inválida!";
         }
@@ -74,7 +74,7 @@ include '../ini.php';
                    name="key_name" 
                    type="text" 
                    required="" 
-                   pattern="^[a-zA-Z][\w:_.&/|]*" 
+                   pattern="^[a-zA-Z][\w:_.&/|\s]*" 
                    />
 
             <div class="clr"></div>
@@ -225,49 +225,49 @@ include '../ini.php';
 
             <div id="file1" style="display: none">
                 <label id="d_label_n_1">Name:</label>
-                <input type="text" name="deliverable1_name"/>
+                <input id="d_name_n_1" type="text" name="deliverable1_name"/>
                 <label id="d_label_f_1">File:</label>
-                <input type="file" name="deliverable1_file" id="file1"/>
+                <input id="d_file_1" type="file" name="deliverable1_file" id="file1"/>
             </div>
             <div class="clr"></div>
 
             <div id="file2" style="display: none">
                 <label id="d_label_n_2">Name:</label>
-                <input type="text" name="deliverable2_name"/>
+                <input id="d_name_n_2" type="text" name="deliverable2_name"/>
                 <label id="d_label_f_2">File:</label>
-                <input type="file" name="deliverable2_file" id="file2"/>
+                <input id="d_file_2" type="file" name="deliverable2_file" id="file2"/>
             </div>
             <div class="clr"></div>
 
             <div id="file3" style="display: none">
                 <label id="d_label_n_3">Name:</label>
-                <input type="text" name="deliverable3_name"/>
+                <input id="d_name_n_3" type="text" name="deliverable3_name"/>
                 <label id="d_label_f_3">File:</label>
-                <input type="file" name="deliverable3_file" id="file3"/>
+                <input id="d_file_3" type="file" name="deliverable3_file" id="file3"/>
             </div>
             <div class="clr"></div>
 
             <div id="file4" style="display: none">
                 <label id="d_label_n_4">Name:</label>
-                <input type="text" name="deliverable4_name"/>
+                <input id="d_name_n_4" type="text" name="deliverable4_name"/>
                 <label id="d_label_f_4">File:</label>
-                <input type="file" name="deliverable4_file" id="file4"/>
+                <input id="d_file_4" type="file" name="deliverable4_file" id="file4"/>
             </div>
             <div class="clr"></div>
 
             <div id="file5" style="display: none">
                 <label id="d_label_n_5">Name:</label>
-                <input type="text" name="deliverable5_name"/>
+                <input id="d_name_n_5" type="text" name="deliverable5_name"/>
                 <label id="d_label_f_5">File:</label>
-                <input type="file" name="deliverable5_file" id="file5"/>
+                <input id="d_file_5" type="file" name="deliverable5_file" id="file5"/>
             </div>
             <div class="clr"></div>
 
             <div id="file6" style="display: none">
                 <label id="d_label_n_6">Name:</label>
-                <input type="text" name="deliverable6_name"/>
+                <input id="d_name_n_6" type="text" name="deliverable6_name"/>
                 <label id="d_label_f_6">File:</label>
-                <input type="file" name="deliverable6_file" id="file6"/>
+                <input id="d_file_6" type="file" name="deliverable6_file" id="file6"/>
             </div>
             <div class="clr"></div>
 
@@ -301,6 +301,7 @@ include '../ini.php';
             if(files < 6 ) files++;
             var file = 'file'+(files+'');
             document.getElementById(file).style.display = "inline";
+            
         } else {
             
         }
@@ -308,18 +309,23 @@ include '../ini.php';
         if(files > 6){
             files = 6;
         }
+        //alert("File: "+file );
     }
     
     function removeDeliverable(){
         if(files > 0){
-            
             var file = 'file'+(files+'');
             document.getElementById(file).style.display = "none";
-            if(files > 1) files--;
+            var file_name = 'd_name_n_'+(files+'');
+            var file_file = 'd_file_'+(files+'');
+            document.getElementById(file_name).value = "";
+            document.getElementById(file_file).value = "";
+            if(files >= 1) files--;
         }
         if(files < 1){
             files = 0;
         }
+        //alert("File: "+file );
     }
     
     function insereTextoBold(){

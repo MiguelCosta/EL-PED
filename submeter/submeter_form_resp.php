@@ -4,7 +4,13 @@
         <title>Gerir - RepositórioPED</title>
         <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-15">
         <link rel="stylesheet" type="text/css" href="../css/style.css" />
+        <script language="javascript">
+            function go_back(){
+                history.go(-1);
+            }
+        </script>
     </head>
+
     <body>
         <div id="container">
             <?php
@@ -23,124 +29,140 @@
                     <?php
                     //var_dump($_POST);
                     // Local onde vai ficar o ficheiro XML Submetido
-                    $xml_file = "../uploads/pr/";                 // local onde vai ficar o xml
+                    $xml_file = "../uploads/pr/";                       // local onde vai ficar o xml
                     $deliverable_path = "../uploads/deliverables/";     // local onde vão ser colocados os ficheiros do formulário
 
                     $msg_erro = "";                                     // mensagem que vai conter os erros
-
-                    $key_name = $_REQUEST["key_name"];                  // key_name
-                    $title = $_REQUEST["title"];                        // title
-                    $subtitle = $_REQUEST["subtitle"];                  // subtitle
-                    $bdate = $_REQUEST["begin_date"];                   // begin date
-                    $edate = $_REQUEST["end_date"];                     // end date
-                    $abstract = $_REQUEST["abstract_text"];             // abstract
-
-
-                    if ($_REQUEST["key_name"] == null) {                // verifica se os campos estão preenchidos
-                        $msg_erro .= "key name invalid.<br/>";
-                    } else if ($_REQUEST["title"] == null) {
-                        $msg_erro .= "title invalid.<br/>";
-                    } else if ($_REQUEST["begin_date"] == null) {
-                        $msg_erro .= "begin_date invalid.<br/>";
-                    } else if ($_REQUEST["end_date"] == null) {
-                        $msg_erro .= "end_date invalid.<br/>";
-                    } else if ($_REQUEST["abstract_text"] == null) {
-                        $msg_erro .= "abstract invalid.<br/>";
-                    }
-
-                    /* __________________________________________ SUPERVISORS _________________________________________ */
-
-                    if (!empty($_POST["checkbox_supervisor"])) {            // verifica se o array de supervisores existe
-                        $num_sup = sizeof($_POST["checkbox_supervisor"]);   // se existir guarda quantas posições tem
-                    } else {
-                        $num_sup = 0;
-                        $msg_erro .= "Nenhum Supervisor adicionado!<br/>";  // se for 0 ocorre um erro porque não foi selecioado nenhum array
-                    }
-
-                    for ($i = 0; $i < $num_sup; $i++) {
-                        if (!empty($_POST["checkbox_supervisor"][$i])) {
-                            $sel_id = $_POST["checkbox_supervisor"][$i];
-                            $supervisors_id[$i] = $sel_id;                  // coloca os ids dos supervisores num array
-                        }
-                    }
-                    //echo "<br/><br/>";
-                    //var_dump($supervisors_id);
-                    //echo "<br/><br/>";
-                    /* ________________________________________________________________________________________________ */
-
-                    /* ___________________________________________ WORKTEAM ___________________________________________ */
-                    if (!empty($_POST["checkbox_author"])) {
-                        $num_author = sizeof($_POST["checkbox_author"]);
-                    } else {
-                        $num_author = 0;
-                        $msg_erro .= "Nenhum Author adicionado!<br/>";
-                    }
-
-                    for ($i = 0; $i < $num_author; $i++) {
-                        if (!empty($_POST["checkbox_author"][$i])) {
-                            $sel_id = $_POST["checkbox_author"][$i];
-                            $authors_id[$i] = $sel_id;
-                        }
-                    }
-                    //echo "<br/><br/>";
-                    //var_dump($authors_id);
-                    //echo "<br/><br/>";
-
-                    /* ________________________________________________________________________________________________ */
-
-                    if ($msg_erro == "") {
-                        /* ___________________________________________ XML ___________________________________________ */
-                        $xml = "<?xml version=\"1.0\" encoding=\"ISO-8859-1\"?><pr><meta>";
-                        $xml .= "<keyname>$key_name</keyname>";
-                        $xml .= "<title>$title</title>";
-                        if (!empty($subtitle)) {
-                            $xml .= "<subtitle>$subtitle</subtitle>";
-                        }
-                        $xml .= "<bdate>$bdate</bdate>";
-                        $xml .= "<edate>$edate</edate>";
-                        $xml .= supervisor_xml($supervisors_id);
-                        $xml .= "</meta>";
-                        $xml .= workteam_xml($authors_id);
-                        $xml .= "<abstract>$abstract</abstract>";
-                        $xml .= delivarables($deliverable_path);
-                        $xml .= "</pr>";
-
-                        $xml_md5 = md5($xml);   // atenção que aqui é o md5 do texto do ficheiro e não do ficheiro
-                        $xml_name = "$xml_md5.xml";
-                        $xml_file = "../uploads/pr/$xml_name";
-                        //$xml_file = $key_name . ".xml";
-                        $f = fopen($xml_file, "w");
-                        fprintf($f, "$xml");
-
-                        fclose($f);
-
-                        // aqui é preciso verificar se o ficheiro está correcto com o xsd
-
-                        echo "<a href=\"" . $xml_file . "\" target=\"_blank\">Clique para ver o resultado do que foi carregado.</a>";
-                        /* ________________________________________________________________________________________________ */
-
-
-                        /* ____________________________________ INSERIR NA BASE DE DADOS __________________________________ */
-                        ?>
-                        <div class="clr"></div>
-                        A informação apenas foi carregada para o servidor, para inserir o que foi carregado 
-                        terá de confirmar a informação.
-                        <div class="clr"></div>
-                        <form id ="form_xml_submit"
-                              name="xml_submit"
-                              method="get"
-                              autocomplete="on"
-                              action="submeter_form_resp_xml.php"
-                              >
-                            <input name="xml_file" type="text" readonly="" required="" value="<?php echo $xml_name ?>" style="display: none"/>
-                            <input name="btn_submit_form" type="submit" value="Confirmar Informação"/>
-                        </form>
-                        <div class="clr"></div>
+                    ?>
+                    <div id="form_submeter_resp">
                         <?php
+                        $key_name = $_REQUEST["key_name"];                  // key_name
+                        $title = $_REQUEST["title"];                        // title
+                        $subtitle = $_REQUEST["subtitle"];                  // subtitle
+                        $bdate = $_REQUEST["begin_date"];                   // begin date
+                        $edate = $_REQUEST["end_date"];                     // end date
+                        $abstract = $_REQUEST["abstract_text"];             // abstract
+
+
+                        if ($_REQUEST["key_name"] == null) {                // verifica se os campos estão preenchidos
+                            $msg_erro .= "key name invalid.<br/>";
+                        } else if ($_REQUEST["title"] == null) {
+                            $msg_erro .= "title invalid.<br/>";
+                        } else if ($_REQUEST["begin_date"] == null) {
+                            $msg_erro .= "begin_date invalid.<br/>";
+                        } else if ($_REQUEST["end_date"] == null) {
+                            $msg_erro .= "end_date invalid.<br/>";
+                        } else if ($_REQUEST["abstract_text"] == null) {
+                            $msg_erro .= "abstract invalid.<br/>";
+                        }
+
+                        /* __________________________________________ SUPERVISORS _________________________________________ */
+
+                        if (!empty($_POST["checkbox_supervisor"])) {            // verifica se o array de supervisores existe
+                            $num_sup = sizeof($_POST["checkbox_supervisor"]);   // se existir guarda quantas posições tem
+                        } else {
+                            $num_sup = 0;
+                            $msg_erro .= "Nenhum Supervisor adicionado!<br/>";  // se for 0 ocorre um erro porque não foi selecioado nenhum array
+                        }
+
+                        for ($i = 0; $i < $num_sup; $i++) {
+                            if (!empty($_POST["checkbox_supervisor"][$i])) {
+                                $sel_id = $_POST["checkbox_supervisor"][$i];
+                                $supervisors_id[$i] = $sel_id;                  // coloca os ids dos supervisores num array
+                            }
+                        }
+                        //echo "<br/><br/>";
+                        //var_dump($supervisors_id);
+                        //echo "<br/><br/>";
                         /* ________________________________________________________________________________________________ */
-                    } else {
-                        echo "$msg_erro";
-                    }
+
+                        /* ___________________________________________ WORKTEAM ___________________________________________ */
+                        if (!empty($_POST["checkbox_author"])) {
+                            $num_author = sizeof($_POST["checkbox_author"]);
+                        } else {
+                            $num_author = 0;
+                            $msg_erro .= "Nenhum Author adicionado!<br/>";
+                        }
+
+                        for ($i = 0; $i < $num_author; $i++) {
+                            if (!empty($_POST["checkbox_author"][$i])) {
+                                $sel_id = $_POST["checkbox_author"][$i];
+                                $authors_id[$i] = $sel_id;
+                            }
+                        }
+                        //echo "<br/><br/>";
+                        //var_dump($authors_id);
+                        //echo "<br/><br/>";
+
+                        /* ________________________________________________________________________________________________ */
+
+                        if ($msg_erro == "") {
+                            /* ___________________________________________ XML ___________________________________________ */
+                            $xml = "<?xml version=\"1.0\" encoding=\"ISO-8859-1\"?><pr><meta>";
+                            $xml .= "<keyname>$key_name</keyname>";
+                            $xml .= "<title>$title</title>";
+                            if (!empty($subtitle)) {
+                                $xml .= "<subtitle>$subtitle</subtitle>";
+                            }
+                            $xml .= "<bdate>$bdate</bdate>";
+                            $xml .= "<edate>$edate</edate>";
+                            $xml .= supervisor_xml($supervisors_id);
+                            $xml .= "</meta>";
+                            $xml .= workteam_xml($authors_id);
+                            $xml .= "<abstract>$abstract</abstract>";
+                            $xml .= delivarables($deliverable_path);
+                            $xml .= "</pr>";
+
+                            $xml_md5 = md5($xml);   // atenção que aqui é o md5 do texto do ficheiro e não do ficheiro
+                            $xml_name = "$xml_md5.xml";
+                            $xml_file = "../uploads/pr/$xml_name";
+                            //$xml_file = $key_name . ".xml";
+                            $f = fopen($xml_file, "w");
+                            fprintf($f, "$xml");
+
+                            fclose($f);
+
+                            // aqui é preciso verificar se o ficheiro está correcto com o xsd
+                            ?>
+                            <h3>Resultado</h3>
+                            Foi criado um ficheiro xml que contêm toda a informação que foi submetida no formulário
+                            anterior.
+                            <div class="clr"></div>
+                            Clique no link para abrir esse ficheiro:
+
+                            <a href="<?php echo $xml_file; ?>" target="_blank">Ficheiro XML</a>
+                            <?php
+                            //echo "<a href=\"" . $xml_file . "\" target=\"_blank\">Clique para ver o resultado do que foi carregado.</a>";
+                            /* ________________________________________________________________________________________________ */
+
+
+                            /* ____________________________________ INSERIR NA BASE DE DADOS __________________________________ */
+                            ?>
+                            <div class="clr"></div>
+                            <h3>Confirmação</h3>
+                            A informação apenas foi carregada para o servidor, para inserir o que foi carregado 
+                            terá de confirmar a informação.
+                            <div class="clr"></div>
+                            <form id ="form_xml_submit"
+                                  name="xml_submit"
+                                  method="get"
+                                  autocomplete="on"
+                                  action="submeter_form_resp_xml.php"
+                                  >
+                                <input name="xml_file" type="text" readonly="" required="" value="<?php echo $xml_name ?>" style="display: none"/>
+                                <A HREF="javascript:javascript:history.go(-1)"></A>
+                                <input name="btn_go_back" type="button" value="voltar" onclick="go_back()"/>
+                                <input name="btn_submit_form" type="submit" value="Confirmar Informação"/>
+                            </form>
+                            <div class="clr"></div>
+                            <?php
+                            /* ________________________________________________________________________________________________ */
+                        } else {
+                            echo "$msg_erro";
+                        }
+                        ?>
+                    </div>
+                    <?php
 
                     /**
                      * Trata de colcar a informação dos supervisores no xml
@@ -201,6 +223,9 @@
                      * @return string 
                      */
                     function delivarables($delivarable_path) {
+
+                        echo "<h3>Ficheiros Carregados</h3>";
+
                         $xml = "<deliverables>";
                         $xml .= delivarable_create("deliverable1_file", "deliverable1_name", $delivarable_path);
                         $xml .= delivarable_create("deliverable2_file", "deliverable2_name", $delivarable_path);

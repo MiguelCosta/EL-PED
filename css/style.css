@@ -623,6 +623,19 @@ textarea#abstract:b
     width: 40%;
 }
 
+#form_submeter_resp
+{
+    width: 100%;
+}
+
+#form_submeter_resp h3
+{
+    margin-top: 20px;
+    padding: 5px;
+    background-color: #EAEAEA;
+    text-align: center;
+}
+
 #form_xml_submit
 {
     width: 100%;

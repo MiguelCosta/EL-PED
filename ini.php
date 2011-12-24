@@ -3,6 +3,10 @@
 $con = mysql_connect("localhost", "miguel", "miguel");
 mysql_select_db("PED", $con);
 
+/**
+ * Este tipo de ligação é necessário para se coneguir realizar transações
+ */
+$link = mysqli_connect("localhost", "miguel", "miguel", "PED");
 
 
 /* * ****************

@@ -201,6 +201,12 @@ body {
     padding-right:15px;
 }
 
+#content_main h2
+{
+    text-align: center;
+    border-bottom-style: solid;
+}
+
 #content_bottom
 {
     background-image:url(images/main_bottom.png);
@@ -226,7 +232,7 @@ body {
 
 #containt_main_users h3
 {
-    margin-top: 20px;
+    margin-top: 10px;
     padding: 5px;
     background-color: #EAEAEA;
     text-align: center;
@@ -685,34 +691,40 @@ textarea#abstract:b
     width: 100%;
 }
 
-#details h3
-{
-    margin-top: 20px;
-    padding: 5px;
-    background-color: #EAEAEA;
-    text-align: center;
-}
 #details table
 {
     clear: both;
-    /*border: 1px solid black;*/
+    border: 1px solid black;
     padding:5px;
     word-wrap:break-word;
     table-layout: fixed;
     height: 35px;
+    width: 100%;
     overflow: visible;
 }
 #details th
 {
     text-align: center;
-    width: 100px;
     color: white;
     background-color:black;
 }
 
 #details td
 {
+    
     text-align: center;
+    border-right-style: solid;
+    border-left-style: solid;
+    border-bottom-style: solid;
+    border-top-style: solid;
+    border-right-color: #ded9d9;
+    border-left-color: #ded9d9;
+    border-bottom-color: #ded9d9;
+    border-top-color: #ded9d9;
+    border-right-width: 1px;
+    border-left-width: 1px;
+    border-bottom-width: 1px;
+    border-top-width: 1px;
 }
 
 #details td a

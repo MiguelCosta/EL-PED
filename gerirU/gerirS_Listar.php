@@ -60,16 +60,17 @@ function submission_to_table($titulo, $res) {
     echo "<div id=\"containt_main_users_column_label\">";
     echo "<table class=\"user\">";
     echo "<tr>";
+    echo "<th class=\"user\">Code</th>";
     echo "<th class=\"user\">Keyname</th>";
     echo "<th class=\"user\">Title</th>";
     echo "<th class=\"user\">Submission Date</th>";
+    echo "<th class=\"user\">Authors</th>";
+    echo "<th class=\"user\">Supervisors</th>";
     echo "</tr>";
 
     while ($reg = mysql_fetch_array($res)) {
-		// echo "<tr title=\"Ver Project Record\" onclick=\"location.href='submissoes/mostrarPR.html?path=\"" . $reg["path"] . "\"'\">";
-		// echo "<tr title=\"Ver Project Record\" onclick=\"location.href='submissoes/mostrarPR.html?path=TESTE'\">";
-		echo "<tr title=\"Ver Project Record\" onclick=\"location.href='submissoes/mostrarPR.html?path=/opt/lampp/htdocs/PED-Project/gerirU/submissoes/PR.xml'\">";
-        // echo "<tr title=\"Ver Project Record\" onclick=\"location.href='submissoes/mostrarPR.html'\">";
+        echo "<tr title=\"Ver Project Record\" onclick=\"location.href='submissoes/mostrarPR.html?path=/opt/lampp/htdocs/PED-Project/gerirU/submissoes/PR.xml'\">";
+        echo "<td class=\"user\">" . $reg["projcode"] . "</td>";
         echo "<td class=\"user\">" . $reg["keyname"] . "</td>";
         echo "<td class=\"user\">" . $reg["title"] . "</td>";
         echo "<td class=\"user\">" . $reg["subdate"] . "</td>";

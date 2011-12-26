@@ -73,8 +73,9 @@ function author_to_table($titulo, $res) {
     echo "</tr>";
 
     while ($reg = mysql_fetch_array($res)) {
+        $id = $reg["authorcode"];
         echo "<tr class=\"user\">";
-        echo "<td class=\"user\">" . $reg["authorcode"] . "</td>";
+        echo "<td class=\"user\"><a href=\"gerirAS_Show_author.php?authorcode=$id\">" . $id . "</a></td>";
         echo "<td class=\"user\">" . $reg["name"] . "</td>";
         echo "<td class=\"user\">" . $reg["id"] . "</td>";
         echo "<td class=\"user\">" . $reg["email"] . "</td>";

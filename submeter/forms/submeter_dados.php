@@ -74,7 +74,7 @@ include '../ini.php';
                    name="key_name" 
                    type="text" 
                    required="" 
-                   pattern="^[a-zA-Z][\w:_.&/|\s]*" 
+                   pattern="^[a-zA-ZáàãõéíóúçÁÀÃÕÉÍÓÚÇ][\wáàãõéíóúçÁÀÃÕÉÍÓÚÇ:_.-&/|\s]*" 
                    />
 
             <div class="clr"></div>
@@ -84,7 +84,7 @@ include '../ini.php';
                    name="title" 
                    type="text" 
                    required="" 
-                   pattern="^[a-zA-Z][\w:_.&/|\s]*" 
+                   pattern="^[a-zA-ZáàãõéíóúçÁÀÃÕÉÍÓÚÇ][\wáàãõéíóúçÁÀÃÕÉÍÓÚÇ:_.-&/|\s]*" 
                    />
 
             <div class="clr"></div>
@@ -92,7 +92,7 @@ include '../ini.php';
             <label>Subtitle: </label>
             <input name="subtitle" 
                    type="text"
-                   pattern="^[a-zA-Z][\w:_.&/|\s]*" 
+                   pattern="^[a-zA-ZáàãõéíóúçÁÀÃÕÉÍÓÚÇ][\wáàãõéíóúçÁÀÃÕÉÍÓÚÇ:_.-&/|\s]*" 
                    />
         </div>
 

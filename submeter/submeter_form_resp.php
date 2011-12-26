@@ -225,7 +225,7 @@
                     function delivarables($delivarable_path) {
 
                         echo "<h3>Ficheiros Carregados</h3>";
-
+                        
                         $xml = "<deliverables>";
                         $xml .= delivarable_create("deliverable1_file", "deliverable1_name", $delivarable_path);
                         $xml .= delivarable_create("deliverable2_file", "deliverable2_name", $delivarable_path);
@@ -272,7 +272,7 @@
                                 $xml .= "</deliverable>";
 
                                 //echo "Guardado em: " . $namef . "<br />";
-                                echo "Use o link para aceder ao ficheiro carregado: " . "<a href=\"" . $namef . "\">" . $namef . "</a><br />";
+                                echo "Ficheiro: " . "<a href=\"" . $namef . "\" target=\"_blank\">" . $_REQUEST[$name] . "</a><br />";
                             }
                         }
                         return $xml;

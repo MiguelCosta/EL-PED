@@ -656,6 +656,31 @@ textarea#abstract:b
     clear: both;
 }
 
+.success
+{
+    text-align: center;
+    font-size: x-large;
+    background-image: url(images/happy.png);
+    background-repeat: no-repeat;
+    background-position: bottom;
+    height: 150px;
+    padding-top: 30px;
+    border: 20px;
+    display: block;
+}
+
+.failure
+{
+    text-align: center;
+    background-image: url(images/sad.png);
+    background-repeat: no-repeat;
+    background-position: bottom;
+    height: 150px;
+    padding-top: 30px;
+    border: 20px;
+    display: block;
+}
+
 #menu ul {
     list-style: none;
     padding: 0px;

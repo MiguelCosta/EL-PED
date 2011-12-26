@@ -132,10 +132,16 @@
                             $result = mysqli_query($link, $sql);
 
                             if (mysqli_fetch_row($result) != null) {
+                                ?>
+                                <div class="failure">Atenção, a informação que quer submeter
+                                já existe algo muito parecido na base de dados. Por isso
+                                não foi submetida.
+                                Contacte um administrador.</div>
+                                <?php
                                 $msg = "ATENÇÃO: A informação que quer submeter já existe ";
                                 $msg .= "algo muito parecido na base de dados. ";
                                 $msg .= "Contacte um administrador!";
-                                echo "$msg";
+                                //echo "$msg";
                                 return;
                             }
 
@@ -195,8 +201,24 @@
                             mysqli_autocommit($link, TRUE);
 
                             mysqli_close($link);
+                            ?>
+                            <div class="clr"></div>
+                            <div class="success">Informação submetida com sucesso!</div>
+
+                            <strong>Detalhes da submissão</strong>
+                            <div class="clr"></div>
+                            <b>ID: </b> <?php echo $new_projcode; ?>
+                            <div class="clr"></div>
+                            <b>Data: </b> <?php echo date('Y-m-d'); ?>
+                            <div class="clr"></div>
+                            <b>Hora: </b> <?php echo date('H:i:s'); ?>
+                            <div class="clr"></div>
+
+                            <?php
                         } catch (Exception $e) {
-                            echo "Ocorreu um erro ao inserir na base de dados!";
+                            ?>
+                            <div class="failure">Ocorreu um erro ao submeter a informação!</div>
+                            <?php
                         }
                     }
                     ?>

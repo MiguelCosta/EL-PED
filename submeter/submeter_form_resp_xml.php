@@ -134,9 +134,9 @@
                             if (mysqli_fetch_row($result) != null) {
                                 ?>
                                 <div class="failure">Atenção, a informação que quer submeter
-                                já existe algo muito parecido na base de dados. Por isso
-                                não foi submetida.
-                                Contacte um administrador.</div>
+                                    já existe algo muito parecido na base de dados. Por isso
+                                    não foi submetida.
+                                    Contacte um administrador.</div>
                                 <?php
                                 $msg = "ATENÇÃO: A informação que quer submeter já existe ";
                                 $msg .= "algo muito parecido na base de dados. ";

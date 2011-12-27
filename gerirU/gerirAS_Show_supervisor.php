@@ -141,7 +141,7 @@
                                 // trabalho com o $authorcode
                                 $sql = "SELECT * FROM Supervisor WHERE supcode IN(
                                     SELECT supcode FROM ProjSup WHERE projcode IN(
-                                    SELECT projcode FROM ProjSup WHERE supcode='1')
+                                    SELECT projcode FROM ProjSup WHERE supcode='$supcode')
                                     AND supcode !='$supcode')";
                                 $res = mysql_query($sql, $con);
                                 ?>

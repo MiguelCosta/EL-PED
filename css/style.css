@@ -51,17 +51,83 @@ body {
     color:#FFF;	
     left:14px;
     top:18px;
+    text-shadow: -1px -1px white, 1px 1px #333;
+}
+/********** Login *******/
+#login
+{
+    width: 180px;
+    float:right;
+    padding:10px 60px 0 0px;
+
+}
+#login_form
+{
+    padding-left: 5px;
+    padding-right: 5px;
+    text-align: right;
+    border-color:#f3f3f3 #bbb #bbb #f3f3f3;
+    border-radius: 10px;
+    background-color: silver;
+}
+#login_form label
+{
+    float: left;
+    text-align: left;
+    font-variant: small-caps;
+}
+#login_form input
+{
+    width: 90px;
+    border:1px solid;
+    border-color:#f3f3f3 #bbb #bbb #f3f3f3;
+    border-radius: 10px;
+}
+#login_btn
+{
+    text-align: center;
+    width: 30%;
+    float: right;
+    border:1px solid;
+    border-color:#f3f3f3 #bbb #bbb #f3f3f3;
+    border-radius: 10px;
+}
+#login_start
+{
+    float: right;
+    text-align: right;
+    width: 180px;
+    padding:10px 60px 0 0px;
+    /*color: #f3f8fe;*/
+    text-shadow: 0 0 0.2em white, 0 0 0.2em #87F, 0 0 0.2em silver;
+}
+
+#login_start a, a:visited
+{
+    clear: both;
+    text-shadow: none;
+    color: white;
+}
+
+#login_start a:hover
+{
+    color: silver;
 }
 
 
 #header h2
 {
-    position:absolute;
-    text-align:right;
+    /*position:absolute;
+    text-align:right;*/
+    float:right;
     color:#EAEAEA;
-    left:490px;
+    line-height:65px;
+    padding:0 115px 0 0px;
+    text-align:middle;
+    /*left:490px;
     top:38px;
-    width:400px;
+    width:400px;*/
+    text-shadow: 0 0 0.2em black, 0 0 0.2em black, 0 0 0.2em silver;
 }
 
 #mainpic
@@ -711,7 +777,7 @@ textarea#abstract:b
 
 #details td
 {
-    
+
     text-align: center;
     border-right-style: solid;
     border-left-style: solid;

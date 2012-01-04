@@ -14,7 +14,7 @@
     <body>
         <div id="container">
             <?php
-            include '../menus/header.php';
+            include '../header.php';
             include '../menus/menu_submeter.php';
             include '../menus/leftmenuSubmeter.php';
             include '../ini.php';

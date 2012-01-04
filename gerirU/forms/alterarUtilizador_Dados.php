@@ -1,4 +1,4 @@
-
+//
 <script type="text/javascript">
     function alterar_user()
     {
@@ -78,7 +78,7 @@ if ($name == null || $name == "") {
             else if ($type == 'c')
                 $consumer_status = 'checked';
             ?>
-            <input type="radio" name="type" value="a" <?PHP print $admin_status; ?>/> Managment
+            <input type="radio" name="type" value="a" <?PHP print $admin_status; ?>/> Administrator
             <input type="radio" name="type" value="p" <?PHP print $producer_status; ?>/> Producer
             <input type="radio" name="type" value="c" <?PHP print $consumer_status; ?>/> Consumer
         </div>

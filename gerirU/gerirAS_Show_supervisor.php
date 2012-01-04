@@ -9,7 +9,7 @@
     <body>
         <div id="container">
             <?php
-            require_once '../menus/header.php';
+            require_once '../header.php';
             require_once '../menus/menu_gerirU.php';
             require_once '../menus/leftmenuGerir.php';
             include '../ini.php';

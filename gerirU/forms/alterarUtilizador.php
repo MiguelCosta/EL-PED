@@ -1,4 +1,3 @@
-
 <div id="formInsertUser">
 
     <form id="formUser" name="alterar_selecionar" method="post" action="gerirU_Alterar_Dados.php"  enctype="multipart/form-data">

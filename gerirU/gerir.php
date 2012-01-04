@@ -8,7 +8,7 @@
     <body>
         <div id="container">
             <?php
-            include '../menus/header.php';
+            include '../header.php';
             include '../menus/menu_gerirU.php';
             include '../menus/leftmenuGerir.php';
             ?>

@@ -5,7 +5,6 @@
     if (!isset($_SESSION['username']) || !$_SESSION['username']) {
         require_once 'forms/login.php';
     } else {
-        echo "<br/>";
         echo "<div id=\"login_start\">Bem-vindo ", $_SESSION['username'], "!";
         echo "<div class=\"clr\"></div>";
         if (basename(getcwd()) == 'PED-Project')

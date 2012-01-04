@@ -227,7 +227,7 @@ include '../ini.php';
                 <label id="d_label_n_1">Name:</label>
                 <input id="d_name_n_1" type="text" name="deliverable1_name"/>
                 <label id="d_label_f_1">File:</label>
-                <input id="d_file_1" type="file" name="deliverable1_file" id="file1"/>
+                <input id="d_file_1" type="file" name="deliverable1_file"/>
             </div>
             <div class="clr"></div>
 
@@ -235,7 +235,7 @@ include '../ini.php';
                 <label id="d_label_n_2">Name:</label>
                 <input id="d_name_n_2" type="text" name="deliverable2_name"/>
                 <label id="d_label_f_2">File:</label>
-                <input id="d_file_2" type="file" name="deliverable2_file" id="file2"/>
+                <input id="d_file_2" type="file" name="deliverable2_file"/>
             </div>
             <div class="clr"></div>
 
@@ -243,7 +243,7 @@ include '../ini.php';
                 <label id="d_label_n_3">Name:</label>
                 <input id="d_name_n_3" type="text" name="deliverable3_name"/>
                 <label id="d_label_f_3">File:</label>
-                <input id="d_file_3" type="file" name="deliverable3_file" id="file3"/>
+                <input id="d_file_3" type="file" name="deliverable3_file"/>
             </div>
             <div class="clr"></div>
 
@@ -251,7 +251,7 @@ include '../ini.php';
                 <label id="d_label_n_4">Name:</label>
                 <input id="d_name_n_4" type="text" name="deliverable4_name"/>
                 <label id="d_label_f_4">File:</label>
-                <input id="d_file_4" type="file" name="deliverable4_file" id="file4"/>
+                <input id="d_file_4" type="file" name="deliverable4_file"/>
             </div>
             <div class="clr"></div>
 
@@ -259,7 +259,7 @@ include '../ini.php';
                 <label id="d_label_n_5">Name:</label>
                 <input id="d_name_n_5" type="text" name="deliverable5_name"/>
                 <label id="d_label_f_5">File:</label>
-                <input id="d_file_5" type="file" name="deliverable5_file" id="file5"/>
+                <input id="d_file_5" type="file" name="deliverable5_file"/>
             </div>
             <div class="clr"></div>
 
@@ -267,7 +267,7 @@ include '../ini.php';
                 <label id="d_label_n_6">Name:</label>
                 <input id="d_name_n_6" type="text" name="deliverable6_name"/>
                 <label id="d_label_f_6">File:</label>
-                <input id="d_file_6" type="file" name="deliverable6_file" id="file6"/>
+                <input id="d_file_6" type="file" name="deliverable6_file"/>
             </div>
             <div class="clr"></div>
 

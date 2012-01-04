@@ -1,4 +1,4 @@
-//
+
 <script type="text/javascript">
     function alterar_user()
     {

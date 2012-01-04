@@ -1,7 +1,9 @@
 <div id="header">
     <h1>EL<span class="off">PED</span></h1>
     <?php
-    session_start();
+    if (!isset($_SESSION)) {
+        session_start();
+    }
     if (!isset($_SESSION['username']) || !$_SESSION['username']) {
         require_once 'forms/login.php';
     } else {
@@ -15,4 +17,3 @@
     ?>
     <h2>Universidade do Minho</h2>
 </div>
-

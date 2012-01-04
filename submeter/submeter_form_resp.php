@@ -1,3 +1,10 @@
+<?php
+session_start();
+if (!isset($_SESSION['username']) || !$_SESSION['username']) {
+    header("Location: ../home.php");
+}
+?>
+
 <!DOCTYPE html>
 <html>
     <head>
@@ -225,7 +232,7 @@
                     function delivarables($delivarable_path) {
 
                         echo "<h3>Ficheiros Carregados</h3>";
-                        
+
                         $xml = "<deliverables>";
                         $xml .= delivarable_create("deliverable1_file", "deliverable1_name", $delivarable_path);
                         $xml .= delivarable_create("deliverable2_file", "deliverable2_name", $delivarable_path);

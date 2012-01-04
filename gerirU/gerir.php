@@ -1,3 +1,10 @@
+<?php
+session_start();
+if (!isset($_SESSION['username']) || !$_SESSION['username']) {
+    header("Location: ../home.php");
+}
+?>
+
 <!DOCTYPE html>
 <html>
     <head>
@@ -25,7 +32,7 @@
                     <br/>
                     <h3>Gestãpo de Submissões</h3>
                     <p>Relativamente ás tarefas de gestão do que foi submetido, apenas os administradores
-                    pode apagar, alterar e/ou remover o que foi ingerido no repositório.</p>
+                        pode apagar, alterar e/ou remover o que foi ingerido no repositório.</p>
                     <br/>
                     <br/>
                 </div>

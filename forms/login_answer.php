@@ -1,6 +1,5 @@
 <?php
 session_start();
-echo getcwd() . "\n";
 
 require_once '../ini.php';
 $username = $_REQUEST["username"];
@@ -27,9 +26,9 @@ if ($numRows != 0) {
     else echo "<script type=\"text/javascript\">alert(\"Password incorrecta!\");</script>";
 }
 else {
-    echo "<script type=\"text/javascript\">alert(\"Esse utilizador n√£o existe!\");</script>";
+    echo "<script type=\"text/javascript\">alert(\"Esse utilizador n„o existe!\");</script>";
     // @TODO: nao sei se isto teria outra forma de ser feito
 }
 header("Location: ../home.php");
-// @TODO: as verificacoes de existencia, depois do alert t√™m de ficar na mesma pag
+// @TODO: as verificacoes de existencia, depois do alert tÍm de ficar na mesma pag
 ?>

@@ -1,3 +1,9 @@
+<?php
+session_start();
+if (!isset($_SESSION['username']) || !$_SESSION['username']) {
+    header("Location: ../home.php");
+}
+?>
 <!DOCTYPE html>
 
 <html>
@@ -34,7 +40,6 @@
                             $sql = "SELECT supcode, name, email,url, affil FROM Supervisor";
                             $res = mysql_query($sql, $con);
                             supervisor_to_table("Supervisors", $res);
-
                         }
                         ?>
                     </div>

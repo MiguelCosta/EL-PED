@@ -2,8 +2,9 @@
     <ul>
         <li class="menuitem"><a href="../home.php">Início</a></li>
         <?php
-		if (!isset($_SESSION)) session_start();
-		if (isset($_SESSION['username']) && $_SESSION['username'] && $_SESSION['type'] != 'c') {
+        if (!isset($_SESSION))
+            session_start();
+        if (isset($_SESSION['username']) && $_SESSION['username'] && $_SESSION['type'] != 'c') {
             echo "<li class=\"menuitem\"><a href=\"submeter.php\">Submeter</a></li>";
         }
         if (isset($_SESSION['username']) && $_SESSION['username'] && $_SESSION['type'] != 'p') {

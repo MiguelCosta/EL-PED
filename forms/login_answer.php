@@ -1,4 +1,5 @@
 <?php
+
 session_start();
 
 require_once '../ini.php';
@@ -12,18 +13,19 @@ $numRows = mysql_num_rows($query);
 
 if ($numRows != 0) {
     while ($row = mysql_fetch_assoc($query)) {
-        $dbusername =  $row['username'];
-        $dbpassword =  $row['password'];
-        $dbtype =  $row['type'];
+        $dbusername = $row['username'];
+        $dbpassword = $row['password'];
+        $dbtype = $row['type'];
     }
-    
-    if ($username==$dbpassword && $password==$dbpassword) {
-        $_SESSION['username']=$dbusername;
-        $_SESSION['type']=$dbtype;
 
-		//echo $_SESSION['username'] , " AND " , $_SESSION['type'] ;
+    if ($username == $dbpassword && $password == $dbpassword) {
+        $_SESSION['username'] = $dbusername;
+        $_SESSION['type'] = $dbtype;
+
+        //echo $_SESSION['username'] , " AND " , $_SESSION['type'] ;
     }
-    else echo "<script type=\"text/javascript\">alert(\"Password incorrecta!\");</script>";
+    else
+        echo "<script type=\"text/javascript\">alert(\"Password incorrecta!\");</script>";
 }
 else {
     echo "<script type=\"text/javascript\">alert(\"Esse utilizador não existe!\");</script>";

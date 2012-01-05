@@ -1,7 +1,8 @@
 <div id="menu">
     <ul>
-        <li class="menuitem"><a href="../home.php">Ínicio</a></li>
+        <li class="menuitem"><a href="../home.php">Início</a></li>
         <?php
+		if (!isset($_SESSION)) session_start();
         if (isset($_SESSION['username']) && $_SESSION['username'] && $_SESSION['type'] != 'c') {
             echo "<li class=\"menuitem\"><a href=\"../submeter/submeter.php\">Submeter</a></li>";
         }

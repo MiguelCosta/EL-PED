@@ -76,8 +76,9 @@ function submission_to_table($titulo, $res) {
     echo "</tr>";
 
     while ($reg = mysql_fetch_array($res)) {
-        echo "<tr title=\"Ver Project Record\" onclick=\"location.href='submissoes/mostrarPR.html?path=/opt/lampp/htdocs/PED-Project/gerirU/submissoes/PR.xml'\">";
-        echo "<td class=\"user\">" . $reg["projcode"] . "</td>";
+        $id = $reg["projcode"];
+        //echo "<tr title=\"Ver Project Record\" onclick=\"location.href='submissoes/mostrarPR.html?path=/opt/lampp/htdocs/PED-Project/gerirU/submissoes/PR.xml'\">";
+        echo "<td class=\"user\"><a href=\"gerirS_Show.php?projcode=$id\">". $id . "</a></td>";
         echo "<td class=\"user\">" . $reg["keyname"] . "</td>";
         echo "<td class=\"user\">" . $reg["title"] . "</td>";
         echo "<td class=\"user\">" . $reg["subdate"] . "</td>";

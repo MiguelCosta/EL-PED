@@ -178,6 +178,33 @@ if (!$con) {
             <div id="form_submeter_deliverables">
                 <h3>Deliverables</h3>
 
+                <?php
+                if (!$con) {
+                    echo "<h3>Erro ao ligar ao servidor.</h3><br/>" . mysql_error();
+                } else {
+                    $sql4 = "SELECT description, path FROM Deliverable 
+                                WHERE projcode='$projcode'
+                        ORDER BY description";
+                    $result4 = mysql_query($sql4);
+                    $count4 = mysql_num_rows($result4);
+                    ?>
+                    <ul>
+                        <?php
+                        while ($rows4 = mysql_fetch_array($result4)) {
+                            ?>
+                            <li>
+                                <a href="../uploads/deliverables/<? echo $rows4['path'] ?>" target="_blank">
+                                    <? echo $rows4['description'] ?>
+                                </a>
+                            </li>
+                            <?php
+                        }
+                        ?>
+                    </ul>
+                    <?php
+                }
+                ?>
+
 
                 <div class="clr"></div>
 

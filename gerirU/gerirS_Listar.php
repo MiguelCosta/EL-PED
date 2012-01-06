@@ -78,10 +78,32 @@ function submission_to_table($titulo, $res) {
     while ($reg = mysql_fetch_array($res)) {
         $id = $reg["projcode"];
         //echo "<tr title=\"Ver Project Record\" onclick=\"location.href='submissoes/mostrarPR.html?path=/opt/lampp/htdocs/PED-Project/gerirU/submissoes/PR.xml'\">";
-        echo "<td class=\"user\"><a href=\"gerirS_Show.php?projcode=$id\">". $id . "</a></td>";
+        echo "<td class=\"user\"><a href=\"gerirS_Show.php?projcode=$id\">" . $id . "</a></td>";
         echo "<td class=\"user\">" . $reg["keyname"] . "</td>";
         echo "<td class=\"user\">" . $reg["title"] . "</td>";
         echo "<td class=\"user\">" . $reg["subdate"] . "</td>";
+
+        $sql = "SELECT authorcode FROM ProjAut WHERE projcode='$id'";
+        $result = mysql_query($sql);
+        $autores = "";
+        while ($rows = mysql_fetch_array($result)) {
+            $autores .= "<a href=\"gerirAS_Show_author.php?authorcode=" . $rows['authorcode'] . "\" >";
+            $autores .= $rows['authorcode'];
+            $autores .= "</a>, ";
+        }
+        echo "<td class=\"user\">" . $autores . "</td>";
+
+        
+        $sql = "SELECT supcode FROM ProjSup WHERE projcode='$id'";
+        $result = mysql_query($sql);
+        $supervisores = "";
+        while ($rows = mysql_fetch_array($result)) {
+            $supervisores .= "<a href=\"gerirAS_Show_supervisor.php?supcode=" . $rows['supcode'] . "\" >";
+            $supervisores .= $rows['supcode'];
+            $supervisores .= "</a>, ";
+        }
+        echo "<td class=\"user\">" . $supervisores. "</td>";
+
         echo "</tr>";
     }
     echo "</table>";

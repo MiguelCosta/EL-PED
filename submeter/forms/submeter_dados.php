@@ -84,6 +84,7 @@ include '../ini.php';
                    type="text" 
                    required="" 
                    pattern="^[a-zA-ZáàãõéíóúçÁÀÃÕÉÍÓÚÇ][\wáàãõéíóúçÁÀÃÕÉÍÓÚÇ:_.-/|\s]*" 
+                   title="Insira o Key Name do Projecto. É obrigatório!"
                    />
 
             <div class="clr"></div>
@@ -93,7 +94,8 @@ include '../ini.php';
                    name="title" 
                    type="text" 
                    required="" 
-                   pattern="^[a-zA-ZáàãõéíóúçÁÀÃÕÉÍÓÚÇ][\wáàãõéíóúçÁÀÃÕÉÍÓÚÇ:_.-/|\s]*" 
+                   pattern="^[a-zA-ZáàãõéíóúçÁÀÃÕÉÍÓÚÇ][\wáàãõéíóúçÁÀÃÕÉÍÓÚÇ:_.-/|\s]*"
+                   title="Titúlo do Projecto."
                    />
 
             <div class="clr"></div>
@@ -101,7 +103,8 @@ include '../ini.php';
             <label>Subtitle: </label>
             <input name="subtitle" 
                    type="text"
-                   pattern="^[a-zA-ZáàãõéíóúçÁÀÃÕÉÍÓÚÇ][\wáàãõéíóúçÁÀÃÕÉÍÓÚÇ:_.-/|\s]*" 
+                   pattern="^[a-zA-ZáàãõéíóúçÁÀÃÕÉÍÓÚÇ][\wáàãõéíóúçÁÀÃÕÉÍÓÚÇ:_.-/|\s]*"
+                   title="Subtitulo do projecto. Não é obrigatório."
                    />
         </div>
 
@@ -113,6 +116,7 @@ include '../ini.php';
                    required="" 
                    pattern="\d{4}\-\d{2}\-\d{2}"
                    placeholder="aaaa-mm-dd" 
+                   title="Date de início do projecto. Tenha em atenção o formato da data."
                    />
 
             <div class="clr"></div>
@@ -123,6 +127,7 @@ include '../ini.php';
                    required="" 
                    pattern="\d{4}\-\d{2}\-\d{2}" 
                    placeholder="aaaa-mm-dd"
+                   title="Date de fim do projecto. Tenha em atenção o formato da data."
                    />
 
         </div>

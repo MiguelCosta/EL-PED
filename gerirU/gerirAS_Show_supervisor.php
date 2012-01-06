@@ -100,7 +100,7 @@ if (!isset($_SESSION['username']) || !$_SESSION['username'] || ((isset($_SESSION
 
                                         while ($row2 = mysql_fetch_array($res2)) {
                                             echo "<tr>";
-                                            echo "<td>$projcode</td>";
+                                            echo "<td><a href=\"gerirS_Show.php?projcode=$projcode\"> $projcode</a></td>";
                                             echo "<td>" . $row2['keyname'] . "</td>";
                                             echo "<td>" . $row2['title'] . "</td>";
                                             echo "<td>" . $row2['subdate'] . "</td>";

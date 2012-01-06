@@ -25,8 +25,21 @@ body {
 *
 {
     margin: 0 auto 0 auto;
-    text-align:left;}
+    text-align:left;
+}
 
+a, a:visited
+{
+    clear: both;
+    color: blue;
+}
+
+a:hover
+{
+    clear: both;
+    color: blue;
+    text-decoration: underline;
+}
 #container
 {
     display: block; 
@@ -345,13 +358,13 @@ td.user
     text-align: center;
 }
 
-td.user a
-{
-    color: black;
-    text-decoration: none;
-}
-
 td.user a:hover
+{
+    color: blue;
+    text-align: center;
+    text-decoration: underline;
+}
+td.user a:hover, a:visited
 {
     color: blue;
     text-align: center;
@@ -793,18 +806,6 @@ textarea#abstract:b
     border-top-width: 1px;
 }
 
-#details td a
-{
-    color: black;
-    text-decoration: none;
-}
-
-#details td a:hover
-{
-    color: blue;
-    text-align: center;
-    text-decoration: underline;
-}
 
 /*******************************************************************************/
 

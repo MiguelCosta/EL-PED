@@ -11,7 +11,7 @@
             echo "<li class=\"menuitem\"><a href=\"../gerirU/gerir.php\">Gerir</a></li>";
         }
         if (isset($_SESSION['username']) && $_SESSION['username']) {
-            echo "<li class=\"menuitem\"><a href=\"estatisticas/estatisticas.php\">Estatísticas</a></li>";
+            echo "<li class=\"menuitem\"><a href=\"estatisticas.php\">Estatísticas</a></li>";
         }
         ?>
         <li class="menuitem"><a href="#">Acerca</a></li>

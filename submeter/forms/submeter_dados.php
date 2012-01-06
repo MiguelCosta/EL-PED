@@ -83,7 +83,7 @@ include '../ini.php';
                    name="key_name" 
                    type="text" 
                    required="" 
-                   pattern="^[a-zA-ZáàãõéíóúçÁÀÃÕÉÍÓÚÇ][\wáàãõéíóúçÁÀÃÕÉÍÓÚÇ:_.-&/|\s]*" 
+                   pattern="^[a-zA-ZáàãõéíóúçÁÀÃÕÉÍÓÚÇ][\wáàãõéíóúçÁÀÃÕÉÍÓÚÇ:_.-/|\s]*" 
                    />
 
             <div class="clr"></div>
@@ -93,7 +93,7 @@ include '../ini.php';
                    name="title" 
                    type="text" 
                    required="" 
-                   pattern="^[a-zA-ZáàãõéíóúçÁÀÃÕÉÍÓÚÇ][\wáàãõéíóúçÁÀÃÕÉÍÓÚÇ:_.-&/|\s]*" 
+                   pattern="^[a-zA-ZáàãõéíóúçÁÀÃÕÉÍÓÚÇ][\wáàãõéíóúçÁÀÃÕÉÍÓÚÇ:_.-/|\s]*" 
                    />
 
             <div class="clr"></div>
@@ -101,7 +101,7 @@ include '../ini.php';
             <label>Subtitle: </label>
             <input name="subtitle" 
                    type="text"
-                   pattern="^[a-zA-ZáàãõéíóúçÁÀÃÕÉÍÓÚÇ][\wáàãõéíóúçÁÀÃÕÉÍÓÚÇ:_.-&/|\s]*" 
+                   pattern="^[a-zA-ZáàãõéíóúçÁÀÃÕÉÍÓÚÇ][\wáàãõéíóúçÁÀÃÕÉÍÓÚÇ:_.-/|\s]*" 
                    />
         </div>
 
@@ -286,7 +286,7 @@ include '../ini.php';
         <hr />
 
         <div id="btn_user">
-            <!--
+            <!-- Aqui era para testar com java script
                 <input id="submit_btn" type="button" value="Enviar" onclick="submeter()" /> 
             -->
             <input id="submit_btn" type="submit" value="Enviar" />

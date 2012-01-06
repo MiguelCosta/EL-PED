@@ -30,13 +30,11 @@ body {
 
 a, a:visited
 {
-    clear: both;
     color: blue;
 }
 
 a:hover
 {
-    clear: both;
     color: blue;
     text-decoration: underline;
 }

@@ -7,6 +7,15 @@ include '../ini.php';
 <script type="text/javascript">
     function submeter()
     {
+        /********
+         *
+         * NESTE MOMENTO NÂO ESTÁ A SER USADO ESTA FUNÇÃO DE JAVASCRIPT
+         * 
+         * O FORMULÁRIO ESTÁ A SER VALIDADO APENAS PELA UTILIZAÇÃO DE HTML5
+         *
+         *********/
+        
+        
         //if(document.getElementById("key_name").valueOf().value == ""){alert("Campo Key Name inválido!");return;}
         if(document.getElementById("title").valueOf().value == ""){alert("Campo Title inválido!");return;}
         
@@ -102,7 +111,7 @@ include '../ini.php';
                    name="begin_date" 
                    type="date" 
                    required="" 
-                   pattern="\d{4}\-\d{2}\-\d{2}" 
+                   pattern="\d{4}\-\d{2}\-\d{2}"
                    placeholder="aaaa-mm-dd" 
                    />
 
@@ -210,7 +219,7 @@ include '../ini.php';
 
         <div id="form_submeter_abstract">
             <h3>Abstract</h3>
-            <textarea name="abstract_text" id="abstract" required placeholder="Insira aqui o seu resumo..." setbg('#E1F5A9');" onblur="setbg('#FBEFEF')"></textarea>
+            <textarea name="abstract_text" id="abstract" required="" placeholder="Insira aqui o seu resumo..." setbg('#E1F5A9');" onblur="setbg('#FBEFEF')"></textarea>
             <input type="button" value="bold" onclick="insereTextoBold()"/>
             <input type="button" value="italic" onclick="insereTextoItalic()"/>
             <input type="button" value="underline" onclick="insereTextoUnderline()"/>
@@ -277,7 +286,10 @@ include '../ini.php';
         <hr />
 
         <div id="btn_user">
-            <input id="submit_btn" type="button" value="Enviar" onclick="submeter()" />
+            <!--
+                <input id="submit_btn" type="button" value="Enviar" onclick="submeter()" /> 
+            -->
+            <input id="submit_btn" type="submit" value="Enviar" />
         </div>
     </form>
 </div>

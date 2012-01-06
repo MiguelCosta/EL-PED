@@ -219,7 +219,7 @@ include '../ini.php';
 
         <div id="form_submeter_abstract">
             <h3>Abstract</h3>
-            <textarea name="abstract_text" id="abstract" required="" placeholder="Insira aqui o seu resumo..." setbg('#E1F5A9');" onblur="setbg('#FBEFEF')"></textarea>
+            <textarea id="abstract" name="abstract_text" required="" placeholder="Insira aqui o seu resumo..." ></textarea>
             <input type="button" value="bold" onclick="insereTextoBold()"/>
             <input type="button" value="italic" onclick="insereTextoItalic()"/>
             <input type="button" value="underline" onclick="insereTextoUnderline()"/>

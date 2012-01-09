@@ -146,7 +146,7 @@ include '../ini.php';
                 $result = mysql_query($sql);
                 $count_supervisors = mysql_num_rows($result);
                 ?>
-                <div style="height:100px; overflow: auto; border: 1px solid">
+                <div style="height:130px; overflow: auto; border: 1px solid">
                     <table class="user">
                         <tr>
                             <th class="user">Select</th>
@@ -190,7 +190,7 @@ include '../ini.php';
                 $count = mysql_num_rows($result);
                 ?>
 
-                <div style="height:100px; overflow: auto; border: 1px solid">
+                <div style="height:200px; overflow: auto; border: 1px solid">
                     <table class="user">
                         <tr>
                             <th class="user">Select</th>

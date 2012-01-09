@@ -1,0 +1,5 @@
+
+1 - Peguei num ficheiro de texto com os cursos todos
+2 - Passei o ficheiro de texto para um ficheiro XML
+3 - Do ficheiro XML criei uma script para gerar o código HTML Select
+4 - Criei ainda um ficheiro sql com inserções na base de dados

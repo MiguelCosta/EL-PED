@@ -108,6 +108,23 @@
             <input id="a_url_id" name="a_url" type="text" />
             <div class="clr"></div>
 
+            <label class="required">Curso</label>
+            <select name="a_course">
+                <?php
+                if (!$con) {
+                    echo "<h3>Erro ao ligar ao servidor.</h3><br/>" . mysql_error();
+                } else {
+                    $sql = "SELECT coursedescription FROM Course";
+                    $res = mysql_query($sql, $con) or die(mysql_error());
+
+                    while ($reg = mysql_fetch_array($res)) {
+                        echo "<option>" . $reg["coursedescription"] . "</option>";
+                    }
+                }
+                ?>
+            </select>
+            <div class="clr"></div>
+
             <div id="a_btn_submit">
                 <input type="button" value="Submit Author" onclick="inserir_user()" />
             </div>

@@ -1,0 +1,803 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<cursos>
+	<curso>
+		<id>1</id>
+		<nome>Doutoramento em Arqueologia</nome>
+	</curso>
+	<curso>
+		<id>2</id>
+		<nome>Doutoramento em Arquitectura</nome>
+	</curso>
+	<curso>
+		<id>3</id>
+		<nome>Doutoramento em Bioengenharia</nome>
+	</curso>
+	<curso>
+		<id>4</id>
+		<nome>Doutoramento em Biologia Molecular e Ambiental</nome>
+	</curso>
+	<curso>
+		<id>5</id>
+		<nome>Doutoramento em Biologia de Plantas</nome>
+	</curso>
+	<curso>
+		<id>6</id>
+		<nome>Doutoramento em Ciência Política e Relações Internacionais</nome>
+	</curso>
+	<curso>
+		<id>7</id>
+		<nome>Doutoramento em Ciência e Engenharia de Polímeros e Compósitos</nome>
+	</curso>
+	<curso>
+		<id>8</id>
+		<nome>Doutoramento em Ciências</nome>
+	</curso>
+	<curso>
+		<id>9</id>
+		<nome>Doutoramento em Ciências Empresariais</nome>
+	</curso>
+	<curso>
+		<id>10</id>
+		<nome>Doutoramento em Ciências Jurídicas</nome>
+	</curso>
+	<curso>
+		<id>11</id>
+		<nome>Doutoramento em Ciências da Administração</nome>
+	</curso>
+	<curso>
+		<id>12</id>
+		<nome>Doutoramento em Ciências da Comunicação</nome>
+	</curso>
+	<curso>
+		<id>13</id>
+		<nome>Doutoramento em Ciências da Cultura</nome>
+	</curso>
+	<curso>
+		<id>14</id>
+		<nome>Doutoramento em Ciências da Educação</nome>
+	</curso>
+	<curso>
+		<id>15</id>
+		<nome>Doutoramento em Ciências da Linguagem</nome>
+	</curso>
+	<curso>
+		<id>16</id>
+		<nome>Doutoramento em Ciências da Literatura</nome>
+	</curso>
+	<curso>
+		<id>17</id>
+		<nome>Doutoramento em Ciências da Saúde</nome>
+	</curso>
+	<curso>
+		<id>18</id>
+		<nome>Doutoramento em Contabilidade</nome>
+	</curso>
+	<curso>
+		<id>19</id>
+		<nome>Doutoramento em Economia</nome>
+	</curso>
+	<curso>
+		<id>20</id>
+		<nome>Doutoramento em Engenharia Biomédica</nome>
+	</curso>
+	<curso>
+		<id>21</id>
+		<nome>Doutoramento em Engenharia Civil</nome>
+	</curso>
+	<curso>
+		<id>22</id>
+		<nome>Doutoramento em Engenharia Electrónica e de Computadores</nome>
+	</curso>
+	<curso>
+		<id>23</id>
+		<nome>Doutoramento em Engenharia Industrial e de Sistemas</nome>
+	</curso>
+	<curso>
+		<id>24</id>
+		<nome>Doutoramento em Engenharia Mecânica</nome>
+	</curso>
+	<curso>
+		<id>25</id>
+		<nome>Doutoramento em Engenharia Química e Biológica</nome>
+	</curso>
+	<curso>
+		<id>26</id>
+		<nome>Doutoramento em Engenharia Têxtil</nome>
+	</curso>
+	<curso>
+		<id>27</id>
+		<nome>Doutoramento em Engenharia de Materiais</nome>
+	</curso>
+	<curso>
+		<id>28</id>
+		<nome>Doutoramento em Engenharia de Tecidos, Medicina Regenerativa e Células Estaminais</nome>
+	</curso>
+	<curso>
+		<id>29</id>
+		<nome>Doutoramento em Estudos Culturais</nome>
+	</curso>
+	<curso>
+		<id>30</id>
+		<nome>Doutoramento em Estudos da Criança</nome>
+	</curso>
+	<curso>
+		<id>31</id>
+		<nome>Doutoramento em Filosofia</nome>
+	</curso>
+	<curso>
+		<id>32</id>
+		<nome>Doutoramento em Física</nome>
+	</curso>
+	<curso>
+		<id>33</id>
+		<nome>Doutoramento em Geografia</nome>
+	</curso>
+	<curso>
+		<id>34</id>
+		<nome>Doutoramento em História</nome>
+	</curso>
+	<curso>
+		<id>35</id>
+		<nome>Doutoramento em Líderes para as Indústrias Tecnológicas</nome>
+	</curso>
+	<curso>
+		<id>36</id>
+		<nome>Doutoramento em Marketing e Estratégia</nome>
+	</curso>
+	<curso>
+		<id>37</id>
+		<nome>Doutoramento em Matemática e Aplicações</nome>
+	</curso>
+	<curso>
+		<id>38</id>
+		<nome>Doutoramento em Medicina</nome>
+	</curso>
+	<curso>
+		<id>39</id>
+		<nome>Doutoramento em Psicologia</nome>
+	</curso>
+	<curso>
+		<id>40</id>
+		<nome>Doutoramento em Psicologia Aplicada</nome>
+	</curso>
+	<curso>
+		<id>41</id>
+		<nome>Doutoramento em Psicologia Básica</nome>
+	</curso>
+	<curso>
+		<id>42</id>
+		<nome>Doutoramento em Sociologia</nome>
+	</curso>
+	<curso>
+		<id>43</id>
+		<nome>Doutoramento em Tecnologia e Sistemas de Informação</nome>
+	</curso>
+	<curso>
+		<id>44</id>
+		<nome>Licenciatura em Administração Pública</nome>
+	</curso>
+	<curso>
+		<id>45</id>
+		<nome>Licenciatura em Arqueologia</nome>
+	</curso>
+	<curso>
+		<id>46</id>
+		<nome>Licenciatura em Biologia - Geologia</nome>
+	</curso>
+	<curso>
+		<id>47</id>
+		<nome>Licenciatura em Biologia Aplicada</nome>
+	</curso>
+	<curso>
+		<id>48</id>
+		<nome>Licenciatura em Bioquímica</nome>
+	</curso>
+	<curso>
+		<id>49</id>
+		<nome>Licenciatura em Ciência Política - Pós-Laboral</nome>
+	</curso>
+	<curso>
+		<id>50</id>
+		<nome>Licenciatura em Ciências da Computação</nome>
+	</curso>
+	<curso>
+		<id>51</id>
+		<nome>Licenciatura em Ciências da Comunicação</nome>
+	</curso>
+	<curso>
+		<id>52</id>
+		<nome>Licenciatura em Ciências do Ambiente - Pós-Laboral</nome>
+	</curso>
+	<curso>
+		<id>53</id>
+		<nome>Licenciatura em Contabilidade - Pós-Laboral</nome>
+	</curso>
+	<curso>
+		<id>54</id>
+		<nome>Licenciatura em Design e Marketing de Moda</nome>
+	</curso>
+	<curso>
+		<id>55</id>
+		<nome>Licenciatura em Direito</nome>
+	</curso>
+	<curso>
+		<id>56</id>
+		<nome>Licenciatura em Direito - Pós-Laboral</nome>
+	</curso>
+	<curso>
+		<id>57</id>
+		<nome>Licenciatura em Economia</nome>
+	</curso>
+	<curso>
+		<id>58</id>
+		<nome>Licenciatura em Educação</nome>
+	</curso>
+	<curso>
+		<id>59</id>
+		<nome>Licenciatura em Educação - Pós-Laboral</nome>
+	</curso>
+	<curso>
+		<id>60</id>
+		<nome>Licenciatura em Educação Básica</nome>
+	</curso>
+	<curso>
+		<id>61</id>
+		<nome>Licenciatura em Enfermagem</nome>
+	</curso>
+	<curso>
+		<id>62</id>
+		<nome>Licenciatura em Engenharia Informática</nome>
+	</curso>
+	<curso>
+		<id>63</id>
+		<nome>Licenciatura em Estatística Aplicada</nome>
+	</curso>
+	<curso>
+		<id>64</id>
+		<nome>Licenciatura em Estudos Culturais - Pós-Laboral</nome>
+	</curso>
+	<curso>
+		<id>65</id>
+		<nome>Licenciatura em Estudos Portugueses e Lusófonos</nome>
+	</curso>
+	<curso>
+		<id>66</id>
+		<nome>Licenciatura em Filosofia</nome>
+	</curso>
+	<curso>
+		<id>67</id>
+		<nome>Licenciatura em Física</nome>
+	</curso>
+	<curso>
+		<id>68</id>
+		<nome>Licenciatura em Física e Química - Pós-Laboral</nome>
+	</curso>
+	<curso>
+		<id>69</id>
+		<nome>Licenciatura em Geografia e Planeamento</nome>
+	</curso>
+	<curso>
+		<id>70</id>
+		<nome>Licenciatura em Geologia - Pós-Laboral</nome>
+	</curso>
+	<curso>
+		<id>71</id>
+		<nome>Licenciatura em Gestão</nome>
+	</curso>
+	<curso>
+		<id>72</id>
+		<nome>Licenciatura em História</nome>
+	</curso>
+	<curso>
+		<id>73</id>
+		<nome>Licenciatura em História - Pós-Laboral</nome>
+	</curso>
+	<curso>
+		<id>74</id>
+		<nome>Licenciatura em Línguas Aplicadas</nome>
+	</curso>
+	<curso>
+		<id>75</id>
+		<nome>Licenciatura em Línguas e Culturas Orientais</nome>
+	</curso>
+	<curso>
+		<id>76</id>
+		<nome>Licenciatura em Línguas e Literaturas Europeias</nome>
+	</curso>
+	<curso>
+		<id>77</id>
+		<nome>Licenciatura em Línguas e Literaturas Europeias - Pós-Laboral</nome>
+	</curso>
+	<curso>
+		<id>78</id>
+		<nome>Licenciatura em Marketing - Pós-Laboral</nome>
+	</curso>
+	<curso>
+		<id>79</id>
+		<nome>Licenciatura em Matemática</nome>
+	</curso>
+	<curso>
+		<id>80</id>
+		<nome>Licenciatura em Música - Pós-Laboral</nome>
+	</curso>
+	<curso>
+		<id>81</id>
+		<nome>Licenciatura em Negócios Internacionais - Pós-Laboral</nome>
+	</curso>
+	<curso>
+		<id>82</id>
+		<nome>Licenciatura em Optometria e Ciências da Visão</nome>
+	</curso>
+	<curso>
+		<id>83</id>
+		<nome>Licenciatura em Química</nome>
+	</curso>
+	<curso>
+		<id>84</id>
+		<nome>Licenciatura em Relações Internacionais</nome>
+	</curso>
+	<curso>
+		<id>85</id>
+		<nome>Licenciatura em Sociologia</nome>
+	</curso>
+	<curso>
+		<id>86</id>
+		<nome>Licenciatura em Tecnologias e Sistemas de Informação</nome>
+	</curso>
+	<curso>
+		<id>87</id>
+		<nome>Licenciatura em Tecnologias e Sistemas de Informação - Pós-Laboral</nome>
+	</curso>
+	<curso>
+		<id>88</id>
+		<nome>Mestrado Europeu em Análise Estrutural de Monumentos e Construções Históricas</nome>
+	</curso>
+	<curso>
+		<id>89</id>
+		<nome>Mestrado Europeu em Reologia Aplicada à Engenharia</nome>
+	</curso>
+	<curso>
+		<id>90</id>
+		<nome>Mestrado Integrado em Arquitectura</nome>
+	</curso>
+	<curso>
+		<id>91</id>
+		<nome>Mestrado Integrado em Engenharia Biológica</nome>
+	</curso>
+	<curso>
+		<id>92</id>
+		<nome>Mestrado Integrado em Engenharia Biomédica</nome>
+	</curso>
+	<curso>
+		<id>93</id>
+		<nome>Mestrado Integrado em Engenharia Civil</nome>
+	</curso>
+	<curso>
+		<id>94</id>
+		<nome>Mestrado Integrado em Engenharia Electrónica Industrial e Computadores</nome>
+	</curso>
+	<curso>
+		<id>95</id>
+		<nome>Mestrado Integrado em Engenharia Mecânica</nome>
+	</curso>
+	<curso>
+		<id>96</id>
+		<nome>Mestrado Integrado em Engenharia Têxtil - Pós-Laboral</nome>
+	</curso>
+	<curso>
+		<id>97</id>
+		<nome>Mestrado Integrado em Engenharia de Comunicações</nome>
+	</curso>
+	<curso>
+		<id>98</id>
+		<nome>Mestrado Integrado em Engenharia de Materiais</nome>
+	</curso>
+	<curso>
+		<id>99</id>
+		<nome>Mestrado Integrado em Engenharia de Polímeros</nome>
+	</curso>
+	<curso>
+		<id>100</id>
+		<nome>Mestrado Integrado em Engenharia e Gestão Industrial</nome>
+	</curso>
+	<curso>
+		<id>101</id>
+		<nome>Mestrado Integrado em Medicina</nome>
+	</curso>
+	<curso>
+		<id>102</id>
+		<nome>Mestrado Integrado em Psicologia</nome>
+	</curso>
+	<curso>
+		<id>103</id>
+		<nome>Mestrado em Administração Pública</nome>
+	</curso>
+	<curso>
+		<id>104</id>
+		<nome>Mestrado em Administração da Justiça</nome>
+	</curso>
+	<curso>
+		<id>105</id>
+		<nome>Mestrado em Arqueologia</nome>
+	</curso>
+	<curso>
+		<id>106</id>
+		<nome>Mestrado em Bioengenharia</nome>
+	</curso>
+	<curso>
+		<id>107</id>
+		<nome>Mestrado em Biofísica e Bionanossistemas</nome>
+	</curso>
+	<curso>
+		<id>108</id>
+		<nome>Mestrado em Bioinformática</nome>
+	</curso>
+	<curso>
+		<id>109</id>
+		<nome>Mestrado em Biologia Molecular, Biotecnologia e Bioempreendedorismo em Plantas</nome>
+	</curso>
+	<curso>
+		<id>110</id>
+		<nome>Mestrado em Bioquímica Aplicada</nome>
+	</curso>
+	<curso>
+		<id>111</id>
+		<nome>Mestrado em Biotecnologia e Bio-Empreendedorismo em Plantas Aromáticas e Medicinais</nome>
+	</curso>
+	<curso>
+		<id>112</id>
+		<nome>Mestrado em Ciências - Formação Contínua de Professores</nome>
+	</curso>
+	<curso>
+		<id>113</id>
+		<nome>Mestrado em Ciências da Comunicação</nome>
+	</curso>
+	<curso>
+		<id>114</id>
+		<nome>Mestrado em Ciências da Educação</nome>
+	</curso>
+	<curso>
+		<id>115</id>
+		<nome>Mestrado em Ciências da Saúde</nome>
+	</curso>
+	<curso>
+		<id>116</id>
+		<nome>Mestrado em Ciências e Tecnologias do Ambiente</nome>
+	</curso>
+	<curso>
+		<id>117</id>
+		<nome>Mestrado em Comunicação, Arte e Cultura</nome>
+	</curso>
+	<curso>
+		<id>118</id>
+		<nome>Mestrado em Comunicação, Cidadania e Educação</nome>
+	</curso>
+	<curso>
+		<id>119</id>
+		<nome>Mestrado em Construção e Reabilitação Sustentáveis</nome>
+	</curso>
+	<curso>
+		<id>120</id>
+		<nome>Mestrado em Contabilidade</nome>
+	</curso>
+	<curso>
+		<id>121</id>
+		<nome>Mestrado em Crime, Diferença e Desigualdade</nome>
+	</curso>
+	<curso>
+		<id>122</id>
+		<nome>Mestrado em Design de Comunicação de Moda</nome>
+	</curso>
+	<curso>
+		<id>123</id>
+		<nome>Mestrado em Design e Marketing</nome>
+	</curso>
+	<curso>
+		<id>124</id>
+		<nome>Mestrado em Direito Administrativo</nome>
+	</curso>
+	<curso>
+		<id>125</id>
+		<nome>Mestrado em Direito Judiciário (Direitos Processuais e Organização Judiciária)</nome>
+	</curso>
+	<curso>
+		<id>126</id>
+		<nome>Mestrado em Direito Tributário e Fiscal</nome>
+	</curso>
+	<curso>
+		<id>127</id>
+		<nome>Mestrado em Direito da União Europeia</nome>
+	</curso>
+	<curso>
+		<id>128</id>
+		<nome>Mestrado em Direito das Autarquias Locais</nome>
+	</curso>
+	<curso>
+		<id>129</id>
+		<nome>Mestrado em Direito dos Contratos e da Empresa</nome>
+	</curso>
+	<curso>
+		<id>130</id>
+		<nome>Mestrado em Direito e Informática</nome>
+	</curso>
+	<curso>
+		<id>131</id>
+		<nome>Mestrado em Direitos Humanos</nome>
+	</curso>
+	<curso>
+		<id>132</id>
+		<nome>Mestrado em Ecologia</nome>
+	</curso>
+	<curso>
+		<id>133</id>
+		<nome>Mestrado em Economia</nome>
+	</curso>
+	<curso>
+		<id>134</id>
+		<nome>Mestrado em Economia Industrial e da Empresa</nome>
+	</curso>
+	<curso>
+		<id>135</id>
+		<nome>Mestrado em Economia Monetária, Bancária e Financeira</nome>
+	</curso>
+	<curso>
+		<id>136</id>
+		<nome>Mestrado em Economia Política da Saúde</nome>
+	</curso>
+	<curso>
+		<id>137</id>
+		<nome>Mestrado em Economia Social</nome>
+	</curso>
+	<curso>
+		<id>138</id>
+		<nome>Mestrado em Economia, Mercados e Políticas Públicas</nome>
+	</curso>
+	<curso>
+		<id>139</id>
+		<nome>Mestrado em Educação</nome>
+	</curso>
+	<curso>
+		<id>140</id>
+		<nome>Mestrado em Educação Especial</nome>
+	</curso>
+	<curso>
+		<id>141</id>
+		<nome>Mestrado em Educação Pré-Escolar</nome>
+	</curso>
+	<curso>
+		<id>142</id>
+		<nome>Mestrado em Educação Pré-Escolar e Ensino do 1º Ciclo do Ensino Básico</nome>
+	</curso>
+	<curso>
+		<id>143</id>
+		<nome>Mestrado em Engenharia Humana</nome>
+	</curso>
+	<curso>
+		<id>144</id>
+		<nome>Mestrado em Engenharia Industrial</nome>
+	</curso>
+	<curso>
+		<id>145</id>
+		<nome>Mestrado em Engenharia Informática</nome>
+	</curso>
+	<curso>
+		<id>146</id>
+		<nome>Mestrado em Engenharia Mecatrónica</nome>
+	</curso>
+	<curso>
+		<id>147</id>
+		<nome>Mestrado em Engenharia Urbana</nome>
+	</curso>
+	<curso>
+		<id>148</id>
+		<nome>Mestrado em Engenharia de Redes e Serviços de Comunicações</nome>
+	</curso>
+	<curso>
+		<id>149</id>
+		<nome>Mestrado em Engenharia de Sistemas</nome>
+	</curso>
+	<curso>
+		<id>150</id>
+		<nome>Mestrado em Engenharia e Gestão de Sistemas de Informação</nome>
+	</curso>
+	<curso>
+		<id>151</id>
+		<nome>Mestrado em Ensino de Biologia e Geologia no 3º Ciclo no Ensino Básico e no Ensino Secundário</nome>
+	</curso>
+	<curso>
+		<id>152</id>
+		<nome>Mestrado em Ensino de Educação Física nos Ensinos Básico e Secundário</nome>
+	</curso>
+	<curso>
+		<id>153</id>
+		<nome>Mestrado em Ensino de Filosofia no Ensino Secundário</nome>
+	</curso>
+	<curso>
+		<id>154</id>
+		<nome>Mestrado em Ensino de Física e de Química no 3º Ciclo do Ensino Básico e no Ensino Secundário</nome>
+	</curso>
+	<curso>
+		<id>155</id>
+		<nome>Mestrado em Ensino de História e Geografia no 3º Ciclo do Ensino Básico e no Ensino Secundário</nome>
+	</curso>
+	<curso>
+		<id>156</id>
+		<nome>Mestrado em Ensino de Informática</nome>
+	</curso>
+	<curso>
+		<id>157</id>
+		<nome>Mestrado em Ensino de Inglês e de Espanhol no 3º Ciclo do Ensino Básico e no Ensino Secundário</nome>
+	</curso>
+	<curso>
+		<id>158</id>
+		<nome>Mestrado em Ensino de Matemática no 3º Ciclo do Ensino Básico e no Secundário</nome>
+	</curso>
+	<curso>
+		<id>159</id>
+		<nome>Mestrado em Ensino de Música</nome>
+	</curso>
+	<curso>
+		<id>160</id>
+		<nome>Mestrado em Ensino de Português e de Línguas Clássicas no 3º Ciclo do Ensino Básico e no Secundário</nome>
+	</curso>
+	<curso>
+		<id>161</id>
+		<nome>Mestrado em Ensino do 1º e do 2º Ciclos do Ensino Básico</nome>
+	</curso>
+	<curso>
+		<id>162</id>
+		<nome>Mestrado em Ensino do Português no 3º Ciclo do Ensino Básico e no Ensino Secundário e de Espanhol nos Ensinos Básico e Secundário</nome>
+	</curso>
+	<curso>
+		<id>163</id>
+		<nome>Mestrado em Estatística</nome>
+	</curso>
+	<curso>
+		<id>164</id>
+		<nome>Mestrado em Estudos Interculturais Português/Chinês: Tradução, Formação e Comunicação Empresarial</nome>
+	</curso>
+	<curso>
+		<id>165</id>
+		<nome>Mestrado em Estudos da Criança</nome>
+	</curso>
+	<curso>
+		<id>166</id>
+		<nome>Mestrado em Finanças</nome>
+	</curso>
+	<curso>
+		<id>167</id>
+		<nome>Mestrado em Física</nome>
+	</curso>
+	<curso>
+		<id>168</id>
+		<nome>Mestrado em Genética Molecular</nome>
+	</curso>
+	<curso>
+		<id>169</id>
+		<nome>Mestrado em Geografia</nome>
+	</curso>
+	<curso>
+		<id>170</id>
+		<nome>Mestrado em Gestão</nome>
+	</curso>
+	<curso>
+		<id>171</id>
+		<nome>Mestrado em Gestão Ambiental</nome>
+	</curso>
+	<curso>
+		<id>172</id>
+		<nome>Mestrado em Gestão das Unidades de Saúde</nome>
+	</curso>
+	<curso>
+		<id>173</id>
+		<nome>Mestrado em Gestão de Recursos Humanos</nome>
+	</curso>
+	<curso>
+		<id>174</id>
+		<nome>Mestrado em História</nome>
+	</curso>
+	<curso>
+		<id>175</id>
+		<nome>Mestrado em Linguística Portuguesa e Comparada</nome>
+	</curso>
+	<curso>
+		<id>176</id>
+		<nome>Mestrado em Língua, Literatura e Cultura Inglesas</nome>
+	</curso>
+	<curso>
+		<id>177</id>
+		<nome>Mestrado em Marketing e Gestão Estratégica</nome>
+	</curso>
+	<curso>
+		<id>178</id>
+		<nome>Mestrado em Matemática e Computação</nome>
+	</curso>
+	<curso>
+		<id>179</id>
+		<nome>Mestrado em Media Interactivos</nome>
+	</curso>
+	<curso>
+		<id>180</id>
+		<nome>Mestrado em Mediação Cultural e Literária</nome>
+	</curso>
+	<curso>
+		<id>181</id>
+		<nome>Mestrado em Micro e Nano Tecnologias</nome>
+	</curso>
+	<curso>
+		<id>182</id>
+		<nome>Mestrado em Negócios Internacionais</nome>
+	</curso>
+	<curso>
+		<id>183</id>
+		<nome>Mestrado em Optometria Avançada</nome>
+	</curso>
+	<curso>
+		<id>184</id>
+		<nome>Mestrado em Ordenamento e Valorização de Recursos Geológicos</nome>
+	</curso>
+	<curso>
+		<id>185</id>
+		<nome>Mestrado em Património Geológico e Geoconservação</nome>
+	</curso>
+	<curso>
+		<id>186</id>
+		<nome>Mestrado em Património e Turismo Cultural</nome>
+	</curso>
+	<curso>
+		<id>187</id>
+		<nome>Mestrado em Português Língua Não Materna (PLNM) - Português Língua Estrangeira (PLE) e Língua Segunda (PL2)</nome>
+	</curso>
+	<curso>
+		<id>188</id>
+		<nome>Mestrado em Propriedades e Tecnologia de Polímeros</nome>
+	</curso>
+	<curso>
+		<id>189</id>
+		<nome>Mestrado em Química Medicinal</nome>
+	</curso>
+	<curso>
+		<id>190</id>
+		<nome>Mestrado em Química Têxtil</nome>
+	</curso>
+	<curso>
+		<id>191</id>
+		<nome>Mestrado em Relações Internacionais</nome>
+	</curso>
+	<curso>
+		<id>192</id>
+		<nome>Mestrado em Serviços de Informação</nome>
+	</curso>
+	<curso>
+		<id>193</id>
+		<nome>Mestrado em Sistemas de Informação</nome>
+	</curso>
+	<curso>
+		<id>194</id>
+		<nome>Mestrado em Sociologia</nome>
+	</curso>
+	<curso>
+		<id>195</id>
+		<nome>Mestrado em Tecnologia e Arte Digital</nome>
+	</curso>
+	<curso>
+		<id>196</id>
+		<nome>Mestrado em Teoria da Literatura</nome>
+	</curso>
+	<curso>
+		<id>197</id>
+		<nome>Mestrado em Tradução e Comunicação Multilingue</nome>
+	</curso>
+	<curso>
+		<id>198</id>
+		<nome>Mestrado em Técnicas de Caracterização e Análise Química</nome>
+	</curso>
+	<curso>
+		<id>199</id>
+		<nome>Mestrado em Têxteis Avançados</nome>
+	</curso>
+	<curso>
+		<id>200</id>
+		<nome>Programa Doutoral em Química</nome>
+	</curso>
+</cursos>

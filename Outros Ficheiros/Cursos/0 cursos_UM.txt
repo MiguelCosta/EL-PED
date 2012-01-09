@@ -1,0 +1,200 @@
+Licenciatura em Administração Pública
+Licenciatura em Arqueologia
+Licenciatura em Biologia - Geologia
+Licenciatura em Biologia Aplicada
+Licenciatura em Bioquímica
+Licenciatura em Ciência Política - Pós-Laboral
+Licenciatura em Ciências da Computação
+Licenciatura em Ciências da Comunicação
+Licenciatura em Ciências do Ambiente - Pós-Laboral
+Licenciatura em Contabilidade - Pós-Laboral
+Licenciatura em Design e Marketing de Moda
+Licenciatura em Direito
+Licenciatura em Direito - Pós-Laboral
+Licenciatura em Economia
+Licenciatura em Educação
+Licenciatura em Educação - Pós-Laboral
+Licenciatura em Educação Básica
+Licenciatura em Enfermagem
+Licenciatura em Engenharia Informática
+Licenciatura em Estatística Aplicada
+Licenciatura em Estudos Culturais - Pós-Laboral
+Licenciatura em Estudos Portugueses e Lusófonos
+Licenciatura em Filosofia
+Licenciatura em Física
+Licenciatura em Física e Química - Pós-Laboral
+Licenciatura em Geografia e Planeamento
+Licenciatura em Geologia - Pós-Laboral
+Licenciatura em Gestão
+Licenciatura em História
+Licenciatura em História - Pós-Laboral
+Licenciatura em Línguas Aplicadas
+Licenciatura em Línguas e Culturas Orientais
+Licenciatura em Línguas e Literaturas Europeias
+Licenciatura em Línguas e Literaturas Europeias - Pós-Laboral
+Licenciatura em Marketing - Pós-Laboral
+Licenciatura em Matemática
+Licenciatura em Música - Pós-Laboral
+Licenciatura em Negócios Internacionais - Pós-Laboral
+Licenciatura em Optometria e Ciências da Visão
+Licenciatura em Química
+Licenciatura em Relações Internacionais
+Licenciatura em Sociologia
+Licenciatura em Tecnologias e Sistemas de Informação
+Licenciatura em Tecnologias e Sistemas de Informação - Pós-Laboral
+Mestrado Integrado em Arquitectura
+Mestrado Integrado em Engenharia Biológica
+Mestrado Integrado em Engenharia Biomédica
+Mestrado Integrado em Engenharia Civil
+Mestrado Integrado em Engenharia de Comunicações
+Mestrado Integrado em Engenharia de Materiais
+Mestrado Integrado em Engenharia de Polímeros
+Mestrado Integrado em Engenharia e Gestão Industrial
+Mestrado Integrado em Engenharia Electrónica Industrial e Computadores
+Mestrado Integrado em Engenharia Mecânica
+Mestrado Integrado em Engenharia Têxtil - Pós-Laboral
+Mestrado Integrado em Medicina
+Mestrado Integrado em Psicologia
+Mestrado em Administração da Justiça
+Mestrado em Administração Pública
+Mestrado em Arqueologia
+Mestrado em Bioengenharia
+Mestrado em Biofísica e Bionanossistemas
+Mestrado em Bioinformática
+Mestrado em Biologia Molecular, Biotecnologia e Bioempreendedorismo em Plantas
+Mestrado em Bioquímica Aplicada
+Mestrado em Biotecnologia e Bio-Empreendedorismo em Plantas Aromáticas e Medicinais
+Mestrado em Ciências - Formação Contínua de Professores
+Mestrado em Ciências da Comunicação
+Mestrado em Ciências da Educação
+Mestrado em Ciências da Saúde
+Mestrado em Ciências e Tecnologias do Ambiente
+Mestrado em Comunicação, Arte e Cultura
+Mestrado em Comunicação, Cidadania e Educação
+Mestrado em Construção e Reabilitação Sustentáveis
+Mestrado em Contabilidade
+Mestrado em Crime, Diferença e Desigualdade
+Mestrado em Design de Comunicação de Moda
+Mestrado em Design e Marketing
+Mestrado em Direito Administrativo
+Mestrado em Direito da União Europeia
+Mestrado em Direito das Autarquias Locais
+Mestrado em Direito dos Contratos e da Empresa
+Mestrado em Direito e Informática
+Mestrado em Direito Judiciário (Direitos Processuais e Organização Judiciária)
+Mestrado em Direito Tributário e Fiscal
+Mestrado em Direitos Humanos
+Mestrado em Ecologia
+Mestrado em Economia
+Mestrado em Economia Industrial e da Empresa
+Mestrado em Economia Monetária, Bancária e Financeira
+Mestrado em Economia Política da Saúde
+Mestrado em Economia Social
+Mestrado em Economia, Mercados e Políticas Públicas
+Mestrado em Educação
+Mestrado em Educação Especial
+Mestrado em Educação Pré-Escolar
+Mestrado em Educação Pré-Escolar e Ensino do 1º Ciclo do Ensino Básico
+Mestrado em Engenharia de Redes e Serviços de Comunicações
+Mestrado em Engenharia de Sistemas
+Mestrado em Engenharia e Gestão de Sistemas de Informação
+Mestrado em Engenharia Humana
+Mestrado em Engenharia Industrial
+Mestrado em Engenharia Informática
+Mestrado em Engenharia Mecatrónica
+Mestrado em Engenharia Urbana
+Mestrado em Ensino de Biologia e Geologia no 3º Ciclo no Ensino Básico e no Ensino Secundário
+Mestrado em Ensino de Educação Física nos Ensinos Básico e Secundário
+Mestrado em Ensino de Filosofia no Ensino Secundário
+Mestrado em Ensino de Física e de Química no 3º Ciclo do Ensino Básico e no Ensino Secundário
+Mestrado em Ensino de História e Geografia no 3º Ciclo do Ensino Básico e no Ensino Secundário
+Mestrado em Ensino de Informática
+Mestrado em Ensino de Inglês e de Espanhol no 3º Ciclo do Ensino Básico e no Ensino Secundário
+Mestrado em Ensino de Matemática no 3º Ciclo do Ensino Básico e no Secundário
+Mestrado em Ensino de Música
+Mestrado em Ensino de Português e de Línguas Clássicas no 3º Ciclo do Ensino Básico e no Secundário
+Mestrado em Ensino do 1º e do 2º Ciclos do Ensino Básico
+Mestrado em Ensino do Português no 3º Ciclo do Ensino Básico e no Ensino Secundário e de Espanhol nos Ensinos Básico e Secundário
+Mestrado em Estatística
+Mestrado em Estudos da Criança
+Mestrado em Estudos Interculturais Português/Chinês: Tradução, Formação e Comunicação Empresarial
+Mestrado em Finanças
+Mestrado em Física
+Mestrado em Genética Molecular
+Mestrado em Geografia
+Mestrado em Gestão
+Mestrado em Gestão Ambiental
+Mestrado em Gestão das Unidades de Saúde
+Mestrado em Gestão de Recursos Humanos
+Mestrado em História
+Mestrado em Língua, Literatura e Cultura Inglesas
+Mestrado em Linguística Portuguesa e Comparada
+Mestrado em Marketing e Gestão Estratégica
+Mestrado em Matemática e Computação
+Mestrado em Media Interactivos
+Mestrado em Mediação Cultural e Literária
+Mestrado em Micro e Nano Tecnologias
+Mestrado em Negócios Internacionais
+Mestrado em Optometria Avançada
+Mestrado em Ordenamento e Valorização de Recursos Geológicos
+Mestrado em Património e Turismo Cultural
+Mestrado em Património Geológico e Geoconservação
+Mestrado em Português Língua Não Materna (PLNM) - Português Língua Estrangeira (PLE) e Língua Segunda (PL2)
+Mestrado em Propriedades e Tecnologia de Polímeros
+Mestrado em Química Medicinal
+Mestrado em Química Têxtil
+Mestrado em Relações Internacionais
+Mestrado em Serviços de Informação
+Mestrado em Sistemas de Informação
+Mestrado em Sociologia
+Mestrado em Técnicas de Caracterização e Análise Química
+Mestrado em Tecnologia e Arte Digital
+Mestrado em Teoria da Literatura
+Mestrado em Têxteis Avançados
+Mestrado em Tradução e Comunicação Multilingue
+Mestrado Europeu em Análise Estrutural de Monumentos e Construções Históricas
+Mestrado Europeu em Reologia Aplicada à Engenharia
+Doutoramento em Arqueologia
+Doutoramento em Arquitectura
+Doutoramento em Bioengenharia
+Doutoramento em Biologia de Plantas
+Doutoramento em Biologia Molecular e Ambiental
+Doutoramento em Ciência e Engenharia de Polímeros e Compósitos
+Doutoramento em Ciência Política e Relações Internacionais
+Doutoramento em Ciências
+Doutoramento em Ciências da Administração
+Doutoramento em Ciências da Comunicação
+Doutoramento em Ciências da Cultura
+Doutoramento em Ciências da Educação
+Doutoramento em Ciências da Linguagem
+Doutoramento em Ciências da Literatura
+Doutoramento em Ciências da Saúde
+Doutoramento em Ciências Empresariais
+Doutoramento em Ciências Jurídicas
+Doutoramento em Contabilidade
+Doutoramento em Economia
+Doutoramento em Engenharia Biomédica
+Doutoramento em Engenharia Civil
+Doutoramento em Engenharia de Materiais
+Doutoramento em Engenharia de Tecidos, Medicina Regenerativa e Células Estaminais
+Doutoramento em Engenharia Electrónica e de Computadores
+Doutoramento em Engenharia Industrial e de Sistemas
+Doutoramento em Engenharia Mecânica
+Doutoramento em Engenharia Química e Biológica
+Doutoramento em Engenharia Têxtil
+Doutoramento em Estudos Culturais
+Doutoramento em Estudos da Criança
+Doutoramento em Filosofia
+Doutoramento em Física
+Doutoramento em Geografia
+Doutoramento em História
+Doutoramento em Líderes para as Indústrias Tecnológicas
+Doutoramento em Marketing e Estratégia
+Doutoramento em Matemática e Aplicações
+Doutoramento em Medicina
+Doutoramento em Psicologia
+Doutoramento em Psicologia Aplicada
+Doutoramento em Psicologia Básica
+Doutoramento em Sociologia
+Doutoramento em Tecnologia e Sistemas de Informação
+Programa Doutoral em Química

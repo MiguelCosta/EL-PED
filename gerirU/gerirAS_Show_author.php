@@ -72,6 +72,25 @@ if (!isset($_SESSION['username']) || !$_SESSION['username'] || ((isset($_SESSION
                                                 </a>
                                             </td>
                                         </tr>
+                                        <tr>
+                                            <th>Curso</th>
+                                            <td>
+                                                <?php
+                                                $course = $row['coursecode'];
+                                                $sql2 = "SELECT coursedescription FROM Course WHERE coursecode=$course";
+                                                $res2 = mysql_query($sql2, $con);
+                                                $course_name = "";
+                                                while ($reg2 = mysql_fetch_array($res2)) {
+                                                    $course_name = $reg2["coursedescription"];
+                                                }
+                                                echo "<a href=\"gerirCourse_Show.php?id=$course\" >";
+                                                echo $course_name;
+                                                echo "</a>";
+                                                ?>
+                                            </td>
+                                        </tr>
+
+
                                     </table>
                                     <?php
                                 } // fecha o ciclo while para ir buscar a informação do author

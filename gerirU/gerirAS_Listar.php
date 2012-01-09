@@ -33,9 +33,9 @@ if (!isset($_SESSION['username']) || !$_SESSION['username'] || ((isset($_SESSION
                         if (!$con) {
                             echo "<h3>Erro ao ligar ao servidor.</h3><br/>" . mysql_error();
                         } else {
-                            $sql = "SELECT authorcode, name, id,email,url FROM Author";
+                            $sql = "SELECT authorcode, name, id,email,url, coursecode FROM Author";
                             $res = mysql_query($sql, $con);
-                            author_to_table("Authors", $res);
+                            author_to_table("Authors", $res, $con);
 
                             $sql = "SELECT supcode, name, email,url, affil FROM Supervisor";
                             $res = mysql_query($sql, $con);
@@ -65,7 +65,7 @@ if (!isset($_SESSION['username']) || !$_SESSION['username'] || ((isset($_SESSION
  * @param type $titulo
  * @param type $res 
  */
-function author_to_table($titulo, $res) {
+function author_to_table($titulo, $res, $con) {
     echo "<h3 class=\"user\">" . $titulo . "</h3>";
     echo "<div id=\"containt_main_users_column_label\">";
     echo "<table class=\"user\">";
@@ -75,6 +75,7 @@ function author_to_table($titulo, $res) {
     echo "<th class=\"user\">ID</th>";
     echo "<th class=\"user\">Email</th>";
     echo "<th class=\"user\">URL</th>";
+    echo "<th class=\"user\">Course</th>";
     echo "</tr>";
 
     while ($reg = mysql_fetch_array($res)) {
@@ -85,6 +86,20 @@ function author_to_table($titulo, $res) {
         echo "<td class=\"user\">" . $reg["id"] . "</td>";
         echo "<td class=\"user\">" . $reg["email"] . "</td>";
         echo "<td class=\"user\"><a href=\"" . $reg["url"] . "\" target=\"_blank\">" . $reg["url"] . "</a></td>";
+        
+        $course = $reg["coursecode"];
+        /*
+        $sql2 = "SELECT coursedescription FROM Course WHERE coursecode=$course";
+        $res2 = mysql_query($sql2, $con);
+        $course_name = "";
+        while ($reg2 = mysql_fetch_array($res2)){
+            $course_name = $reg2["coursedescription"];
+        }
+        */
+        echo "<td class=\"user\">
+                <a href=\"gerirCourse_Show.php?id=$course\" >" . 
+                $course . 
+                "</a></td>";
         echo "</tr>";
     }
     echo "</table>";

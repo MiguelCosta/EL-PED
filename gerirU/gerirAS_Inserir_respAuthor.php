@@ -36,6 +36,7 @@ if (!isset($_SESSION['username']) || !$_SESSION['username'] || ((isset($_SESSION
                             $id = $_REQUEST["a_id"];
                             $email = $_REQUEST["a_email"];
                             $url = $_REQUEST["a_url"];
+                            $course = $_REQUEST["a_course"];
 
                             if ($name == null) {
                                 $msg_erro .= "Campo Name incorrecto!<br/>";
@@ -50,7 +51,14 @@ if (!isset($_SESSION['username']) || !$_SESSION['username'] || ((isset($_SESSION
                             if ($msg_erro != "") {
                                 echo $msg_erro;
                             } else {
-                                $sql = "INSERT INTO `PED`.`Author` VALUES (NULL, '$name', '$id', '$email', '$url')";
+                                $sql = "SELECT coursecode From Course WHERE coursedescription='$course'";
+                                $res = mysql_query($sql, $con) or die(mysql_error());
+                                $course_id = 0;
+                                while($reg = mysql_fetch_array($res)){
+                                    $course_id = $reg["coursecode"];
+                                }
+                                
+                                $sql = "INSERT INTO `PED`.`Author` VALUES (NULL, '$name', '$id', '$email', '$url', $course_id)";
                                 mysql_query($sql, $con) or die(mysql_error());
                                 echo "Author inserido com sucesso!";
                             }

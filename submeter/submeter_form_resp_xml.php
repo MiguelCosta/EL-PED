@@ -46,7 +46,7 @@ if (!isset($_SESSION['username']) || !$_SESSION['username'] || ((isset($_SESSION
                     $subtitle = utf8_decode($xml->meta->subtitle);
                     $bdate = utf8_decode($xml->meta->bdate);
                     $edate = utf8_decode($xml->meta->edate);
-                    $abstract = utf8_decode($xml->abstract);
+                    $abstract = utf8_decode($xml->abstract->asXML());
                     $supervisores_emails;                               // array com os emails dos supervisors
                     $authors_emails;                                    // array com os ids dos authors
                     $deliverables = array();                            // array associativo dos ficheiros

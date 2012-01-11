@@ -206,17 +206,20 @@ if (!isset($_SESSION['username']) || !$_SESSION['username'] || ((isset($_SESSION
                             //este é o que vai ficar na base de dados
                             $local_projeto_bd = "$ano/$mes/$dia/$md5_xml/";
 
-                            // verifica se apasta já existe ou não
+                            // verifica se a pasta já existe ou não
                             if (!is_dir($local_projeto)) {
                                 if (!mkdir($local_projeto, 0777, true)) {
                                     die("Ocoreu um erro ao criar a pasta $local_projeto");
+                                    return;
                                 }
                             }
 
+                            // move os ficheiros que estavam na pasta deliverables para o local correcto
+                            // key é o path, $value é o nome
                             foreach ($deliverables as $key => $value) {
                                 $f1 = "../uploads/deliverables/$key";
                                 $f2 = "$local_projeto" . "$key";
-                                rename($f1, $f2);               // isto faz um move
+                                rename($f1, $f2);               // isto faz um move do ficheiro
                             }
 
                             // move o ficheiro xml também para a pasta

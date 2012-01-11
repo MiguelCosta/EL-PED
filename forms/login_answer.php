@@ -22,7 +22,9 @@ if ($numRows != 0) {
         $_SESSION['username'] = $dbusername;
         $_SESSION['type'] = $dbtype;
 
-        //echo $_SESSION['username'] , " AND " , $_SESSION['type'] ;
+        $sql = "INSERT INTO Access(username, datahora) VALUES ('" . $dbusername . "', NOW())";
+        //echo $sql;
+        mysql_query($sql) or die('Erro:' . mysql_error());
     }
     else
         echo "<script type=\"text/javascript\">alert(\"Password incorrecta!\");</script>";

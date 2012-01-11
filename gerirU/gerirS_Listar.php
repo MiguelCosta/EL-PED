@@ -93,7 +93,7 @@ function submission_to_table($titulo, $res) {
         }
         echo "<td class=\"user\">" . $autores . "</td>";
 
-        
+
         $sql = "SELECT supcode FROM ProjSup WHERE projcode='$id'";
         $result = mysql_query($sql);
         $supervisores = "";
@@ -102,7 +102,7 @@ function submission_to_table($titulo, $res) {
             $supervisores .= $rows['supcode'];
             $supervisores .= "</a>, ";
         }
-        echo "<td class=\"user\">" . $supervisores. "</td>";
+        echo "<td class=\"user\">" . $supervisores . "</td>";
 
         echo "</tr>";
     }

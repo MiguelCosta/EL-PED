@@ -37,6 +37,9 @@ if (!isset($_SESSION['username']) || !$_SESSION['username'] || ((isset($_SESSION
 
                             // authorcode passado como método get
                             $authorcode = $_GET["authorcode"];
+							
+							$sql = "INSERT INTO Queries VALUES (NULL,'" . $_SESSION['username'] . "',NULL," . $authorcode . ",NULL, NOW())";
+							mysql_query($sql) or die(mysql_error());
 
                             $sql = "SELECT * FROM Author WHERE authorcode='$authorcode';";
                             $res = mysql_query($sql, $con);

@@ -26,16 +26,16 @@ if (!isset($_SESSION['username']) || !$_SESSION['username'] || ((isset($_SESSION
             <div id="content">
                 <div id="content_top"></div>
                 <div id="content_main">
-                    <h2>Detalhes do Curso <?php echo $_REQUEST['id'];?></h2>
+                    <h2>Detalhes do Curso <?php echo $_REQUEST['id']; ?></h2>
                     <br/>
                     <br/>
                     <div id="containt_main_users">
                         <?php
                         if (!$con) {
                             echo "<h3>Erro ao ligar ao servidor.</h3><br/>" . mysql_error();
-                        } else {                            
+                        } else {
                             $coursecode = $_REQUEST['id'];
-                            
+
                             echo "falta listar todas as pessaos de cada curso! e colocar algumas estatiscas ou assim";
                             echo "<br/>";
                             echo "ID: $coursecode";

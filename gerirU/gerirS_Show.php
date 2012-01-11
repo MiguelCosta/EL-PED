@@ -26,16 +26,18 @@ if (!isset($_SESSION['username']) || !$_SESSION['username'] || ((isset($_SESSION
             <div id="content">
                 <div id="content_top"></div>
                 <div id="content_main">
-                    <h2>Detalhes do Projeto <?php echo $_REQUEST['projcode'];?></h2>
+                    <h2>Detalhes do Projeto <?php echo $_REQUEST['projcode']; ?></h2>
                     <br/>
                     <br/>
                     <div id="containt_main_users">
                         <?php
                         if (!$con) {
                             echo "<h3>Erro ao ligar ao servidor.</h3><br/>" . mysql_error();
-                        } else {                            
+                        } else {
+                            $sql = "INSERT INTO Queries VALUES (NULL,'" . $_SESSION['username'] . "'," . $_REQUEST['projcode'] . ", NULL, NULL, NOW())";
+                            mysql_query($sql) or die(mysql_error());
+
                             require_once('forms/showProject.php');
-                            
                         }
                         ?>
                     </div>

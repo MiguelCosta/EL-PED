@@ -38,6 +38,9 @@ if (!isset($_SESSION['username']) || !$_SESSION['username'] || ((isset($_SESSION
                             // authorcode passado como método get
                             $supcode = $_GET["supcode"];
 
+                            $sql = "INSERT INTO Queries VALUES (NULL,'" . $_SESSION['username'] . "', NULL, NULL," . $supcode . ", NOW())";
+                            mysql_query($sql) or die(mysql_error());
+
                             $sql = "SELECT * FROM Supervisor WHERE supcode='$supcode';";
                             $res = mysql_query($sql, $con);
 

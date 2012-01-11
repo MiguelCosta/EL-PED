@@ -110,7 +110,7 @@ if (!isset($_SESSION['username']) || !$_SESSION['username'] || ((isset($_SESSION
 
                     $lig = $link;
 
-                    inserir_xml_base_dados($lig, $keyname, $title, $subtitle, $bdate, $edate, $abstract, $supervisores_emails, $authors_emails, $deliverables);
+                    inserir_xml_base_dados($lig, $keyname, $title, $subtitle, $bdate, $edate, $abstract, $supervisores_emails, $authors_emails, $deliverables, $xml_path);
 
                     /**
                      * Função que insere toda a informação retirada do xml na Base de Dados
@@ -123,8 +123,9 @@ if (!isset($_SESSION['username']) || !$_SESSION['username'] || ((isset($_SESSION
                      * @param type $supervisores_emails array de emails dos supervisores
                      * @param type $authors_emails      array de emails dos autores
                      * @param type $deliverables        array associativo path => description
+                     * @param type $xml_path
                      */
-                    function inserir_xml_base_dados($link, $keyname, $title, $subtitle, $bdate, $edate, $abstract, $supervisores_emails, $authors_emails, $deliverables) {
+                    function inserir_xml_base_dados($link, $keyname, $title, $subtitle, $bdate, $edate, $abstract, $supervisores_emails, $authors_emails, $deliverables, $xml_path) {
                         if (!$link) {
                             printf("Can't connect to localhost. Error: %s\n", mysqli_connect_error());
                             exit();
@@ -134,7 +135,7 @@ if (!isset($_SESSION['username']) || !$_SESSION['username'] || ((isset($_SESSION
                             // altera o autocommit das queries
                             mysqli_autocommit($link, FALSE);
 
-                            // verifica se já existe um project record praticamente igual
+                            // verifica se já existe um project record praticamente igual $keyname
                             $sql = "SELECT projcode FROM Project WHERE keyname='$keyname' AND title='$title' AND subtitle='$subtitle' AND abstract='$abstract'";
                             $result = mysqli_query($link, $sql);
 
@@ -194,12 +195,39 @@ if (!isset($_SESSION['username']) || !$_SESSION['username'] || ((isset($_SESSION
                                 $result = mysqli_query($link, $sql);
                             }
 
+                            /* _________________________________________________________ */
+                            /*                       FICHEIROS                           */
+                            // mover os ficheiros de sítio
+                            $ano = date("Y");
+                            $mes = date("m");
+                            $dia = date("d");
+                            $md5_xml = trim(md5_file($xml_path));
+                            $local_projeto = "../uploads/$ano/$mes/$dia/$md5_xml/";
+                            //este é o que vai ficar na base de dados
+                            $local_projeto_bd = "$ano/$mes/$dia/$md5_xml/";
+
+                            // verifica se apasta já existe ou não
+                            if (!is_dir($local_projeto)) {
+                                if (!mkdir($local_projeto, 0777, true)) {
+                                    die("Ocoreu um erro ao criar a pasta $local_projeto");
+                                }
+                            }
+
+                            foreach ($deliverables as $key => $value) {
+                                $f1 = "../uploads/deliverables/$key";
+                                $f2 = "$local_projeto" . "$key";
+                                rename($f1, $f2);               // isto faz um move
+                            }
+
+                            // move o ficheiro xml também para a pasta
+                            rename($xml_path, $local_projeto . "pr.xml");
+
                             /**
                              * pega no array associativo dos deliverables path => description 
                              * e insere na tabela Deliverable com o $new_projcode
                              */
                             foreach ($deliverables as $key => $value) {
-                                $sql = "INSERT INTO `PED`.`Deliverable` VALUES (NULL , '$value', '$key', '$new_projcode');";
+                                $sql = "INSERT INTO `PED`.`Deliverable` VALUES (NULL , '$value', '$local_projeto_bd$key', '$new_projcode');";
                                 $result = mysqli_query($link, $sql);
                             }
 

@@ -193,7 +193,7 @@ if (!$con) {
                         while ($rows4 = mysql_fetch_array($result4)) {
                             ?>
                             <li>
-                                <a href="getFile.php?file=../uploads/deliverables/<? echo $rows4['path'] ?>" target="_blank">
+                                <a href="getFile.php?file=../uploads/<? echo $rows4['path'] ?>" target="_blank">
                                     <? echo $rows4['description'] ?>
                                 </a>
                             </li>

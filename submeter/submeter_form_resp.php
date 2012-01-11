@@ -262,7 +262,7 @@ if (!isset($_SESSION['username']) || !$_SESSION['username'] || ((isset($_SESSION
                                 $tmp_name = $_FILES[$file]["tmp_name"];                     // path temporário do ficheiro submetido
 
                                 $nome = $_FILES[$file]["name"];                             // nome do ficheiro
-                                $pattern = "/\.[a-zA-Z]{3,4}$/";                            // expressão regular para apanhar a extensão
+                                $pattern = "/\.[a-zA-Z]{0,4}$/";                            // expressão regular para apanhar a extensão
                                 $extensao = "";                                             // variável onde vai ficar o resultado da expressão regular
                                 preg_match($pattern, $nome, $extensao_array);               // faz o match da expressão regular com o nome do ficheiro
                                 //echo "<br/>Extensoes: $extensao_array[0]<br/>";

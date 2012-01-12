@@ -37,11 +37,12 @@ if (!isset($_SESSION['username']) || !$_SESSION['username'] || ((isset($_SESSION
 
                             // authorcode passado como método get
                             $supcode = $_GET["supcode"];
+                            $page_p = $_GET["page_p"];
 
                             $sql = "INSERT INTO Queries VALUES (NULL,'" . $_SESSION['username'] . "', NULL, NULL," . $supcode . ", NOW())";
                             mysql_query($sql) or die(mysql_error());
 
-                            $sql = "SELECT * FROM Supervisor WHERE supcode='$supcode';";
+                            $sql = "SELECT * FROM Supervisor WHERE supcode='$supcode'";
                             $res = mysql_query($sql, $con);
 
                             // tabela que vai conter a informação básica o author
@@ -83,7 +84,9 @@ if (!isset($_SESSION['username']) || !$_SESSION['username'] || ((isset($_SESSION
 
                                 <h3>Projetos em que é Supervisor</h3>
                                 <?php
-                                $sql = "SELECT projcode FROM ProjSup WHERE supcode='$supcode'";
+                                $v_p_max = $page_p * 10;
+                                $v_p_min = $v_p_max - 10;
+                                $sql = "SELECT projcode FROM ProjSup WHERE supcode='$supcode' LIMIT $v_p_min, $v_p_max";
                                 $res = mysql_query($sql, $con);
                                 ?>
 
@@ -112,7 +115,23 @@ if (!isset($_SESSION['username']) || !$_SESSION['username'] || ((isset($_SESSION
                                     }
                                     ?>
                                 </table>
-
+                                <?php
+                                $page_menos = 1;
+                                $page_mais = $page_p + 1;
+                                if($page_p > 1){
+                                    $page_menos = $page_p -1;
+                                }else {
+                                    $page_menos = 1;
+                                }
+                                    $link_menos = "gerirAS_Show_supervisor.php?supcode=$supcode&page_p=$page_menos";
+                                    $link_mais = "gerirAS_Show_supervisor.php?supcode=$supcode&page_p=$page_mais";
+                                ?>
+                                <a href="<?php echo $link_menos; ?>">
+                                    Menos
+                                </a> 
+                                <a href="<?php echo $link_mais; ?>">
+                                    Mais
+                                </a>
 
                                 <h3>Supervisor dos Authors</h3>
                                 <?php

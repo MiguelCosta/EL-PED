@@ -129,7 +129,7 @@ if (!isset($_SESSION['username']) || !$_SESSION['username'] || ((isset($_SESSION
                                 <a href="<?php echo $link_menos; ?>">
                                     Menos
                                 </a> 
-                                <a href="<?php echo $link_mais; ?>">
+                                <a href="<?php echo $link_mais; ?>" style="float: right;">
                                     Mais
                                 </a>
 

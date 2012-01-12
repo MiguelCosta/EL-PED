@@ -186,7 +186,7 @@ if (!isset($_SESSION['username']) || !$_SESSION['username'] || ((isset($_SESSION
                                     while ($row = mysql_fetch_array($res)) {
                                         $id = $row['supcode'];
                                         echo "<tr>";
-                                        echo "<td><a href=\"gerirAS_Show_supervisor.php?supcode=$id\">" . $id . "</a></td>";
+                                        echo "<td><a href=\"gerirAS_Show_supervisor.php?supcode=$id&page_p=1\">" . $id . "</a></td>";
                                         echo "<td>" . $row['name'] . "</td>";
                                         echo "<td>" . $row['email'] . "</td>";
                                         echo "<td>" . $row['url'] . "</td>";

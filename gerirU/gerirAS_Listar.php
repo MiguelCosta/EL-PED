@@ -121,7 +121,7 @@ function supervisor_to_table($titulo, $res) {
     while ($reg = mysql_fetch_array($res)) {
         $id = $reg["supcode"];
         echo "<tr class=\"user\">";
-        echo "<td class=\"user\"><a href=\"gerirAS_Show_supervisor.php?supcode=$id\">" . $reg["name"] . "</a></td>";
+        echo "<td class=\"user\"><a href=\"gerirAS_Show_supervisor.php?supcode=$id&page_p=1\">" . $reg["name"] . "</a></td>";
         //echo "<td class=\"user\">" . $reg["name"] . "</td>";
         echo "<td class=\"user\">" . $reg["email"] . "</td>";
         echo "<td class=\"user\"><a href=\"" . $reg["url"] . "\" target=\"_blank\">" . $reg["url"] . "</a></td>";

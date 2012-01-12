@@ -98,7 +98,7 @@ function submission_to_table($titulo, $res) {
         $result = mysql_query($sql);
         $supervisores = "";
         while ($rows = mysql_fetch_array($result)) {
-            $supervisores .= "<a href=\"gerirAS_Show_supervisor.php?supcode=" . $rows['supcode'] . "\" >";
+            $supervisores .= "<a href=\"gerirAS_Show_supervisor.php?supcode=" . $rows['supcode'] . "&page_p=1\" >";
             $supervisores .= $rows['supcode'];
             $supervisores .= "</a>, ";
         }

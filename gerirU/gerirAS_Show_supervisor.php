@@ -115,24 +115,46 @@ if (!isset($_SESSION['username']) || !$_SESSION['username'] || ((isset($_SESSION
                                     }
                                     ?>
                                 </table>
-                                <?php
-                                $page_menos = 1;
-                                $page_mais = $page_p + 1;
-                                if($page_p > 1){
-                                    $page_menos = $page_p -1;
-                                }else {
+                                <div id="page">
+                                    <?php
                                     $page_menos = 1;
-                                }
+                                    $page_mais = $page_p + 1;
+                                    if ($page_p > 1) {
+                                        $page_menos = $page_p - 1;
+                                    } else {
+                                        $page_menos = 1;
+                                    }
                                     $link_menos = "gerirAS_Show_supervisor.php?supcode=$supcode&page_p=$page_menos";
                                     $link_mais = "gerirAS_Show_supervisor.php?supcode=$supcode&page_p=$page_mais";
-                                ?>
-                                <a href="<?php echo $link_menos; ?>">
-                                    Menos
-                                </a> 
-                                <a href="<?php echo $link_mais; ?>" style="float: right;">
-                                    Mais
-                                </a>
+                                    ?>
+                                    <?php
+                                    if ($page_p > 1) {
+                                        ?>
+                                        <a href="<?php echo $link_menos; ?>">
+                                            <div id="page_less">
+                                            </div>
+                                        </a> 
+                                        <?php
+                                    }
+                                    $sql = "SELECT COUNT(projcode) AS total FROM ProjSup WHERE supcode='$supcode'";
+                                    $res = mysql_query($sql, $con);
+                                    $total = 0;
+                                    while ($row = mysql_fetch_array($res)) {
+                                        $total = $row["total"];
+                                    }
 
+                                    if ($page_p * 10 < $total) {
+                                        ?>
+
+                                        <a href="<?php echo $link_mais; ?>">
+                                            <div id="page_more">
+                                            </div>
+                                        </a>
+
+                                        <?php
+                                    }
+                                    ?>
+                                </div>
                                 <h3>Supervisor dos Authors</h3>
                                 <?php
                                 // este select dá toda a informação dos autores que fizeram

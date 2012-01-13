@@ -815,6 +815,32 @@ textarea#abstract:b
 
 /*******************************************************************************/
 
+/***********************  Paginação    ***************************/
+
+#page
+{
+    width: 100%;
+    height: 32px;
+}
+
+#page_more
+{
+    float: right;
+    background-image: url(images/page_more.png);
+    background-repeat: no-repeat;
+    height: 30px;
+    padding-right: 30px;
+}
+
+#page_less
+{
+    background-image: url(images/page_less.png);
+    background-repeat: no-repeat;
+    height: 30px;
+}
+
+/*******************************************************************************/
+
 #menu ul {
     list-style: none;
     padding: 0px;

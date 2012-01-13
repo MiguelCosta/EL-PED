@@ -1,6 +1,6 @@
 <?php
 session_start();
-if (!isset($_SESSION['username']) || !$_SESSION['username']) {
+if (!isset($_SESSION['username']) || !$_SESSION['username'] || ((isset($_SESSION['username']) && isset($_SESSION['type']) && $_SESSION['type'] != 'a'))) {
     header("Location: ../home.php");
 }
 ?>
@@ -8,7 +8,7 @@ if (!isset($_SESSION['username']) || !$_SESSION['username']) {
 <!DOCTYPE html>
 <html>
     <head>
-        <title>Estatísticas - RepositórioPED</title>
+        <title>Logs - RepositórioPED</title>
         <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-15">
         <link rel="stylesheet" type="text/css" href="../css/style.css" />
     </head>
@@ -24,8 +24,18 @@ if (!isset($_SESSION['username']) || !$_SESSION['username']) {
             <div id="content">
                 <div id="content_top"></div>
                 <div id="content_main">
-                    <h2>Estatísticas</h2>
+                    <h2>Logs</h2>
                     <br/>
+                    <br/>
+                    <div id="containt_main_users">
+                        <?php
+                        //include '../ini.php';
+                        //$str = log_list(4, 4);				 
+                        //echo $str;
+                        //echo log_count();
+                        require_once('apaging.htm');
+                        ?>  
+                    </div>
                     <br/>
                 </div>
                 <div id="content_bottom"></div>

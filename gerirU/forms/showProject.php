@@ -105,7 +105,7 @@ if (!$con) {
                         while ($rows2 = mysql_fetch_array($result2)) {
                             ?>
                             <tr class="user">
-                                <td class="user"><a href="gerirAS_Show_supervisor.php?supcode=<? echo $rows2['supcode']; ?>"><? echo $rows2['supcode']; ?></a></td>
+                                <td class="user"><a href="gerirAS_Show_supervisor.php?supcode=<? echo $rows2['supcode']; ?>&page_p=1"><? echo $rows2['supcode']; ?></a></td>
                                 <td class="user"><? echo $rows2['name']; ?></td>
                                 <td class="user"><? echo $rows2['email']; ?></td>
                                 <td class="user"><? echo $rows2['url']; ?></td>

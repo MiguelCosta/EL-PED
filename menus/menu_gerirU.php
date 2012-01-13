@@ -10,8 +10,11 @@
         if (isset($_SESSION['username']) && $_SESSION['username'] && $_SESSION['type'] != 'p') {
             echo "<li class=\"menuitem\"><a href=\"gerir.php\">Gerir</a></li>";
         }
-		if (isset($_SESSION['username']) && $_SESSION['username']) {
+        if (isset($_SESSION['username']) && $_SESSION['username']) {
             echo "<li class=\"menuitem\"><a href=\"../estatisticas/estatisticas.php\">Estatísticas</a></li>";
+        }
+        if (isset($_SESSION['username']) && $_SESSION['username'] && $_SESSION['type'] == 'a') {
+            echo "<li class=\"menuitem\"><a href=\"../logs/logs.php\">Logs</a></li>";
         }
         ?>
         <li class="menuitem"><a href="#">Acerca</a></li>

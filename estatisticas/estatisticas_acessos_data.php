@@ -5,6 +5,10 @@ if (!isset($_SESSION['username']) || !$_SESSION['username']) {
 }
 ?>
 
+
+
+
+
 <!DOCTYPE html>
 <html>
     <head>
@@ -13,6 +17,61 @@ if (!isset($_SESSION['username']) || !$_SESSION['username']) {
         <link rel="stylesheet" type="text/css" href="../css/style.css" />
         <SCRIPT LANGUAGE="Javascript" SRC="../FusionCharts/FusionCharts.js"></SCRIPT>
     </head>
+
+    <script type="text/javascript">
+    
+        function autoForm()
+        {
+            NameChanger();
+        }
+
+        window.onload = autoForm;
+        
+        function radioCheck(){ 
+            var i 
+            for (i=0;i<document.tipos.tipo.length;i++){ 
+                if (document.tipos.tipo[i].checked){
+                    var c = document.tipos.tipo[i].value;
+                    break; 
+                }
+            } 
+            return c;
+        } 
+    
+        function NameChanger()
+        {
+            if(document.tipos.ano.checked == true) {
+                var a = document.getElementById('ano_graph');
+                a.style.visibility = "visible";
+            
+                var div_a = document.getElementById('ano_graph_d')
+                div_a.style.zIndex="2";
+            
+                var s = document.getElementById('mes_graph');
+                s.style.visibility = "hidden";
+            
+                var div_s = document.getElementById('mes_graph_d')
+                div_s.style.zIndex="1";
+            
+            }
+            if(document.tipos.mes.checked == true) {
+                //window.alert("supervisor");
+                var a = document.getElementById('ano_graph');
+                a.style.visibility = "hidden";
+                var div_a = document.getElementById('ano_graph_d')
+                div_a.style.zIndex="1";
+            
+                var s = document.getElementById('mes_graph');
+                s.style.visibility = "visible";
+            
+                var div_s = document.getElementById('mes_graph_d')
+                div_s.style.zIndex="2";
+            }
+            movieplay();
+            return true;
+        }
+    </script>
+
     <body>
         <div id="container">
             <?php
@@ -35,6 +94,14 @@ if (!isset($_SESSION['username']) || !$_SESSION['username']) {
                         if (!$con) {
                             echo "<h3>Erro ao ligar ao servidor.</h3><br/>" . mysql_error();
                         } else {
+                            ?>
+                            <form id="formInsertAS_Type" name="tipos" method="post">
+                                <input id="ano" type="radio" name="tipo" value="ano" CHECKED onclick="NameChanger()"/> Ano
+                                <input id="mes" type="radio" name="tipo" value="mes" onclick="NameChanger()"/> Mes
+                            </form>
+
+
+                            <?php
                             $sql = "SELECT accesses FROM ViewNumAccessTotal";
                             $result = mysql_query($sql) or die(mysql_error());
 
@@ -44,11 +111,26 @@ if (!isset($_SESSION['username']) || !$_SESSION['username']) {
                                 mysql_free_result($result);
                             }
                             echo "<h4>Total de acessos: " . $acc . "</h4>";
-
-                            $strDataURL = "acessos_anuais_chart.php";
-                            echo renderChart("../FusionCharts/FCF_Line.swf", $strDataURL, "", "AcessosAnuais", 650, 450);
-                            $strDataURL = "acessos_mensais_chart.php";
-                            echo renderChart("../FusionCharts/FCF_Line.swf", $strDataURL, "", "AcessosMensais", 650, 450);
+                            ?>
+                            <div id="data_graph">
+                                <div id="ano_graph_d">
+                                    <form id="ano_graph" name="ano_graph">
+                                        <?php
+                                        $strDataURL = "acessos_anuais_chart.php";
+                                        echo renderChart("../FusionCharts/FCF_Line.swf", $strDataURL, "", "AcessosAnuais", 650, 450);
+                                        ?>
+                                    </form>
+                                </div>
+                                <div id="mes_graph_d">
+                                    <form id="mes_grph" name="mes_graph">
+                                        <?php
+                                        $strDataURL = "acessos_mensais_chart.php";
+                                        echo renderChart("../FusionCharts/FCF_Line.swf", $strDataURL, "", "AcessosMensais", 650, 450);
+                                        ?>
+                                    </form>
+                                </div>
+                            </div>
+                            <?php
                         }
                         ?>
                     </div>

@@ -2,10 +2,10 @@
 -- version 3.4.5
 -- http://www.phpmyadmin.net
 --
--- Servidor: localhost
--- Tempo de Geração: 14/01/2012 às 16h20min
--- Versão do Servidor: 5.5.16
--- Versão do PHP: 5.3.8
+-- Host: localhost
+-- Generation Time: Jan 14, 2012 at 04:35 PM
+-- Server version: 5.5.16
+-- PHP Version: 5.3.8
 
 SET SQL_MODE="NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
@@ -17,13 +17,13 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8 */;
 
 --
--- Banco de Dados: `PED`
+-- Database: `PED`
 --
 
 -- --------------------------------------------------------
 
 --
--- Estrutura da tabela `Access`
+-- Table structure for table `Access`
 --
 
 CREATE TABLE IF NOT EXISTS `Access` (
@@ -33,7 +33,13 @@ CREATE TABLE IF NOT EXISTS `Access` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Extraindo dados da tabela `Access`
+-- RELATIONS FOR TABLE `Access`:
+--   `username`
+--       `Users` -> `username`
+--
+
+--
+-- Dumping data for table `Access`
 --
 
 INSERT INTO `Access` (`username`, `datahora`) VALUES
@@ -57,7 +63,7 @@ INSERT INTO `Access` (`username`, `datahora`) VALUES
 -- --------------------------------------------------------
 
 --
--- Estrutura da tabela `Author`
+-- Table structure for table `Author`
 --
 
 CREATE TABLE IF NOT EXISTS `Author` (
@@ -72,7 +78,13 @@ CREATE TABLE IF NOT EXISTS `Author` (
 ) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=9 ;
 
 --
--- Extraindo dados da tabela `Author`
+-- RELATIONS FOR TABLE `Author`:
+--   `coursecode`
+--       `Course` -> `coursecode`
+--
+
+--
+-- Dumping data for table `Author`
 --
 
 INSERT INTO `Author` (`authorcode`, `name`, `id`, `email`, `url`, `coursecode`) VALUES
@@ -86,7 +98,7 @@ INSERT INTO `Author` (`authorcode`, `name`, `id`, `email`, `url`, `coursecode`) 
 -- --------------------------------------------------------
 
 --
--- Estrutura da tabela `Course`
+-- Table structure for table `Course`
 --
 
 CREATE TABLE IF NOT EXISTS `Course` (
@@ -96,7 +108,7 @@ CREATE TABLE IF NOT EXISTS `Course` (
 ) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=201 ;
 
 --
--- Extraindo dados da tabela `Course`
+-- Dumping data for table `Course`
 --
 
 INSERT INTO `Course` (`coursecode`, `coursedescription`) VALUES
@@ -304,7 +316,7 @@ INSERT INTO `Course` (`coursecode`, `coursedescription`) VALUES
 -- --------------------------------------------------------
 
 --
--- Estrutura da tabela `Deliverable`
+-- Table structure for table `Deliverable`
 --
 
 CREATE TABLE IF NOT EXISTS `Deliverable` (
@@ -317,7 +329,13 @@ CREATE TABLE IF NOT EXISTS `Deliverable` (
 ) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=11 ;
 
 --
--- Extraindo dados da tabela `Deliverable`
+-- RELATIONS FOR TABLE `Deliverable`:
+--   `projcode`
+--       `Project` -> `projcode`
+--
+
+--
+-- Dumping data for table `Deliverable`
 --
 
 INSERT INTO `Deliverable` (`delcode`, `description`, `path`, `projcode`) VALUES
@@ -334,7 +352,7 @@ INSERT INTO `Deliverable` (`delcode`, `description`, `path`, `projcode`) VALUES
 -- --------------------------------------------------------
 
 --
--- Estrutura da tabela `Deposits`
+-- Table structure for table `Deposits`
 --
 
 CREATE TABLE IF NOT EXISTS `Deposits` (
@@ -348,7 +366,7 @@ CREATE TABLE IF NOT EXISTS `Deposits` (
 -- --------------------------------------------------------
 
 --
--- Estrutura da tabela `Downloads`
+-- Table structure for table `Downloads`
 --
 
 CREATE TABLE IF NOT EXISTS `Downloads` (
@@ -360,7 +378,15 @@ CREATE TABLE IF NOT EXISTS `Downloads` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Extraindo dados da tabela `Downloads`
+-- RELATIONS FOR TABLE `Downloads`:
+--   `username`
+--       `Users` -> `username`
+--   `projcode`
+--       `Project` -> `projcode`
+--
+
+--
+-- Dumping data for table `Downloads`
 --
 
 INSERT INTO `Downloads` (`username`, `projcode`, `datahora`) VALUES
@@ -371,7 +397,7 @@ INSERT INTO `Downloads` (`username`, `projcode`, `datahora`) VALUES
 -- --------------------------------------------------------
 
 --
--- Estrutura da tabela `KeyWord`
+-- Table structure for table `KeyWord`
 --
 
 CREATE TABLE IF NOT EXISTS `KeyWord` (
@@ -381,7 +407,7 @@ CREATE TABLE IF NOT EXISTS `KeyWord` (
 ) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=18 ;
 
 --
--- Extraindo dados da tabela `KeyWord`
+-- Dumping data for table `KeyWord`
 --
 
 INSERT INTO `KeyWord` (`kwcode`, `keyword`) VALUES
@@ -395,7 +421,7 @@ INSERT INTO `KeyWord` (`kwcode`, `keyword`) VALUES
 -- --------------------------------------------------------
 
 --
--- Estrutura da tabela `ProjAut`
+-- Table structure for table `ProjAut`
 --
 
 CREATE TABLE IF NOT EXISTS `ProjAut` (
@@ -406,7 +432,15 @@ CREATE TABLE IF NOT EXISTS `ProjAut` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Extraindo dados da tabela `ProjAut`
+-- RELATIONS FOR TABLE `ProjAut`:
+--   `projcode`
+--       `Project` -> `projcode`
+--   `authorcode`
+--       `Author` -> `authorcode`
+--
+
+--
+-- Dumping data for table `ProjAut`
 --
 
 INSERT INTO `ProjAut` (`projcode`, `authorcode`) VALUES
@@ -451,7 +485,7 @@ INSERT INTO `ProjAut` (`projcode`, `authorcode`) VALUES
 -- --------------------------------------------------------
 
 --
--- Estrutura da tabela `Project`
+-- Table structure for table `Project`
 --
 
 CREATE TABLE IF NOT EXISTS `Project` (
@@ -470,7 +504,13 @@ CREATE TABLE IF NOT EXISTS `Project` (
 ) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=28 ;
 
 --
--- Extraindo dados da tabela `Project`
+-- RELATIONS FOR TABLE `Project`:
+--   `coursecode`
+--       `Course` -> `coursecode`
+--
+
+--
+-- Dumping data for table `Project`
 --
 
 INSERT INTO `Project` (`projcode`, `keyname`, `title`, `subtitle`, `bdate`, `edate`, `subdate`, `abstract`, `coursecode`, `path`) VALUES
@@ -504,40 +544,49 @@ INSERT INTO `Project` (`projcode`, `keyname`, `title`, `subtitle`, `bdate`, `eda
 -- --------------------------------------------------------
 
 --
--- Estrutura da tabela `ProjKW`
+-- Table structure for table `ProjKW`
 --
 
 CREATE TABLE IF NOT EXISTS `ProjKW` (
   `projcode` int(11) NOT NULL,
   `kwcode` int(11) NOT NULL,
-  PRIMARY KEY (`projcode`,`kwcode`)
+  PRIMARY KEY (`projcode`,`kwcode`),
+  KEY `kwcode` (`kwcode`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Extraindo dados da tabela `ProjKW`
+-- RELATIONS FOR TABLE `ProjKW`:
+--   `projcode`
+--       `Project` -> `projcode`
+--   `kwcode`
+--       `KeyWord` -> `kwcode`
+--
+
+--
+-- Dumping data for table `ProjKW`
 --
 
 INSERT INTO `ProjKW` (`projcode`, `kwcode`) VALUES
-(0, 14),
-(0, 15),
 (23, 12),
-(23, 13),
 (24, 12),
+(23, 13),
+(1, 14),
 (24, 14),
-(24, 15),
-(24, 16),
-(24, 17),
 (25, 14),
-(25, 15),
 (26, 14),
+(1, 15),
+(24, 15),
+(25, 15),
 (26, 15),
+(27, 15),
+(24, 16),
 (26, 16),
-(27, 15);
+(24, 17);
 
 -- --------------------------------------------------------
 
 --
--- Estrutura da tabela `ProjSup`
+-- Table structure for table `ProjSup`
 --
 
 CREATE TABLE IF NOT EXISTS `ProjSup` (
@@ -548,7 +597,15 @@ CREATE TABLE IF NOT EXISTS `ProjSup` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Extraindo dados da tabela `ProjSup`
+-- RELATIONS FOR TABLE `ProjSup`:
+--   `projcode`
+--       `Project` -> `projcode`
+--   `supcode`
+--       `Supervisor` -> `supcode`
+--
+
+--
+-- Dumping data for table `ProjSup`
 --
 
 INSERT INTO `ProjSup` (`projcode`, `supcode`) VALUES
@@ -590,7 +647,7 @@ INSERT INTO `ProjSup` (`projcode`, `supcode`) VALUES
 -- --------------------------------------------------------
 
 --
--- Estrutura da tabela `Queries`
+-- Table structure for table `Queries`
 --
 
 CREATE TABLE IF NOT EXISTS `Queries` (
@@ -608,7 +665,19 @@ CREATE TABLE IF NOT EXISTS `Queries` (
 ) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=68 ;
 
 --
--- Extraindo dados da tabela `Queries`
+-- RELATIONS FOR TABLE `Queries`:
+--   `username`
+--       `Users` -> `username`
+--   `projcode`
+--       `Project` -> `projcode`
+--   `authorcode`
+--       `Author` -> `authorcode`
+--   `supcode`
+--       `Supervisor` -> `supcode`
+--
+
+--
+-- Dumping data for table `Queries`
 --
 
 INSERT INTO `Queries` (`id`, `username`, `projcode`, `authorcode`, `supcode`, `datahora`) VALUES
@@ -682,7 +751,7 @@ INSERT INTO `Queries` (`id`, `username`, `projcode`, `authorcode`, `supcode`, `d
 -- --------------------------------------------------------
 
 --
--- Estrutura da tabela `Supervisor`
+-- Table structure for table `Supervisor`
 --
 
 CREATE TABLE IF NOT EXISTS `Supervisor` (
@@ -695,7 +764,7 @@ CREATE TABLE IF NOT EXISTS `Supervisor` (
 ) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=4 ;
 
 --
--- Extraindo dados da tabela `Supervisor`
+-- Dumping data for table `Supervisor`
 --
 
 INSERT INTO `Supervisor` (`supcode`, `name`, `email`, `url`, `affil`) VALUES
@@ -706,7 +775,7 @@ INSERT INTO `Supervisor` (`supcode`, `name`, `email`, `url`, `affil`) VALUES
 -- --------------------------------------------------------
 
 --
--- Estrutura da tabela `Users`
+-- Table structure for table `Users`
 --
 
 CREATE TABLE IF NOT EXISTS `Users` (
@@ -721,7 +790,7 @@ CREATE TABLE IF NOT EXISTS `Users` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Extraindo dados da tabela `Users`
+-- Dumping data for table `Users`
 --
 
 INSERT INTO `Users` (`name`, `username`, `password`, `email`, `affil`, `url`, `type`) VALUES
@@ -734,7 +803,7 @@ INSERT INTO `Users` (`name`, `username`, `password`, `email`, `affil`, `url`, `t
 -- --------------------------------------------------------
 
 --
--- Estrutura stand-in para visualizar `ViewNumAccessData`
+-- Stand-in structure for view `ViewNumAccessData`
 --
 CREATE TABLE IF NOT EXISTS `ViewNumAccessData` (
 `month` int(2)
@@ -744,7 +813,7 @@ CREATE TABLE IF NOT EXISTS `ViewNumAccessData` (
 -- --------------------------------------------------------
 
 --
--- Estrutura stand-in para visualizar `ViewNumAccessTotal`
+-- Stand-in structure for view `ViewNumAccessTotal`
 --
 CREATE TABLE IF NOT EXISTS `ViewNumAccessTotal` (
 `accesses` bigint(21)
@@ -752,7 +821,7 @@ CREATE TABLE IF NOT EXISTS `ViewNumAccessTotal` (
 -- --------------------------------------------------------
 
 --
--- Estrutura stand-in para visualizar `ViewNumAccessUser`
+-- Stand-in structure for view `ViewNumAccessUser`
 --
 CREATE TABLE IF NOT EXISTS `ViewNumAccessUser` (
 `username` varchar(255)
@@ -761,7 +830,7 @@ CREATE TABLE IF NOT EXISTS `ViewNumAccessUser` (
 -- --------------------------------------------------------
 
 --
--- Estrutura stand-in para visualizar `ViewNumDepositsCourse`
+-- Stand-in structure for view `ViewNumDepositsCourse`
 --
 CREATE TABLE IF NOT EXISTS `ViewNumDepositsCourse` (
 `curso` int(11)
@@ -770,7 +839,7 @@ CREATE TABLE IF NOT EXISTS `ViewNumDepositsCourse` (
 -- --------------------------------------------------------
 
 --
--- Estrutura stand-in para visualizar `ViewNumDepositsDate`
+-- Stand-in structure for view `ViewNumDepositsDate`
 --
 CREATE TABLE IF NOT EXISTS `ViewNumDepositsDate` (
 `month` int(2)
@@ -780,7 +849,7 @@ CREATE TABLE IF NOT EXISTS `ViewNumDepositsDate` (
 -- --------------------------------------------------------
 
 --
--- Estrutura stand-in para visualizar `ViewNumDepositsTotal`
+-- Stand-in structure for view `ViewNumDepositsTotal`
 --
 CREATE TABLE IF NOT EXISTS `ViewNumDepositsTotal` (
 `numProjsTotal` bigint(21)
@@ -788,7 +857,7 @@ CREATE TABLE IF NOT EXISTS `ViewNumDepositsTotal` (
 -- --------------------------------------------------------
 
 --
--- Estrutura stand-in para visualizar `ViewNumDepositsUser`
+-- Stand-in structure for view `ViewNumDepositsUser`
 --
 CREATE TABLE IF NOT EXISTS `ViewNumDepositsUser` (
 `username` varchar(255)
@@ -797,7 +866,7 @@ CREATE TABLE IF NOT EXISTS `ViewNumDepositsUser` (
 -- --------------------------------------------------------
 
 --
--- Estrutura stand-in para visualizar `ViewNumDownloadsTotal`
+-- Stand-in structure for view `ViewNumDownloadsTotal`
 --
 CREATE TABLE IF NOT EXISTS `ViewNumDownloadsTotal` (
 `numDownloads` bigint(21)
@@ -805,7 +874,7 @@ CREATE TABLE IF NOT EXISTS `ViewNumDownloadsTotal` (
 -- --------------------------------------------------------
 
 --
--- Estrutura stand-in para visualizar `ViewNumQueriesAuthorTotal`
+-- Stand-in structure for view `ViewNumQueriesAuthorTotal`
 --
 CREATE TABLE IF NOT EXISTS `ViewNumQueriesAuthorTotal` (
 `queries` bigint(21)
@@ -813,7 +882,7 @@ CREATE TABLE IF NOT EXISTS `ViewNumQueriesAuthorTotal` (
 -- --------------------------------------------------------
 
 --
--- Estrutura stand-in para visualizar `ViewNumQueriesProjTotal`
+-- Stand-in structure for view `ViewNumQueriesProjTotal`
 --
 CREATE TABLE IF NOT EXISTS `ViewNumQueriesProjTotal` (
 `queries` bigint(21)
@@ -821,7 +890,7 @@ CREATE TABLE IF NOT EXISTS `ViewNumQueriesProjTotal` (
 -- --------------------------------------------------------
 
 --
--- Estrutura stand-in para visualizar `ViewNumQueriesSupTotal`
+-- Stand-in structure for view `ViewNumQueriesSupTotal`
 --
 CREATE TABLE IF NOT EXISTS `ViewNumQueriesSupTotal` (
 `queries` bigint(21)
@@ -829,7 +898,7 @@ CREATE TABLE IF NOT EXISTS `ViewNumQueriesSupTotal` (
 -- --------------------------------------------------------
 
 --
--- Estrutura stand-in para visualizar `ViewNumSupervisedProj`
+-- Stand-in structure for view `ViewNumSupervisedProj`
 --
 CREATE TABLE IF NOT EXISTS `ViewNumSupervisedProj` (
 `supcode` int(11)
@@ -838,7 +907,7 @@ CREATE TABLE IF NOT EXISTS `ViewNumSupervisedProj` (
 -- --------------------------------------------------------
 
 --
--- Estrutura stand-in para visualizar `ViewTopDownloads`
+-- Stand-in structure for view `ViewTopDownloads`
 --
 CREATE TABLE IF NOT EXISTS `ViewTopDownloads` (
 `projcode` int(11)
@@ -847,7 +916,7 @@ CREATE TABLE IF NOT EXISTS `ViewTopDownloads` (
 -- --------------------------------------------------------
 
 --
--- Estrutura stand-in para visualizar `ViewTopQueriesAuthor`
+-- Stand-in structure for view `ViewTopQueriesAuthor`
 --
 CREATE TABLE IF NOT EXISTS `ViewTopQueriesAuthor` (
 `authorcode` int(11)
@@ -856,7 +925,7 @@ CREATE TABLE IF NOT EXISTS `ViewTopQueriesAuthor` (
 -- --------------------------------------------------------
 
 --
--- Estrutura stand-in para visualizar `ViewTopQueriesProj`
+-- Stand-in structure for view `ViewTopQueriesProj`
 --
 CREATE TABLE IF NOT EXISTS `ViewTopQueriesProj` (
 `projcode` int(11)
@@ -865,7 +934,7 @@ CREATE TABLE IF NOT EXISTS `ViewTopQueriesProj` (
 -- --------------------------------------------------------
 
 --
--- Estrutura stand-in para visualizar `ViewTopQueriesSup`
+-- Stand-in structure for view `ViewTopQueriesSup`
 --
 CREATE TABLE IF NOT EXISTS `ViewTopQueriesSup` (
 `supcode` int(11)
@@ -874,7 +943,7 @@ CREATE TABLE IF NOT EXISTS `ViewTopQueriesSup` (
 -- --------------------------------------------------------
 
 --
--- Estrutura para visualizar `ViewNumAccessData`
+-- Structure for view `ViewNumAccessData`
 --
 DROP TABLE IF EXISTS `ViewNumAccessData`;
 
@@ -883,7 +952,7 @@ CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW 
 -- --------------------------------------------------------
 
 --
--- Estrutura para visualizar `ViewNumAccessTotal`
+-- Structure for view `ViewNumAccessTotal`
 --
 DROP TABLE IF EXISTS `ViewNumAccessTotal`;
 
@@ -892,7 +961,7 @@ CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW 
 -- --------------------------------------------------------
 
 --
--- Estrutura para visualizar `ViewNumAccessUser`
+-- Structure for view `ViewNumAccessUser`
 --
 DROP TABLE IF EXISTS `ViewNumAccessUser`;
 
@@ -901,7 +970,7 @@ CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW 
 -- --------------------------------------------------------
 
 --
--- Estrutura para visualizar `ViewNumDepositsCourse`
+-- Structure for view `ViewNumDepositsCourse`
 --
 DROP TABLE IF EXISTS `ViewNumDepositsCourse`;
 
@@ -910,7 +979,7 @@ CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW 
 -- --------------------------------------------------------
 
 --
--- Estrutura para visualizar `ViewNumDepositsDate`
+-- Structure for view `ViewNumDepositsDate`
 --
 DROP TABLE IF EXISTS `ViewNumDepositsDate`;
 
@@ -919,7 +988,7 @@ CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW 
 -- --------------------------------------------------------
 
 --
--- Estrutura para visualizar `ViewNumDepositsTotal`
+-- Structure for view `ViewNumDepositsTotal`
 --
 DROP TABLE IF EXISTS `ViewNumDepositsTotal`;
 
@@ -928,7 +997,7 @@ CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW 
 -- --------------------------------------------------------
 
 --
--- Estrutura para visualizar `ViewNumDepositsUser`
+-- Structure for view `ViewNumDepositsUser`
 --
 DROP TABLE IF EXISTS `ViewNumDepositsUser`;
 
@@ -937,7 +1006,7 @@ CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW 
 -- --------------------------------------------------------
 
 --
--- Estrutura para visualizar `ViewNumDownloadsTotal`
+-- Structure for view `ViewNumDownloadsTotal`
 --
 DROP TABLE IF EXISTS `ViewNumDownloadsTotal`;
 
@@ -946,7 +1015,7 @@ CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW 
 -- --------------------------------------------------------
 
 --
--- Estrutura para visualizar `ViewNumQueriesAuthorTotal`
+-- Structure for view `ViewNumQueriesAuthorTotal`
 --
 DROP TABLE IF EXISTS `ViewNumQueriesAuthorTotal`;
 
@@ -955,7 +1024,7 @@ CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW 
 -- --------------------------------------------------------
 
 --
--- Estrutura para visualizar `ViewNumQueriesProjTotal`
+-- Structure for view `ViewNumQueriesProjTotal`
 --
 DROP TABLE IF EXISTS `ViewNumQueriesProjTotal`;
 
@@ -964,7 +1033,7 @@ CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW 
 -- --------------------------------------------------------
 
 --
--- Estrutura para visualizar `ViewNumQueriesSupTotal`
+-- Structure for view `ViewNumQueriesSupTotal`
 --
 DROP TABLE IF EXISTS `ViewNumQueriesSupTotal`;
 
@@ -973,7 +1042,7 @@ CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW 
 -- --------------------------------------------------------
 
 --
--- Estrutura para visualizar `ViewNumSupervisedProj`
+-- Structure for view `ViewNumSupervisedProj`
 --
 DROP TABLE IF EXISTS `ViewNumSupervisedProj`;
 
@@ -982,7 +1051,7 @@ CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW 
 -- --------------------------------------------------------
 
 --
--- Estrutura para visualizar `ViewTopDownloads`
+-- Structure for view `ViewTopDownloads`
 --
 DROP TABLE IF EXISTS `ViewTopDownloads`;
 
@@ -991,7 +1060,7 @@ CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW 
 -- --------------------------------------------------------
 
 --
--- Estrutura para visualizar `ViewTopQueriesAuthor`
+-- Structure for view `ViewTopQueriesAuthor`
 --
 DROP TABLE IF EXISTS `ViewTopQueriesAuthor`;
 
@@ -1000,7 +1069,7 @@ CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW 
 -- --------------------------------------------------------
 
 --
--- Estrutura para visualizar `ViewTopQueriesProj`
+-- Structure for view `ViewTopQueriesProj`
 --
 DROP TABLE IF EXISTS `ViewTopQueriesProj`;
 
@@ -1009,63 +1078,70 @@ CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW 
 -- --------------------------------------------------------
 
 --
--- Estrutura para visualizar `ViewTopQueriesSup`
+-- Structure for view `ViewTopQueriesSup`
 --
 DROP TABLE IF EXISTS `ViewTopQueriesSup`;
 
 CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `ViewTopQueriesSup` AS select `Queries`.`supcode` AS `supcode`,count(1) AS `queries` from `Queries` where (isnull(`Queries`.`projcode`) and isnull(`Queries`.`authorcode`) and (`Queries`.`supcode` is not null)) group by `Queries`.`supcode` order by count(1) limit 0,10;
 
 --
--- Restrições para as tabelas dumpadas
+-- Constraints for dumped tables
 --
 
 --
--- Restrições para a tabela `Access`
+-- Constraints for table `Access`
 --
 ALTER TABLE `Access`
   ADD CONSTRAINT `Access_ibfk_1` FOREIGN KEY (`username`) REFERENCES `Users` (`username`) ON DELETE NO ACTION ON UPDATE NO ACTION;
 
 --
--- Restrições para a tabela `Author`
+-- Constraints for table `Author`
 --
 ALTER TABLE `Author`
   ADD CONSTRAINT `Author_ibfk_1` FOREIGN KEY (`coursecode`) REFERENCES `Course` (`coursecode`) ON DELETE NO ACTION ON UPDATE NO ACTION;
 
 --
--- Restrições para a tabela `Deliverable`
+-- Constraints for table `Deliverable`
 --
 ALTER TABLE `Deliverable`
   ADD CONSTRAINT `Deliverable_ibfk_1` FOREIGN KEY (`projcode`) REFERENCES `Project` (`projcode`) ON DELETE NO ACTION ON UPDATE NO ACTION;
 
 --
--- Restrições para a tabela `Downloads`
+-- Constraints for table `Downloads`
 --
 ALTER TABLE `Downloads`
   ADD CONSTRAINT `Downloads_ibfk_1` FOREIGN KEY (`username`) REFERENCES `Users` (`username`) ON DELETE NO ACTION ON UPDATE NO ACTION,
   ADD CONSTRAINT `Downloads_ibfk_2` FOREIGN KEY (`projcode`) REFERENCES `Project` (`projcode`) ON DELETE NO ACTION ON UPDATE NO ACTION;
 
 --
--- Restrições para a tabela `ProjAut`
+-- Constraints for table `ProjAut`
 --
 ALTER TABLE `ProjAut`
   ADD CONSTRAINT `ProjAut_ibfk_1` FOREIGN KEY (`projcode`) REFERENCES `Project` (`projcode`) ON DELETE NO ACTION ON UPDATE NO ACTION,
   ADD CONSTRAINT `ProjAut_ibfk_2` FOREIGN KEY (`authorcode`) REFERENCES `Author` (`authorcode`) ON DELETE NO ACTION ON UPDATE NO ACTION;
 
 --
--- Restrições para a tabela `Project`
+-- Constraints for table `Project`
 --
 ALTER TABLE `Project`
   ADD CONSTRAINT `Project_ibfk_1` FOREIGN KEY (`coursecode`) REFERENCES `Course` (`coursecode`) ON DELETE NO ACTION ON UPDATE NO ACTION;
 
 --
--- Restrições para a tabela `ProjSup`
+-- Constraints for table `ProjKW`
+--
+ALTER TABLE `ProjKW`
+  ADD CONSTRAINT `ProjKW_ibfk_2` FOREIGN KEY (`projcode`) REFERENCES `Project` (`projcode`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+  ADD CONSTRAINT `ProjKW_ibfk_1` FOREIGN KEY (`kwcode`) REFERENCES `KeyWord` (`kwcode`) ON DELETE NO ACTION ON UPDATE NO ACTION;
+
+--
+-- Constraints for table `ProjSup`
 --
 ALTER TABLE `ProjSup`
   ADD CONSTRAINT `ProjSup_ibfk_1` FOREIGN KEY (`projcode`) REFERENCES `Project` (`projcode`) ON DELETE NO ACTION ON UPDATE NO ACTION,
   ADD CONSTRAINT `ProjSup_ibfk_2` FOREIGN KEY (`supcode`) REFERENCES `Supervisor` (`supcode`) ON DELETE NO ACTION ON UPDATE NO ACTION;
 
 --
--- Restrições para a tabela `Queries`
+-- Constraints for table `Queries`
 --
 ALTER TABLE `Queries`
   ADD CONSTRAINT `Queries_ibfk_1` FOREIGN KEY (`username`) REFERENCES `Users` (`username`) ON DELETE NO ACTION ON UPDATE NO ACTION,

@@ -17,7 +17,7 @@ if (!isset($_SESSION['username']) || !$_SESSION['username'] || ((isset($_SESSION
             <?php
             include '../header.php';
             include '../menus/menu_logs.php';
-			include '../menus/leftmenuEstatisticas.php';
+			include '../menus/leftmenuLogs.php';
             ?>
 
 

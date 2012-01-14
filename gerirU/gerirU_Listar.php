@@ -45,6 +45,17 @@ if (!isset($_SESSION['username']) || !$_SESSION['username'] || ((isset($_SESSION
                             $sql = "SELECT username, name, email,affil,url FROM Users WHERE type='c'";
                             $res = mysql_query($sql, $con);
                             user_to_table("Consumidores", $res);
+							//echo $_SESSION['username'];
+							$sql = "SELECT username, name FROM Users WHERE username='".$_SESSION['username']."'";
+                            $res = mysql_query($sql, $con);
+							if ($res) {
+							   while ($ors = mysql_fetch_array($res)){
+								  $un = $ors['username'];
+								  $n = $ors['name'];
+							   }
+								mysql_free_result($res);
+							} 
+							log_insert($un,$n,agora(),$log_msg["lis_uti"]["act"],$log_msg["lis_uti"]["desc"]);
                         }
                         ?>
                     </div>

@@ -56,6 +56,7 @@ if (($endrecord) > $limit) {
 //$fh = fopen("log.txt", 'w') or die("can't open file");
 //fwrite($fh, "eu:$eu\nlimit:$limit\nendrecord:$endrecord\nstartrecord:$startrecord\nend:$end\nnume:$nume\n");
 //fclose($fh);
+
 ///// valores auxiliares /////
 $str = $str . "],\"value\" : [{\"endrecord\" : $endrecord,\"limit\" : $limit,\"end\" : \"$end\",\"startrecord\" : \"$startrecord\"}]}";
 echo $str;

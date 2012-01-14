@@ -127,7 +127,7 @@ if (!isset($_SESSION['username']) || !$_SESSION['username'] || ((isset($_SESSION
                         } else {
                             echo "<div class=\"failure\">Já não é possível submeter o trabalho.
                                 Isto pode acontecer porque já foi submtido. Caso não tenha sido,
-                                contact um administrador.</div>";
+                                contacte um administrador.</div>";
                         }
                     } catch (Exception $e) {
                         echo "Já não é possível submeter o trabalho";

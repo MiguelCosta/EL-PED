@@ -16,8 +16,8 @@ if (!isset($_SESSION['username']) || !$_SESSION['username'] || ((isset($_SESSION
         <div id="container">
             <?php
             include '../header.php';
-            include '../menus/menu_estatisticas.php';
-            include '../menus/leftmenuEstatisticas.php';
+            include '../menus/menu_logs.php';
+			include '../menus/leftmenuEstatisticas.php';
             ?>
 
 
@@ -29,10 +29,6 @@ if (!isset($_SESSION['username']) || !$_SESSION['username'] || ((isset($_SESSION
                     <br/>
                     <div id="containt_main_users">
                         <?php
-                        //include '../ini.php';
-                        //$str = log_list(4, 4);				 
-                        //echo $str;
-                        //echo log_count();
                         require_once('apaging.htm');
                         ?>  
                     </div>

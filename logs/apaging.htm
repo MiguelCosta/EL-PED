@@ -37,8 +37,7 @@
                         }
                         var endrecord=myObject.value[0].endrecord 
 
-                        myForm.st.value=endrecord;
-
+                        	document.myForm.st.value=endrecord;
                         if(myObject.value[0].end =="yes"){ document.getElementById("fwd").style.display='inline';
                         }else{document.getElementById("fwd").style.display='none';}
 
@@ -46,44 +45,44 @@
                         }else{document.getElementById("back").style.display='none';}
 
                         str = str + "</table>" 
-                        document.getElementById("txtHint").innerHTML=str; // os records vao ser escritos aqui
+	                        document.getElementById("txtHint").innerHTML=str; // os records vao ser escritos aqui
                     }
                 }
 
                 var url="apaging.php";
-                var myendrecord=myForm.st.value;
+                var myendrecord = document.myForm.st.value;
                 url=url+"?endrecord="+myendrecord;
                 url=url+"&direction="+val;
 
                 url=url+"&sid="+Math.random();
                 //alert(url)
                 httpxml.onreadystatechange=stateChanged; 
-                httpxml.open("GET",url,true);
+				httpxml.open("GET",url,true);
                 httpxml.send(null);
                 document.getElementById("txtHint").innerHTML="Espere por favor...";
 
             }
         </script>
     </head>
-    <body onload="ajaxFunction('fw')";>
-          <form id="myForm" name="myForm" onsubmit="ajaxFunction(this.form); return false">
-            <input type=hidden name=st value=0>
+    <body onload="ajaxFunction('fw')">
+          <form name="myForm" onsubmit="ajaxFunction(this.form); return false;">
+            <input type=hidden name=st value=0 />
             <table width=300>
                 <tr>
-                    <td width=300>
-                        <input type=button id="back" value=Prev onClick="ajaxFunction('bk'); return false">
+                    <td width=150>
+                        <input type=button id="back" value=Prev onClick="ajaxFunction('bk'); return false" />
                     </td>
-                    <td width=300 align=right>
-                        <input type=button value=Next id="fwd" onClick="ajaxFunction('fw');  return false">
+                    <td width=150 align=right>
+                        <input type=button value=Next id="fwd" onClick="ajaxFunction('fw');  return false" />
                     </td>
                 </tr>
-                <!--</tr>-->
-                </form>
+				<!--</tr>-->
                 <tr>
                     <td colspan=2>
                         <div id="txtHint"></div>
                     </td>
                 </tr>
             </table>
+                </form>
     </body>
 </html>

@@ -670,6 +670,11 @@ td.user a:hover, a:visited
     width: 100%;
 }
 
+#form_submeter_keywords
+{
+    width: 100%;
+}
+
 textarea#abstract {
     font-size: 12px;
     width: 99%;
@@ -837,6 +842,8 @@ textarea#abstract:b
     background-image: url(images/page_less.png);
     background-repeat: no-repeat;
     height: 30px;
+    width: 100px;
+    float: left;
 }
 
 /*******************************************************************************/

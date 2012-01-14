@@ -156,6 +156,14 @@ if (!isset($_SESSION['username']) || !$_SESSION['username'] || ((isset($_SESSION
                             // altera o autocommit das queries
                             mysqli_autocommit($link, FALSE);
 
+                            $ano = date("Y");
+                            $mes = date("m");
+                            $dia = date("d");
+                            $md5_xml = trim(md5_file($xml_path));
+                            $local_projeto = "../uploads/$ano/$mes/$dia/$md5_xml/";
+                            //este é o que vai ficar na base de dados
+                            $local_projeto_bd = "$ano/$mes/$dia/$md5_xml/";
+
                             // verifica se já existe um project record praticamente igual $keyname
                             $sql = "SELECT projcode FROM Project WHERE keyname='$keyname' AND title='$title' AND subtitle='$subtitle' AND abstract='$abstract'";
                             $result = mysqli_query($link, $sql);
@@ -175,7 +183,8 @@ if (!isset($_SESSION['username']) || !$_SESSION['username'] || ((isset($_SESSION
                             }
 
                             // caso não existe informação parecida na Base de Dados, vai inseri-la
-                            $sql = "INSERT INTO `PED`.`Project` VALUES (NULL, '$keyname', '$title', '$subtitle', '$bdate', '$edate', NOW(), '$abstract', '1')";
+                            $sql = "INSERT INTO `PED`.`Project` VALUES (NULL, '$keyname', '$title', '$subtitle', '$bdate', '$edate', NOW(), '$abstract', '1', '$local_projeto_bd')";
+                            echo "$sql";
                             $result = mysqli_query($link, $sql);
 
                             // projcode que foi inserido temporariamente
@@ -230,7 +239,6 @@ if (!isset($_SESSION['username']) || !$_SESSION['username'] || ((isset($_SESSION
                                     $total_kw = $rows[0];
                                 }
                                 //echo "<br/>Total: $total_kw<br/>";
-                                
                                 // caso ainda não exista a key word na base de dados, vai inserir
                                 if ($total_kw == 0) {
                                     $sql = "INSERT INTO `PED`.`KeyWord` VALUES (NULL, '$value'); ";

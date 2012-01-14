@@ -2,10 +2,10 @@
 -- version 3.4.5
 -- http://www.phpmyadmin.net
 --
--- Host: localhost
--- Generation Time: Jan 11, 2012 at 10:27 PM
--- Server version: 5.5.16
--- PHP Version: 5.3.8
+-- Servidor: localhost
+-- Tempo de Gera√ß√£o: 14/01/2012 √†s 16h20min
+-- Vers√£o do Servidor: 5.5.16
+-- Vers√£o do PHP: 5.3.8
 
 SET SQL_MODE="NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
@@ -17,13 +17,13 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8 */;
 
 --
--- Database: `PED`
+-- Banco de Dados: `PED`
 --
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `Access`
+-- Estrutura da tabela `Access`
 --
 
 CREATE TABLE IF NOT EXISTS `Access` (
@@ -33,13 +33,7 @@ CREATE TABLE IF NOT EXISTS `Access` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- RELATIONS FOR TABLE `Access`:
---   `username`
---       `Users` -> `username`
---
-
---
--- Dumping data for table `Access`
+-- Extraindo dados da tabela `Access`
 --
 
 INSERT INTO `Access` (`username`, `datahora`) VALUES
@@ -57,12 +51,13 @@ INSERT INTO `Access` (`username`, `datahora`) VALUES
 ('miguel', '2012-01-10 21:56:10'),
 ('miguel', '2012-01-11 00:08:22'),
 ('miguel', '2012-01-11 12:58:49'),
-('miguel', '2012-01-11 21:00:46');
+('miguel', '2012-01-11 21:00:46'),
+('miguel', '2012-01-14 00:22:57');
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `Author`
+-- Estrutura da tabela `Author`
 --
 
 CREATE TABLE IF NOT EXISTS `Author` (
@@ -77,13 +72,7 @@ CREATE TABLE IF NOT EXISTS `Author` (
 ) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=9 ;
 
 --
--- RELATIONS FOR TABLE `Author`:
---   `coursecode`
---       `Course` -> `coursecode`
---
-
---
--- Dumping data for table `Author`
+-- Extraindo dados da tabela `Author`
 --
 
 INSERT INTO `Author` (`authorcode`, `name`, `id`, `email`, `url`, `coursecode`) VALUES
@@ -97,7 +86,7 @@ INSERT INTO `Author` (`authorcode`, `name`, `id`, `email`, `url`, `coursecode`) 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `Course`
+-- Estrutura da tabela `Course`
 --
 
 CREATE TABLE IF NOT EXISTS `Course` (
@@ -107,7 +96,7 @@ CREATE TABLE IF NOT EXISTS `Course` (
 ) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=201 ;
 
 --
--- Dumping data for table `Course`
+-- Extraindo dados da tabela `Course`
 --
 
 INSERT INTO `Course` (`coursecode`, `coursedescription`) VALUES
@@ -116,206 +105,206 @@ INSERT INTO `Course` (`coursecode`, `coursedescription`) VALUES
 (3, 'Doutoramento em Bioengenharia'),
 (4, 'Doutoramento em Biologia Molecular e Ambiental'),
 (5, 'Doutoramento em Biologia de Plantas'),
-(6, 'Doutoramento em CiÍncia PolÌtica e RelaÁıes Internacionais'),
-(7, 'Doutoramento em CiÍncia e Engenharia de PolÌmeros e CompÛsitos'),
-(8, 'Doutoramento em CiÍncias'),
-(9, 'Doutoramento em CiÍncias Empresariais'),
-(10, 'Doutoramento em CiÍncias JurÌdicas'),
-(11, 'Doutoramento em CiÍncias da AdministraÁ„o'),
-(12, 'Doutoramento em CiÍncias da ComunicaÁ„o'),
-(13, 'Doutoramento em CiÍncias da Cultura'),
-(14, 'Doutoramento em CiÍncias da EducaÁ„o'),
-(15, 'Doutoramento em CiÍncias da Linguagem'),
-(16, 'Doutoramento em CiÍncias da Literatura'),
-(17, 'Doutoramento em CiÍncias da Sa˙de'),
+(6, 'Doutoramento em Ci√™ncia Pol√≠tica e Rela√ß√µes Internacionais'),
+(7, 'Doutoramento em Ci√™ncia e Engenharia de Pol√≠meros e Comp√≥sitos'),
+(8, 'Doutoramento em Ci√™ncias'),
+(9, 'Doutoramento em Ci√™ncias Empresariais'),
+(10, 'Doutoramento em Ci√™ncias Jur√≠dicas'),
+(11, 'Doutoramento em Ci√™ncias da Administra√ß√£o'),
+(12, 'Doutoramento em Ci√™ncias da Comunica√ß√£o'),
+(13, 'Doutoramento em Ci√™ncias da Cultura'),
+(14, 'Doutoramento em Ci√™ncias da Educa√ß√£o'),
+(15, 'Doutoramento em Ci√™ncias da Linguagem'),
+(16, 'Doutoramento em Ci√™ncias da Literatura'),
+(17, 'Doutoramento em Ci√™ncias da Sa√∫de'),
 (18, 'Doutoramento em Contabilidade'),
 (19, 'Doutoramento em Economia'),
-(20, 'Doutoramento em Engenharia BiomÈdica'),
+(20, 'Doutoramento em Engenharia Biom√©dica'),
 (21, 'Doutoramento em Engenharia Civil'),
-(22, 'Doutoramento em Engenharia ElectrÛnica e de Computadores'),
+(22, 'Doutoramento em Engenharia Electr√≥nica e de Computadores'),
 (23, 'Doutoramento em Engenharia Industrial e de Sistemas'),
-(24, 'Doutoramento em Engenharia Mec‚nica'),
-(25, 'Doutoramento em Engenharia QuÌmica e BiolÛgica'),
-(26, 'Doutoramento em Engenharia TÍxtil'),
+(24, 'Doutoramento em Engenharia Mec√¢nica'),
+(25, 'Doutoramento em Engenharia Qu√≠mica e Biol√≥gica'),
+(26, 'Doutoramento em Engenharia T√™xtil'),
 (27, 'Doutoramento em Engenharia de Materiais'),
-(28, 'Doutoramento em Engenharia de Tecidos, Medicina Regenerativa e CÈlulas Estaminais'),
+(28, 'Doutoramento em Engenharia de Tecidos, Medicina Regenerativa e C√©lulas Estaminais'),
 (29, 'Doutoramento em Estudos Culturais'),
-(30, 'Doutoramento em Estudos da CrianÁa'),
+(30, 'Doutoramento em Estudos da Crian√ßa'),
 (31, 'Doutoramento em Filosofia'),
-(32, 'Doutoramento em FÌsica'),
+(32, 'Doutoramento em F√≠sica'),
 (33, 'Doutoramento em Geografia'),
-(34, 'Doutoramento em HistÛria'),
-(35, 'Doutoramento em LÌderes para as Ind˙strias TecnolÛgicas'),
-(36, 'Doutoramento em Marketing e EstratÈgia'),
-(37, 'Doutoramento em Matem·tica e AplicaÁıes'),
+(34, 'Doutoramento em Hist√≥ria'),
+(35, 'Doutoramento em L√≠deres para as Ind√∫strias Tecnol√≥gicas'),
+(36, 'Doutoramento em Marketing e Estrat√©gia'),
+(37, 'Doutoramento em Matem√°tica e Aplica√ß√µes'),
 (38, 'Doutoramento em Medicina'),
 (39, 'Doutoramento em Psicologia'),
 (40, 'Doutoramento em Psicologia Aplicada'),
-(41, 'Doutoramento em Psicologia B·sica'),
+(41, 'Doutoramento em Psicologia B√°sica'),
 (42, 'Doutoramento em Sociologia'),
-(43, 'Doutoramento em Tecnologia e Sistemas de InformaÁ„o'),
-(44, 'Licenciatura em AdministraÁ„o P˙blica'),
+(43, 'Doutoramento em Tecnologia e Sistemas de Informa√ß√£o'),
+(44, 'Licenciatura em Administra√ß√£o P√∫blica'),
 (45, 'Licenciatura em Arqueologia'),
 (46, 'Licenciatura em Biologia - Geologia'),
 (47, 'Licenciatura em Biologia Aplicada'),
-(48, 'Licenciatura em BioquÌmica'),
-(49, 'Licenciatura em CiÍncia PolÌtica - PÛs-Laboral'),
-(50, 'Licenciatura em CiÍncias da ComputaÁ„o'),
-(51, 'Licenciatura em CiÍncias da ComunicaÁ„o'),
-(52, 'Licenciatura em CiÍncias do Ambiente - PÛs-Laboral'),
-(53, 'Licenciatura em Contabilidade - PÛs-Laboral'),
+(48, 'Licenciatura em Bioqu√≠mica'),
+(49, 'Licenciatura em Ci√™ncia Pol√≠tica - P√≥s-Laboral'),
+(50, 'Licenciatura em Ci√™ncias da Computa√ß√£o'),
+(51, 'Licenciatura em Ci√™ncias da Comunica√ß√£o'),
+(52, 'Licenciatura em Ci√™ncias do Ambiente - P√≥s-Laboral'),
+(53, 'Licenciatura em Contabilidade - P√≥s-Laboral'),
 (54, 'Licenciatura em Design e Marketing de Moda'),
 (55, 'Licenciatura em Direito'),
-(56, 'Licenciatura em Direito - PÛs-Laboral'),
+(56, 'Licenciatura em Direito - P√≥s-Laboral'),
 (57, 'Licenciatura em Economia'),
-(58, 'Licenciatura em EducaÁ„o'),
-(59, 'Licenciatura em EducaÁ„o - PÛs-Laboral'),
-(60, 'Licenciatura em EducaÁ„o B·sica'),
+(58, 'Licenciatura em Educa√ß√£o'),
+(59, 'Licenciatura em Educa√ß√£o - P√≥s-Laboral'),
+(60, 'Licenciatura em Educa√ß√£o B√°sica'),
 (61, 'Licenciatura em Enfermagem'),
-(62, 'Licenciatura em Engenharia Inform·tica'),
-(63, 'Licenciatura em EstatÌstica Aplicada'),
-(64, 'Licenciatura em Estudos Culturais - PÛs-Laboral'),
-(65, 'Licenciatura em Estudos Portugueses e LusÛfonos'),
+(62, 'Licenciatura em Engenharia Inform√°tica'),
+(63, 'Licenciatura em Estat√≠stica Aplicada'),
+(64, 'Licenciatura em Estudos Culturais - P√≥s-Laboral'),
+(65, 'Licenciatura em Estudos Portugueses e Lus√≥fonos'),
 (66, 'Licenciatura em Filosofia'),
-(67, 'Licenciatura em FÌsica'),
-(68, 'Licenciatura em FÌsica e QuÌmica - PÛs-Laboral'),
+(67, 'Licenciatura em F√≠sica'),
+(68, 'Licenciatura em F√≠sica e Qu√≠mica - P√≥s-Laboral'),
 (69, 'Licenciatura em Geografia e Planeamento'),
-(70, 'Licenciatura em Geologia - PÛs-Laboral'),
-(71, 'Licenciatura em Gest„o'),
-(72, 'Licenciatura em HistÛria'),
-(73, 'Licenciatura em HistÛria - PÛs-Laboral'),
-(74, 'Licenciatura em LÌnguas Aplicadas'),
-(75, 'Licenciatura em LÌnguas e Culturas Orientais'),
-(76, 'Licenciatura em LÌnguas e Literaturas Europeias'),
-(77, 'Licenciatura em LÌnguas e Literaturas Europeias - PÛs-Laboral'),
-(78, 'Licenciatura em Marketing - PÛs-Laboral'),
-(79, 'Licenciatura em Matem·tica'),
-(80, 'Licenciatura em M˙sica - PÛs-Laboral'),
-(81, 'Licenciatura em NegÛcios Internacionais - PÛs-Laboral'),
-(82, 'Licenciatura em Optometria e CiÍncias da Vis„o'),
-(83, 'Licenciatura em QuÌmica'),
-(84, 'Licenciatura em RelaÁıes Internacionais'),
+(70, 'Licenciatura em Geologia - P√≥s-Laboral'),
+(71, 'Licenciatura em Gest√£o'),
+(72, 'Licenciatura em Hist√≥ria'),
+(73, 'Licenciatura em Hist√≥ria - P√≥s-Laboral'),
+(74, 'Licenciatura em L√≠nguas Aplicadas'),
+(75, 'Licenciatura em L√≠nguas e Culturas Orientais'),
+(76, 'Licenciatura em L√≠nguas e Literaturas Europeias'),
+(77, 'Licenciatura em L√≠nguas e Literaturas Europeias - P√≥s-Laboral'),
+(78, 'Licenciatura em Marketing - P√≥s-Laboral'),
+(79, 'Licenciatura em Matem√°tica'),
+(80, 'Licenciatura em M√∫sica - P√≥s-Laboral'),
+(81, 'Licenciatura em Neg√≥cios Internacionais - P√≥s-Laboral'),
+(82, 'Licenciatura em Optometria e Ci√™ncias da Vis√£o'),
+(83, 'Licenciatura em Qu√≠mica'),
+(84, 'Licenciatura em Rela√ß√µes Internacionais'),
 (85, 'Licenciatura em Sociologia'),
-(86, 'Licenciatura em Tecnologias e Sistemas de InformaÁ„o'),
-(87, 'Licenciatura em Tecnologias e Sistemas de InformaÁ„o - PÛs-Laboral'),
-(88, 'Mestrado Europeu em An·lise Estrutural de Monumentos e ConstruÁıes HistÛricas'),
-(89, 'Mestrado Europeu em Reologia Aplicada ‡ Engenharia'),
+(86, 'Licenciatura em Tecnologias e Sistemas de Informa√ß√£o'),
+(87, 'Licenciatura em Tecnologias e Sistemas de Informa√ß√£o - P√≥s-Laboral'),
+(88, 'Mestrado Europeu em An√°lise Estrutural de Monumentos e Constru√ß√µes Hist√≥ricas'),
+(89, 'Mestrado Europeu em Reologia Aplicada √† Engenharia'),
 (90, 'Mestrado Integrado em Arquitectura'),
-(91, 'Mestrado Integrado em Engenharia BiolÛgica'),
-(92, 'Mestrado Integrado em Engenharia BiomÈdica'),
+(91, 'Mestrado Integrado em Engenharia Biol√≥gica'),
+(92, 'Mestrado Integrado em Engenharia Biom√©dica'),
 (93, 'Mestrado Integrado em Engenharia Civil'),
-(94, 'Mestrado Integrado em Engenharia ElectrÛnica Industrial e Computadores'),
-(95, 'Mestrado Integrado em Engenharia Mec‚nica'),
-(96, 'Mestrado Integrado em Engenharia TÍxtil - PÛs-Laboral'),
-(97, 'Mestrado Integrado em Engenharia de ComunicaÁıes'),
+(94, 'Mestrado Integrado em Engenharia Electr√≥nica Industrial e Computadores'),
+(95, 'Mestrado Integrado em Engenharia Mec√¢nica'),
+(96, 'Mestrado Integrado em Engenharia T√™xtil - P√≥s-Laboral'),
+(97, 'Mestrado Integrado em Engenharia de Comunica√ß√µes'),
 (98, 'Mestrado Integrado em Engenharia de Materiais'),
-(99, 'Mestrado Integrado em Engenharia de PolÌmeros'),
-(100, 'Mestrado Integrado em Engenharia e Gest„o Industrial'),
+(99, 'Mestrado Integrado em Engenharia de Pol√≠meros'),
+(100, 'Mestrado Integrado em Engenharia e Gest√£o Industrial'),
 (101, 'Mestrado Integrado em Medicina'),
 (102, 'Mestrado Integrado em Psicologia'),
-(103, 'Mestrado em AdministraÁ„o P˙blica'),
-(104, 'Mestrado em AdministraÁ„o da JustiÁa'),
+(103, 'Mestrado em Administra√ß√£o P√∫blica'),
+(104, 'Mestrado em Administra√ß√£o da Justi√ßa'),
 (105, 'Mestrado em Arqueologia'),
 (106, 'Mestrado em Bioengenharia'),
-(107, 'Mestrado em BiofÌsica e Bionanossistemas'),
-(108, 'Mestrado em Bioinform·tica'),
+(107, 'Mestrado em Biof√≠sica e Bionanossistemas'),
+(108, 'Mestrado em Bioinform√°tica'),
 (109, 'Mestrado em Biologia Molecular, Biotecnologia e Bioempreendedorismo em Plantas'),
-(110, 'Mestrado em BioquÌmica Aplicada'),
-(111, 'Mestrado em Biotecnologia e Bio-Empreendedorismo em Plantas Arom·ticas e Medicinais'),
-(112, 'Mestrado em CiÍncias - FormaÁ„o ContÌnua de Professores'),
-(113, 'Mestrado em CiÍncias da ComunicaÁ„o'),
-(114, 'Mestrado em CiÍncias da EducaÁ„o'),
-(115, 'Mestrado em CiÍncias da Sa˙de'),
-(116, 'Mestrado em CiÍncias e Tecnologias do Ambiente'),
-(117, 'Mestrado em ComunicaÁ„o, Arte e Cultura'),
-(118, 'Mestrado em ComunicaÁ„o, Cidadania e EducaÁ„o'),
-(119, 'Mestrado em ConstruÁ„o e ReabilitaÁ„o Sustent·veis'),
+(110, 'Mestrado em Bioqu√≠mica Aplicada'),
+(111, 'Mestrado em Biotecnologia e Bio-Empreendedorismo em Plantas Arom√°ticas e Medicinais'),
+(112, 'Mestrado em Ci√™ncias - Forma√ß√£o Cont√≠nua de Professores'),
+(113, 'Mestrado em Ci√™ncias da Comunica√ß√£o'),
+(114, 'Mestrado em Ci√™ncias da Educa√ß√£o'),
+(115, 'Mestrado em Ci√™ncias da Sa√∫de'),
+(116, 'Mestrado em Ci√™ncias e Tecnologias do Ambiente'),
+(117, 'Mestrado em Comunica√ß√£o, Arte e Cultura'),
+(118, 'Mestrado em Comunica√ß√£o, Cidadania e Educa√ß√£o'),
+(119, 'Mestrado em Constru√ß√£o e Reabilita√ß√£o Sustent√°veis'),
 (120, 'Mestrado em Contabilidade'),
-(121, 'Mestrado em Crime, DiferenÁa e Desigualdade'),
-(122, 'Mestrado em Design de ComunicaÁ„o de Moda'),
+(121, 'Mestrado em Crime, Diferen√ßa e Desigualdade'),
+(122, 'Mestrado em Design de Comunica√ß√£o de Moda'),
 (123, 'Mestrado em Design e Marketing'),
 (124, 'Mestrado em Direito Administrativo'),
-(125, 'Mestrado em Direito Judici·rio (Direitos Processuais e OrganizaÁ„o Judici·ria)'),
-(126, 'Mestrado em Direito Tribut·rio e Fiscal'),
-(127, 'Mestrado em Direito da Uni„o Europeia'),
+(125, 'Mestrado em Direito Judici√°rio (Direitos Processuais e Organiza√ß√£o Judici√°ria)'),
+(126, 'Mestrado em Direito Tribut√°rio e Fiscal'),
+(127, 'Mestrado em Direito da Uni√£o Europeia'),
 (128, 'Mestrado em Direito das Autarquias Locais'),
 (129, 'Mestrado em Direito dos Contratos e da Empresa'),
-(130, 'Mestrado em Direito e Inform·tica'),
+(130, 'Mestrado em Direito e Inform√°tica'),
 (131, 'Mestrado em Direitos Humanos'),
 (132, 'Mestrado em Ecologia'),
 (133, 'Mestrado em Economia'),
 (134, 'Mestrado em Economia Industrial e da Empresa'),
-(135, 'Mestrado em Economia Monet·ria, Banc·ria e Financeira'),
-(136, 'Mestrado em Economia PolÌtica da Sa˙de'),
+(135, 'Mestrado em Economia Monet√°ria, Banc√°ria e Financeira'),
+(136, 'Mestrado em Economia Pol√≠tica da Sa√∫de'),
 (137, 'Mestrado em Economia Social'),
-(138, 'Mestrado em Economia, Mercados e PolÌticas P˙blicas'),
-(139, 'Mestrado em EducaÁ„o'),
-(140, 'Mestrado em EducaÁ„o Especial'),
-(141, 'Mestrado em EducaÁ„o PrÈ-Escolar'),
-(142, 'Mestrado em EducaÁ„o PrÈ-Escolar e Ensino do 1∫ Ciclo do Ensino B·sico'),
+(138, 'Mestrado em Economia, Mercados e Pol√≠ticas P√∫blicas'),
+(139, 'Mestrado em Educa√ß√£o'),
+(140, 'Mestrado em Educa√ß√£o Especial'),
+(141, 'Mestrado em Educa√ß√£o Pr√©-Escolar'),
+(142, 'Mestrado em Educa√ß√£o Pr√©-Escolar e Ensino do 1¬∫ Ciclo do Ensino B√°sico'),
 (143, 'Mestrado em Engenharia Humana'),
 (144, 'Mestrado em Engenharia Industrial'),
-(145, 'Mestrado em Engenharia Inform·tica'),
-(146, 'Mestrado em Engenharia MecatrÛnica'),
+(145, 'Mestrado em Engenharia Inform√°tica'),
+(146, 'Mestrado em Engenharia Mecatr√≥nica'),
 (147, 'Mestrado em Engenharia Urbana'),
-(148, 'Mestrado em Engenharia de Redes e ServiÁos de ComunicaÁıes'),
+(148, 'Mestrado em Engenharia de Redes e Servi√ßos de Comunica√ß√µes'),
 (149, 'Mestrado em Engenharia de Sistemas'),
-(150, 'Mestrado em Engenharia e Gest„o de Sistemas de InformaÁ„o'),
-(151, 'Mestrado em Ensino de Biologia e Geologia no 3∫ Ciclo no Ensino B·sico e no Ensino Secund·rio'),
-(152, 'Mestrado em Ensino de EducaÁ„o FÌsica nos Ensinos B·sico e Secund·rio'),
-(153, 'Mestrado em Ensino de Filosofia no Ensino Secund·rio'),
-(154, 'Mestrado em Ensino de FÌsica e de QuÌmica no 3∫ Ciclo do Ensino B·sico e no Ensino Secund·rio'),
-(155, 'Mestrado em Ensino de HistÛria e Geografia no 3∫ Ciclo do Ensino B·sico e no Ensino Secund·rio'),
-(156, 'Mestrado em Ensino de Inform·tica'),
-(157, 'Mestrado em Ensino de InglÍs e de Espanhol no 3∫ Ciclo do Ensino B·sico e no Ensino Secund·rio'),
-(158, 'Mestrado em Ensino de Matem·tica no 3∫ Ciclo do Ensino B·sico e no Secund·rio'),
-(159, 'Mestrado em Ensino de M˙sica'),
-(160, 'Mestrado em Ensino de PortuguÍs e de LÌnguas Cl·ssicas no 3∫ Ciclo do Ensino B·sico e no Secund·rio'),
-(161, 'Mestrado em Ensino do 1∫ e do 2∫ Ciclos do Ensino B·sico'),
-(162, 'Mestrado em Ensino do PortuguÍs no 3∫ Ciclo do Ensino B·sico e no Ensino Secund·rio e de Espanhol nos Ensinos B·sico e Secund·rio'),
-(163, 'Mestrado em EstatÌstica'),
-(164, 'Mestrado em Estudos Interculturais PortuguÍs/ChinÍs: TraduÁ„o, FormaÁ„o e ComunicaÁ„o Empresarial'),
-(165, 'Mestrado em Estudos da CrianÁa'),
-(166, 'Mestrado em FinanÁas'),
-(167, 'Mestrado em FÌsica'),
-(168, 'Mestrado em GenÈtica Molecular'),
+(150, 'Mestrado em Engenharia e Gest√£o de Sistemas de Informa√ß√£o'),
+(151, 'Mestrado em Ensino de Biologia e Geologia no 3¬∫ Ciclo no Ensino B√°sico e no Ensino Secund√°rio'),
+(152, 'Mestrado em Ensino de Educa√ß√£o F√≠sica nos Ensinos B√°sico e Secund√°rio'),
+(153, 'Mestrado em Ensino de Filosofia no Ensino Secund√°rio'),
+(154, 'Mestrado em Ensino de F√≠sica e de Qu√≠mica no 3¬∫ Ciclo do Ensino B√°sico e no Ensino Secund√°rio'),
+(155, 'Mestrado em Ensino de Hist√≥ria e Geografia no 3¬∫ Ciclo do Ensino B√°sico e no Ensino Secund√°rio'),
+(156, 'Mestrado em Ensino de Inform√°tica'),
+(157, 'Mestrado em Ensino de Ingl√™s e de Espanhol no 3¬∫ Ciclo do Ensino B√°sico e no Ensino Secund√°rio'),
+(158, 'Mestrado em Ensino de Matem√°tica no 3¬∫ Ciclo do Ensino B√°sico e no Secund√°rio'),
+(159, 'Mestrado em Ensino de M√∫sica'),
+(160, 'Mestrado em Ensino de Portugu√™s e de L√≠nguas Cl√°ssicas no 3¬∫ Ciclo do Ensino B√°sico e no Secund√°rio'),
+(161, 'Mestrado em Ensino do 1¬∫ e do 2¬∫ Ciclos do Ensino B√°sico'),
+(162, 'Mestrado em Ensino do Portugu√™s no 3¬∫ Ciclo do Ensino B√°sico e no Ensino Secund√°rio e de Espanhol nos Ensinos B√°sico e Secund√°rio'),
+(163, 'Mestrado em Estat√≠stica'),
+(164, 'Mestrado em Estudos Interculturais Portugu√™s/Chin√™s: Tradu√ß√£o, Forma√ß√£o e Comunica√ß√£o Empresarial'),
+(165, 'Mestrado em Estudos da Crian√ßa'),
+(166, 'Mestrado em Finan√ßas'),
+(167, 'Mestrado em F√≠sica'),
+(168, 'Mestrado em Gen√©tica Molecular'),
 (169, 'Mestrado em Geografia'),
-(170, 'Mestrado em Gest„o'),
-(171, 'Mestrado em Gest„o Ambiental'),
-(172, 'Mestrado em Gest„o das Unidades de Sa˙de'),
-(173, 'Mestrado em Gest„o de Recursos Humanos'),
-(174, 'Mestrado em HistÛria'),
-(175, 'Mestrado em LinguÌstica Portuguesa e Comparada'),
-(176, 'Mestrado em LÌngua, Literatura e Cultura Inglesas'),
-(177, 'Mestrado em Marketing e Gest„o EstratÈgica'),
-(178, 'Mestrado em Matem·tica e ComputaÁ„o'),
+(170, 'Mestrado em Gest√£o'),
+(171, 'Mestrado em Gest√£o Ambiental'),
+(172, 'Mestrado em Gest√£o das Unidades de Sa√∫de'),
+(173, 'Mestrado em Gest√£o de Recursos Humanos'),
+(174, 'Mestrado em Hist√≥ria'),
+(175, 'Mestrado em Lingu√≠stica Portuguesa e Comparada'),
+(176, 'Mestrado em L√≠ngua, Literatura e Cultura Inglesas'),
+(177, 'Mestrado em Marketing e Gest√£o Estrat√©gica'),
+(178, 'Mestrado em Matem√°tica e Computa√ß√£o'),
 (179, 'Mestrado em Media Interactivos'),
-(180, 'Mestrado em MediaÁ„o Cultural e Liter·ria'),
+(180, 'Mestrado em Media√ß√£o Cultural e Liter√°ria'),
 (181, 'Mestrado em Micro e Nano Tecnologias'),
-(182, 'Mestrado em NegÛcios Internacionais'),
-(183, 'Mestrado em Optometria AvanÁada'),
-(184, 'Mestrado em Ordenamento e ValorizaÁ„o de Recursos GeolÛgicos'),
-(185, 'Mestrado em PatrimÛnio GeolÛgico e GeoconservaÁ„o'),
-(186, 'Mestrado em PatrimÛnio e Turismo Cultural'),
-(187, 'Mestrado em PortuguÍs LÌngua N„o Materna (PLNM) - PortuguÍs LÌngua Estrangeira (PLE) e LÌngua Segunda (PL2)'),
-(188, 'Mestrado em Propriedades e Tecnologia de PolÌmeros'),
-(189, 'Mestrado em QuÌmica Medicinal'),
-(190, 'Mestrado em QuÌmica TÍxtil'),
-(191, 'Mestrado em RelaÁıes Internacionais'),
-(192, 'Mestrado em ServiÁos de InformaÁ„o'),
-(193, 'Mestrado em Sistemas de InformaÁ„o'),
+(182, 'Mestrado em Neg√≥cios Internacionais'),
+(183, 'Mestrado em Optometria Avan√ßada'),
+(184, 'Mestrado em Ordenamento e Valoriza√ß√£o de Recursos Geol√≥gicos'),
+(185, 'Mestrado em Patrim√≥nio Geol√≥gico e Geoconserva√ß√£o'),
+(186, 'Mestrado em Patrim√≥nio e Turismo Cultural'),
+(187, 'Mestrado em Portugu√™s L√≠ngua N√£o Materna (PLNM) - Portugu√™s L√≠ngua Estrangeira (PLE) e L√≠ngua Segunda (PL2)'),
+(188, 'Mestrado em Propriedades e Tecnologia de Pol√≠meros'),
+(189, 'Mestrado em Qu√≠mica Medicinal'),
+(190, 'Mestrado em Qu√≠mica T√™xtil'),
+(191, 'Mestrado em Rela√ß√µes Internacionais'),
+(192, 'Mestrado em Servi√ßos de Informa√ß√£o'),
+(193, 'Mestrado em Sistemas de Informa√ß√£o'),
 (194, 'Mestrado em Sociologia'),
 (195, 'Mestrado em Tecnologia e Arte Digital'),
 (196, 'Mestrado em Teoria da Literatura'),
-(197, 'Mestrado em TraduÁ„o e ComunicaÁ„o Multilingue'),
-(198, 'Mestrado em TÈcnicas de CaracterizaÁ„o e An·lise QuÌmica'),
-(199, 'Mestrado em TÍxteis AvanÁados'),
-(200, 'Programa Doutoral em QuÌmica');
+(197, 'Mestrado em Tradu√ß√£o e Comunica√ß√£o Multilingue'),
+(198, 'Mestrado em T√©cnicas de Caracteriza√ß√£o e An√°lise Qu√≠mica'),
+(199, 'Mestrado em T√™xteis Avan√ßados'),
+(200, 'Programa Doutoral em Qu√≠mica');
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `Deliverable`
+-- Estrutura da tabela `Deliverable`
 --
 
 CREATE TABLE IF NOT EXISTS `Deliverable` (
@@ -325,16 +314,10 @@ CREATE TABLE IF NOT EXISTS `Deliverable` (
   `projcode` int(11) NOT NULL,
   PRIMARY KEY (`delcode`),
   KEY `projcode` (`projcode`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=7 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=11 ;
 
 --
--- RELATIONS FOR TABLE `Deliverable`:
---   `projcode`
---       `Project` -> `projcode`
---
-
---
--- Dumping data for table `Deliverable`
+-- Extraindo dados da tabela `Deliverable`
 --
 
 INSERT INTO `Deliverable` (`delcode`, `description`, `path`, `projcode`) VALUES
@@ -343,12 +326,15 @@ INSERT INTO `Deliverable` (`delcode`, `description`, `path`, `projcode`) VALUES
 (3, 'xslx', 'b636ff6917890d6a9f00951a98e18b9d.xlsx', 4),
 (4, '', 'bbdc1b313cf22ce7c642eb980bce04ce.PNG', 5),
 (5, 'Imagem', 'bbdc1b313cf22ce7c642eb980bce04ce.PNG', 6),
-(6, 'Imagem PNG', 'b74b5f63a47427ca0b0a619563ae00d7.PNG', 7);
+(6, 'Imagem PNG', 'b74b5f63a47427ca0b0a619563ae00d7.PNG', 7),
+(7, 'JavaScript ', '2012/01/14/99a46edec01729f5319abd91f9cefd50/ccd6a97eb7c0bcd5b9fd0be32050c641.zip', 8),
+(8, 'logs', '2012/01/14/5d1980c9026718cbf9901c23ff04875a/1ed72561ae16faac3103063ba5fb8363.xml', 25),
+(9, 'javascript', '2012/01/14/198ea2f84203852eeb2a68490f98ef1c/3822de3de6e9959789a1a99472b3bfff.html', 26);
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `Deposits`
+-- Estrutura da tabela `Deposits`
 --
 
 CREATE TABLE IF NOT EXISTS `Deposits` (
@@ -362,7 +348,7 @@ CREATE TABLE IF NOT EXISTS `Deposits` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `Downloads`
+-- Estrutura da tabela `Downloads`
 --
 
 CREATE TABLE IF NOT EXISTS `Downloads` (
@@ -374,15 +360,7 @@ CREATE TABLE IF NOT EXISTS `Downloads` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- RELATIONS FOR TABLE `Downloads`:
---   `username`
---       `Users` -> `username`
---   `projcode`
---       `Project` -> `projcode`
---
-
---
--- Dumping data for table `Downloads`
+-- Extraindo dados da tabela `Downloads`
 --
 
 INSERT INTO `Downloads` (`username`, `projcode`, `datahora`) VALUES
@@ -393,7 +371,31 @@ INSERT INTO `Downloads` (`username`, `projcode`, `datahora`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `ProjAut`
+-- Estrutura da tabela `KeyWord`
+--
+
+CREATE TABLE IF NOT EXISTS `KeyWord` (
+  `kwcode` int(11) NOT NULL AUTO_INCREMENT,
+  `keyword` varchar(255) NOT NULL,
+  PRIMARY KEY (`kwcode`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=18 ;
+
+--
+-- Extraindo dados da tabela `KeyWord`
+--
+
+INSERT INTO `KeyWord` (`kwcode`, `keyword`) VALUES
+(12, 'XML'),
+(13, 'PHP 4'),
+(14, 'HTML'),
+(15, 'PHP'),
+(16, 'JAVASCRIPT'),
+(17, 'AJAX');
+
+-- --------------------------------------------------------
+
+--
+-- Estrutura da tabela `ProjAut`
 --
 
 CREATE TABLE IF NOT EXISTS `ProjAut` (
@@ -404,29 +406,52 @@ CREATE TABLE IF NOT EXISTS `ProjAut` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- RELATIONS FOR TABLE `ProjAut`:
---   `projcode`
---       `Project` -> `projcode`
---   `authorcode`
---       `Author` -> `authorcode`
---
-
---
--- Dumping data for table `ProjAut`
+-- Extraindo dados da tabela `ProjAut`
 --
 
 INSERT INTO `ProjAut` (`projcode`, `authorcode`) VALUES
 (1, 1),
 (7, 1),
+(14, 1),
+(15, 1),
+(21, 1),
+(24, 1),
+(26, 1),
+(27, 1),
 (2, 4),
+(8, 4),
+(11, 4),
+(14, 4),
+(17, 4),
+(23, 4),
+(25, 4),
 (4, 5),
+(10, 5),
+(18, 5),
+(20, 5),
 (5, 6),
-(6, 7);
+(8, 6),
+(9, 6),
+(16, 6),
+(18, 6),
+(19, 6),
+(22, 6),
+(27, 6),
+(6, 7),
+(13, 7),
+(21, 7),
+(24, 7),
+(12, 8),
+(15, 8),
+(22, 8),
+(23, 8),
+(25, 8),
+(26, 8);
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `Project`
+-- Estrutura da tabela `Project`
 --
 
 CREATE TABLE IF NOT EXISTS `Project` (
@@ -439,32 +464,80 @@ CREATE TABLE IF NOT EXISTS `Project` (
   `subdate` datetime NOT NULL,
   `abstract` varchar(1502) NOT NULL,
   `coursecode` int(11) NOT NULL,
+  `path` varchar(300) NOT NULL,
   PRIMARY KEY (`projcode`),
   KEY `coursecode` (`coursecode`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=8 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=28 ;
 
 --
--- RELATIONS FOR TABLE `Project`:
---   `coursecode`
---       `Course` -> `coursecode`
+-- Extraindo dados da tabela `Project`
 --
 
---
--- Dumping data for table `Project`
---
-
-INSERT INTO `Project` (`projcode`, `keyname`, `title`, `subtitle`, `bdate`, `edate`, `subdate`, `abstract`, `coursecode`) VALUES
-(1, 'a', 'a', NULL, '2012-01-10', '2012-01-17', '2012-01-16 00:00:00', '<para>Teste de uma submissao para listagem</para>', 1),
-(2, 'b', 'b', 'b', '2012-01-05', '2012-01-12', '2012-01-11 00:00:00', '<para>Teste de uma submissao para listagem</para>', 1),
-(4, 'Download', 'Testar download de ficheiros', '', '2012-01-10', '2012-01-10', '2012-01-09 09:27:13', 'Vai ser testado o download de ficheiros.', 1),
-(5, 'Download de Imagens', 'Testar download de imagens', '', '2012-01-10', '2012-01-08', '2012-01-09 09:32:20', 'Vai ser testado o download de imagens.', 1),
-(6, 'Download', 'Testar download de imagens 2', '', '2012-01-10', '2012-01-08', '2012-01-09 09:33:10', 'Testar novamente o download de imagens.', 1),
-(7, 'asXML', 'Testar abstract', '', '2012-01-10', '2012-01-08', '2012-01-09 14:12:00', '<abstract>Supostamente agora j· aparecem as tags.\n\n<p>Aqui tem um programa. palavras a <b>negrito</b></p>\n</abstract>', 1);
+INSERT INTO `Project` (`projcode`, `keyname`, `title`, `subtitle`, `bdate`, `edate`, `subdate`, `abstract`, `coursecode`, `path`) VALUES
+(1, 'a', 'a', NULL, '2012-01-10', '2012-01-17', '2012-01-16 00:00:00', '<para>Teste de uma submissao para listagem</para>', 1, ''),
+(2, 'b', 'b', 'b', '2012-01-05', '2012-01-12', '2012-01-11 00:00:00', '<para>Teste de uma submissao para listagem</para>', 1, ''),
+(4, 'Download', 'Testar download de ficheiros', '', '2012-01-10', '2012-01-10', '2012-01-09 09:27:13', 'Vai ser testado o download de ficheiros.', 1, ''),
+(5, 'Download de Imagens', 'Testar download de imagens', '', '2012-01-10', '2012-01-08', '2012-01-09 09:32:20', 'Vai ser testado o download de imagens.', 1, ''),
+(6, 'Download', 'Testar download de imagens 2', '', '2012-01-10', '2012-01-08', '2012-01-09 09:33:10', 'Testar novamente o download de imagens.', 1, ''),
+(7, 'asXML', 'Testar abstract', '', '2012-01-10', '2012-01-08', '2012-01-09 14:12:00', '<abstract>Supostamente agora j√° aparecem as tags.\n\n<p>Aqui tem um programa. palavras a <b>negrito</b></p>\n</abstract>', 1, ''),
+(8, 'uuuu', 'uuuuuu', '', '2012-01-12', '2012-01-09', '2012-01-14 00:26:45', '<abstract><p>\nEste abstract j√° tens <kw>key words</kw>.\no <kw>XML</kw> √© uma key word.\n</p></abstract>', 1, ''),
+(9, 'kljlkj', 'lkjlkj', '', '2012-01-11', '2012-01-09', '2012-01-14 00:52:12', '<abstract><p>\numa <kw>kw</kw> mais outra <kw>XML</kw>.\n</p></abstract>', 1, ''),
+(10, 'jjjj', 'jjjj', '', '2012-01-13', '2012-01-13', '2012-01-14 00:54:31', '<abstract><p>\nasdasd\n<kw>ooo</kw>\n</p></abstract>', 1, ''),
+(11, 'xxxx', 'xxxxxxx', '', '2012-01-11', '2012-01-09', '2012-01-14 01:12:35', '<abstract><p>\nqualquer coisas para <kw>kw</kw>, mais outra <kw>xml</kw>.\n</p></abstract>', 1, ''),
+(12, 'nnn', 'nnnnn', '', '2012-01-21', '2012-01-11', '2012-01-14 01:14:49', '<abstract><p>\nmais <kw>xsl</kw> e <kw>xml</kw>.\n</p></abstract>', 1, ''),
+(13, 'mm', 'mmm', '', '2012-02-14', '2012-01-22', '2012-01-14 01:17:06', '<abstract><p>\n<kw>xml</kw> e <kw>xsl</kw>\n</p></abstract>', 1, ''),
+(14, 'ggg', 'ggggg', '', '2012-01-15', '2012-01-14', '2012-01-14 11:23:13', '<abstract><p>\n<kw>php</kw>\n<kw>html</kw>\n</p></abstract>', 1, ''),
+(15, 'hhhh', 'hhhhhhh', '', '2012-01-15', '2012-01-11', '2012-01-14 11:25:07', '<abstract><kw>php 5</kw>\n<kw>html 5</kw></abstract>', 1, ''),
+(16, 'ooo', 'oooooo', '', '2012-01-17', '2012-01-16', '2012-01-14 11:31:45', '<abstract><kw>\nphp\n</kw></abstract>', 1, ''),
+(17, 'ttt', 'ttttt', '', '2012-02-15', '2012-01-18', '2012-01-14 11:33:09', '<abstract><kw>php 4</kw></abstract>', 1, ''),
+(18, 'iii', 'iiiiii', '', '2012-02-23', '2012-01-18', '2012-01-14 11:34:39', '<abstract><kw>php 4</kw></abstract>', 1, ''),
+(19, 'llll', 'lllllll', '', '2012-01-18', '2012-01-12', '2012-01-14 11:35:38', '<abstract><kw>php 4</kw></abstract>', 1, ''),
+(20, 'llllll', 'lllllll', '', '2012-01-17', '2012-01-12', '2012-01-14 11:36:09', '<abstract><kw>php 4</kw></abstract>', 1, ''),
+(21, 'jkhkh', 'kjhjkh', '', '2012-01-18', '2012-01-10', '2012-01-14 11:39:09', '<abstract><kw>php 4</kw></abstract>', 1, ''),
+(22, 'uyu', 'yutuygt', '', '2012-01-17', '2012-01-13', '2012-01-14 11:39:55', '<abstract><kw>php 4</kw></abstract>', 1, ''),
+(23, 'yyy', 'yyyyy', '', '2012-01-19', '2012-01-16', '2012-01-14 12:26:35', '<abstract><kw>xml</kw>\n\n<kw>php 4</kw></abstract>', 1, ''),
+(24, 'kkkk', 'kkkkk', '', '2012-01-18', '2012-01-18', '2012-01-14 12:48:07', '<abstract><p>\nAqui vai ter v√°rias key words, entre elas <kw>xml</kw>, <kw>html</kw>, <kw>php</kw>, <kw>javascript</kw> e <kw>ajax</kw>.\n</p></abstract>', 1, ''),
+(25, 'jyh', 'jjhyyu', '', '2012-03-15', '2012-01-26', '2012-01-14 13:05:32', '<abstract><kw>php</kw> \n<kw>html</kw></abstract>', 1, ''),
+(26, 'hjhg', 'hjhyu', '', '2012-02-19', '2012-01-16', '2012-01-14 13:07:27', '<abstract><p>algumas kw\n<kw>php</kw> e <kw>html</kw> e <kw>javascript</kw>\n</p></abstract>', 1, ''),
+(27, 'fghj', 'lkjdgh', '', '2012-01-17', '2012-01-11', '2012-01-14 15:18:47', '<abstract><p>nada com <kw>php</kw></p></abstract>', 1, '2012/01/14/0835b99fc16c863b8d09a94959b89088/');
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `ProjSup`
+-- Estrutura da tabela `ProjKW`
+--
+
+CREATE TABLE IF NOT EXISTS `ProjKW` (
+  `projcode` int(11) NOT NULL,
+  `kwcode` int(11) NOT NULL,
+  PRIMARY KEY (`projcode`,`kwcode`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Extraindo dados da tabela `ProjKW`
+--
+
+INSERT INTO `ProjKW` (`projcode`, `kwcode`) VALUES
+(0, 14),
+(0, 15),
+(23, 12),
+(23, 13),
+(24, 12),
+(24, 14),
+(24, 15),
+(24, 16),
+(24, 17),
+(25, 14),
+(25, 15),
+(26, 14),
+(26, 15),
+(26, 16),
+(27, 15);
+
+-- --------------------------------------------------------
+
+--
+-- Estrutura da tabela `ProjSup`
 --
 
 CREATE TABLE IF NOT EXISTS `ProjSup` (
@@ -475,15 +548,7 @@ CREATE TABLE IF NOT EXISTS `ProjSup` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- RELATIONS FOR TABLE `ProjSup`:
---   `projcode`
---       `Project` -> `projcode`
---   `supcode`
---       `Supervisor` -> `supcode`
---
-
---
--- Dumping data for table `ProjSup`
+-- Extraindo dados da tabela `ProjSup`
 --
 
 INSERT INTO `ProjSup` (`projcode`, `supcode`) VALUES
@@ -492,13 +557,40 @@ INSERT INTO `ProjSup` (`projcode`, `supcode`) VALUES
 (5, 1),
 (6, 1),
 (7, 1),
+(10, 1),
+(12, 1),
+(14, 1),
+(16, 1),
+(17, 1),
+(18, 1),
+(19, 1),
+(20, 1),
+(21, 1),
+(22, 1),
+(24, 1),
+(27, 1),
+(9, 2),
+(13, 2),
+(15, 2),
+(21, 2),
+(22, 2),
+(24, 2),
+(26, 2),
 (2, 3),
-(4, 3);
+(4, 3),
+(8, 3),
+(11, 3),
+(14, 3),
+(15, 3),
+(23, 3),
+(25, 3),
+(26, 3),
+(27, 3);
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `Queries`
+-- Estrutura da tabela `Queries`
 --
 
 CREATE TABLE IF NOT EXISTS `Queries` (
@@ -513,22 +605,10 @@ CREATE TABLE IF NOT EXISTS `Queries` (
   KEY `projcode` (`projcode`,`authorcode`,`supcode`),
   KEY `authorcode` (`authorcode`),
   KEY `supcode` (`supcode`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=10 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=68 ;
 
 --
--- RELATIONS FOR TABLE `Queries`:
---   `username`
---       `Users` -> `username`
---   `projcode`
---       `Project` -> `projcode`
---   `authorcode`
---       `Author` -> `authorcode`
---   `supcode`
---       `Supervisor` -> `supcode`
---
-
---
--- Dumping data for table `Queries`
+-- Extraindo dados da tabela `Queries`
 --
 
 INSERT INTO `Queries` (`id`, `username`, `projcode`, `authorcode`, `supcode`, `datahora`) VALUES
@@ -540,12 +620,69 @@ INSERT INTO `Queries` (`id`, `username`, `projcode`, `authorcode`, `supcode`, `d
 (6, 'miguel', NULL, 1, NULL, '2012-01-11 21:07:24'),
 (7, 'miguel', 1, NULL, NULL, '2012-01-11 21:11:19'),
 (8, 'miguel', 6, NULL, NULL, '2012-01-11 21:11:33'),
-(9, 'miguel', 1, NULL, NULL, '2012-01-11 21:17:26');
+(9, 'miguel', 1, NULL, NULL, '2012-01-11 21:17:26'),
+(10, 'miguel', 7, NULL, NULL, '2012-01-14 00:14:00'),
+(11, 'miguel', NULL, NULL, 1, '2012-01-14 00:14:05'),
+(12, 'miguel', 23, NULL, NULL, '2012-01-14 12:36:39'),
+(13, 'miguel', 5, NULL, NULL, '2012-01-14 12:36:49'),
+(14, 'miguel', 9, NULL, NULL, '2012-01-14 12:36:55'),
+(15, 'miguel', 9, NULL, NULL, '2012-01-14 12:37:56'),
+(16, 'miguel', 22, NULL, NULL, '2012-01-14 12:38:01'),
+(17, 'miguel', 13, NULL, NULL, '2012-01-14 12:38:04'),
+(18, 'miguel', 1, NULL, NULL, '2012-01-14 12:38:08'),
+(19, 'miguel', 2, NULL, NULL, '2012-01-14 12:38:12'),
+(21, 'miguel', 4, NULL, NULL, '2012-01-14 12:38:19'),
+(22, 'miguel', 5, NULL, NULL, '2012-01-14 12:38:23'),
+(23, 'miguel', 23, NULL, NULL, '2012-01-14 12:38:32'),
+(24, 'miguel', 23, NULL, NULL, '2012-01-14 12:39:44'),
+(25, 'miguel', 10, NULL, NULL, '2012-01-14 12:39:47'),
+(26, 'miguel', 23, NULL, NULL, '2012-01-14 12:39:55'),
+(27, 'miguel', 23, NULL, NULL, '2012-01-14 12:41:47'),
+(28, 'miguel', 17, NULL, NULL, '2012-01-14 12:41:57'),
+(29, 'miguel', 24, NULL, NULL, '2012-01-14 12:48:16'),
+(30, 'miguel', 24, NULL, NULL, '2012-01-14 12:50:04'),
+(31, 'miguel', 24, NULL, NULL, '2012-01-14 12:50:45'),
+(32, 'miguel', 24, NULL, NULL, '2012-01-14 12:50:46'),
+(33, 'miguel', 24, NULL, NULL, '2012-01-14 12:50:47'),
+(34, 'miguel', 24, NULL, NULL, '2012-01-14 12:50:51'),
+(35, 'miguel', 24, NULL, NULL, '2012-01-14 12:54:12'),
+(36, 'miguel', 24, NULL, NULL, '2012-01-14 12:56:10'),
+(37, 'miguel', 24, NULL, NULL, '2012-01-14 12:56:25'),
+(38, 'miguel', 24, NULL, NULL, '2012-01-14 13:03:40'),
+(39, 'miguel', 25, NULL, NULL, '2012-01-14 13:05:40'),
+(40, 'miguel', 26, NULL, NULL, '2012-01-14 13:07:32'),
+(41, 'miguel', NULL, NULL, 1, '2012-01-14 14:42:57'),
+(42, 'miguel', NULL, NULL, 1, '2012-01-14 14:42:58'),
+(43, 'miguel', NULL, NULL, 1, '2012-01-14 14:43:00'),
+(44, 'miguel', NULL, NULL, 1, '2012-01-14 14:54:59'),
+(45, 'miguel', NULL, NULL, 1, '2012-01-14 14:55:00'),
+(46, 'miguel', NULL, NULL, 1, '2012-01-14 14:55:02'),
+(47, 'miguel', NULL, NULL, 1, '2012-01-14 15:03:58'),
+(48, 'miguel', NULL, NULL, 1, '2012-01-14 15:03:59'),
+(49, 'miguel', NULL, NULL, 1, '2012-01-14 15:04:01'),
+(50, 'miguel', NULL, NULL, 1, '2012-01-14 15:04:26'),
+(51, 'miguel', NULL, NULL, 1, '2012-01-14 15:04:30'),
+(52, 'miguel', NULL, NULL, 1, '2012-01-14 15:04:33'),
+(53, 'miguel', 26, NULL, NULL, '2012-01-14 15:05:35'),
+(54, 'miguel', 26, NULL, NULL, '2012-01-14 15:05:47'),
+(55, 'miguel', 26, NULL, NULL, '2012-01-14 15:06:06'),
+(56, 'miguel', 26, NULL, NULL, '2012-01-14 15:06:29'),
+(57, 'miguel', 24, NULL, NULL, '2012-01-14 15:06:33'),
+(58, 'miguel', NULL, NULL, 1, '2012-01-14 15:06:35'),
+(59, 'miguel', NULL, NULL, 1, '2012-01-14 15:06:40'),
+(60, 'miguel', NULL, NULL, 1, '2012-01-14 15:06:42'),
+(61, 'miguel', NULL, NULL, 1, '2012-01-14 15:08:50'),
+(62, 'miguel', NULL, NULL, 1, '2012-01-14 15:11:34'),
+(63, 'miguel', NULL, NULL, 1, '2012-01-14 15:11:53'),
+(64, 'miguel', NULL, NULL, 1, '2012-01-14 15:11:55'),
+(65, 'miguel', 26, NULL, NULL, '2012-01-14 15:12:04'),
+(66, 'miguel', 27, NULL, NULL, '2012-01-14 15:18:53'),
+(67, 'miguel', 27, NULL, NULL, '2012-01-14 15:19:25');
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `Supervisor`
+-- Estrutura da tabela `Supervisor`
 --
 
 CREATE TABLE IF NOT EXISTS `Supervisor` (
@@ -558,18 +695,18 @@ CREATE TABLE IF NOT EXISTS `Supervisor` (
 ) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=4 ;
 
 --
--- Dumping data for table `Supervisor`
+-- Extraindo dados da tabela `Supervisor`
 --
 
 INSERT INTO `Supervisor` (`supcode`, `name`, `email`, `url`, `affil`) VALUES
-(1, 'JosÈ Carlos Ramalho', 'jcr@di.uminho.pt', 'http://www.di.uminho.pt/~jcr', 'Departamento de Inform·tica'),
-(2, 'Pedro Rangel Henriques', 'prh@di.uminho.pt', 'http://www.di.uminho.pt/~prh', 'Departamento de Inform·tica'),
-(3, 'JosÈ Jo„o', 'jj@di.uminho.pt', 'http://www.di.uminho.pt/~jj', 'Departamento de Inform·tica');
+(1, 'Jos√© Carlos Ramalho', 'jcr@di.uminho.pt', 'http://www.di.uminho.pt/~jcr', 'Departamento de Inform√°tica'),
+(2, 'Pedro Rangel Henriques', 'prh@di.uminho.pt', 'http://www.di.uminho.pt/~prh', 'Departamento de Inform√°tica'),
+(3, 'Jos√© Jo√£o', 'jj@di.uminho.pt', 'http://www.di.uminho.pt/~jj', 'Departamento de Inform√°tica');
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `Users`
+-- Estrutura da tabela `Users`
 --
 
 CREATE TABLE IF NOT EXISTS `Users` (
@@ -584,20 +721,20 @@ CREATE TABLE IF NOT EXISTS `Users` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `Users`
+-- Extraindo dados da tabela `Users`
 --
 
 INSERT INTO `Users` (`name`, `username`, `password`, `email`, `affil`, `url`, `type`) VALUES
-('Bruno Azevedo', 'bruno', 'bruno', 'azevedo.252@gmail.com', 'Departamento de Inform·tica', '', 'p'),
-('JosÈ Carlos Ramalho', 'jcr', 'jcr', 'jcr@di.uminho.pt', 'Departamento de Inform·tica', 'http://www3.di.uminho.pt/~jcr/', 'c'),
-('Miguel Costa', 'miguel', 'miguel', 'miguelpintodacosta@gmail.com', 'Departamento de Inform·tica', 'http://gplus.to/miguelcosta', 'a'),
+('Bruno Azevedo', 'bruno', 'bruno', 'azevedo.252@gmail.com', 'Departamento de Inform√°tica', '', 'p'),
+('Jos√© Carlos Ramalho', 'jcr', 'jcr', 'jcr@di.uminho.pt', 'Departamento de Inform√°tica', 'http://www3.di.uminho.pt/~jcr/', 'c'),
+('Miguel Costa', 'miguel', 'miguel', 'miguelpintodacosta@gmail.com', 'Departamento de Inform√°tica', 'http://gplus.to/miguelcosta', 'a'),
 ('Palhas', 'palhas', 'palhas', 'mpalhas@gmail.com', 'CPD', 'www.mpalhas.com', 'c'),
 ('Vitor', 'vitor', 'vitor', 'vitor@gmail.com', 'BI', 'www.vitor.com', 'p');
 
 -- --------------------------------------------------------
 
 --
--- Stand-in structure for view `ViewNumAccessData`
+-- Estrutura stand-in para visualizar `ViewNumAccessData`
 --
 CREATE TABLE IF NOT EXISTS `ViewNumAccessData` (
 `month` int(2)
@@ -607,7 +744,7 @@ CREATE TABLE IF NOT EXISTS `ViewNumAccessData` (
 -- --------------------------------------------------------
 
 --
--- Stand-in structure for view `ViewNumAccessTotal`
+-- Estrutura stand-in para visualizar `ViewNumAccessTotal`
 --
 CREATE TABLE IF NOT EXISTS `ViewNumAccessTotal` (
 `accesses` bigint(21)
@@ -615,7 +752,7 @@ CREATE TABLE IF NOT EXISTS `ViewNumAccessTotal` (
 -- --------------------------------------------------------
 
 --
--- Stand-in structure for view `ViewNumAccessUser`
+-- Estrutura stand-in para visualizar `ViewNumAccessUser`
 --
 CREATE TABLE IF NOT EXISTS `ViewNumAccessUser` (
 `username` varchar(255)
@@ -624,7 +761,7 @@ CREATE TABLE IF NOT EXISTS `ViewNumAccessUser` (
 -- --------------------------------------------------------
 
 --
--- Stand-in structure for view `ViewNumDepositsCourse`
+-- Estrutura stand-in para visualizar `ViewNumDepositsCourse`
 --
 CREATE TABLE IF NOT EXISTS `ViewNumDepositsCourse` (
 `curso` int(11)
@@ -633,7 +770,7 @@ CREATE TABLE IF NOT EXISTS `ViewNumDepositsCourse` (
 -- --------------------------------------------------------
 
 --
--- Stand-in structure for view `ViewNumDepositsDate`
+-- Estrutura stand-in para visualizar `ViewNumDepositsDate`
 --
 CREATE TABLE IF NOT EXISTS `ViewNumDepositsDate` (
 `month` int(2)
@@ -643,7 +780,7 @@ CREATE TABLE IF NOT EXISTS `ViewNumDepositsDate` (
 -- --------------------------------------------------------
 
 --
--- Stand-in structure for view `ViewNumDepositsTotal`
+-- Estrutura stand-in para visualizar `ViewNumDepositsTotal`
 --
 CREATE TABLE IF NOT EXISTS `ViewNumDepositsTotal` (
 `numProjsTotal` bigint(21)
@@ -651,7 +788,7 @@ CREATE TABLE IF NOT EXISTS `ViewNumDepositsTotal` (
 -- --------------------------------------------------------
 
 --
--- Stand-in structure for view `ViewNumDepositsUser`
+-- Estrutura stand-in para visualizar `ViewNumDepositsUser`
 --
 CREATE TABLE IF NOT EXISTS `ViewNumDepositsUser` (
 `username` varchar(255)
@@ -660,7 +797,7 @@ CREATE TABLE IF NOT EXISTS `ViewNumDepositsUser` (
 -- --------------------------------------------------------
 
 --
--- Stand-in structure for view `ViewNumDownloadsTotal`
+-- Estrutura stand-in para visualizar `ViewNumDownloadsTotal`
 --
 CREATE TABLE IF NOT EXISTS `ViewNumDownloadsTotal` (
 `numDownloads` bigint(21)
@@ -668,7 +805,7 @@ CREATE TABLE IF NOT EXISTS `ViewNumDownloadsTotal` (
 -- --------------------------------------------------------
 
 --
--- Stand-in structure for view `ViewNumQueriesAuthorTotal`
+-- Estrutura stand-in para visualizar `ViewNumQueriesAuthorTotal`
 --
 CREATE TABLE IF NOT EXISTS `ViewNumQueriesAuthorTotal` (
 `queries` bigint(21)
@@ -676,7 +813,7 @@ CREATE TABLE IF NOT EXISTS `ViewNumQueriesAuthorTotal` (
 -- --------------------------------------------------------
 
 --
--- Stand-in structure for view `ViewNumQueriesProjTotal`
+-- Estrutura stand-in para visualizar `ViewNumQueriesProjTotal`
 --
 CREATE TABLE IF NOT EXISTS `ViewNumQueriesProjTotal` (
 `queries` bigint(21)
@@ -684,7 +821,7 @@ CREATE TABLE IF NOT EXISTS `ViewNumQueriesProjTotal` (
 -- --------------------------------------------------------
 
 --
--- Stand-in structure for view `ViewNumQueriesSupTotal`
+-- Estrutura stand-in para visualizar `ViewNumQueriesSupTotal`
 --
 CREATE TABLE IF NOT EXISTS `ViewNumQueriesSupTotal` (
 `queries` bigint(21)
@@ -692,7 +829,7 @@ CREATE TABLE IF NOT EXISTS `ViewNumQueriesSupTotal` (
 -- --------------------------------------------------------
 
 --
--- Stand-in structure for view `ViewNumSupervisedProj`
+-- Estrutura stand-in para visualizar `ViewNumSupervisedProj`
 --
 CREATE TABLE IF NOT EXISTS `ViewNumSupervisedProj` (
 `supcode` int(11)
@@ -701,7 +838,7 @@ CREATE TABLE IF NOT EXISTS `ViewNumSupervisedProj` (
 -- --------------------------------------------------------
 
 --
--- Stand-in structure for view `ViewTopDownloads`
+-- Estrutura stand-in para visualizar `ViewTopDownloads`
 --
 CREATE TABLE IF NOT EXISTS `ViewTopDownloads` (
 `projcode` int(11)
@@ -710,7 +847,7 @@ CREATE TABLE IF NOT EXISTS `ViewTopDownloads` (
 -- --------------------------------------------------------
 
 --
--- Stand-in structure for view `ViewTopQueriesAuthor`
+-- Estrutura stand-in para visualizar `ViewTopQueriesAuthor`
 --
 CREATE TABLE IF NOT EXISTS `ViewTopQueriesAuthor` (
 `authorcode` int(11)
@@ -719,7 +856,7 @@ CREATE TABLE IF NOT EXISTS `ViewTopQueriesAuthor` (
 -- --------------------------------------------------------
 
 --
--- Stand-in structure for view `ViewTopQueriesProj`
+-- Estrutura stand-in para visualizar `ViewTopQueriesProj`
 --
 CREATE TABLE IF NOT EXISTS `ViewTopQueriesProj` (
 `projcode` int(11)
@@ -728,7 +865,7 @@ CREATE TABLE IF NOT EXISTS `ViewTopQueriesProj` (
 -- --------------------------------------------------------
 
 --
--- Stand-in structure for view `ViewTopQueriesSup`
+-- Estrutura stand-in para visualizar `ViewTopQueriesSup`
 --
 CREATE TABLE IF NOT EXISTS `ViewTopQueriesSup` (
 `supcode` int(11)
@@ -737,7 +874,7 @@ CREATE TABLE IF NOT EXISTS `ViewTopQueriesSup` (
 -- --------------------------------------------------------
 
 --
--- Structure for view `ViewNumAccessData`
+-- Estrutura para visualizar `ViewNumAccessData`
 --
 DROP TABLE IF EXISTS `ViewNumAccessData`;
 
@@ -746,7 +883,7 @@ CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW 
 -- --------------------------------------------------------
 
 --
--- Structure for view `ViewNumAccessTotal`
+-- Estrutura para visualizar `ViewNumAccessTotal`
 --
 DROP TABLE IF EXISTS `ViewNumAccessTotal`;
 
@@ -755,7 +892,7 @@ CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW 
 -- --------------------------------------------------------
 
 --
--- Structure for view `ViewNumAccessUser`
+-- Estrutura para visualizar `ViewNumAccessUser`
 --
 DROP TABLE IF EXISTS `ViewNumAccessUser`;
 
@@ -764,7 +901,7 @@ CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW 
 -- --------------------------------------------------------
 
 --
--- Structure for view `ViewNumDepositsCourse`
+-- Estrutura para visualizar `ViewNumDepositsCourse`
 --
 DROP TABLE IF EXISTS `ViewNumDepositsCourse`;
 
@@ -773,7 +910,7 @@ CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW 
 -- --------------------------------------------------------
 
 --
--- Structure for view `ViewNumDepositsDate`
+-- Estrutura para visualizar `ViewNumDepositsDate`
 --
 DROP TABLE IF EXISTS `ViewNumDepositsDate`;
 
@@ -782,7 +919,7 @@ CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW 
 -- --------------------------------------------------------
 
 --
--- Structure for view `ViewNumDepositsTotal`
+-- Estrutura para visualizar `ViewNumDepositsTotal`
 --
 DROP TABLE IF EXISTS `ViewNumDepositsTotal`;
 
@@ -791,7 +928,7 @@ CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW 
 -- --------------------------------------------------------
 
 --
--- Structure for view `ViewNumDepositsUser`
+-- Estrutura para visualizar `ViewNumDepositsUser`
 --
 DROP TABLE IF EXISTS `ViewNumDepositsUser`;
 
@@ -800,7 +937,7 @@ CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW 
 -- --------------------------------------------------------
 
 --
--- Structure for view `ViewNumDownloadsTotal`
+-- Estrutura para visualizar `ViewNumDownloadsTotal`
 --
 DROP TABLE IF EXISTS `ViewNumDownloadsTotal`;
 
@@ -809,7 +946,7 @@ CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW 
 -- --------------------------------------------------------
 
 --
--- Structure for view `ViewNumQueriesAuthorTotal`
+-- Estrutura para visualizar `ViewNumQueriesAuthorTotal`
 --
 DROP TABLE IF EXISTS `ViewNumQueriesAuthorTotal`;
 
@@ -818,7 +955,7 @@ CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW 
 -- --------------------------------------------------------
 
 --
--- Structure for view `ViewNumQueriesProjTotal`
+-- Estrutura para visualizar `ViewNumQueriesProjTotal`
 --
 DROP TABLE IF EXISTS `ViewNumQueriesProjTotal`;
 
@@ -827,7 +964,7 @@ CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW 
 -- --------------------------------------------------------
 
 --
--- Structure for view `ViewNumQueriesSupTotal`
+-- Estrutura para visualizar `ViewNumQueriesSupTotal`
 --
 DROP TABLE IF EXISTS `ViewNumQueriesSupTotal`;
 
@@ -836,7 +973,7 @@ CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW 
 -- --------------------------------------------------------
 
 --
--- Structure for view `ViewNumSupervisedProj`
+-- Estrutura para visualizar `ViewNumSupervisedProj`
 --
 DROP TABLE IF EXISTS `ViewNumSupervisedProj`;
 
@@ -845,7 +982,7 @@ CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW 
 -- --------------------------------------------------------
 
 --
--- Structure for view `ViewTopDownloads`
+-- Estrutura para visualizar `ViewTopDownloads`
 --
 DROP TABLE IF EXISTS `ViewTopDownloads`;
 
@@ -854,7 +991,7 @@ CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW 
 -- --------------------------------------------------------
 
 --
--- Structure for view `ViewTopQueriesAuthor`
+-- Estrutura para visualizar `ViewTopQueriesAuthor`
 --
 DROP TABLE IF EXISTS `ViewTopQueriesAuthor`;
 
@@ -863,7 +1000,7 @@ CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW 
 -- --------------------------------------------------------
 
 --
--- Structure for view `ViewTopQueriesProj`
+-- Estrutura para visualizar `ViewTopQueriesProj`
 --
 DROP TABLE IF EXISTS `ViewTopQueriesProj`;
 
@@ -872,63 +1009,63 @@ CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW 
 -- --------------------------------------------------------
 
 --
--- Structure for view `ViewTopQueriesSup`
+-- Estrutura para visualizar `ViewTopQueriesSup`
 --
 DROP TABLE IF EXISTS `ViewTopQueriesSup`;
 
 CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `ViewTopQueriesSup` AS select `Queries`.`supcode` AS `supcode`,count(1) AS `queries` from `Queries` where (isnull(`Queries`.`projcode`) and isnull(`Queries`.`authorcode`) and (`Queries`.`supcode` is not null)) group by `Queries`.`supcode` order by count(1) limit 0,10;
 
 --
--- Constraints for dumped tables
+-- Restri√ß√µes para as tabelas dumpadas
 --
 
 --
--- Constraints for table `Access`
+-- Restri√ß√µes para a tabela `Access`
 --
 ALTER TABLE `Access`
   ADD CONSTRAINT `Access_ibfk_1` FOREIGN KEY (`username`) REFERENCES `Users` (`username`) ON DELETE NO ACTION ON UPDATE NO ACTION;
 
 --
--- Constraints for table `Author`
+-- Restri√ß√µes para a tabela `Author`
 --
 ALTER TABLE `Author`
   ADD CONSTRAINT `Author_ibfk_1` FOREIGN KEY (`coursecode`) REFERENCES `Course` (`coursecode`) ON DELETE NO ACTION ON UPDATE NO ACTION;
 
 --
--- Constraints for table `Deliverable`
+-- Restri√ß√µes para a tabela `Deliverable`
 --
 ALTER TABLE `Deliverable`
   ADD CONSTRAINT `Deliverable_ibfk_1` FOREIGN KEY (`projcode`) REFERENCES `Project` (`projcode`) ON DELETE NO ACTION ON UPDATE NO ACTION;
 
 --
--- Constraints for table `Downloads`
+-- Restri√ß√µes para a tabela `Downloads`
 --
 ALTER TABLE `Downloads`
   ADD CONSTRAINT `Downloads_ibfk_1` FOREIGN KEY (`username`) REFERENCES `Users` (`username`) ON DELETE NO ACTION ON UPDATE NO ACTION,
   ADD CONSTRAINT `Downloads_ibfk_2` FOREIGN KEY (`projcode`) REFERENCES `Project` (`projcode`) ON DELETE NO ACTION ON UPDATE NO ACTION;
 
 --
--- Constraints for table `ProjAut`
+-- Restri√ß√µes para a tabela `ProjAut`
 --
 ALTER TABLE `ProjAut`
   ADD CONSTRAINT `ProjAut_ibfk_1` FOREIGN KEY (`projcode`) REFERENCES `Project` (`projcode`) ON DELETE NO ACTION ON UPDATE NO ACTION,
   ADD CONSTRAINT `ProjAut_ibfk_2` FOREIGN KEY (`authorcode`) REFERENCES `Author` (`authorcode`) ON DELETE NO ACTION ON UPDATE NO ACTION;
 
 --
--- Constraints for table `Project`
+-- Restri√ß√µes para a tabela `Project`
 --
 ALTER TABLE `Project`
   ADD CONSTRAINT `Project_ibfk_1` FOREIGN KEY (`coursecode`) REFERENCES `Course` (`coursecode`) ON DELETE NO ACTION ON UPDATE NO ACTION;
 
 --
--- Constraints for table `ProjSup`
+-- Restri√ß√µes para a tabela `ProjSup`
 --
 ALTER TABLE `ProjSup`
   ADD CONSTRAINT `ProjSup_ibfk_1` FOREIGN KEY (`projcode`) REFERENCES `Project` (`projcode`) ON DELETE NO ACTION ON UPDATE NO ACTION,
   ADD CONSTRAINT `ProjSup_ibfk_2` FOREIGN KEY (`supcode`) REFERENCES `Supervisor` (`supcode`) ON DELETE NO ACTION ON UPDATE NO ACTION;
 
 --
--- Constraints for table `Queries`
+-- Restri√ß√µes para a tabela `Queries`
 --
 ALTER TABLE `Queries`
   ADD CONSTRAINT `Queries_ibfk_1` FOREIGN KEY (`username`) REFERENCES `Users` (`username`) ON DELETE NO ACTION ON UPDATE NO ACTION,

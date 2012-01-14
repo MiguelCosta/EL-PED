@@ -26,29 +26,40 @@ if (!isset($_SESSION['username']) || !$_SESSION['username'] || ((isset($_SESSION
             <div id="content">
                 <div id="content_top"></div>
                 <div id="content_main">
-                    <h2>Lista de Submissões</h2>
-                    <br/>
+                    <?php
+                    if (!$con) {
+                        echo "<h3>Erro ao ligar ao servidor.</h3><br/>" . mysql_error();
+                    } else {
+                        $kwcode = $_REQUEST["kwcode"];
+
+                        $sql = "SELECT keyword FROM KeyWord WHERE kwcode='$kwcode'";
+                        $res = mysql_query($sql, $con);
+                        $nome = "";
+                        while ($reg = mysql_fetch_array($res)) {
+                            $nome = $reg["keyword"];
+                        }
+                    }
+                    ?>
+                    <h2>Lista de Submissões com a Key Word <? echo "$nome"; ?></h2>
                     <br/>
                     <div id="containt_main_users">
                         <?php
                         if (!$con) {
                             echo "<h3>Erro ao ligar ao servidor.</h3><br/>" . mysql_error();
                         } else {
-                            //$page_p = $_REQUEST["page_p"];
-                            $indice = array_search("page_p", $_REQUEST);
-                            if (array_key_exists('page_p', $_REQUEST)) {
-                                $page_p = $_REQUEST["page_p"];
-                            } else {
-                                $page_p = 1;
-                            }
-
+                            $kwcode = $_REQUEST["kwcode"];
+                            $page_p = $_REQUEST["page_p"];
+                            //echo "$kwcode $page_p";
                             $max = $page_p * $num_proj;
                             $min = $max - $num_proj;
-                            $sql = "SELECT * FROM Project ORDER BY subdate DESC LIMIT $min , $num_proj";
-                                                        
+                            $sql = "SELECT * FROM Project WHERE projcode IN (
+                                SELECT projcode FROM ProjKW WHERE kwcode='$kwcode'
+                                ) ORDER BY subdate DESC LIMIT $min,$max";
+                            //echo "$sql";
                             $res = mysql_query($sql, $con);
                             submission_to_table("Submissões", $res);
                             ?>
+
                             <div id="page">
                                 <?php
                                 $page_menos = 1;
@@ -58,8 +69,8 @@ if (!isset($_SESSION['username']) || !$_SESSION['username'] || ((isset($_SESSION
                                 } else {
                                     $page_menos = 1;
                                 }
-                                $link_menos = "gerirS_Listar.php?page_p=$page_menos";
-                                $link_mais = "gerirS_Listar.php?page_p=$page_mais";
+                                $link_menos = "gerirS_Show_KW.php?kwcode=$kwcode&page_p=$page_menos";
+                                $link_mais = "gerirS_Show_KW.php?kwcode=$kwcode&page_p=$page_mais";
                                 ?>
                                 <?php
                                 if ($page_p > 1) {
@@ -70,7 +81,7 @@ if (!isset($_SESSION['username']) || !$_SESSION['username'] || ((isset($_SESSION
                                     </a> 
                                     <?php
                                 }
-                                $sql = "SELECT COUNT(projcode) AS total FROM Project";
+                                $sql = "SELECT COUNT(projcode) AS total FROM ProjKW WHERE kwcode='$kwcode'";
                                 $res = mysql_query($sql, $con);
                                 $total = 0;
                                 while ($row = mysql_fetch_array($res)) {

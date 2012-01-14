@@ -130,7 +130,7 @@ if (!$con) {
                     echo "<h3>Erro ao ligar ao servidor.</h3><br/>" . mysql_error();
                 } else {
                     $sql3 = "SELECT * FROM Author WHERE authorcode IN (
-                                    SELECT authorcode FROM ProjAut WHERE projcode='$projcode'
+                                    SELECT authorcode FROM ProjAut WHERE projcode='56'
                                 ) ORDER BY name";
                     $result3 = mysql_query($sql3);
                     $count3 = mysql_num_rows($result3);
@@ -175,41 +175,8 @@ if (!$con) {
 
             </div>
 
-            <div id="form_submeter_keywords">
-
-                <?php
-                if (!$con) {
-                    echo "<h3>Erro ao ligar ao servidor.</h3><br/>" . mysql_error();
-                } else {
-                    $sql5 = "SELECT * FROM KeyWord WHERE kwcode IN (
-                                    SELECT kwcode FROM ProjKW WHERE projcode='$projcode'
-                                ) ORDER BY keyword";
-                    $result5 = mysql_query($sql5);
-                    $count5 = mysql_num_rows($result5);
-                    if ($count5 > 0) {
-                        echo "<h3>Key Words</h3>";
-                        ?>
-                        <ul>
-                            <?php
-                            while ($rows5 = mysql_fetch_array($result5)) {
-                                ?>
-                                <li>
-                                    <a href="gerirS_Show_KW.php?kwcode=<? echo $rows5["kwcode"]; ?>&page_p=1">
-                                        <? echo $rows5["keyword"] ?>
-                                    </a>
-                                </li>
-                                <?php
-                            }
-                            ?>
-                        </ul>
-                        <?php
-                    }
-                }
-                ?>
-            </div>
-
             <div id="form_submeter_deliverables">
-
+                <h3>Deliverables</h3>
 
                 <?php
                 if (!$con) {
@@ -220,30 +187,21 @@ if (!$con) {
                         ORDER BY description";
                     $result4 = mysql_query($sql4);
                     $count4 = mysql_num_rows($result4);
-                    if ($count4 > 0) {
-                        echo "<h3>Deliverables</h3>";
-                        ?>
-                        <ul>
-                            <?php
-                            while ($rows4 = mysql_fetch_array($result4)) {
-                                ?>
-                                <li>
-                                    <a href="getFile.php?file=../uploads/<? echo $rows4['path']; ?>" target="_blank">
-                                        <?
-                                        if ($rows4['description'] == "" || !$rows4['description']) {
-                                            echo "Sem nome";
-                                        } else {
-                                            echo $rows4['description'];
-                                        }
-                                        ?>
-                                    </a>
-                                </li>
-                                <?php
-                            }
-                            ?>
-                        </ul>
+                    ?>
+                    <ul>
                         <?php
-                    }
+                        while ($rows4 = mysql_fetch_array($result4)) {
+                            ?>
+                            <li>
+                                <a href="getFile.php?file=../uploads/<? echo $rows4['path'] ?>" target="_blank">
+                                    <? echo $rows4['description'] ?>
+                                </a>
+                            </li>
+                            <?php
+                        }
+                        ?>
+                    </ul>
+                    <?php
                 }
                 ?>
 

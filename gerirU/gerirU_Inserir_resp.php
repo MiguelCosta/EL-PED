@@ -70,10 +70,14 @@ if (!isset($_SESSION['username']) || !$_SESSION['username'] || ((isset($_SESSION
                             if ($msg_erro != "") {
                                 echo $msg_erro;
                             } else {
-                                $sql = "INSERT INTO Users VALUES ('$username','$password','$name','$affil','$email','$url','$type')";
+                                $sql = "INSERT INTO Users VALUES ('$name','$username','$password','$email','$affil','$url','$type')";
                                 mysql_query($sql) or die(mysql_error());
                                 echo "Utilizador inserido com sucesso!";
+								// Insercao no registo de logs
+								log_insert($_SESSION['username'], $_SESSION['name'], agora(), $log_msg["ins_uti"]["act"], $log_msg["ins_uti"]["desc"]);
                             }
+				
+
                         }
                         ?>
                     </div>

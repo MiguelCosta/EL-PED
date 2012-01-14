@@ -6,7 +6,7 @@ require_once '../ini.php';
 $username = $_REQUEST["username"];
 $password = $_REQUEST["password"];
 
-$sql = "SELECT * FROM Users WHERE username='$username'";
+$sql = "SELECT username, name, password, type FROM Users WHERE username='$username'";
 $query = mysql_query($sql, $con) or die(mysql_error());
 
 $numRows = mysql_num_rows($query);
@@ -14,16 +14,17 @@ $numRows = mysql_num_rows($query);
 if ($numRows != 0) {
     while ($row = mysql_fetch_assoc($query)) {
         $dbusername = $row['username'];
+		$dbname = $row['name'];
         $dbpassword = $row['password'];
         $dbtype = $row['type'];
     }
 
     if ($username == $dbpassword && $password == $dbpassword) {
         $_SESSION['username'] = $dbusername;
+		$_SESSION['name'] = $dbname;
         $_SESSION['type'] = $dbtype;
 
         $sql = "INSERT INTO Access(username, datahora) VALUES ('" . $dbusername . "', NOW())";
-        //echo $sql;
         mysql_query($sql) or die('Erro:' . mysql_error());
     }
     else
@@ -34,5 +35,4 @@ else {
     // @TODO: nao sei se isto teria outra forma de ser feito
 }
 header("Location: ../home.php");
-// @TODO: as verificacoes de existencia, depois do alert têm de ficar na mesma pag
 ?>

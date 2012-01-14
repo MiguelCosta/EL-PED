@@ -209,7 +209,7 @@ if (!isset($_SESSION['username']) || !$_SESSION['username'] || ((isset($_SESSION
                                 $result = mysqli_query($link, $sql);
 
                                 while ($rows = mysqli_fetch_row($result)) {
-                                    var_dump($rows);
+                                    //var_dump($rows);
                                     $authorcode = $rows["0"];
                                 }
 
@@ -223,14 +223,14 @@ if (!isset($_SESSION['username']) || !$_SESSION['username'] || ((isset($_SESSION
                              */
                             foreach ($keywords as $value) {
                                 $sql = "SELECT COUNT(kwcode) AS total FROM KeyWord WHERE keyword='$value'";
-                                echo "<br/>$sql";
+                                //echo "<br/>$sql";
                                 $result = mysqli_query($link, $sql);
                                 $total_kw = 0;
                                 while ($rows = mysqli_fetch_row($result)) {
-                                    var_dump($rows);
-                                    $total_kw = $rows["total"];
+                                    $total_kw = $rows[0];
                                 }
-
+                                //echo "<br/>Total: $total_kw<br/>";
+                                
                                 // caso ainda não exista a key word na base de dados, vai inserir
                                 if ($total_kw == 0) {
                                     $sql = "INSERT INTO `PED`.`KeyWord` VALUES (NULL, '$value'); ";
@@ -245,7 +245,7 @@ if (!isset($_SESSION['username']) || !$_SESSION['username'] || ((isset($_SESSION
                                     $result = mysqli_query($link, $sql);
                                     $id_kw = 0;
                                     while ($rows = mysqli_fetch_row($result)) {
-                                        $id_kw = $rows["kwcode"];
+                                        $id_kw = $rows[0];
                                     }
                                     $sql = "INSERT INTO `PED`.`ProjKW` VALUES ('$new_projcode', $id_kw);";
                                     $result = mysqli_query($link, $sql);

@@ -841,6 +841,29 @@ textarea#abstract:b
 
 /*******************************************************************************/
 
+
+/***********************  Gráficos   ***************************/
+
+#data_graph
+{
+    width: 100%;
+    height: 450px;
+}
+
+#ano_graph_d
+{
+    width: 100%;
+    text-align: center;
+    position: absolute;
+}
+
+#mes_graph_d
+{   position: absolute;
+    width: 100%;
+}
+
+/*******************************************************************************/
+
 #menu ul {
     list-style: none;
     padding: 0px;

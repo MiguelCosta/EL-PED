@@ -34,9 +34,62 @@ if (!isset($_SESSION['username']) || !$_SESSION['username'] || ((isset($_SESSION
                         if (!$con) {
                             echo "<h3>Erro ao ligar ao servidor.</h3><br/>" . mysql_error();
                         } else {
-                            $sql = "SELECT * FROM Project";
+                            //$page_p = $_REQUEST["page_p"];
+                            $indice = array_search("page_p", $_REQUEST);
+                            if (array_key_exists('page_p', $_REQUEST)) {
+                                $page_p = $_REQUEST["page_p"];
+                            } else {
+                                $page_p = 1;
+                            }
+
+                            $max = $page_p * $num_proj;
+                            $min = $max - $num_proj;
+                            $sql = "SELECT * FROM Project ORDER BY subdate DESC LIMIT $min , $num_proj";
+                                                        
                             $res = mysql_query($sql, $con);
                             submission_to_table("Submissões", $res);
+                            ?>
+                            <div id="page">
+                                <?php
+                                $page_menos = 1;
+                                $page_mais = $page_p + 1;
+                                if ($page_p > 1) {
+                                    $page_menos = $page_p - 1;
+                                } else {
+                                    $page_menos = 1;
+                                }
+                                $link_menos = "gerirS_Listar.php?page_p=$page_menos";
+                                $link_mais = "gerirS_Listar.php?page_p=$page_mais";
+                                ?>
+                                <?php
+                                if ($page_p > 1) {
+                                    ?>
+                                    <a href="<?php echo $link_menos; ?>">
+                                        <div id="page_less">
+                                        </div>
+                                    </a> 
+                                    <?php
+                                }
+                                $sql = "SELECT COUNT(projcode) AS total FROM Project";
+                                $res = mysql_query($sql, $con);
+                                $total = 0;
+                                while ($row = mysql_fetch_array($res)) {
+                                    $total = $row["total"];
+                                }
+
+                                if ($page_p * $num_proj < $total) {
+                                    ?>
+
+                                    <a href="<?php echo $link_mais; ?>">
+                                        <div id="page_more">
+                                        </div>
+                                    </a>
+
+                                    <?php
+                                }
+                                ?>
+                            </div>
+                            <?php
                         }
                         ?>
                     </div>

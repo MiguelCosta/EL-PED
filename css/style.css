@@ -572,7 +572,7 @@ td.user a:hover, a:visited
 }
 
 
-/*********************** FORMUL\C1RIO DE SUBMISS\C3O    ***************************/
+/*********************** FORMULÁRIO DE SUBMISSÇÃo    ***************************/
 #form_submeter form
 {
     clear: both;
@@ -743,6 +743,46 @@ textarea#abstract:b
     padding:.5em;
     border-radius: 10px;
 }
+
+/* ZIP */
+#form_submeter_zip
+{
+    width: 100%;
+    text-align: center;
+}
+
+#form_submeter_zip form
+{
+    clear: both;
+    text-align: center;
+}
+#form_submeter_zip h3
+{
+    margin-top: 20px;
+    padding: 5px;
+    background-color: #EAEAEA;
+    text-align: center;
+}
+
+#form_submeter_zip label
+{
+    font-weight: bold;
+    padding-top: 20px;
+    width: 33%;
+    vertical-align: middle;
+}
+
+#form_submeter_zip input
+{
+    border:1px solid;
+    border-color:#f3f3f3 #bbb #bbb #f3f3f3;
+    margin:3px;
+    padding:.5em;
+    border-radius: 10px;
+}
+
+
+
 /*******************************************************************************/
 .clr
 {

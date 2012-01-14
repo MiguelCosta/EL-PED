@@ -30,87 +30,108 @@ if (!isset($_SESSION['username']) || !$_SESSION['username'] || ((isset($_SESSION
                     <?php
                     //var_dump($_POST);
                     // Local onde vai ficar o ficheiro XML Submetido
-                    $xml_local = "../uploads/pr/";                      // local onde vai ficar o xml
-                    $deliverable_path = "../uploads/deliverables/";     // local onde vão ser colocados os ficheiros do formulário
+                    try {
+                        $xml_local = "../uploads/pr/";                      // local onde vai ficar o xml
+                        $deliverable_path = "../uploads/deliverables/";     // local onde vão ser colocados os ficheiros do formulário
 
-                    $msg_erro = "";                                     // mensagem que vai conter os erros
-                    //var_dump($_GET);
+                        $msg_erro = "";                                     // mensagem que vai conter os erros
+                        //var_dump($_GET);
 
-                    $xml_name = $_GET["xml_file"];                      // nome que é passado como parametro
-                    $xml_path = $xml_local . $xml_name;                 // local onde está o ficheiro xml
+                        $xml_name = $_GET["xml_file"];                      // nome que é passado como parametro
+                        $xml_path = $xml_local . $xml_name;                 // local onde está o ficheiro xml
 
-                    $xml = simplexml_load_file("$xml_path");            // carrega o ficheiro xml
-                    //echo $xml->getName();
-                    $keyname = utf8_decode($xml->meta->keyname);        // o decode é porque o ficheiro está com codificação utf8
-                    $title = utf8_decode($xml->meta->title);
-                    $subtitle = utf8_decode($xml->meta->subtitle);
-                    $bdate = utf8_decode($xml->meta->bdate);
-                    $edate = utf8_decode($xml->meta->edate);
-                    $abstract = utf8_decode($xml->abstract->asXML());
-                    $supervisores_emails;                               // array com os emails dos supervisors
-                    $authors_emails;                                    // array com os ids dos authors
-                    $deliverables = array();                            // array associativo dos ficheiros
+                        if (file_exists("$xml_path")) {
+                            $xml = simplexml_load_file("$xml_path");            // carrega o ficheiro xml
+                            //echo $xml->getName();
+                            $keyname = utf8_decode($xml->meta->keyname);        // o decode é porque o ficheiro está com codificação utf8
+                            $title = utf8_decode($xml->meta->title);
+                            $subtitle = utf8_decode($xml->meta->subtitle);
+                            $bdate = utf8_decode($xml->meta->bdate);
+                            $edate = utf8_decode($xml->meta->edate);
+                            $abstract = utf8_decode($xml->abstract->asXML());
+                            $supervisores_emails;                               // array com os emails dos supervisors
+                            $authors_emails;                                    // array com os ids dos authors
+                            $deliverables = array();                            // array associativo dos ficheiros
 
-                    /**
-                     * SUPERVISORS
-                     */
-                    $i = 0;
-                    foreach ($xml->meta->supervisors->children() as $child) {
-                        if ($child->getName() == "supervisor") {
-                            foreach ($child->children() as $child_s) {
-                                if ($child_s->getName() == "email") {
-                                    $email = $child_s;
-                                    $supervisores_emails[$i] = $email;
-                                    //echo "$email";
+                            /**
+                             * SUPERVISORS
+                             */
+                            $i = 0;
+                            foreach ($xml->meta->supervisors->children() as $child) {
+                                if ($child->getName() == "supervisor") {
+                                    foreach ($child->children() as $child_s) {
+                                        if ($child_s->getName() == "email") {
+                                            $email = $child_s;
+                                            $supervisores_emails[$i] = $email;
+                                            //echo "$email";
+                                        }
+                                    }
+                                    $i++;
                                 }
                             }
-                            $i++;
-                        }
-                    }
 
-                    /**
-                     * AUTHORS
-                     */
-                    $i = 0;
-                    foreach ($xml->workteam->children() as $child) {
-                        if ($child->getName() == "author") {
-                            foreach ($child->children() as $child_s) {
-                                if ($child_s->getName() == "email") {
-                                    $email = $child_s;
-                                    $authors_emails[$i] = $email;
-                                    //echo "$email";
+                            /**
+                             * AUTHORS
+                             */
+                            $i = 0;
+                            foreach ($xml->workteam->children() as $child) {
+                                if ($child->getName() == "author") {
+                                    foreach ($child->children() as $child_s) {
+                                        if ($child_s->getName() == "email") {
+                                            $email = $child_s;
+                                            $authors_emails[$i] = $email;
+                                            //echo "$email";
+                                        }
+                                    }
+                                    $i++;
                                 }
                             }
-                            $i++;
-                        }
-                    }
 
-                    /**
-                     * DELIVERABLES
-                     */
-                    foreach ($xml->deliverables->children() as $child) {
-                        if ($child->getName() == "deliverable") {
-                            foreach ($child->children() as $child_s) {
-                                if ($child_s->getName() == "description") {
-                                    $description = $child_s;
-                                    //echo "$description";
-                                }
-                                if ($child_s->getName() == "path") {
-                                    $path = $child_s;
-                                    //echo "$path";
+                            /**
+                             * key words
+                             */
+                            $kw = $xml->xpath('//kw');
+
+                            $i = 0;
+                            while (list(, $node) = each($kw)) {
+                                $keywords[$i] = strtoupper($node);
+                                $i++;
+                            }
+
+
+                            /**
+                             * DELIVERABLES
+                             */
+                            foreach ($xml->deliverables->children() as $child) {
+                                if ($child->getName() == "deliverable") {
+                                    foreach ($child->children() as $child_s) {
+                                        if ($child_s->getName() == "description") {
+                                            $description = $child_s;
+                                            //echo "$description";
+                                        }
+                                        if ($child_s->getName() == "path") {
+                                            $path = $child_s;
+                                            //echo "$path";
+                                        }
+                                    }
+                                    $deliverables["$path"] = $description;
                                 }
                             }
-                            $deliverables["$path"] = $description;
+
+                            //var_dump($supervisores_emails);
+                            //var_dump($authors_emails);
+                            //var_dump($deliverables);
+
+                            $lig = $link;
+                            inserir_xml_base_dados($lig, $keyname, $title, $subtitle, $bdate, $edate, $abstract, $supervisores_emails, $authors_emails, $keywords, $deliverables, $xml_path);
+                        } else {
+                            echo "<div class=\"failure\">Já não é possível submeter o trabalho.
+                                Isto pode acontecer porque já foi submtido. Caso não tenha sido,
+                                contact um administrador.</div>";
                         }
+                    } catch (Exception $e) {
+                        echo "Já não é possível submeter o trabalho";
                     }
-
-                    //var_dump($supervisores_emails);
-                    //var_dump($authors_emails);
-                    //var_dump($deliverables);
-
-                    $lig = $link;
-
-                    inserir_xml_base_dados($lig, $keyname, $title, $subtitle, $bdate, $edate, $abstract, $supervisores_emails, $authors_emails, $deliverables, $xml_path);
 
                     /**
                      * Função que insere toda a informação retirada do xml na Base de Dados
@@ -125,7 +146,7 @@ if (!isset($_SESSION['username']) || !$_SESSION['username'] || ((isset($_SESSION
                      * @param type $deliverables        array associativo path => description
                      * @param type $xml_path
                      */
-                    function inserir_xml_base_dados($link, $keyname, $title, $subtitle, $bdate, $edate, $abstract, $supervisores_emails, $authors_emails, $deliverables, $xml_path) {
+                    function inserir_xml_base_dados($link, $keyname, $title, $subtitle, $bdate, $edate, $abstract, $supervisores_emails, $authors_emails, $keywords, $deliverables, $xml_path) {
                         if (!$link) {
                             printf("Can't connect to localhost. Error: %s\n", mysqli_connect_error());
                             exit();
@@ -188,12 +209,50 @@ if (!isset($_SESSION['username']) || !$_SESSION['username'] || ((isset($_SESSION
                                 $result = mysqli_query($link, $sql);
 
                                 while ($rows = mysqli_fetch_row($result)) {
+                                    var_dump($rows);
                                     $authorcode = $rows["0"];
                                 }
 
                                 $sql = "INSERT INTO `PED`.`ProjAut` VALUES ('$new_projcode', '$authorcode');";
                                 $result = mysqli_query($link, $sql);
                             }
+
+                            /**
+                             * vai a todas as key words e vai inserir na base de dados a kw,
+                             * ou caso exista, apenas associa ao projecto
+                             */
+                            foreach ($keywords as $value) {
+                                $sql = "SELECT COUNT(kwcode) AS total FROM KeyWord WHERE keyword='$value'";
+                                echo "<br/>$sql";
+                                $result = mysqli_query($link, $sql);
+                                $total_kw = 0;
+                                while ($rows = mysqli_fetch_row($result)) {
+                                    var_dump($rows);
+                                    $total_kw = $rows["total"];
+                                }
+
+                                // caso ainda não exista a key word na base de dados, vai inserir
+                                if ($total_kw == 0) {
+                                    $sql = "INSERT INTO `PED`.`KeyWord` VALUES (NULL, '$value'); ";
+                                    $result = mysqli_query($link, $sql);
+                                    // kwcode que foi inserido temporariamente
+                                    $new_kw = mysqli_insert_id($link);
+
+                                    $sql = "INSERT INTO `PED`.`ProjKW` VALUES ('$new_projcode', $new_kw);";
+                                    $result = mysqli_query($link, $sql);
+                                } else {
+                                    $sql = "SELECT kwcode FROM KeyWord WHERE keyword='$value'";
+                                    $result = mysqli_query($link, $sql);
+                                    $id_kw = 0;
+                                    while ($rows = mysqli_fetch_row($result)) {
+                                        $id_kw = $rows["kwcode"];
+                                    }
+                                    $sql = "INSERT INTO `PED`.`ProjKW` VALUES ('$new_projcode', $id_kw);";
+                                    $result = mysqli_query($link, $sql);
+                                }
+                            }
+
+
 
                             /* _________________________________________________________ */
                             /*                       FICHEIROS                           */

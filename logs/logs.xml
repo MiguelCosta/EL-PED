@@ -1,2 +1,45 @@
 <?xml version="1.0" encoding="ISO-8859-1"?>
-<logs><log><username>miguel</username><name>Miguel Costa</name><date>2012-01-14T03:45:33</date><action>Administracao:Listagem:Utilizador</action><description>Listagem de um Utilizador</description></log><log><username>miguel</username><name>Miguel Costa</name><date>2012-01-14T03:45:40</date><action>Administracao:Listagem:Utilizador</action><description>Listagem de um Utilizador</description></log><log><username>miguel</username><name>Miguel Costa</name><date>2012-01-14T03:45:45</date><action>Administracao:Listagem:Utilizador</action><description>Listagem de um Utilizador</description></log><log><username>miguel</username><name>Miguel Costa</name><date>2012-01-14T03:45:46</date><action>Administracao:Listagem:Utilizador</action><description>Listagem de um Utilizador</description></log><log><username>miguel</username><name>Miguel Costa</name><date>2012-01-14T03:45:47</date><action>Administracao:Listagem:Utilizador</action><description>Listagem de um Utilizador</description></log><log><username>miguel</username><name>Miguel Costa</name><date>2012-01-14T03:57:21</date><action>Administracao:Listagem:Utilizador</action><description>Listagem de um Utilizador</description></log></logs>
+<logs>
+    <log>
+        <username>miguel</username>
+        <name>Miguel Costa</name>
+        <date>2012-01-14T03:45:33</date>
+        <action>Administracao:Listagem:Utilizador</action>
+        <description>Listagem de um Utilizador</description>
+    </log>
+    <log>
+        <username>miguel</username>
+        <name>Miguel Costa</name>
+        <date>2012-01-14T03:45:40</date>
+        <action>Administracao:Listagem:Utilizador</action>
+        <description>Listagem de um Utilizador</description>
+    </log>
+    <log>
+        <username>miguel</username>
+        <name>Miguel Costa</name>
+        <date>2012-01-14T03:45:45</date>
+        <action>Administracao:Listagem:Utilizador</action>
+        <description>Listagem de um Utilizador</description>
+    </log>
+    <log>
+        <username>miguel</username>
+        <name>Miguel Costa</name>
+        <date>2012-01-14T03:45:46</date>
+        <action>Administracao:Listagem:Utilizador</action>
+        <description>Listagem de um Utilizador</description>
+    </log>
+    <log>
+        <username>miguel</username>
+        <name>Miguel Costa</name>
+        <date>2012-01-14T03:45:47</date>
+        <action>Administracao:Listagem:Utilizador</action>
+        <description>Listagem de um Utilizador</description>
+    </log>
+    <log>
+        <username>miguel</username>
+        <name>Miguel Costa</name>
+        <date>2012-01-14T03:57:21</date>
+        <action>Administracao:Listagem:Utilizador</action>
+        <description>Listagem de um Utilizador</description>
+    </log>
+</logs>

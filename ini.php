@@ -37,7 +37,8 @@ $aut = "Autor";
 $sup = "Supervisor";
 
 // Hash que contem todas as accoes e respectivas descricoes que podem ser escritas no log
-$log_msg = array("ins_uti" => array("act" => "$adm:$ins:$uti", "desc" => "$ins de um $uti"), "lis_uti" => array("act" => "$adm:$lis:$uti", "desc" => "$lis de um $uti"), "alt_uti" => array("act" => "$adm:$alt:$uti", "desc" => "$alt de um $uti"), "rem_uti" => array("act" => "$adm:$rem:$uti", "desc" => "$rem de um $uti")); //TODO:acabar
+$log_msg = array("lis_uti" => array("act" => "$adm:$lis:$uti", "desc" => "$lis de $uti"."es"), "ins_uti" => array("act" => "$adm:$ins:$uti", "desc" => "$ins do $uti"), "alt_uti" => array("act" => "$adm:$alt:$uti", "desc" => "$alt do $uti"), "rem_uti" => array("act" => "$adm:$rem:$uti", "desc" => "$rem do $uti"), "lis_as" => array("act" => "$adm:$lis:$aut$sup", "desc" => "$lis de $aut"."es e $sup"."es"), "ins_aut" => array("act" => "$adm:$ins:$aut", "desc" => "$ins do $aut"), "ins_sup" => array("act" => "$adm:$ins:$sup", "desc" => "$ins do $sup"), "lis_aut" => array("act" => "$adm:$lis:$aut", "desc" => "$lis do $aut"), "lis_sup" => array("act" => "$adm:$lis:$sup", "desc" => "$lis do $sup"), "lis_pros" => array("act" => "$adm:$lis:$pro"."s", "desc" => "$lis de $pro"."s"), "lis_pro" => array("act" => "$adm:$lis:$pro", "desc" => "$lis do $pro")); //TODO:acabar
+
 // Pacotes de informacao
 //define("SIP", "SIP");
 //define("AIP", "AIP");

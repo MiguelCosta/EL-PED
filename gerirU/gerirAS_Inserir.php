@@ -24,7 +24,7 @@ if (!isset($_SESSION['username']) || !$_SESSION['username'] || ((isset($_SESSION
             <div id="content">
                 <div id="content_top"></div>
                 <div id="content_main">
-                    <h2>Inserir Utilizador</h2>
+				   <h2>Inserir Autor/Supervisor</h2>
                     <br/>
                     <br/>
                     <div id="containt_main_users">

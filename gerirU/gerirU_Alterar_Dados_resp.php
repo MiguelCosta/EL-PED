@@ -66,7 +66,7 @@
 							  $_SESSION['type'] = $type;
 						   }
 						   // Insercao no registo de logs
-						   log_insert($_SESSION['username'], $_SESSION['name'], agora(), $log_msg["alt_uti"]["act"], $log_msg["alt_uti"]["desc"]);
+						   log_insert($_SESSION['username'], $_SESSION['name'], agora(), $log_msg["alt_uti"]["act"], $log_msg["alt_uti"]["desc"]." $username");
 						}
 					 }
 				  ?>

@@ -58,7 +58,7 @@ if (!isset($_SESSION['username']) || !$_SESSION['username'] || ((isset($_SESSION
                                 mysql_query($sql, $con) or die(mysql_error());
                                 echo "Remoção feita com sucesso!";
 								// Insercao no registo de logs
-								log_insert($_SESSION['username'], $_SESSION['name'], agora(), $log_msg["rem_uti"]["act"], $log_msg["rem_uti"]["desc"]);
+								log_insert($_SESSION['username'], $_SESSION['name'], agora(), $log_msg["rem_uti"]["act"], $log_msg["rem_uti"]["desc"]." $username");
                             }
                         }
                         ?>

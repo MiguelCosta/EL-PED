@@ -40,6 +40,9 @@ if (!isset($_SESSION['username']) || !$_SESSION['username'] || ((isset($_SESSION
                             $sql = "SELECT supcode, name, email,url, affil FROM Supervisor";
                             $res = mysql_query($sql, $con);
                             supervisor_to_table("Supervisors", $res);
+
+							// Insercao no registo de logs
+							log_insert($_SESSION['username'], $_SESSION['name'], agora(), $log_msg["lis_as"]["act"], $log_msg["lis_as"]["desc"]);
                         }
                         ?>
                     </div>

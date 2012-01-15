@@ -889,6 +889,26 @@ textarea#abstract:b
 /*******************************************************************************/
 
 
+#edit
+{
+    width: 100%;
+    text-align: center;
+    background-image: url(images/edit2.png);
+    background-repeat: no-repeat;
+    background-position: center;
+    height: 30px;
+}
+
+#remove
+{
+    width: 100%;
+    text-align: center;
+    background-image: url(images/remove.png);
+    background-repeat: no-repeat;
+    background-position: center;
+    height: 30px;
+}
+
 /***********************  Gráficos   ***************************/
 
 #data_graph

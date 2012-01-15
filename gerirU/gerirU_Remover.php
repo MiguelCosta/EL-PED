@@ -245,7 +245,12 @@ function user_to_table($titulo, $res) {
         echo "<td class=\"user\">" . $reg["email"] . "</td>";
         echo "<td class=\"user\">" . $reg["affil"] . "</td>";
         echo "<td class=\"user\"><a href=\"" . $reg["url"] . "\" target=\"_blank\">" . $reg["url"] . "</a></td>";
-        echo "<td class=\"user\"><a href=\"gerirU_Remover_Dados.php?username=" . $reg["username"] . "\">" . "Remover" . "</a></td>";
+        echo "<td class=\"user\">
+                <a href=\"gerirU_Remover_Dados.php?username=" . $reg["username"] . "\">" .
+                    "<div id=\"remove\">                        
+                     </div> 
+                </a>
+              </td>";
         echo "</tr>";
     }
     echo "</table>";

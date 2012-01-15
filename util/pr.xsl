@@ -10,7 +10,7 @@
         </xd:desc>
     </xd:doc>
 
-    <xsl:output method="xhtml" encoding="ISO-8859-1"/>
+    <xsl:output method="html" encoding="ISO-8859-1"/>
 
     <xsl:template match="/">
         <div id="form_submeter">
@@ -18,6 +18,7 @@
                 <xsl:apply-templates select="//meta"/>
                 <xsl:apply-templates select="//workteam"/>
                 <xsl:apply-templates select="//abstract"/>
+                <xsl:apply-templates select="//deliverables"/>
             </form>
         </div>
     </xsl:template>
@@ -135,8 +136,61 @@
     </xsl:template>
     
     <xsl:template match="abstract">
+        <h3>Abstract</h3>
+        <xsl:apply-templates/>
+    </xsl:template>
+    
+    <xsl:template match="p">
+        <p>
+            <xsl:apply-templates/>
+        </p>
+    </xsl:template>
+    
+    <xsl:template match="b">
+        <b>
+            <xsl:apply-templates/>
+        </b>
+    </xsl:template>
+    
+    <xsl:template match="i">
+        <i>
+            <xsl:apply-templates/>
+        </i>
+    </xsl:template>
+    
+    <xsl:template match="u">
+        <u>
+            <xsl:apply-templates/>
+        </u>
+    </xsl:template>
+    
+    <xsl:template match="kw">
+        <font color="blue">
+            <xsl:apply-templates/>
+        </font>
+    </xsl:template>
+    
+    <xsl:template match="xref">
+        <a href="{./@url}">
+            <xsl:value-of select="."/>
+            <xsl:apply-templates/>
+        </a>
+    </xsl:template>
+    
+    <xsl:template match="deliverables">
+        <h3>Deliverables</h3>
+        <ul>
+            <xsl:apply-templates select="deliverable"/>
+        </ul>
         
     </xsl:template>
+    
+    <xsl:template match="deliverable">
+        <li>
+            <b>Description: </b> <xsl:value-of select="description"/> <b>Path: </b> <xsl:value-of select="path"/>
+        </li>
+    </xsl:template>
+    
     
 
 </xsl:stylesheet>

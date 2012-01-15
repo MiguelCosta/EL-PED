@@ -140,87 +140,26 @@ if (!isset($_SESSION['username']) || !$_SESSION['username'] || ((isset($_SESSION
                                     }
                                 }
 
-
+                                
                                 if ($contem_ficheiros && $valido) {
                                     echo "<br/>A Informação inserida está válida<br/>";
+                                    echo "<br/>Resultado<br/>:";
+
+                                    // se estiver tudo direito, vai transformar o xml para html
+                                    $xslt = new XSLTProcessor();
+                                    $XSL = new DOMDocument();
+                                    $XSL->load('../util/pr.xsl', LIBXML_NOCDATA);
+                                    $xslt->importStylesheet($XSL);
+                                    echo $xslt->transformToXML($doc);
+                                    
+                                    
+                                    
                                 }
                                 zip_close($zip);
                             }
                         }
                     }
                     ?>
-
-                    <div id="form_submeter">
-                        <form name="projetc_record" enctype="multipart/form-data" autocomplete="on">
-                            <h3>Header</h3>
-                            <div id="form_input_left">
-                                <label class="required">Key Name: </label>
-                                <input id="key_name" name="key_name" type="text" required="" readonly="" value="Zip File"></input>
-                                <div class="clr"></div>
-                                <label class="required">Title: </label>
-                                <input id="title" name="title" type="text" required="" readonly="" value="Teste de Submissão por Zip"></input>
-                                <div class="clr"></div>
-                            </div>
-                            <div id="form_input_right">
-                                <label class="required">Begin Date: </label>
-                                <input id="begin_date" name="begin_date" type="date" required="" readonly="" value="2012-01-28"></input>
-                                <div class="clr"></div>
-                                <label class="required">End Date: </label>
-                                <input id="end_date" name="end_date" type="date" required="" readonly="" value="2012-01-14"></input>
-                            </div>
-                            <div class="clr"></div>
-                            <div id="form_submeter_supervisor">
-                                <h3>Supervisors</h3>
-                                <div class="clr"></div>
-                                <table class="user">
-                                    <tr>
-                                        <th class="user">Name</th>
-                                        <th class="user">Email</th>
-                                        <th class="user">URL</th>
-                                        <th class="user">Affil</th>
-                                    </tr>
-                                    <tr class="user">
-                                        <td class="user">José Carlos Ramalho</td>
-                                        <td class="user">jcr@di.uminho.pt</td>
-                                        <td class="user">http://www.di.uminho.pt/~jcr</td>
-                                        <td class="user">Departamento de Informática</td>
-                                    </tr>
-                                    <tr class="user">
-                                        <td class="user">Pedro Rangel Henriques</td>
-                                        <td class="user">prh@di.uminho.pt</td>
-                                        <td class="user">http://www.di.uminho.pt/~prh</td>
-                                        <td class="user">Departamento de Informática</td>
-                                    </tr>
-                                </table>
-                            </div>
-                            <div id="form_submeter_workteam">
-                                <h3>WorkTeam</h3>
-                                <table class="user">
-                                    <tr>
-                                        <th class="user">Name</th>
-                                        <th class="user">ID</th>
-                                        <th class="user">EMAIL</th>
-                                        <th class="user">URL</th>
-                                    </tr>
-                                    <tr class="user">
-                                        <td class="user">Miguel Pinto da Costa</td>
-                                        <td class="user">a54746</td>
-                                        <td class="user">miguelpintodacosta@gmail.com</td>
-                                        <td class="user">http://gplus.to/miguelcosta</td>
-                                    </tr>
-                                    <tr class="user">
-                                        <td class="user">Rafael Abreu</td>
-                                        <td class="user">pg20978</td>
-                                        <td class="user">rafaelabreu@gmail.com</td>
-                                        <td class="user"></td>
-                                    </tr>
-                                </table>
-                            </div>
-                        </form>
-                    </div>
-
-
-
 
                     <br/>
                     <br/>

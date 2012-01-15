@@ -47,7 +47,10 @@ if (!isset($_SESSION['username']) || !$_SESSION['username'] || ((isset($_SESSION
                             user_to_table("Consumidores", $res);
 							
 							// Insercao no registo de logs
-							log_insert($_SESSION['username'], $_SESSION['name'], agora(), $log_msg["lis_uti"]["act"], $log_msg["lis_uti"]["desc"]);
+							if ($_SESSION['type'] == 'a')
+								log_insert($_SESSION['username'], $_SESSION['name'], agora(), $log_msg["lis_uti"]["act"], $log_msg["lis_uti"]["desc"]);
+							else if ($_SESSION['type'] == 'c')
+								log_insert($_SESSION['username'], $_SESSION['name'], agora(), $log_msg["lis_dis_uti"]["act"], $log_msg["lis_dis_uti"]["desc"]);
                         }
                         ?>
                     </div>

@@ -20,6 +20,7 @@ $num_sup = 5;
 // Pacotes de informacao
 // Megaprocessos
 $adm = "Administracao";
+$dis = "Disseminacao";
 
 // Interface de Administracao
 $ins = "Insercao";
@@ -35,16 +36,7 @@ $aut = "Autor";
 $sup = "Supervisor";
 
 // Hash que contem todas as accoes e respectivas descricoes que podem ser escritas no log
-$log_msg = array("ins_uti" => array("act" => "$adm:$ins:$uti", "desc" => "$ins de um $uti"), "lis_uti" => array("act" => "$adm:$lis:$uti", "desc" => "$lis de um $uti"), "alt_uti" => array("act" => "$adm:$alt:$uti", "desc" => "$alt de um $uti"), "rem_uti" => array("act" => "$adm:$rem:$uti", "desc" => "$rem de um $uti")); //TODO:acabar
-// Pacotes de informacao
-//define("SIP", "SIP");
-//define("AIP", "AIP");
-//define("DIP", "DIP");
-// Megaprocessos
-//define("ING", "Ingestao");
-//define("ADM", "Administracao");
-//define("DIS", "Disseminacao");
-
+$log_msg = array("lis_uti" => array("act" => "$adm:$lis:$uti", "desc" => "Tarefa de $adm: $lis de $uti"."es"), "ins_uti" => array("act" => "$adm:$ins:$uti", "desc" => "Tarefa de $adm: $ins do $uti"), "alt_uti" => array("act" => "$adm:$alt:$uti", "desc" => "Tarefa de $adm: $alt do $uti"), "rem_uti" => array("act" => "$adm:$rem:$uti", "desc" => "Tarefa de $adm: $rem do $uti"), "lis_as" => array("act" => "$adm:$lis:$aut$sup", "desc" => "Tarefa de $adm: $lis de $aut"."es e $sup"."es"), "ins_aut" => array("act" => "$adm:$ins:$aut", "desc" => "Tarefa de $adm: $ins do $aut"), "ins_sup" => array("act" => "$adm:$ins:$sup", "desc" => "Tarefa de $adm: $ins do $sup"), "lis_aut" => array("act" => "$adm:$lis:$aut", "desc" => "Tarefa de $adm: $lis do $aut"), "lis_sup" => array("act" => "$adm:$lis:$sup", "desc" => "Tarefa de $adm: $lis do $sup"), "lis_pros" => array("act" => "$adm:$lis:$pro"."s", "desc" => "Tarefa de $adm: $lis de $pro"."s"), "lis_pro" => array("act" => "$adm:$lis:$pro", "desc" => "Tarefa de $adm: $lis do $pro"), "lis_dis_as" => array("act" => "$dis:$lis:$aut$sup", "desc" => "Tarefa de $dis: $lis de $aut"."es e $sup"."es"), "lis_dis_aut" => array("act" => "$dis:$lis:$aut", "desc" => "Tarefa de $dis: $lis do $aut"), "lis_dis_sup" => array("act" => "$dis:$lis:$sup", "desc" => "Tarefa de $dis: $lis do $sup"), "lis_dis_pros" => array("act" => "$dis:$lis:$pro"."s", "desc" => "Tarefa de $dis: $lis de $pro"."s"), "lis_dis_pro" => array("act" => "$dis:$lis:$pro", "desc" => "Tarefa de $dis: $lis do $pro"),"lis_dis_uti" => array("act" => "$dis:$lis:$uti", "desc" => "Tarefa de $dis: $lis de $uti"."es"), "login" => array("act" => "Login", "desc" => "Login no sistema pelo $uti")); //TODO:acabar
 
 
 /* * ****************

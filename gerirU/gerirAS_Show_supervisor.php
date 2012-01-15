@@ -39,9 +39,6 @@ if (!isset($_SESSION['username']) || !$_SESSION['username'] || ((isset($_SESSION
                             $supcode = $_GET["supcode"];
                             $page_p = $_GET["page_p"];
 
-                            $sql = "INSERT INTO Queries VALUES (NULL,'" . $_SESSION['username'] . "', NULL, NULL," . $supcode . ", NOW())";
-                            mysql_query($sql) or die(mysql_error());
-
                             $sql = "SELECT * FROM Supervisor WHERE supcode='$supcode'";
                             $res = mysql_query($sql, $con);
 
@@ -215,6 +212,16 @@ if (!isset($_SESSION['username']) || !$_SESSION['username'] || ((isset($_SESSION
                                         echo "<td>" . $row['affil'] . "</td>";
                                         echo "</tr>";
                                     }
+
+									// Atualiza as consultas na BD
+		                            $sql = "INSERT INTO Queries VALUES (NULL,'" . $_SESSION['username'] . "', NULL, NULL," . $supcode . ", NOW())";
+		                            mysql_query($sql) or die(mysql_error());
+
+									// Insercao no registo de logs
+									if ($_SESSION['type'] == 'a')
+										log_insert($_SESSION['username'], $_SESSION['name'], agora(), $log_msg["lis_sup"]["act"], $log_msg["lis_sup"]["desc"]." $supcode");
+									else if ($_SESSION['type'] == 'c')
+										log_insert($_SESSION['username'], $_SESSION['name'], agora(), $log_msg["lis_dis_sup"]["act"], $log_msg["lis_dis_sup"]["desc"]." $supcode");
                                     ?>
                                 </table>
 

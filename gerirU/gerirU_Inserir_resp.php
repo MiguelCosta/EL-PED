@@ -74,7 +74,7 @@ if (!isset($_SESSION['username']) || !$_SESSION['username'] || ((isset($_SESSION
                                 mysql_query($sql) or die(mysql_error());
                                 echo "Utilizador inserido com sucesso!";
 								// Insercao no registo de logs
-								log_insert($_SESSION['username'], $_SESSION['name'], agora(), $log_msg["ins_uti"]["act"], $log_msg["ins_uti"]["desc"]);
+								log_insert($_SESSION['username'], $_SESSION['name'], agora(), $log_msg["ins_uti"]["act"], $log_msg["ins_uti"]["desc"]." $username");
                             }
 				
 

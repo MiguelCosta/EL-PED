@@ -257,6 +257,15 @@ if (!$con) {
 
 
         <?php
+		   // Atualizacao das consultas na BD
+		   $sql = "INSERT INTO Queries VALUES (NULL,'" . $_SESSION['username'] . "'," . $projcode . ", NULL, NULL, NOW())";
+		   mysql_query($sql) or die(mysql_error());
+
+		   // Insercao no registo de logs
+		   if ($_SESSION['type'] == 'a')
+			   log_insert($_SESSION['username'], $_SESSION['name'], agora(), $log_msg["lis_pro"]["act"], $log_msg["lis_pro"]["desc"]." $projcode");
+		  else if ($_SESSION['type'] == 'c')
+			   log_insert($_SESSION['username'], $_SESSION['name'], agora(), $log_msg["lis_dis_pro"]["act"], $log_msg["lis_dis_pro"]["desc"]." $projcode");
     }
 }
 ?>

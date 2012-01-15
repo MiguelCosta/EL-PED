@@ -34,10 +34,7 @@ if (!isset($_SESSION['username']) || !$_SESSION['username'] || ((isset($_SESSION
                         if (!$con) {
                             echo "<h3>Erro ao ligar ao servidor.</h3><br/>" . mysql_error();
                         } else {
-                            $sql = "INSERT INTO Queries VALUES (NULL,'" . $_SESSION['username'] . "'," . $_REQUEST['projcode'] . ", NULL, NULL, NOW())";
-                            mysql_query($sql) or die(mysql_error());
-
-                            require_once('forms/showProject.php');
+							require_once('forms/showProject.php');
                         }
                         ?>
                     </div>

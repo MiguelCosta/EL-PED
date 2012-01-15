@@ -61,6 +61,9 @@ if (!isset($_SESSION['username']) || !$_SESSION['username'] || ((isset($_SESSION
                                 $sql = "INSERT INTO `PED`.`Author` VALUES (NULL, '$name', '$id', '$email', '$url', $course_id)";
                                 mysql_query($sql, $con) or die(mysql_error());
                                 echo "Author inserido com sucesso!";
+
+								// Insercao no registo de logs
+								log_insert($_SESSION['username'], $_SESSION['name'], agora(), $log_msg["ins_aut"]["act"], $log_msg["ins_aut"]["desc"]." $name");
                             }
                         }
                         ?>

@@ -152,7 +152,7 @@ if (!isset($_SESSION['username']) || !$_SESSION['username'] || ((isset($_SESSION
                             <div class="clr"></div>
                             <form id ="form_xml_submit"
                                   name="xml_submit"
-                                  method="get"
+                                  method="post"
                                   autocomplete="on"
                                   action="submeter_form_resp_xml.php"
                                   >

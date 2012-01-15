@@ -11,6 +11,11 @@ if (!isset($_SESSION['username']) || !$_SESSION['username'] || ((isset($_SESSION
         <title>Gerir - RepositórioPED</title>
         <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-15">
         <link rel="stylesheet" type="text/css" href="../css/style.css" />
+        <script language="javascript">
+            function go_back(){
+                history.go(-1);
+            }
+        </script>
     </head>
     <body>
         <div id="container">
@@ -65,16 +70,15 @@ if (!isset($_SESSION['username']) || !$_SESSION['username'] || ((isset($_SESSION
                             // vai percorrer todos os ficheiros do zip
                             if ($zip) {
                                 while ($zip_entry = zip_read($zip)) {
-                                    echo "Name:               " . zip_entry_name($zip_entry) . "<br/>\n";
-                                    echo "Actual Filesize:    " . zip_entry_filesize($zip_entry) . "<br/>\n";
-                                    echo "Compressed Size:    " . zip_entry_compressedsize($zip_entry) . "<br/>\n";
-                                    echo "Compression Method: " . zip_entry_compressionmethod($zip_entry) . "<br/>\n";
-
+                                    //echo "Name:               " . zip_entry_name($zip_entry) . "<br/>\n";
+                                    //echo "Actual Filesize:    " . zip_entry_filesize($zip_entry) . "<br/>\n";
+                                    //echo "Compressed Size:    " . zip_entry_compressedsize($zip_entry) . "<br/>\n";
+                                    //echo "Compression Method: " . zip_entry_compressionmethod($zip_entry) . "<br/>\n";
                                     // se for o pr.xml vai ler para a variável $xml o seu conteúdo
                                     if (zip_entry_name($zip_entry) == 'pr.xml') {
-                                        echo "É o ficheiro xml.";
+                                        //echo "É o ficheiro xml.";
                                         if (zip_entry_open($zip, $zip_entry, "r")) {
-                                            echo "File Contents:<br/>\n";
+                                            //echo "File Contents:<br/>\n";
                                             // $buf contêm todo o conteúdo do ficheiro
                                             $buf = zip_entry_read($zip_entry, zip_entry_filesize($zip_entry));
                                             //echo "$buf\n";
@@ -88,13 +92,8 @@ if (!isset($_SESSION['username']) || !$_SESSION['username'] || ((isset($_SESSION
                                     } else {
                                         $files_zip[$i] = zip_entry_name($zip_entry);
                                     }
-
-                                    echo "<br/>";
                                 }
                                 // fim de percorrer os ficheiros
-
-                                echo "Agora vai verificar se o xml está correcto.<br/>";
-
                                 // verificar se o xml está correcto com o schema
                                 libxml_use_internal_errors(true);           // para ativar os erros
                                 if (!$doc->schemavalidate('../util/pr.xsd')) {
@@ -102,8 +101,6 @@ if (!isset($_SESSION['username']) || !$_SESSION['username'] || ((isset($_SESSION
                                     libxml_display_errors();
                                 } else {
                                     $valido = true;
-                                    echo "Documento válido.";
-                                    echo "<br/>";
                                 }
 
                                 // vai verificar se o xml contêm os ficheiros que diz no zip
@@ -118,13 +115,14 @@ if (!isset($_SESSION['username']) || !$_SESSION['username'] || ((isset($_SESSION
                                         $i++;
                                     }
                                 }
-                                echo "<br/>";
-                                var_dump($ficheiros);
-                                echo "<br/>";
-                                var_dump($ficheiros2);
-                                echo "<br/>";
-                                var_dump($files_zip);
-
+                                /*
+                                  echo "<br/>";
+                                  var_dump($ficheiros);
+                                  echo "<br/>";
+                                  var_dump($ficheiros2);
+                                  echo "<br/>";
+                                  var_dump($files_zip);
+                                 */
                                 // verifica se os ficheiros que estão no xml, também estão dentro do zip
                                 foreach ($ficheiros2 as $f) {
                                     $encontrado = false;
@@ -140,10 +138,10 @@ if (!isset($_SESSION['username']) || !$_SESSION['username'] || ((isset($_SESSION
                                     }
                                 }
 
-                                
+
                                 if ($contem_ficheiros && $valido) {
-                                    echo "<br/>A Informação inserida está válida<br/>";
-                                    echo "<br/>Resultado<br/>:";
+                                    echo "A Informação inserida é válida. ";
+                                    echo "Resultado:<br/>";
 
                                     // se estiver tudo direito, vai transformar o xml para html
                                     $xslt = new XSLTProcessor();
@@ -151,9 +149,46 @@ if (!isset($_SESSION['username']) || !$_SESSION['username'] || ((isset($_SESSION
                                     $XSL->load('../util/pr.xsl', LIBXML_NOCDATA);
                                     $xslt->importStylesheet($XSL);
                                     echo $xslt->transformToXML($doc);
-                                    
-                                    
-                                    
+
+                                    // vai extrair para um local para depois submeter na base de dados
+                                    $zip2 = new ZipArchive;
+
+                                    // local para onde vai ser extraido
+                                    $l = $deliverable_path . $file_md5;
+                                    $l_bd = $file_md5;
+                                    //echo "<br/>Local: $l<br>";
+                                    if ($zip2->open("$namef") === TRUE) {
+                                        // verifica se a pasta já existe ou não
+                                        if (!is_dir("$l")) {
+                                            if (!mkdir("$l", 0777, true)) {
+                                                die("Ocoreu um erro ao criar a pasta $l");
+                                                exit();
+                                            }
+                                        }
+                                        // extrai o ficheiro zip
+                                        $zip2->extractTo("$l");
+                                        $zip2->close();
+
+                                        // apaga o zip depois de extraido
+                                        unlink($namef);
+                                        //echo 'ok';
+                                        ?>
+
+
+                                        <div class="clr"></div>
+                                        <form id ="form_xml_submit" name="zip_pr" action="submeter_zip_resp_folder.php" method="post">
+                                            <input name="zip_local_path" hidden="" type="text" value="<? echo $l; ?>"/>
+                                            <input name="zip_local_folder" hidden="" type="text" value="<? echo $l_bd; ?>"/>
+
+                                            <A HREF="javascript:javascript:history.go(-1)"></A>
+                                            <input name="btn_go_back" type="button" value="voltar" onclick="go_back()"/>
+                                            <input name="btn_submit_form" type="submit" value="Confirmar Informação"/>
+                                        </form>
+
+                                        <?php
+                                    } else {
+                                        echo 'Não foi possível extrair o zip!';
+                                    }
                                 }
                                 zip_close($zip);
                             }
@@ -174,5 +209,4 @@ if (!isset($_SESSION['username']) || !$_SESSION['username'] || ((isset($_SESSION
     </body>
 </html>
 
-<?php
-?>
+<?php ?>

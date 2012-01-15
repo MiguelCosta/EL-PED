@@ -36,6 +36,10 @@ if (!isset($_SESSION['username']) || !$_SESSION['username'] || ((isset($_SESSION
                     $file = 'zip_file';
                     $deliverable_path = "../uploads/zip/";
 
+                    if (!is_dir("../uploads/zip/")) {
+                        mkdir("../uploads/zip/", 0777, true);
+                    }
+
                     if (!$_FILES[$file]["error"] > 0) {
                         if (file_exists("uploads/" . $_FILES[$file]["name"])) {         // verifica se o ficheiro existe
                             echo $_FILES[$file]["name"] . "já existe.";
@@ -67,6 +71,7 @@ if (!isset($_SESSION['username']) || !$_SESSION['username'] || ((isset($_SESSION
                             $xml = "";                      // simple xml
                             $valido = false;                // estado do xml validado pelo schema
                             $contem_ficheiros = true;       // estado de verificar se os ficheiros que estão no xml também estão no zip
+                            $contem_xml = false;
                             // vai percorrer todos os ficheiros do zip
                             if ($zip) {
                                 while ($zip_entry = zip_read($zip)) {
@@ -88,19 +93,27 @@ if (!isset($_SESSION['username']) || !$_SESSION['username'] || ((isset($_SESSION
                                             $doc->loadXML($buf);
                                             // fecha o ficheiro em causa depois de o ler
                                             zip_entry_close($zip_entry);
+                                            $contem_xml = true;
                                         }
                                     } else {
                                         $files_zip[$i] = zip_entry_name($zip_entry);
                                     }
                                 }
                                 // fim de percorrer os ficheiros
+                                // 
                                 // verificar se o xml está correcto com o schema
-                                libxml_use_internal_errors(true);           // para ativar os erros
-                                if (!$doc->schemavalidate('../util/pr.xsd')) {
-                                    //print '<b>DOMDocument::schemaValidate() Generated Errors!</b>';
-                                    libxml_display_errors();
+                                if ($contem_xml) {
+                                    libxml_use_internal_errors(true);           // para ativar os erros
+                                    if (!$doc->schemavalidate('../util/pr.xsd')) {
+                                        echo "Ocorreram erros ao validar o pr.xml:";
+                                        //print '<b>DOMDocument::schemaValidate() Generated Errors!</b>';
+                                        libxml_display_errors();
+                                    } else {
+                                        $valido = true;
+                                    }
                                 } else {
-                                    $valido = true;
+                                    echo "Não está presente o ficheiro pr.xml!";
+                                    $valido = FALSE;
                                 }
 
                                 // vai verificar se o xml contêm os ficheiros que diz no zip
@@ -124,26 +137,28 @@ if (!isset($_SESSION['username']) || !$_SESSION['username'] || ((isset($_SESSION
                                   var_dump($files_zip);
                                  */
                                 // verifica se os ficheiros que estão no xml, também estão dentro do zip
-                                foreach ($ficheiros2 as $f) {
-                                    $encontrado = false;
-                                    foreach ($files_zip as $f_z) {
-                                        if ($f == $f_z) {
-                                            $encontrado = true;
+                                if ($valido) {
+                                    foreach ($ficheiros2 as $f) {
+                                        $encontrado = false;
+                                        foreach ($files_zip as $f_z) {
+                                            if ($f == $f_z) {
+                                                $encontrado = true;
+                                                break;
+                                            }
+                                        }
+                                        if (!$encontrado) {
+                                            $contem_ficheiros = false;
                                             break;
                                         }
                                     }
-                                    if (!$encontrado) {
-                                        $contem_ficheiros = false;
-                                        break;
-                                    }
                                 }
-
 
                                 if ($contem_ficheiros && $valido) {
                                     echo "A Informação inserida é válida. ";
                                     echo "Resultado:<br/>";
 
                                     // se estiver tudo direito, vai transformar o xml para html
+
                                     $xslt = new XSLTProcessor();
                                     $XSL = new DOMDocument();
                                     $XSL->load('../util/pr.xsl', LIBXML_NOCDATA);
@@ -189,6 +204,8 @@ if (!isset($_SESSION['username']) || !$_SESSION['username'] || ((isset($_SESSION
                                     } else {
                                         echo 'Não foi possível extrair o zip!';
                                     }
+                                } else {
+                                    echo "<br/>O documento não está correcto.";
                                 }
                                 zip_close($zip);
                             }

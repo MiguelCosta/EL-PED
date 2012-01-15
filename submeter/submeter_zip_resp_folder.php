@@ -300,6 +300,9 @@ if (!isset($_SESSION['username']) || !$_SESSION['username'] || ((isset($_SESSION
                             foreach ($deliverables as $key => $value) {
                                 $f1 = "$path/$key";
                                 $f2 = "$local_projeto" . "$key";
+                                if(!is_dir(dirname($f2))){
+                                    mkdir(dirname($f2), 0777, true);
+                                }
                                 rename($f1, $f2);               // isto faz um move do ficheiro
                             }
 

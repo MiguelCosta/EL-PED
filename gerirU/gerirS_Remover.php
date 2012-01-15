@@ -26,7 +26,7 @@ if (!isset($_SESSION['username']) || !$_SESSION['username'] || ((isset($_SESSION
             <div id="content">
                 <div id="content_top"></div>
                 <div id="content_main">
-                    <h2>Lista de Submissões</h2>
+                    <h2>Remover Submissões</h2>
                     <div id="containt_main_users">
                         <?php
                         if (!$con) {
@@ -56,8 +56,8 @@ if (!isset($_SESSION['username']) || !$_SESSION['username'] || ((isset($_SESSION
                                 } else {
                                     $page_menos = 1;
                                 }
-                                $link_menos = "gerirS_Listar.php?page_p=$page_menos";
-                                $link_mais = "gerirS_Listar.php?page_p=$page_mais";
+                                $link_menos = "gerirS_Remover.php?page_p=$page_menos";
+                                $link_mais = "gerirS_Remover.php?page_p=$page_mais";
                                 ?>
                                 <?php
                                 if ($page_p > 1) {
@@ -84,11 +84,6 @@ if (!isset($_SESSION['username']) || !$_SESSION['username'] || ((isset($_SESSION
                                     </a>
 
                                     <?php
-                                    // Insercao no registo de logs
-                                    if ($_SESSION['type'] == 'a')
-                                        log_insert($_SESSION['username'], $_SESSION['name'], agora(), $log_msg["lis_pros"]["act"], $log_msg["lis_pros"]["desc"]);
-                                    else if ($_SESSION['type'] == 'c')
-                                        log_insert($_SESSION['username'], $_SESSION['name'], agora(), $log_msg["lis_dis_pros"]["act"], $log_msg["lis_dis_pros"]["desc"]);
                                 }
                                 ?>
                             </div>
@@ -129,6 +124,7 @@ function submission_to_table($titulo, $res) {
     echo "<th class=\"user\">Submission Date</th>";
     echo "<th class=\"user\">Authors</th>";
     echo "<th class=\"user\">Supervisors</th>";
+    echo "<th class=\"user\">Remover</th>";
     echo "</tr>";
 
     while ($reg = mysql_fetch_array($res)) {
@@ -159,6 +155,12 @@ function submission_to_table($titulo, $res) {
             $supervisores .= "</a>, ";
         }
         echo "<td class=\"user\">" . $supervisores . "</td>";
+        echo "<td class=\"user\">
+                <a href=\"gerirS_Remover_Dados.php?projcode=" . $id . "\">" .
+        "<div id=\"remove_s\">                        
+                     </div> 
+                </a>
+              </td>";
 
         echo "</tr>";
     }

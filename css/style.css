@@ -908,6 +908,15 @@ textarea#abstract:b
     background-position: center;
     height: 30px;
 }
+#remove_s
+{
+    width: 100%;
+    text-align: center;
+    background-image: url(images/remove_s.png);
+    background-repeat: no-repeat;
+    background-position: center;
+    height: 30px;
+}
 
 /***********************  Gráficos   ***************************/
 

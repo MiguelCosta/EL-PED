@@ -246,7 +246,7 @@ function user_to_table($titulo, $res) {
         echo "<td class=\"user\"><a href=\"" . $reg["url"] . "\" target=\"_blank\">" . $reg["url"] . "</a></td>";
         echo "<td class=\"user\">
                 <a href=\"gerirU_Alterar_Dados.php?username=" . $reg["username"] . "\">" .
-                    "<div id=\"edit\">                        
+        "<div id=\"edit\">                        
                      </div>
                 </a>    
               </td>";

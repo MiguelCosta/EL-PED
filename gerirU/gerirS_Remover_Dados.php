@@ -8,7 +8,7 @@ if (!isset($_SESSION['username']) || !$_SESSION['username'] || ((isset($_SESSION
 <!DOCTYPE html>
 <html>
     <head>
-        <title>Gerir->Utilizadores->Alterar - RepositórioPED</title>
+        <title>Gerir->Utlizadores->Remover - RepositórioPED</title>
         <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-15">
         <link rel="stylesheet" type="text/css" href="../css/style.css" />
     </head>
@@ -25,13 +25,13 @@ if (!isset($_SESSION['username']) || !$_SESSION['username'] || ((isset($_SESSION
             <div id="content">
                 <div id="content_top"></div>
                 <div id="content_main">
-                    <h2>Alterar Utilizador</h2>
+                    <h2>Remover Projecto</h2>
                     <div id="containt_main_users">
                         <?php
                         if (!$con) {
                             echo "<h3>Erro ao ligar ao servidor.</h3><br/>" . mysql_error();
                         } else {
-                            require_once 'forms/alterarUtilizador_Dados.php';
+                            require_once('forms/showProject_Remover.php');
                         }
                         ?>
                     </div>

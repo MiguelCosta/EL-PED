@@ -98,7 +98,7 @@ if (!isset($_SESSION['username']) || !$_SESSION['username'] || ((isset($_SESSION
                                     while ($row = mysql_fetch_array($res)) {
                                         $projcode = $row['projcode'];
 
-                                        $sql2 = "SELECT projcode, keyname, title, subdate FROM Project WHERE projcode='$projcode'";
+                                        $sql2 = "SELECT projcode, keyname, title, subdate FROM Project WHERE remove=0 AND projcode='$projcode'";
                                         $res2 = mysql_query($sql2, $con);
 
                                         while ($row2 = mysql_fetch_array($res2)) {

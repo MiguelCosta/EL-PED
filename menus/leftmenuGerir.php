@@ -31,7 +31,7 @@
             <li><a href="gerirS_Listar.php">Listar</a></li>
             <?php
             if ($_SESSION['type'] == 'a') {
-                echo "<li><a href=\"#\">Remover</a></li>";
+                echo "<li><a href=\"gerirS_Remover.php\">Remover</a></li>";
             }
             ?>
         </ul>

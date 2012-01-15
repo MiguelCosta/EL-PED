@@ -195,8 +195,12 @@
 											$sql = "INSERT INTO Queries VALUES (NULL,'" . $_SESSION['username'] . "',NULL," . $authorcode . ",NULL, NOW())";
 											mysql_query($sql) or die(mysql_error());
 
-										  // Insercao no registo de logs
-										  log_insert($_SESSION['username'], $_SESSION['name'], agora(), $log_msg["lis_aut"]["act"], $log_msg["lis_aut"]["desc"]." $authorcode");
+										  	// Insercao no registo de logs
+										  	if ($_SESSION['type'] == 'a')
+											  log_insert($_SESSION['username'], $_SESSION['name'], agora(), $log_msg["lis_aut"]["act"], $log_msg["lis_aut"]["desc"]." $authorcode");
+										  	else if ($_SESSION['type'] == 'c')
+											  log_insert($_SESSION['username'], $_SESSION['name'], agora(), $log_msg["lis_dis_aut"]["act"], $log_msg["lis_dis_aut"]["desc"]." $authorcode");
+
 									   ?>
 									</table>
 									<?php

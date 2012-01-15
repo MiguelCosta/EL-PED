@@ -42,7 +42,10 @@ if (!isset($_SESSION['username']) || !$_SESSION['username'] || ((isset($_SESSION
                             supervisor_to_table("Supervisors", $res);
 
 							// Insercao no registo de logs
-							log_insert($_SESSION['username'], $_SESSION['name'], agora(), $log_msg["lis_as"]["act"], $log_msg["lis_as"]["desc"]);
+							if ($_SESSION['type'] == 'a')
+								log_insert($_SESSION['username'], $_SESSION['name'], agora(), $log_msg["lis_as"]["act"], $log_msg["lis_as"]["desc"]);
+							else if ($_SESSION['type'] == 'c')
+								log_insert($_SESSION['username'], $_SESSION['name'], agora(), $log_msg["lis_dis_as"]["act"], $log_msg["lis_dis_as"]["desc"]);
                         }
                         ?>
                     </div>

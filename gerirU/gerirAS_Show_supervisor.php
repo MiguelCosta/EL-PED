@@ -218,7 +218,10 @@ if (!isset($_SESSION['username']) || !$_SESSION['username'] || ((isset($_SESSION
 		                            mysql_query($sql) or die(mysql_error());
 
 									// Insercao no registo de logs
-									log_insert($_SESSION['username'], $_SESSION['name'], agora(), $log_msg["lis_sup"]["act"], $log_msg["lis_sup"]["desc"]." $supcode");
+									if ($_SESSION['type'] == 'a')
+										log_insert($_SESSION['username'], $_SESSION['name'], agora(), $log_msg["lis_sup"]["act"], $log_msg["lis_sup"]["desc"]." $supcode");
+									else if ($_SESSION['type'] == 'c')
+										log_insert($_SESSION['username'], $_SESSION['name'], agora(), $log_msg["lis_dis_sup"]["act"], $log_msg["lis_dis_sup"]["desc"]." $supcode");
                                     ?>
                                 </table>
 

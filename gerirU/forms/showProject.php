@@ -262,7 +262,10 @@ if (!$con) {
 		   mysql_query($sql) or die(mysql_error());
 
 		   // Insercao no registo de logs
-		   log_insert($_SESSION['username'], $_SESSION['name'], agora(), $log_msg["lis_pro"]["act"], $log_msg["lis_pro"]["desc"]." $projcode");
+		   if ($_SESSION['type'] == 'a')
+			   log_insert($_SESSION['username'], $_SESSION['name'], agora(), $log_msg["lis_pro"]["act"], $log_msg["lis_pro"]["desc"]." $projcode");
+		  else if ($_SESSION['type'] == 'c')
+			   log_insert($_SESSION['username'], $_SESSION['name'], agora(), $log_msg["lis_dis_pro"]["act"], $log_msg["lis_dis_pro"]["desc"]." $projcode");
     }
 }
 ?>

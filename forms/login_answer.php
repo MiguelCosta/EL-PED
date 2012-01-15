@@ -24,8 +24,12 @@ if ($numRows != 0) {
 		$_SESSION['name'] = $dbname;
         $_SESSION['type'] = $dbtype;
 
+		// Atualiza os acessos na BD
         $sql = "INSERT INTO Access(username, datahora) VALUES ('" . $dbusername . "', NOW())";
         mysql_query($sql) or die('Erro:' . mysql_error());
+
+		// Insercao no registo de logs
+		log_insert($_SESSION['username'], $_SESSION['name'], agora(), $log_msg["login"]["act"], $log_msg["login"]["desc"]." $dbusername");
     }
     else
         echo "<script type=\"text/javascript\">alert(\"Password incorrecta!\");</script>";

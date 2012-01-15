@@ -87,7 +87,10 @@
 
 						   <?php
 	  						// Insercao no registo de logs
-							log_insert($_SESSION['username'], $_SESSION['name'], agora(), $log_msg["lis_pros"]["act"], $log_msg["lis_pros"]["desc"]);
+							if ($_SESSION['type'] == 'a')
+								log_insert($_SESSION['username'], $_SESSION['name'], agora(), $log_msg["lis_pros"]["act"], $log_msg["lis_pros"]["desc"]);
+							else if ($_SESSION['type'] == 'c')
+								log_insert($_SESSION['username'], $_SESSION['name'], agora(), $log_msg["lis_dis_pros"]["act"], $log_msg["lis_dis_pros"]["desc"]);
 						   }
 						?>
 					 </div>

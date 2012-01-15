@@ -1,2 +1,584 @@
 <?xml version="1.0" encoding="ISO-8859-1"?>
-<logs><log><username>miguel</username><name>Miguel Costa</name><date>2012-01-14T03:45:33</date><action>Administracao:Listagem:Utilizador</action><description>Listagem de um Utilizador</description></log><log><username>miguel</username><name>Miguel Costa</name><date>2012-01-14T03:45:40</date><action>Administracao:Listagem:Utilizador</action><description>Listagem de um Utilizador</description></log><log><username>miguel</username><name>Miguel Costa</name><date>2012-01-14T03:45:45</date><action>Administracao:Listagem:Utilizador</action><description>Listagem de um Utilizador</description></log><log><username>miguel</username><name>Miguel Costa</name><date>2012-01-14T03:45:46</date><action>Administracao:Listagem:Utilizador</action><description>Listagem de um Utilizador</description></log><log><username>miguel</username><name>Miguel Costa</name><date>2012-01-14T03:45:47</date><action>Administracao:Listagem:Utilizador</action><description>Listagem de um Utilizador</description></log><log><username>miguel</username><name>Miguel Costa</name><date>2012-01-14T03:57:21</date><action>Administracao:Listagem:Utilizador</action><description>Listagem de um Utilizador</description></log><log><username>miguel</username><name>Miguel Costa</name><date>2012-01-14T16:58:05</date><action>Administracao:Listagem:Utilizador</action><description>Listagem de um Utilizador</description></log><log><username>jcr</username><name>Jos? Carlos Ramalho</name><date>2012-01-14T16:58:20</date><action>Administracao:Listagem:Utilizador</action><description>Listagem de um Utilizador</description></log><log><username>miguel</username><name>Miguel Costa</name><date>2012-01-14T17:27:30</date><action>Administracao:Listagem:Utilizador</action><description>Listagem de um Utilizador</description></log><log><username>miguel</username><name>Antonio</name><date>2012-01-14T17:04:54</date><action>Administracao:Alteracao:Utilizador</action><description>Alteracao de um Utilizador</description></log><log><username>miguel</username><name>Miguel Costa</name><date>2012-01-14T17:07:21</date><action>Administracao:Insercao:Utilizador</action><description>Insercao de um Utilizador</description></log><log><username>miguel</username><name>Miguel Costa</name><date>2012-01-14T17:07:57</date><action>Administracao:Alteracao:Utilizador</action><description>Alteracao de um Utilizador</description></log><log><username>miguel</username><name>Miguel Costa</name><date>2012-01-14T17:11:31</date><action>Administracao:Remocao:Utilizador</action><description>Remocao de um Utilizador</description></log><log><username>miguel</username><name>Miguel Costa</name><date>2012-01-14T21:33:51</date><action>Administracao:Listagem:Utilizador</action><description>Listagem de um Utilizador </description></log><log><username>miguel</username><name>Miguel Costa</name><date>2012-01-14T21:35:23</date><action>Administracao:Listagem:Utilizador</action><description>Listagem de um Utilizador </description></log><log><username>miguel</username><name>Miguel Costa</name><date>2012-01-14T21:35:47</date><action>Administracao:Listagem:Utilizador</action><description>Listagem de um Utilizador</description></log><log><username>miguel</username><name>Miguel Costa</name><date>2012-01-14T21:36:21</date><action>Administracao:Listagem:Utilizador</action><description>Listagem de um Utilizador</description></log><log><username>miguel</username><name>Miguel Costa</name><date>2012-01-14T21:37:21</date><action>Administracao:Listagem:Utilizador</action><description>Listagem de Utilizadores</description></log><log><username>miguel</username><name>Miguel Costa</name><date>2012-01-14T21:38:55</date><action>Administracao:Insercao:Utilizador</action><description>Insercao do Utilizador nuno</description></log><log><username>miguel</username><name>Miguel Costa</name><date>2012-01-14T21:39:33</date><action>Administracao:Alteracao:Utilizador</action><description>Alteracao do Utilizador nuno</description></log><log><username>miguel</username><name>Miguel Costa</name><date>2012-01-14T21:40:10</date><action>Administracao:Remocao:Utilizador</action><description>Remocao do Utilizador nuno</description></log><log><username>miguel</username><name>Miguel Costa</name><date>2012-01-14T21:40:19</date><action>Administracao:Listagem:Utilizador</action><description>Listagem de Utilizadores</description></log><log><username>miguel</username><name>Miguel Costa</name><date>2012-01-14T21:51:12</date><action>Administracao:Listagem:Utilizador</action><description>Listagem de Utilizadores</description></log><log><username>miguel</username><name>Miguel Costa</name><date>2012-01-14T22:09:39</date><action>Administracao:Listagem:AutorSupervisor</action><description>Listagem de Autores e Supervisores</description></log><log><username>miguel</username><name>Miguel Costa</name><date>2012-01-14T22:16:04</date><action>Administracao:Insercao:Autor</action><description>Insercao do Autor andre</description></log><log><username>miguel</username><name>Miguel Costa</name><date>2012-01-14T22:20:25</date><action>Administracao:Insercao:Supervisor</action><description>Insercao do Supervisor prh</description></log><log><username>miguel</username><name>Miguel Costa</name><date>2012-01-14T22:42:09</date><action>Administracao:Listagem:AutorSupervisor</action><description>Listagem de Autores e Supervisores</description></log><log><username>miguel</username><name>Miguel Costa</name><date>2012-01-14T23:04:22</date><action>Administracao:Listagem:Autor</action><description>Listagem do Autor Miguel Pinto da Costa</description></log><log><username>miguel</username><name>Miguel Costa</name><date>2012-01-14T23:04:24</date><action>Administracao:Listagem:Autor</action><description>Listagem do Autor Miguel Pinto da Costa</description></log><log><username>miguel</username><name>Miguel Costa</name><date>2012-01-14T23:04:24</date><action>Administracao:Listagem:Autor</action><description>Listagem do Autor Miguel Pinto da Costa</description></log><log><username>miguel</username><name>Miguel Costa</name><date>2012-01-14T23:05:31</date><action>Administracao:Listagem:AutorSupervisor</action><description>Listagem de Autores e Supervisores</description></log><log><username>miguel</username><name>Miguel Costa</name><date>2012-01-14T23:05:33</date><action>Administracao:Listagem:Autor</action><description>Listagem do Autor Bruno Azevedo</description></log><log><username>miguel</username><name>Miguel Costa</name><date>2012-01-14T23:06:04</date><action>Administracao:Listagem:AutorSupervisor</action><description>Listagem de Autores e Supervisores</description></log><log><username>miguel</username><name>Miguel Costa</name><date>2012-01-14T23:06:06</date><action>Administracao:Listagem:Autor</action><description>Listagem do Autor Rafael Abreu</description></log><log><username>miguel</username><name>Miguel Costa</name><date>2012-01-14T23:06:59</date><action>Administracao:Listagem:AutorSupervisor</action><description>Listagem de Autores e Supervisores</description></log><log><username>miguel</username><name>Miguel Costa</name><date>2012-01-14T23:07:01</date><action>Administracao:Listagem:Autor</action><description>Listagem do Autor andre</description></log><log><username>miguel</username><name>Miguel Costa</name><date>2012-01-14T23:08:55</date><action>Administracao:Listagem:AutorSupervisor</action><description>Listagem de Autores e Supervisores</description></log><log><username>miguel</username><name>Miguel Costa</name><date>2012-01-14T23:08:56</date><action>Administracao:Listagem:Supervisor</action><description>Listagem do Supervisor Jos? Carlos Ramalho</description></log><log><username>miguel</username><name>Miguel Costa</name><date>2012-01-14T23:17:55</date><action/><description/></log><log><username>miguel</username><name>Miguel Costa</name><date>2012-01-14T23:19:38</date><action/><description/></log><log><username>miguel</username><name>Miguel Costa</name><date>2012-01-14T23:22:51</date><action>Administracao:Listagem:AutorSupervisor</action><description>Listagem de Autores e Supervisores</description></log><log><username>miguel</username><name>Miguel Costa</name><date>2012-01-14T23:25:49</date><action>Administracao:Listagem:Projeto</action><description>Listagem de Projetos</description></log><log><username>miguel</username><name>Miguel Costa</name><date>2012-01-14T23:26:39</date><action>Administracao:Listagem:Projetos</action><description>Listagem de Projetos</description></log><log><username>miguel</username><name>Miguel Costa</name><date>2012-01-14T23:33:50</date><action>Administracao:Listagem:Projetos</action><description>Listagem de Projetos</description></log><log><username>miguel</username><name>Miguel Costa</name><date>2012-01-14T23:33:53</date><action>Administracao:Listagem:Projeto</action><description>Listagem do Projeto 1</description></log><log><username>miguel</username><name>Miguel Costa</name><date>2012-01-14T23:38:55</date><action>Administracao:Listagem:Projetos</action><description>Listagem de Projetos</description></log><log><username>miguel</username><name>Miguel Costa</name><date>2012-01-14T23:38:58</date><action>Administracao:Listagem:Projeto</action><description>Listagem do Projeto 27</description></log><log><username>miguel</username><name>Miguel Costa</name><date>2012-01-14T23:48:58</date><action>Administracao:Listagem:Projetos</action><description>Listagem de Projetos</description></log><log><username>jcr</username><name>Jos? Carlos Ramalho</name><date>2012-01-14T23:52:43</date><action>Administracao:Listagem:Utilizador</action><description>Listagem de Utilizadores</description></log><log><username>jcr</username><name>Jos? Carlos Ramalho</name><date>2012-01-14T23:52:45</date><action>Administracao:Listagem:AutorSupervisor</action><description>Listagem de Autores e Supervisores</description></log><log><username>jcr</username><name>Jos? Carlos Ramalho</name><date>2012-01-14T23:52:49</date><action>Administracao:Listagem:Autor</action><description>Listagem do Autor 1</description></log><log><username>jcr</username><name>Jos? Carlos Ramalho</name><date>2012-01-14T23:52:53</date><action>Administracao:Listagem:AutorSupervisor</action><description>Listagem de Autores e Supervisores</description></log><log><username>jcr</username><name>Jos? Carlos Ramalho</name><date>2012-01-14T23:52:57</date><action>Administracao:Listagem:Supervisor</action><description>Listagem do Supervisor 1</description></log><log><username>jcr</username><name>Jos? Carlos Ramalho</name><date>2012-01-14T23:52:58</date><action>Administracao:Listagem:AutorSupervisor</action><description>Listagem de Autores e Supervisores</description></log><log><username>jcr</username><name>Jos? Carlos Ramalho</name><date>2012-01-14T23:52:59</date><action>Administracao:Listagem:Projetos</action><description>Listagem de Projetos</description></log><log><username>jcr</username><name>Jos? Carlos Ramalho</name><date>2012-01-14T23:53:02</date><action>Administracao:Listagem:Projeto</action><description>Listagem do Projeto 27</description></log><log><username>jcr</username><name>Jos? Carlos Ramalho</name><date>2012-01-14T23:53:03</date><action>Administracao:Listagem:Projetos</action><description>Listagem de Projetos</description></log><log><username>jcr</username><name>Jos? Carlos Ramalho</name><date>2012-01-14T23:58:50</date><action>Administracao:Listagem:Projeto</action><description>Listagem do Projeto 1</description></log><log><username>jcr</username><name>Jos? Carlos Ramalho</name><date>2012-01-14T23:59:39</date><action>Administracao:Listagem:Projetos</action><description>Listagem de Projetos</description></log><log><username>jcr</username><name>Jos? Carlos Ramalho</name><date>2012-01-14T23:59:43</date><action>Administracao:Listagem:Projeto</action><description>Listagem do Projeto 1</description></log><log><username>miguel</username><name>Miguel Costa</name><date>2012-01-15T00:07:48</date><action>Administracao:Listagem:Projetos</action><description>Listagem de Projetos</description></log><log><username>miguel</username><name>Miguel Costa</name><date>2012-01-15T00:07:51</date><action>Administracao:Listagem:Projetos</action><description>Listagem de Projetos</description></log><log><username>miguel</username><name>Miguel Costa</name><date>2012-01-15T00:07:54</date><action>Administracao:Listagem:Projetos</action><description>Listagem de Projetos</description></log><log><username>miguel</username><name>Miguel Costa</name><date>2012-01-15T00:07:56</date><action>Administracao:Listagem:Projeto</action><description>Listagem do Projeto 28</description></log><log><username>jcr</username><name>Jos? Carlos Ramalho</name><date>2012-01-15T00:25:26</date><action>Administracao:Listagem:Utilizador</action><description>Listagem de Utilizadores</description></log><log><username>jcr</username><name>Jos? Carlos Ramalho</name><date>2012-01-15T00:26:18</date><action>Administracao:Listagem:AutorSupervisor</action><description>Listagem de Autores e Supervisores</description></log><log><username>miguel</username><name>Miguel Costa</name><date>2012-01-15T00:52:35</date><action>Administracao:Listagem:AutorSupervisor</action><description>Tarefa de Administracao: Listagem de Autores e Supervisores</description></log><log><username>jcr</username><name>Jos? Carlos Ramalho</name><date>2012-01-15T00:53:12</date><action>Disseminacao:Listagem:AutorSupervisor</action><description>Tarefa de Disseminacao: Listagem de Autores e Supervisores</description></log><log><username>miguel</username><name>Miguel Costa</name><date>2012-01-15T01:03:37</date><action>Administracao:Listagem:AutorSupervisor</action><description>Tarefa de Administracao: Listagem de Autores e Supervisores</description></log><log><username>miguel</username><name>Miguel Costa</name><date>2012-01-15T01:03:40</date><action>Administracao:Listagem:Autor</action><description>Tarefa de Administracao: Listagem do Autor 1</description></log><log><username>jcr</username><name>Jos? Carlos Ramalho</name><date>2012-01-15T01:04:34</date><action>Disseminacao:Listagem:AutorSupervisor</action><description>Tarefa de Disseminacao: Listagem de Autores e Supervisores</description></log><log><username>jcr</username><name>Jos? Carlos Ramalho</name><date>2012-01-15T01:04:37</date><action>Disseminacao:Listagem:Autor</action><description>Tarefa de Disseminacao: Listagem do Autor 7</description></log><log><username>miguel</username><name>Miguel Costa</name><date>2012-01-15T01:15:42</date><action>Administracao:Listagem:Projetos</action><description>Tarefa de Administracao: Listagem de Projetos</description></log><log><username>jcr</username><name>Jos? Carlos Ramalho</name><date>2012-01-15T01:16:03</date><action>Disseminacao:Listagem:Projetos</action><description>Tarefa de Disseminacao: Listagem de Projetos</description></log><log><username>miguel</username><name>Miguel Costa</name><date>2012-01-15T01:25:03</date><action>Administracao:Listagem:Projetos</action><description>Tarefa de Administracao: Listagem de Projetos</description></log><log><username>miguel</username><name>Miguel Costa</name><date>2012-01-15T01:25:05</date><action>Administracao:Listagem:Projeto</action><description>Tarefa de Administracao: Listagem do Projeto 29</description></log><log><username>jcr</username><name>Jos? Carlos Ramalho</name><date>2012-01-15T01:25:13</date><action>Disseminacao:Listagem:Projetos</action><description>Tarefa de Disseminacao: Listagem de Projetos</description></log><log><username>jcr</username><name>Jos? Carlos Ramalho</name><date>2012-01-15T01:25:16</date><action>Disseminacao:Listagem:Projeto</action><description>Tarefa de Disseminacao: Listagem do Projeto 1</description></log><log><username>miguel</username><name>Miguel Costa</name><date>2012-01-15T01:28:40</date><action>Administracao:Listagem:Utilizador</action><description>Tarefa de Administracao: Listagem de Utilizadores</description></log><log><username>jcr</username><name>Jos? Carlos Ramalho</name><date>2012-01-15T01:29:00</date><action>Disseminacao:Listagem:Utilizador</action><description>Tarefa de Disseminacao: Listagem de Utilizadores</description></log><log><username>miguel</username><name>Miguel Costa</name><date>2012-01-15T02:01:49</date><action>Login</action><description>Login no sistema pelo Utilizador miguel</description></log><log><username>bruno</username><name>Bruno Azevedo</name><date>2012-01-15T02:02:07</date><action>Login</action><description>Login no sistema pelo Utilizador bruno</description></log><log><username>miguel</username><name>Miguel Costa</name><date>2012-01-15T02:02:15</date><action>Login</action><description>Login no sistema pelo Utilizador miguel</description></log></logs>
+<logs>
+    <log>
+        <username>miguel</username>
+        <name>Miguel Costa</name>
+        <date>2012-01-14T03:45:33</date>
+        <action>Administracao:Listagem:Utilizador</action>
+        <description>Listagem de um Utilizador</description>
+    </log>
+    <log>
+        <username>miguel</username>
+        <name>Miguel Costa</name>
+        <date>2012-01-14T03:45:40</date>
+        <action>Administracao:Listagem:Utilizador</action>
+        <description>Listagem de um Utilizador</description>
+    </log>
+    <log>
+        <username>miguel</username>
+        <name>Miguel Costa</name>
+        <date>2012-01-14T03:45:45</date>
+        <action>Administracao:Listagem:Utilizador</action>
+        <description>Listagem de um Utilizador</description>
+    </log>
+    <log>
+        <username>miguel</username>
+        <name>Miguel Costa</name>
+        <date>2012-01-14T03:45:46</date>
+        <action>Administracao:Listagem:Utilizador</action>
+        <description>Listagem de um Utilizador</description>
+    </log>
+    <log>
+        <username>miguel</username>
+        <name>Miguel Costa</name>
+        <date>2012-01-14T03:45:47</date>
+        <action>Administracao:Listagem:Utilizador</action>
+        <description>Listagem de um Utilizador</description>
+    </log>
+    <log>
+        <username>miguel</username>
+        <name>Miguel Costa</name>
+        <date>2012-01-14T03:57:21</date>
+        <action>Administracao:Listagem:Utilizador</action>
+        <description>Listagem de um Utilizador</description>
+    </log>
+    <log>
+        <username>miguel</username>
+        <name>Miguel Costa</name>
+        <date>2012-01-14T16:58:05</date>
+        <action>Administracao:Listagem:Utilizador</action>
+        <description>Listagem de um Utilizador</description>
+    </log>
+    <log>
+        <username>jcr</username>
+        <name>Jos? Carlos Ramalho</name>
+        <date>2012-01-14T16:58:20</date>
+        <action>Administracao:Listagem:Utilizador</action>
+        <description>Listagem de um Utilizador</description>
+    </log>
+    <log>
+        <username>miguel</username>
+        <name>Miguel Costa</name>
+        <date>2012-01-14T17:27:30</date>
+        <action>Administracao:Listagem:Utilizador</action>
+        <description>Listagem de um Utilizador</description>
+    </log>
+    <log>
+        <username>miguel</username>
+        <name>Antonio</name>
+        <date>2012-01-14T17:04:54</date>
+        <action>Administracao:Alteracao:Utilizador</action>
+        <description>Alteracao de um Utilizador</description>
+    </log>
+    <log>
+        <username>miguel</username>
+        <name>Miguel Costa</name>
+        <date>2012-01-14T17:07:21</date>
+        <action>Administracao:Insercao:Utilizador</action>
+        <description>Insercao de um Utilizador</description>
+    </log>
+    <log>
+        <username>miguel</username>
+        <name>Miguel Costa</name>
+        <date>2012-01-14T17:07:57</date>
+        <action>Administracao:Alteracao:Utilizador</action>
+        <description>Alteracao de um Utilizador</description>
+    </log>
+    <log>
+        <username>miguel</username>
+        <name>Miguel Costa</name>
+        <date>2012-01-14T17:11:31</date>
+        <action>Administracao:Remocao:Utilizador</action>
+        <description>Remocao de um Utilizador</description>
+    </log>
+    <log>
+        <username>miguel</username>
+        <name>Miguel Costa</name>
+        <date>2012-01-14T21:33:51</date>
+        <action>Administracao:Listagem:Utilizador</action>
+        <description>Listagem de um Utilizador </description>
+    </log>
+    <log>
+        <username>miguel</username>
+        <name>Miguel Costa</name>
+        <date>2012-01-14T21:35:23</date>
+        <action>Administracao:Listagem:Utilizador</action>
+        <description>Listagem de um Utilizador </description>
+    </log>
+    <log>
+        <username>miguel</username>
+        <name>Miguel Costa</name>
+        <date>2012-01-14T21:35:47</date>
+        <action>Administracao:Listagem:Utilizador</action>
+        <description>Listagem de um Utilizador</description>
+    </log>
+    <log>
+        <username>miguel</username>
+        <name>Miguel Costa</name>
+        <date>2012-01-14T21:36:21</date>
+        <action>Administracao:Listagem:Utilizador</action>
+        <description>Listagem de um Utilizador</description>
+    </log>
+    <log>
+        <username>miguel</username>
+        <name>Miguel Costa</name>
+        <date>2012-01-14T21:37:21</date>
+        <action>Administracao:Listagem:Utilizador</action>
+        <description>Listagem de Utilizadores</description>
+    </log>
+    <log>
+        <username>miguel</username>
+        <name>Miguel Costa</name>
+        <date>2012-01-14T21:38:55</date>
+        <action>Administracao:Insercao:Utilizador</action>
+        <description>Insercao do Utilizador nuno</description>
+    </log>
+    <log>
+        <username>miguel</username>
+        <name>Miguel Costa</name>
+        <date>2012-01-14T21:39:33</date>
+        <action>Administracao:Alteracao:Utilizador</action>
+        <description>Alteracao do Utilizador nuno</description>
+    </log>
+    <log>
+        <username>miguel</username>
+        <name>Miguel Costa</name>
+        <date>2012-01-14T21:40:10</date>
+        <action>Administracao:Remocao:Utilizador</action>
+        <description>Remocao do Utilizador nuno</description>
+    </log>
+    <log>
+        <username>miguel</username>
+        <name>Miguel Costa</name>
+        <date>2012-01-14T21:40:19</date>
+        <action>Administracao:Listagem:Utilizador</action>
+        <description>Listagem de Utilizadores</description>
+    </log>
+    <log>
+        <username>miguel</username>
+        <name>Miguel Costa</name>
+        <date>2012-01-14T21:51:12</date>
+        <action>Administracao:Listagem:Utilizador</action>
+        <description>Listagem de Utilizadores</description>
+    </log>
+    <log>
+        <username>miguel</username>
+        <name>Miguel Costa</name>
+        <date>2012-01-14T22:09:39</date>
+        <action>Administracao:Listagem:AutorSupervisor</action>
+        <description>Listagem de Autores e Supervisores</description>
+    </log>
+    <log>
+        <username>miguel</username>
+        <name>Miguel Costa</name>
+        <date>2012-01-14T22:16:04</date>
+        <action>Administracao:Insercao:Autor</action>
+        <description>Insercao do Autor andre</description>
+    </log>
+    <log>
+        <username>miguel</username>
+        <name>Miguel Costa</name>
+        <date>2012-01-14T22:20:25</date>
+        <action>Administracao:Insercao:Supervisor</action>
+        <description>Insercao do Supervisor prh</description>
+    </log>
+    <log>
+        <username>miguel</username>
+        <name>Miguel Costa</name>
+        <date>2012-01-14T22:42:09</date>
+        <action>Administracao:Listagem:AutorSupervisor</action>
+        <description>Listagem de Autores e Supervisores</description>
+    </log>
+    <log>
+        <username>miguel</username>
+        <name>Miguel Costa</name>
+        <date>2012-01-14T23:04:22</date>
+        <action>Administracao:Listagem:Autor</action>
+        <description>Listagem do Autor Miguel Pinto da Costa</description>
+    </log>
+    <log>
+        <username>miguel</username>
+        <name>Miguel Costa</name>
+        <date>2012-01-14T23:04:24</date>
+        <action>Administracao:Listagem:Autor</action>
+        <description>Listagem do Autor Miguel Pinto da Costa</description>
+    </log>
+    <log>
+        <username>miguel</username>
+        <name>Miguel Costa</name>
+        <date>2012-01-14T23:04:24</date>
+        <action>Administracao:Listagem:Autor</action>
+        <description>Listagem do Autor Miguel Pinto da Costa</description>
+    </log>
+    <log>
+        <username>miguel</username>
+        <name>Miguel Costa</name>
+        <date>2012-01-14T23:05:31</date>
+        <action>Administracao:Listagem:AutorSupervisor</action>
+        <description>Listagem de Autores e Supervisores</description>
+    </log>
+    <log>
+        <username>miguel</username>
+        <name>Miguel Costa</name>
+        <date>2012-01-14T23:05:33</date>
+        <action>Administracao:Listagem:Autor</action>
+        <description>Listagem do Autor Bruno Azevedo</description>
+    </log>
+    <log>
+        <username>miguel</username>
+        <name>Miguel Costa</name>
+        <date>2012-01-14T23:06:04</date>
+        <action>Administracao:Listagem:AutorSupervisor</action>
+        <description>Listagem de Autores e Supervisores</description>
+    </log>
+    <log>
+        <username>miguel</username>
+        <name>Miguel Costa</name>
+        <date>2012-01-14T23:06:06</date>
+        <action>Administracao:Listagem:Autor</action>
+        <description>Listagem do Autor Rafael Abreu</description>
+    </log>
+    <log>
+        <username>miguel</username>
+        <name>Miguel Costa</name>
+        <date>2012-01-14T23:06:59</date>
+        <action>Administracao:Listagem:AutorSupervisor</action>
+        <description>Listagem de Autores e Supervisores</description>
+    </log>
+    <log>
+        <username>miguel</username>
+        <name>Miguel Costa</name>
+        <date>2012-01-14T23:07:01</date>
+        <action>Administracao:Listagem:Autor</action>
+        <description>Listagem do Autor andre</description>
+    </log>
+    <log>
+        <username>miguel</username>
+        <name>Miguel Costa</name>
+        <date>2012-01-14T23:08:55</date>
+        <action>Administracao:Listagem:AutorSupervisor</action>
+        <description>Listagem de Autores e Supervisores</description>
+    </log>
+    <log>
+        <username>miguel</username>
+        <name>Miguel Costa</name>
+        <date>2012-01-14T23:08:56</date>
+        <action>Administracao:Listagem:Supervisor</action>
+        <description>Listagem do Supervisor Jos? Carlos Ramalho</description>
+    </log>
+    <log>
+        <username>miguel</username>
+        <name>Miguel Costa</name>
+        <date>2012-01-14T23:17:55</date>
+        <action/>
+        <description/>
+    </log>
+    <log>
+        <username>miguel</username>
+        <name>Miguel Costa</name>
+        <date>2012-01-14T23:19:38</date>
+        <action/>
+        <description/>
+    </log>
+    <log>
+        <username>miguel</username>
+        <name>Miguel Costa</name>
+        <date>2012-01-14T23:22:51</date>
+        <action>Administracao:Listagem:AutorSupervisor</action>
+        <description>Listagem de Autores e Supervisores</description>
+    </log>
+    <log>
+        <username>miguel</username>
+        <name>Miguel Costa</name>
+        <date>2012-01-14T23:25:49</date>
+        <action>Administracao:Listagem:Projeto</action>
+        <description>Listagem de Projetos</description>
+    </log>
+    <log>
+        <username>miguel</username>
+        <name>Miguel Costa</name>
+        <date>2012-01-14T23:26:39</date>
+        <action>Administracao:Listagem:Projetos</action>
+        <description>Listagem de Projetos</description>
+    </log>
+    <log>
+        <username>miguel</username>
+        <name>Miguel Costa</name>
+        <date>2012-01-14T23:33:50</date>
+        <action>Administracao:Listagem:Projetos</action>
+        <description>Listagem de Projetos</description>
+    </log>
+    <log>
+        <username>miguel</username>
+        <name>Miguel Costa</name>
+        <date>2012-01-14T23:33:53</date>
+        <action>Administracao:Listagem:Projeto</action>
+        <description>Listagem do Projeto 1</description>
+    </log>
+    <log>
+        <username>miguel</username>
+        <name>Miguel Costa</name>
+        <date>2012-01-14T23:38:55</date>
+        <action>Administracao:Listagem:Projetos</action>
+        <description>Listagem de Projetos</description>
+    </log>
+    <log>
+        <username>miguel</username>
+        <name>Miguel Costa</name>
+        <date>2012-01-14T23:38:58</date>
+        <action>Administracao:Listagem:Projeto</action>
+        <description>Listagem do Projeto 27</description>
+    </log>
+    <log>
+        <username>miguel</username>
+        <name>Miguel Costa</name>
+        <date>2012-01-14T23:48:58</date>
+        <action>Administracao:Listagem:Projetos</action>
+        <description>Listagem de Projetos</description>
+    </log>
+    <log>
+        <username>jcr</username>
+        <name>Jos? Carlos Ramalho</name>
+        <date>2012-01-14T23:52:43</date>
+        <action>Administracao:Listagem:Utilizador</action>
+        <description>Listagem de Utilizadores</description>
+    </log>
+    <log>
+        <username>jcr</username>
+        <name>Jos? Carlos Ramalho</name>
+        <date>2012-01-14T23:52:45</date>
+        <action>Administracao:Listagem:AutorSupervisor</action>
+        <description>Listagem de Autores e Supervisores</description>
+    </log>
+    <log>
+        <username>jcr</username>
+        <name>Jos? Carlos Ramalho</name>
+        <date>2012-01-14T23:52:49</date>
+        <action>Administracao:Listagem:Autor</action>
+        <description>Listagem do Autor 1</description>
+    </log>
+    <log>
+        <username>jcr</username>
+        <name>Jos? Carlos Ramalho</name>
+        <date>2012-01-14T23:52:53</date>
+        <action>Administracao:Listagem:AutorSupervisor</action>
+        <description>Listagem de Autores e Supervisores</description>
+    </log>
+    <log>
+        <username>jcr</username>
+        <name>Jos? Carlos Ramalho</name>
+        <date>2012-01-14T23:52:57</date>
+        <action>Administracao:Listagem:Supervisor</action>
+        <description>Listagem do Supervisor 1</description>
+    </log>
+    <log>
+        <username>jcr</username>
+        <name>Jos? Carlos Ramalho</name>
+        <date>2012-01-14T23:52:58</date>
+        <action>Administracao:Listagem:AutorSupervisor</action>
+        <description>Listagem de Autores e Supervisores</description>
+    </log>
+    <log>
+        <username>jcr</username>
+        <name>Jos? Carlos Ramalho</name>
+        <date>2012-01-14T23:52:59</date>
+        <action>Administracao:Listagem:Projetos</action>
+        <description>Listagem de Projetos</description>
+    </log>
+    <log>
+        <username>jcr</username>
+        <name>Jos? Carlos Ramalho</name>
+        <date>2012-01-14T23:53:02</date>
+        <action>Administracao:Listagem:Projeto</action>
+        <description>Listagem do Projeto 27</description>
+    </log>
+    <log>
+        <username>jcr</username>
+        <name>Jos? Carlos Ramalho</name>
+        <date>2012-01-14T23:53:03</date>
+        <action>Administracao:Listagem:Projetos</action>
+        <description>Listagem de Projetos</description>
+    </log>
+    <log>
+        <username>jcr</username>
+        <name>Jos? Carlos Ramalho</name>
+        <date>2012-01-14T23:58:50</date>
+        <action>Administracao:Listagem:Projeto</action>
+        <description>Listagem do Projeto 1</description>
+    </log>
+    <log>
+        <username>jcr</username>
+        <name>Jos? Carlos Ramalho</name>
+        <date>2012-01-14T23:59:39</date>
+        <action>Administracao:Listagem:Projetos</action>
+        <description>Listagem de Projetos</description>
+    </log>
+    <log>
+        <username>jcr</username>
+        <name>Jos? Carlos Ramalho</name>
+        <date>2012-01-14T23:59:43</date>
+        <action>Administracao:Listagem:Projeto</action>
+        <description>Listagem do Projeto 1</description>
+    </log>
+    <log>
+        <username>miguel</username>
+        <name>Miguel Costa</name>
+        <date>2012-01-15T00:07:48</date>
+        <action>Administracao:Listagem:Projetos</action>
+        <description>Listagem de Projetos</description>
+    </log>
+    <log>
+        <username>miguel</username>
+        <name>Miguel Costa</name>
+        <date>2012-01-15T00:07:51</date>
+        <action>Administracao:Listagem:Projetos</action>
+        <description>Listagem de Projetos</description>
+    </log>
+    <log>
+        <username>miguel</username>
+        <name>Miguel Costa</name>
+        <date>2012-01-15T00:07:54</date>
+        <action>Administracao:Listagem:Projetos</action>
+        <description>Listagem de Projetos</description>
+    </log>
+    <log>
+        <username>miguel</username>
+        <name>Miguel Costa</name>
+        <date>2012-01-15T00:07:56</date>
+        <action>Administracao:Listagem:Projeto</action>
+        <description>Listagem do Projeto 28</description>
+    </log>
+    <log>
+        <username>jcr</username>
+        <name>Jos? Carlos Ramalho</name>
+        <date>2012-01-15T00:25:26</date>
+        <action>Administracao:Listagem:Utilizador</action>
+        <description>Listagem de Utilizadores</description>
+    </log>
+    <log>
+        <username>jcr</username>
+        <name>Jos? Carlos Ramalho</name>
+        <date>2012-01-15T00:26:18</date>
+        <action>Administracao:Listagem:AutorSupervisor</action>
+        <description>Listagem de Autores e Supervisores</description>
+    </log>
+    <log>
+        <username>miguel</username>
+        <name>Miguel Costa</name>
+        <date>2012-01-15T00:52:35</date>
+        <action>Administracao:Listagem:AutorSupervisor</action>
+        <description>Tarefa de Administracao: Listagem de Autores e Supervisores</description>
+    </log>
+    <log>
+        <username>jcr</username>
+        <name>Jos? Carlos Ramalho</name>
+        <date>2012-01-15T00:53:12</date>
+        <action>Disseminacao:Listagem:AutorSupervisor</action>
+        <description>Tarefa de Disseminacao: Listagem de Autores e Supervisores</description>
+    </log>
+    <log>
+        <username>miguel</username>
+        <name>Miguel Costa</name>
+        <date>2012-01-15T01:03:37</date>
+        <action>Administracao:Listagem:AutorSupervisor</action>
+        <description>Tarefa de Administracao: Listagem de Autores e Supervisores</description>
+    </log>
+    <log>
+        <username>miguel</username>
+        <name>Miguel Costa</name>
+        <date>2012-01-15T01:03:40</date>
+        <action>Administracao:Listagem:Autor</action>
+        <description>Tarefa de Administracao: Listagem do Autor 1</description>
+    </log>
+    <log>
+        <username>jcr</username>
+        <name>Jos? Carlos Ramalho</name>
+        <date>2012-01-15T01:04:34</date>
+        <action>Disseminacao:Listagem:AutorSupervisor</action>
+        <description>Tarefa de Disseminacao: Listagem de Autores e Supervisores</description>
+    </log>
+    <log>
+        <username>jcr</username>
+        <name>Jos? Carlos Ramalho</name>
+        <date>2012-01-15T01:04:37</date>
+        <action>Disseminacao:Listagem:Autor</action>
+        <description>Tarefa de Disseminacao: Listagem do Autor 7</description>
+    </log>
+    <log>
+        <username>miguel</username>
+        <name>Miguel Costa</name>
+        <date>2012-01-15T01:15:42</date>
+        <action>Administracao:Listagem:Projetos</action>
+        <description>Tarefa de Administracao: Listagem de Projetos</description>
+    </log>
+    <log>
+        <username>jcr</username>
+        <name>Jos? Carlos Ramalho</name>
+        <date>2012-01-15T01:16:03</date>
+        <action>Disseminacao:Listagem:Projetos</action>
+        <description>Tarefa de Disseminacao: Listagem de Projetos</description>
+    </log>
+    <log>
+        <username>miguel</username>
+        <name>Miguel Costa</name>
+        <date>2012-01-15T01:25:03</date>
+        <action>Administracao:Listagem:Projetos</action>
+        <description>Tarefa de Administracao: Listagem de Projetos</description>
+    </log>
+    <log>
+        <username>miguel</username>
+        <name>Miguel Costa</name>
+        <date>2012-01-15T01:25:05</date>
+        <action>Administracao:Listagem:Projeto</action>
+        <description>Tarefa de Administracao: Listagem do Projeto 29</description>
+    </log>
+    <log>
+        <username>jcr</username>
+        <name>Jos? Carlos Ramalho</name>
+        <date>2012-01-15T01:25:13</date>
+        <action>Disseminacao:Listagem:Projetos</action>
+        <description>Tarefa de Disseminacao: Listagem de Projetos</description>
+    </log>
+    <log>
+        <username>jcr</username>
+        <name>Jos? Carlos Ramalho</name>
+        <date>2012-01-15T01:25:16</date>
+        <action>Disseminacao:Listagem:Projeto</action>
+        <description>Tarefa de Disseminacao: Listagem do Projeto 1</description>
+    </log>
+    <log>
+        <username>miguel</username>
+        <name>Miguel Costa</name>
+        <date>2012-01-15T01:28:40</date>
+        <action>Administracao:Listagem:Utilizador</action>
+        <description>Tarefa de Administracao: Listagem de Utilizadores</description>
+    </log>
+    <log>
+        <username>jcr</username>
+        <name>Jos? Carlos Ramalho</name>
+        <date>2012-01-15T01:29:00</date>
+        <action>Disseminacao:Listagem:Utilizador</action>
+        <description>Tarefa de Disseminacao: Listagem de Utilizadores</description>
+    </log>
+    <log>
+        <username>miguel</username>
+        <name>Miguel Costa</name>
+        <date>2012-01-15T02:01:49</date>
+        <action>Login</action>
+        <description>Login no sistema pelo Utilizador miguel</description>
+    </log>
+    <log>
+        <username>bruno</username>
+        <name>Bruno Azevedo</name>
+        <date>2012-01-15T02:02:07</date>
+        <action>Login</action>
+        <description>Login no sistema pelo Utilizador bruno</description>
+    </log>
+    <log>
+        <username>miguel</username>
+        <name>Miguel Costa</name>
+        <date>2012-01-15T02:02:15</date>
+        <action>Login</action>
+        <description>Login no sistema pelo Utilizador miguel</description>
+    </log>
+</logs>

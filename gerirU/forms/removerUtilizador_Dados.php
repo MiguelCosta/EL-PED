@@ -40,13 +40,14 @@ if ($name == null || $name == "") {
 ?>
 
 <div id="formInsertUser">
-    <form id="formUser" name="alterar" method="post" action="gerirU_Alterar_Dados_resp.php"  enctype="multipart/form-data" autocomplete="on">
+    <form id="formUser" name="alterar" method="post" action="gerirU_Remover_Dados_resp.php"  enctype="multipart/form-data" autocomplete="on">
 
         <label class="required">Nome:</label>
         <input id="name" 
                name="name" 
                type="text" 
                required=""
+               readonly="readonly" 
                value="<?php echo $name ?>"/>
         <div class="clr"></div>
 
@@ -64,6 +65,7 @@ if ($name == null || $name == "") {
                name="password" 
                type="password" 
                required=""
+               readonly="readonly" 
                value="<?php echo $password ?>"/>
         <div class="clr"></div>
 
@@ -72,6 +74,7 @@ if ($name == null || $name == "") {
                name="email" 
                type="email" 
                required=""
+               readonly="readonly" 
                value="<?php echo $email ?>"/>
         <div class="clr"></div>
 
@@ -79,6 +82,7 @@ if ($name == null || $name == "") {
         <input id="affil" 
                name="affil" 
                type="text" 
+               readonly="readonly" 
                value="<?php echo $affil ?>"/>
         <div class="clr"></div>
 
@@ -86,6 +90,7 @@ if ($name == null || $name == "") {
         <input id="url" 
                name="url" 
                type="url" 
+               readonly="readonly" 
                value="<?php echo $url ?>"/>
         <div class="clr"></div>
 
@@ -102,15 +107,15 @@ if ($name == null || $name == "") {
             else if ($type == 'c')
                 $consumer_status = 'checked';
             ?>
-            <input type="radio" name="type" value="a" <?PHP print $admin_status; ?>/> Administrator
-            <input type="radio" name="type" value="p" <?PHP print $producer_status; ?>/> Producer
-            <input type="radio" name="type" value="c" <?PHP print $consumer_status; ?>/> Consumer
+            <input type="radio" name="type" DISABLED value="a" <?PHP print $admin_status; ?>/> Administrator
+            <input type="radio" name="type" DISABLED value="p" <?PHP print $producer_status; ?>/> Producer
+            <input type="radio" name="type" DISABLED value="c" <?PHP print $consumer_status; ?>/> Consumer
         </div>
 
         <div class="clr"></div>
 
         <div id="btn_user">
-            <input type="submit" value="Enviar" />
+            <input type="submit" value="Confirmar" />
         </div>
         <div class="clr"></div>
 

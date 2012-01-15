@@ -1,89 +1,94 @@
 <!DOCTYPE html>
 <html>
-	<head>
-		<script type="text/javascript">
-			function ajaxFunction(val){
+    <head>
+        <script type="text/javascript">
+            function ajaxFunction(val){
 
-				//document.writeln(val)
-				var httpxml;
-				// Define a variavel httpxml dependendo do browser
-				try {
-					// Firefox, Opera 8.0+, Safari
-					httpxml=new XMLHttpRequest();
-				}
-				catch (e) {
-					// Internet Explorer
-					try {
-						httpxml=new ActiveXObject("Msxml2.XMLHTTP");
-					}
-					catch (e) {
-						try {
-							httpxml=new ActiveXObject("Microsoft.XMLHTTP");
-						}
-						catch (e) {
-							alert("Your browser does not support AJAX!");
-							return false;
-						}
-					}
-				}
+                //document.writeln(val)
+                var httpxml;
+                // Define a variavel httpxml dependendo do browser
+                try {
+                    // Firefox, Opera 8.0+, Safari
+                    httpxml=new XMLHttpRequest();
+                }
+                catch (e) {
+                    // Internet Explorer
+                    try {
+                        httpxml=new ActiveXObject("Msxml2.XMLHTTP");
+                    }
+                    catch (e) {
+                        try {
+                            httpxml=new ActiveXObject("Microsoft.XMLHTTP");
+                        }
+                        catch (e) {
+                            alert("Your browser does not support AJAX!");
+                            return false;
+                        }
+                    }
+                }
 
-				function stateChanged() {
-					if(httpxml.readyState==4) {
-						var myObject = eval('(' + httpxml.responseText + ')'); 
+                function stateChanged() {
+                    if(httpxml.readyState==4) {
+                        var myObject = eval('(' + httpxml.responseText + ')'); 
 
-						var str="<table><tr><th>Username</th><th>Nome</th><th>Data</th><th>Acao</th><th>Descricao</th></tr>";
-						for(i=0;i<myObject.data.length;i++) { 
-							str = str + "<tr><td>" + myObject.data[i].username + " </td><td>" + myObject.data[i].name +  " </td><td>" + myObject.data[i].date + " </td><td>" + myObject.data[i].action + "</td><td>" + myObject.data[i].description + "</td></tr>"
-						}
-						var endrecord=myObject.value[0].endrecord 
+                        var str="<table class=\"user\"><tr class=\"user\"><th class=\"user\">Username</th><th class=\"user\">Nome</th><th class=\"user\">Data</th><th class=\"user\">Acao</th><th class=\"user\">Descricao</th></tr>";
+                        for(i=0;i<myObject.data.length;i++) { 
+                            str = str + "<tr class=\"user\"><td class=\"user\">" + myObject.data[i].username + " </td><td class=\"user\">" + myObject.data[i].name +  " </td><td class=\"user\">" + myObject.data[i].date + " </td><td class=\"user\">" + myObject.data[i].action + "</td><td class=\"user\">" + myObject.data[i].description + "</td></tr>"
+                        }
+                        var endrecord=myObject.value[0].endrecord 
 
-							document.myForm.st.value=endrecord;
-						if(myObject.value[0].end =="yes"){ document.getElementById("fwd").style.display='inline';
-						}else{document.getElementById("fwd").style.display='none';}
+                        document.myForm.st.value=endrecord;
+                        if(myObject.value[0].end =="yes"){ document.getElementById("fwd").style.display='inline';
+                        }else{document.getElementById("fwd").style.display='none';}
 
-						if(myObject.value[0].startrecord =="yes"){ document.getElementById("back").style.display='inline';
-						}else{document.getElementById("back").style.display='none';}
+                        if(myObject.value[0].startrecord =="yes"){ document.getElementById("back").style.display='inline';
+                        }else{document.getElementById("back").style.display='none';}
 
-						str = str + "</table>" 
-							if (myObject.data.length == 0) str = "<b>NÃ£o existem registos a apresentar!</b>"
-							document.getElementById("txtHint").innerHTML=str; // os records vao ser escritos aqui
-					}
-				}
+                        str = str + "</table>" 
+                        if (myObject.data.length == 0) str = "<b>Não existem registos a apresentar!</b>"
+                        document.getElementById("txtHint").innerHTML=str; // os records vao ser escritos aqui
+                    }
+                }
 
-				var url="apaging.php";
-				var myendrecord = document.myForm.st.value;
-				url=url+"?endrecord="+myendrecord;
-				url=url+"&direction="+val;
+                var url="apaging.php";
+                var myendrecord = document.myForm.st.value;
+                url=url+"?endrecord="+myendrecord;
+                url=url+"&direction="+val;
 
-				url=url+"&sid="+Math.random();
-				//alert(url)
-				httpxml.onreadystatechange=stateChanged; 
-				httpxml.open("GET",url,true);
-				httpxml.send(null);
-				document.getElementById("txtHint").innerHTML="Espere por favor...";
+                url=url+"&sid="+Math.random();
+                //alert(url)
+                httpxml.onreadystatechange=stateChanged; 
+                httpxml.open("GET",url,true);
+                httpxml.send(null);
+                document.getElementById("txtHint").innerHTML="Espere por favor...";
 
-			}
-</script>
-	</head>
-	<body onload="ajaxFunction('fw')">
-		<form name="myForm" onsubmit="ajaxFunction(this.form); return false;">
-			<input type=hidden name=st value=0 />
-			<table width=300>
-				<tr>
-					<td width=150>
-						<input type=button id="back" value=Prev onClick="ajaxFunction('bk'); return false" />
-					</td>
-					<td width=150 align=right>
-						<input type=button value=Next id="fwd" onClick="ajaxFunction('fw');  return false" />
-					</td>
-				</tr>
-				<!--</tr>-->
-			<tr>
-				<td colspan=2>
-					<div id="txtHint"></div>
-				</td>
-			</tr>
-		</table>
-	</form>
-</body>
+            }
+        </script>
+    </head>
+    <body onload="ajaxFunction('fw')">
+
+        <form name="myForm" onsubmit="ajaxFunction(this.form); return false;">
+            <input type=hidden name=st value=0 />
+            <div id="logs">
+                <table width=100%>
+                    <tr>
+                        <td width=50%>
+                            <input type="image" src="../css/images/page_less.png" id="back" value=Prev onClick="ajaxFunction('bk'); return false" />
+                        </td>
+                        <td width=50% style="float: right; text-align: right;">
+                            <input type="image" src="../css/images/page_more.png" value="Next" id="fwd" onClick="ajaxFunction('fw');  return false" />
+                        </td>
+                    </tr>
+
+                    <!--</tr>-->
+                    <tr>
+                        <td colspan=2>
+                            <div id="txtHint"></div>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+        </form>
+
+    </body>
 </html>

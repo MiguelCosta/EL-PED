@@ -209,9 +209,9 @@ if (!isset($_SESSION['username']) || !$_SESSION['username'] || ((isset($_SESSION
                 </div>
                 <div id="content_bottom"></div>
 
-<?php
-require_once '../menus/footer.php';
-?>
+                <?php
+                require_once '../menus/footer.php';
+                ?>
             </div>
         </div>
     </body>
@@ -244,7 +244,12 @@ function user_to_table($titulo, $res) {
         echo "<td class=\"user\">" . $reg["email"] . "</td>";
         echo "<td class=\"user\">" . $reg["affil"] . "</td>";
         echo "<td class=\"user\"><a href=\"" . $reg["url"] . "\" target=\"_blank\">" . $reg["url"] . "</a></td>";
-        echo "<td class=\"user\"><a href=\"gerirU_Alterar_Dados.php?username=" . $reg["username"] . "\">" . "Alterar" . "</a></td>";
+        echo "<td class=\"user\">
+                <a href=\"gerirU_Alterar_Dados.php?username=" . $reg["username"] . "\">" .
+                    "<div id=\"edit\">                        
+                     </div>
+                </a>    
+              </td>";
         echo "</tr>";
     }
     echo "</table>";

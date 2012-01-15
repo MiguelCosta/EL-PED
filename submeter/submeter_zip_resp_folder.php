@@ -11,6 +11,11 @@ if (!isset($_SESSION['username']) || !$_SESSION['username'] || ((isset($_SESSION
         <title>Gerir - RepositórioPED</title>
         <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-15">
         <link rel="stylesheet" type="text/css" href="../css/style.css" />
+        <script language="javascript">
+            function go_back(){
+                history.go(-1);
+            }
+        </script>
     </head>
     <body>
         <div id="container">
@@ -25,20 +30,16 @@ if (!isset($_SESSION['username']) || !$_SESSION['username'] || ((isset($_SESSION
             <div id="content">
                 <div id="content_top"></div>
                 <div id="content_main">
-                    <h2>Project Record</h2>
+                    <h2>Submissão por Zip</h2>                    
 
                     <?php
-                    //var_dump($_POST);
-                    // Local onde vai ficar o ficheiro XML Submetido
                     try {
-                        $xml_local = "../uploads/pr/";                      // local onde vai ficar o xml
-                        $deliverable_path = "../uploads/deliverables/";     // local onde vão ser colocados os ficheiros do formulário
+                        $path_folder = $_REQUEST['zip_local_path'];
+                        $foler = $_REQUEST['zip_local_folder'];
+
+                        $xml_path = "$path_folder/pr.xml";                        // local onde está o xml
 
                         $msg_erro = "";                                     // mensagem que vai conter os erros
-                        //var_dump($_GET);
-
-                        $xml_name = $_REQUEST["xml_file"];                      // nome que é passado como parametro
-                        $xml_path = $xml_local . $xml_name;                 // local onde está o ficheiro xml
 
                         if (file_exists("$xml_path")) {
                             $xml = simplexml_load_file("$xml_path");            // carrega o ficheiro xml
@@ -119,12 +120,19 @@ if (!isset($_SESSION['username']) || !$_SESSION['username'] || ((isset($_SESSION
                                 }
                             }
 
-                            //var_dump($supervisores_emails);
-                            //var_dump($authors_emails);
-                            //var_dump($deliverables);
+                            /*
+                              echo "<br/>Supercisores:<br/>";
+                              var_dump($supervisores_emails);
+                              echo "<br/>Autores:<br/>";
+                              var_dump($authors_emails);
+                              echo "<br/>KW<br/>";
+                              var_dump($keywords);
+                              echo "<br/>Files<br/>";
+                              var_dump($deliverables);
+                             */
 
                             $lig = $link;
-                            inserir_xml_base_dados($lig, $keyname, $title, $subtitle, $bdate, $edate, $abstract, $supervisores_emails, $authors_emails, $keywords, $deliverables, $xml_path);
+                            inserir_xml_base_dados($lig, $keyname, $title, $subtitle, $bdate, $edate, $abstract, $supervisores_emails, $authors_emails, $keywords, $deliverables, $xml_path, $path_folder);
                         } else {
                             echo "<div class=\"failure\">Já não é possível submeter o trabalho.
                                 Isto pode acontecer porque já foi submtido. Caso não tenha sido,
@@ -147,7 +155,7 @@ if (!isset($_SESSION['username']) || !$_SESSION['username'] || ((isset($_SESSION
                      * @param type $deliverables        array associativo path => description
                      * @param type $xml_path
                      */
-                    function inserir_xml_base_dados($link, $keyname, $title, $subtitle, $bdate, $edate, $abstract, $supervisores_emails, $authors_emails, $keywords, $deliverables, $xml_path) {
+                    function inserir_xml_base_dados($link, $keyname, $title, $subtitle, $bdate, $edate, $abstract, $supervisores_emails, $authors_emails, $keywords, $deliverables, $xml_path, $path) {
                         if (!$link) {
                             printf("Can't connect to localhost. Error: %s\n", mysqli_connect_error());
                             exit();
@@ -169,6 +177,7 @@ if (!isset($_SESSION['username']) || !$_SESSION['username'] || ((isset($_SESSION
                             $sql = "SELECT projcode FROM Project WHERE keyname='$keyname' AND title='$title' AND subtitle='$subtitle' AND abstract='$abstract'";
                             $result = mysqli_query($link, $sql);
 
+
                             if (mysqli_fetch_row($result) != null) {
                                 ?>
                                 <div class="failure">Atenção, a informação que quer submeter
@@ -182,6 +191,7 @@ if (!isset($_SESSION['username']) || !$_SESSION['username'] || ((isset($_SESSION
                                 //echo "$msg";
                                 return;
                             }
+
 
                             // caso não existe informação parecida na Base de Dados, vai inseri-la
                             $sql = "INSERT INTO `PED`.`Project` VALUES (NULL, '$keyname', '$title', '$subtitle', '$bdate', '$edate', NOW(), '$abstract', '1', '$local_projeto_bd')";
@@ -285,7 +295,7 @@ if (!isset($_SESSION['username']) || !$_SESSION['username'] || ((isset($_SESSION
                             // move os ficheiros que estavam na pasta deliverables para o local correcto
                             // key é o path, $value é o nome
                             foreach ($deliverables as $key => $value) {
-                                $f1 = "../uploads/deliverables/$key";
+                                $f1 = "$path/$key";
                                 $f2 = "$local_projeto" . "$key";
                                 rename($f1, $f2);               // isto faz um move do ficheiro
                             }
@@ -328,6 +338,7 @@ if (!isset($_SESSION['username']) || !$_SESSION['username'] || ((isset($_SESSION
                         }
                     }
                     ?>
+
                     <br/>
                     <br/>
                 </div>
@@ -340,3 +351,5 @@ if (!isset($_SESSION['username']) || !$_SESSION['username'] || ((isset($_SESSION
         </div>
     </body>
 </html>
+
+<?php ?>

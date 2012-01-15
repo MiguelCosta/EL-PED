@@ -100,6 +100,24 @@ if (!isset($_SESSION['username']) || !$_SESSION['username'] || ((isset($_SESSION
                         //echo "<br/><br/>";
                         //var_dump($authors_id);
                         //echo "<br/><br/>";
+                        // verifica se a pasta já existe ou não
+                        
+                        $local = "../uploads/pr/";
+                        if (!is_dir($local)) {
+                            if (!mkdir($local_projeto, 0777, true)) {
+                                die("Ocoreu um erro ao criar a pasta $local");
+                                return;
+                            }
+                        }
+                        
+                        $local = "../uploads/deliverables/";
+                        if (!is_dir($local)) {
+                            if (!mkdir($local_projeto, 0777, true)) {
+                                die("Ocoreu um erro ao criar a pasta $local");
+                                return;
+                            }
+                        }
+
 
                         /* ________________________________________________________________________________________________ */
 
@@ -122,6 +140,7 @@ if (!isset($_SESSION['username']) || !$_SESSION['username'] || ((isset($_SESSION
 
                             $xml_md5 = md5($xml);   // atenção que aqui é o md5 do texto do ficheiro e não do ficheiro
                             $xml_name = "$xml_md5.xml";
+
                             $xml_file = "../uploads/pr/$xml_name";
                             //$xml_file = $key_name . ".xml";
                             $f = fopen($xml_file, "w");

@@ -188,6 +188,9 @@ if (!isset($_SESSION['username']) || !$_SESSION['username'] || ((isset($_SESSION
                                 $msg = "ATENÇÃO: A informação que quer submeter já existe ";
                                 $msg .= "algo muito parecido na base de dados. ";
                                 $msg .= "Contacte um administrador!";
+
+                                rrmdir("$path/");
+
                                 //echo "$msg";
                                 return;
                             }
@@ -302,6 +305,9 @@ if (!isset($_SESSION['username']) || !$_SESSION['username'] || ((isset($_SESSION
 
                             // move o ficheiro xml também para a pasta
                             rename($xml_path, $local_projeto . "pr.xml");
+
+                            // apaga a pasta
+                            rrmdir("$path/");
 
                             /**
                              * pega no array associativo dos deliverables path => description 

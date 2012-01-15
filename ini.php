@@ -18,8 +18,6 @@ $num_sup = 5;
 
 
 // Pacotes de informacao
-
-
 // Megaprocessos
 $adm = "Administracao";
 
@@ -135,6 +133,21 @@ function libxml_display_errors() {
         print libxml_display_error($error);
     }
     libxml_clear_errors();
+}
+
+function rrmdir($dir) {
+    if (is_dir($dir)) {
+        $objects = scandir($dir);
+        foreach ($objects as $object) {
+            if ($object != "." && $object != "..") {
+                if (filetype($dir . "/" . $object) == "dir")
+                    rrmdir($dir . "/" . $object); else
+                    unlink($dir . "/" . $object);
+            }
+        }
+        reset($objects);
+        rmdir($dir);
+    }
 }
 
 ?>

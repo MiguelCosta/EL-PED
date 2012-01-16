@@ -23,7 +23,7 @@ if (!isset($_SESSION['username']) || !$_SESSION['username'] || ((isset($_SESSION
             include '../header.php';
             include '../menus/menu_submeter.php';
             include '../menus/leftmenuSubmeter.php';
-            include '../ini.php';
+			require_once '../ini.php';
             ?>
 
 
@@ -322,11 +322,17 @@ if (!isset($_SESSION['username']) || !$_SESSION['username'] || ((isset($_SESSION
                                 $result = mysqli_query($link, $sql);
                             }
 
+							$sql = "INSERT INTO Deposits(username, projcode) VALUES ('" . $_SESSION['username'] . "', $new_projcode)";
+							$result = mysqli_query($link, $sql);
+
                             mysqli_commit($link);
 
                             mysqli_autocommit($link, TRUE);
 
                             mysqli_close($link);
+
+							// Insercao no registo de logs
+							log_insert($_SESSION['username'], $_SESSION['name'], agora(), $lm["ing_sip"]["act"], $lm["ing_sip"]["desc"] . " " . $_SESSION['username']);
                             ?>
                             <div class="clr"></div>
                             <div class="success">Informação submetida com sucesso!</div>

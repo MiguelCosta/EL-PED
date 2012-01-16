@@ -9,12 +9,12 @@ if (!$con) {
     //Generate the graph element
     $strXML = "<graph caption='Top Consultas de supervisores' xAxisName='Supervisores' yAxisName='Consultas' decimalPrecision='0' formatNumberScale='0' showAlternateHGridColor='1' AlternateHGridColor='ff5904' divLineColor='ff5904' divLineAlpha='20' alternateHGridAlpha='5'>";
 
-    $sql = "SELECT V.supcode AS pc, name, queries FROM ViewTopQueriesSup AS V, Supervisor AS S WHERE V.supcode=S.supcode";
+    $sql = "SELECT V.supcode AS pc, name, queries FROM ViewTopQueriesSup AS V, Supervisor AS S WHERE V.supcode=S.supcode ORDER BY queries DESC";
     $result = mysql_query($sql) or die(mysql_error());
 
     if ($result) {
         while ($ors = mysql_fetch_array($result)) {
-            $strXML .= "<set name='" . $ors['name'] . "' value='" . $ors['queries'] . "' link='" . urlencode("../gerirU/gerirAS_Show_supervisor.php?supcode=" . $ors['pc']) . "' />";
+            $strXML .= "<set name='" . $ors['pc'] . "' value='" . $ors['queries'] . "' link='" . urlencode("../gerirU/gerirAS_Show_supervisor.php?supcode=" . $ors['pc']) . "' />";
         }
         mysql_free_result($result);
     }

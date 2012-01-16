@@ -9,12 +9,12 @@ if (!$con) {
     //Generate the graph element
     $strXML = "<graph caption='Top Consultas de autores' xAxisName='Autores' yAxisName='Consultas' decimalPrecision='0' formatNumberScale='0' showAlternateHGridColor='1' AlternateHGridColor='ff5904' divLineColor='ff5904' divLineAlpha='20' alternateHGridAlpha='5'>";
 
-    $sql = "SELECT V.authorcode AS pc, name, id, queries FROM ViewTopQueriesAuthor AS V, Author AS A WHERE V.authorcode=A.authorcode";
+	$sql = "SELECT V.authorcode AS pc, name, id, queries FROM ViewTopQueriesAuthor AS V, Author AS A WHERE V.authorcode=A.authorcode ORDER BY queries DESC";
     $result = mysql_query($sql) or die(mysql_error());
 
     if ($result) {
         while ($ors = mysql_fetch_array($result)) {
-            $strXML .= "<set name='" . $ors['id'] . "_" . $ors['name'] . "' value='" . $ors['queries'] . "' link='" . urlencode("../gerirU/gerirAS_Show_author.php?authorcode=" . $ors['pc']) . "' />";
+            $strXML .= "<set name='" . $ors['id'] . "' value='" . $ors['queries'] . "' link='" . urlencode("../gerirU/gerirAS_Show_author.php?authorcode=" . $ors['pc']) . "' />";
         }
         mysql_free_result($result);
     }

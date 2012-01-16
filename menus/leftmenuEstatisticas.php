@@ -6,13 +6,13 @@
         <h3>Acessos</h3>
         <ul>
             <li><a href="estatisticas_acessos_data.php">Acessos por data</a></li>
-            <li><a href="estatisticas_acessos_user.php">Acessos por utilizador</a></li>
+            <li><a href="estatisticas_acessos_user.php">Top por utilizador</a></li>
         </ul>
         <h3>Depósitos</h3>
         <ul>
             <li><a href="estatisticas_depositos_data.php">Depósitos por data</a></li>
-            <li><a href="estatisticas_depositos_user.php">Depósitos por utilizador</a></li>
-            <li><a href="estatisticas_depositos_curso.php">Depósitos por Curso</a></li>
+            <li><a href="estatisticas_depositos_user.php">Top por utilizador</a></li>
+			<li><a href="estatisticas_depositos_curso.php">Top por Curso</a></li>
         </ul>
         <h3>Downloads</h3>
         <ul>

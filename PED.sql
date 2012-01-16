@@ -2,10 +2,10 @@
 -- version 3.4.5
 -- http://www.phpmyadmin.net
 --
--- Servidor: localhost
--- Tempo de Geração: 15/01/2012 às 16h59min
--- Versão do Servidor: 5.5.16
--- Versão do PHP: 5.3.8
+-- Host: localhost
+-- Generation Time: Jan 16, 2012 at 05:37 PM
+-- Server version: 5.5.16
+-- PHP Version: 5.3.8
 
 SET SQL_MODE="NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
@@ -17,13 +17,13 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8 */;
 
 --
--- Banco de Dados: `PED`
+-- Database: `PED`
 --
 
 -- --------------------------------------------------------
 
 --
--- Estrutura da tabela `Access`
+-- Table structure for table `Access`
 --
 
 CREATE TABLE IF NOT EXISTS `Access` (
@@ -33,7 +33,13 @@ CREATE TABLE IF NOT EXISTS `Access` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Extraindo dados da tabela `Access`
+-- RELATIONS FOR TABLE `Access`:
+--   `username`
+--       `Users` -> `username`
+--
+
+--
+-- Dumping data for table `Access`
 --
 
 INSERT INTO `Access` (`username`, `datahora`) VALUES
@@ -55,12 +61,14 @@ INSERT INTO `Access` (`username`, `datahora`) VALUES
 ('miguel', '2012-01-14 00:22:57'),
 ('miguel', '2012-01-14 16:23:21'),
 ('miguel', '2012-01-15 02:24:13'),
-('miguel', '2012-01-15 10:55:17');
+('miguel', '2012-01-15 10:55:17'),
+('miguel', '2012-01-16 10:56:08'),
+('miguel', '2012-01-16 14:13:15');
 
 -- --------------------------------------------------------
 
 --
--- Estrutura da tabela `Author`
+-- Table structure for table `Author`
 --
 
 CREATE TABLE IF NOT EXISTS `Author` (
@@ -70,26 +78,33 @@ CREATE TABLE IF NOT EXISTS `Author` (
   `email` varchar(50) NOT NULL,
   `url` varchar(2002) DEFAULT NULL,
   `coursecode` int(11) NOT NULL DEFAULT '0',
+  `remove` int(11) NOT NULL,
   PRIMARY KEY (`authorcode`),
   KEY `coursecode` (`coursecode`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=9 ;
 
 --
--- Extraindo dados da tabela `Author`
+-- RELATIONS FOR TABLE `Author`:
+--   `coursecode`
+--       `Course` -> `coursecode`
 --
 
-INSERT INTO `Author` (`authorcode`, `name`, `id`, `email`, `url`, `coursecode`) VALUES
-(1, 'Miguel Pinto da Costa', 'a54746', 'miguelpintodacosta@gmail.com', 'http://gplus.to/miguelcosta', 1),
-(4, 'Bruno Azevedo', 'pg12345', 'azevedo.252@gmail.com', 'http://google.com', 1),
-(5, 'author1', '1', 'authot1@a3.pt', ' ', 1),
-(6, 'author2', '2', 'author2@a3.pt', ' ', 1),
-(7, 'Rafael Abreu', 'pg20978', 'rafaelabreu@gmail.com', NULL, 1),
-(8, 'Nome Author Course', '123456', 'course@um.pt', 'kkk', 62);
+--
+-- Dumping data for table `Author`
+--
+
+INSERT INTO `Author` (`authorcode`, `name`, `id`, `email`, `url`, `coursecode`, `remove`) VALUES
+(1, 'Miguel Pinto da Costa', 'a54746', 'miguelpintodacosta@gmail.com', 'http://gplus.to/miguelcosta', 1, 0),
+(4, 'Bruno Azevedo', 'pg12345', 'azevedo.252@gmail.com', 'http://google.com', 1, 0),
+(5, 'author1', '1', 'authot1@a3.pt', ' ', 1, 0),
+(6, 'author2', '2', 'author2@a3.pt', ' ', 1, 0),
+(7, 'Rafael Abreu', 'pg20978', 'rafaelabreu@gmail.com', NULL, 1, 0),
+(8, 'Nome Author Course', '123456', 'course@um.pt', 'kkk', 62, 0);
 
 -- --------------------------------------------------------
 
 --
--- Estrutura da tabela `Course`
+-- Table structure for table `Course`
 --
 
 CREATE TABLE IF NOT EXISTS `Course` (
@@ -99,7 +114,7 @@ CREATE TABLE IF NOT EXISTS `Course` (
 ) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=201 ;
 
 --
--- Extraindo dados da tabela `Course`
+-- Dumping data for table `Course`
 --
 
 INSERT INTO `Course` (`coursecode`, `coursedescription`) VALUES
@@ -307,7 +322,7 @@ INSERT INTO `Course` (`coursecode`, `coursedescription`) VALUES
 -- --------------------------------------------------------
 
 --
--- Estrutura da tabela `Deliverable`
+-- Table structure for table `Deliverable`
 --
 
 CREATE TABLE IF NOT EXISTS `Deliverable` (
@@ -320,7 +335,13 @@ CREATE TABLE IF NOT EXISTS `Deliverable` (
 ) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=17 ;
 
 --
--- Extraindo dados da tabela `Deliverable`
+-- RELATIONS FOR TABLE `Deliverable`:
+--   `projcode`
+--       `Project` -> `projcode`
+--
+
+--
+-- Dumping data for table `Deliverable`
 --
 
 INSERT INTO `Deliverable` (`delcode`, `description`, `path`, `projcode`) VALUES
@@ -343,7 +364,7 @@ INSERT INTO `Deliverable` (`delcode`, `description`, `path`, `projcode`) VALUES
 -- --------------------------------------------------------
 
 --
--- Estrutura da tabela `Deposits`
+-- Table structure for table `Deposits`
 --
 
 CREATE TABLE IF NOT EXISTS `Deposits` (
@@ -354,10 +375,25 @@ CREATE TABLE IF NOT EXISTS `Deposits` (
   KEY `projcode` (`projcode`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+--
+-- RELATIONS FOR TABLE `Deposits`:
+--   `projcode`
+--       `Project` -> `projcode`
+--   `username`
+--       `Users` -> `username`
+--
+
+--
+-- Dumping data for table `Deposits`
+--
+
+INSERT INTO `Deposits` (`username`, `projcode`) VALUES
+('bruno', 1);
+
 -- --------------------------------------------------------
 
 --
--- Estrutura da tabela `Downloads`
+-- Table structure for table `Downloads`
 --
 
 CREATE TABLE IF NOT EXISTS `Downloads` (
@@ -369,7 +405,15 @@ CREATE TABLE IF NOT EXISTS `Downloads` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Extraindo dados da tabela `Downloads`
+-- RELATIONS FOR TABLE `Downloads`:
+--   `username`
+--       `Users` -> `username`
+--   `projcode`
+--       `Project` -> `projcode`
+--
+
+--
+-- Dumping data for table `Downloads`
 --
 
 INSERT INTO `Downloads` (`username`, `projcode`, `datahora`) VALUES
@@ -380,7 +424,7 @@ INSERT INTO `Downloads` (`username`, `projcode`, `datahora`) VALUES
 -- --------------------------------------------------------
 
 --
--- Estrutura da tabela `KeyWord`
+-- Table structure for table `KeyWord`
 --
 
 CREATE TABLE IF NOT EXISTS `KeyWord` (
@@ -390,7 +434,7 @@ CREATE TABLE IF NOT EXISTS `KeyWord` (
 ) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=21 ;
 
 --
--- Extraindo dados da tabela `KeyWord`
+-- Dumping data for table `KeyWord`
 --
 
 INSERT INTO `KeyWord` (`kwcode`, `keyword`) VALUES
@@ -407,7 +451,7 @@ INSERT INTO `KeyWord` (`kwcode`, `keyword`) VALUES
 -- --------------------------------------------------------
 
 --
--- Estrutura da tabela `ProjAut`
+-- Table structure for table `ProjAut`
 --
 
 CREATE TABLE IF NOT EXISTS `ProjAut` (
@@ -418,7 +462,15 @@ CREATE TABLE IF NOT EXISTS `ProjAut` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Extraindo dados da tabela `ProjAut`
+-- RELATIONS FOR TABLE `ProjAut`:
+--   `projcode`
+--       `Project` -> `projcode`
+--   `authorcode`
+--       `Author` -> `authorcode`
+--
+
+--
+-- Dumping data for table `ProjAut`
 --
 
 INSERT INTO `ProjAut` (`projcode`, `authorcode`) VALUES
@@ -475,7 +527,7 @@ INSERT INTO `ProjAut` (`projcode`, `authorcode`) VALUES
 -- --------------------------------------------------------
 
 --
--- Estrutura da tabela `Project`
+-- Table structure for table `Project`
 --
 
 CREATE TABLE IF NOT EXISTS `Project` (
@@ -490,52 +542,59 @@ CREATE TABLE IF NOT EXISTS `Project` (
   `coursecode` int(11) NOT NULL,
   `path` varchar(300) NOT NULL,
   `remove` int(11) NOT NULL,
+  `private` int(11) NOT NULL,
   PRIMARY KEY (`projcode`),
   KEY `coursecode` (`coursecode`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=34 ;
 
 --
--- Extraindo dados da tabela `Project`
+-- RELATIONS FOR TABLE `Project`:
+--   `coursecode`
+--       `Course` -> `coursecode`
 --
 
-INSERT INTO `Project` (`projcode`, `keyname`, `title`, `subtitle`, `bdate`, `edate`, `subdate`, `abstract`, `coursecode`, `path`, `remove`) VALUES
-(1, 'a', 'a', NULL, '2012-01-10', '2012-01-17', '2012-01-16 00:00:00', '<para>Teste de uma submissao para listagem</para>', 1, '', 0),
-(2, 'b', 'b', 'b', '2012-01-05', '2012-01-12', '2012-01-11 00:00:00', '<para>Teste de uma submissao para listagem</para>', 1, '', 0),
-(4, 'Download', 'Testar download de ficheiros', '', '2012-01-10', '2012-01-10', '2012-01-09 09:27:13', 'Vai ser testado o download de ficheiros.', 1, '', 0),
-(5, 'Download de Imagens', 'Testar download de imagens', '', '2012-01-10', '2012-01-08', '2012-01-09 09:32:20', 'Vai ser testado o download de imagens.', 1, '', 0),
-(6, 'Download', 'Testar download de imagens 2', '', '2012-01-10', '2012-01-08', '2012-01-09 09:33:10', 'Testar novamente o download de imagens.', 1, '', 0),
-(7, 'asXML', 'Testar abstract', '', '2012-01-10', '2012-01-08', '2012-01-09 14:12:00', '<abstract>Supostamente agora já aparecem as tags.\n\n<p>Aqui tem um programa. palavras a <b>negrito</b></p>\n</abstract>', 1, '', 0),
-(8, 'uuuu', 'uuuuuu', '', '2012-01-12', '2012-01-09', '2012-01-14 00:26:45', '<abstract><p>\nEste abstract já tens <kw>key words</kw>.\no <kw>XML</kw> é uma key word.\n</p></abstract>', 1, '', 0),
-(9, 'kljlkj', 'lkjlkj', '', '2012-01-11', '2012-01-09', '2012-01-14 00:52:12', '<abstract><p>\numa <kw>kw</kw> mais outra <kw>XML</kw>.\n</p></abstract>', 1, '', 1),
-(10, 'jjjj', 'jjjj', '', '2012-01-13', '2012-01-13', '2012-01-14 00:54:31', '<abstract><p>\nasdasd\n<kw>ooo</kw>\n</p></abstract>', 1, '', 0),
-(11, 'xxxx', 'xxxxxxx', '', '2012-01-11', '2012-01-09', '2012-01-14 01:12:35', '<abstract><p>\nqualquer coisas para <kw>kw</kw>, mais outra <kw>xml</kw>.\n</p></abstract>', 1, '', 0),
-(12, 'nnn', 'nnnnn', '', '2012-01-21', '2012-01-11', '2012-01-14 01:14:49', '<abstract><p>\nmais <kw>xsl</kw> e <kw>xml</kw>.\n</p></abstract>', 1, '', 0),
-(13, 'mm', 'mmm', '', '2012-02-14', '2012-01-22', '2012-01-14 01:17:06', '<abstract><p>\n<kw>xml</kw> e <kw>xsl</kw>\n</p></abstract>', 1, '', 0),
-(14, 'ggg', 'ggggg', '', '2012-01-15', '2012-01-14', '2012-01-14 11:23:13', '<abstract><p>\n<kw>php</kw>\n<kw>html</kw>\n</p></abstract>', 1, '', 0),
-(15, 'hhhh', 'hhhhhhh', '', '2012-01-15', '2012-01-11', '2012-01-14 11:25:07', '<abstract><kw>php 5</kw>\n<kw>html 5</kw></abstract>', 1, '', 0),
-(16, 'ooo', 'oooooo', '', '2012-01-17', '2012-01-16', '2012-01-14 11:31:45', '<abstract><kw>\nphp\n</kw></abstract>', 1, '', 0),
-(17, 'ttt', 'ttttt', '', '2012-02-15', '2012-01-18', '2012-01-14 11:33:09', '<abstract><kw>php 4</kw></abstract>', 1, '', 0),
-(18, 'iii', 'iiiiii', '', '2012-02-23', '2012-01-18', '2012-01-14 11:34:39', '<abstract><kw>php 4</kw></abstract>', 1, '', 0),
-(19, 'llll', 'lllllll', '', '2012-01-18', '2012-01-12', '2012-01-14 11:35:38', '<abstract><kw>php 4</kw></abstract>', 1, '', 1),
-(20, 'llllll', 'lllllll', '', '2012-01-17', '2012-01-12', '2012-01-14 11:36:09', '<abstract><kw>php 4</kw></abstract>', 1, '', 0),
-(21, 'jkhkh', 'kjhjkh', '', '2012-01-18', '2012-01-10', '2012-01-14 11:39:09', '<abstract><kw>php 4</kw></abstract>', 1, '', 0),
-(22, 'uyu', 'yutuygt', '', '2012-01-17', '2012-01-13', '2012-01-14 11:39:55', '<abstract><kw>php 4</kw></abstract>', 1, '', 0),
-(23, 'yyy', 'yyyyy', '', '2012-01-19', '2012-01-16', '2012-01-14 12:26:35', '<abstract><kw>xml</kw>\n\n<kw>php 4</kw></abstract>', 1, '', 0),
-(24, 'kkkk', 'kkkkk', '', '2012-01-18', '2012-01-18', '2012-01-14 12:48:07', '<abstract><p>\nAqui vai ter várias key words, entre elas <kw>xml</kw>, <kw>html</kw>, <kw>php</kw>, <kw>javascript</kw> e <kw>ajax</kw>.\n</p></abstract>', 1, '', 0),
-(25, 'jyh', 'jjhyyu', '', '2012-03-15', '2012-01-26', '2012-01-14 13:05:32', '<abstract><kw>php</kw> \n<kw>html</kw></abstract>', 1, '', 0),
-(26, 'hjhg', 'hjhyu', '', '2012-02-19', '2012-01-16', '2012-01-14 13:07:27', '<abstract><p>algumas kw\n<kw>php</kw> e <kw>html</kw> e <kw>javascript</kw>\n</p></abstract>', 1, '', 0),
-(27, 'fghj', 'lkjdgh', '', '2012-01-17', '2012-01-11', '2012-01-14 15:18:47', '<abstract><p>nada com <kw>php</kw></p></abstract>', 1, '2012/01/14/0835b99fc16c863b8d09a94959b89088/', 0),
-(28, 'Zip File', 'Teste de Submissão por Zip', '', '2012-01-28', '2012-01-14', '2012-01-15 01:35:38', '<abstract>\n        <p>\nAqui vamos \n            <b>testar uma submissão</b> por \n            <kw>zip</kw>. Vamos criar o \n            <kw>xml</kw> através do formulário do site, depois colocar criar um ficheiro zip com o pr.xml e os seus deliverables. Ao submeter por zip vamos ainda validar o xml com o \n            <kw>schema</kw> (\n            <kw>xsd</kw>).\n        </p>\n    </abstract>', 1, '2012/01/15/843f4fb938b039d8dae0df90a1e79c4b/', 0),
-(29, 'Zip File', 'Teste de Submissão por Zip', '', '2012-01-28', '2012-01-14', '2012-01-15 01:39:47', '<abstract>\n        <p>\nAqui vamos \n            <b>testar uma submissão</b> por \n            <kw>zip</kw>. Vamos criar o \n            <kw>xml</kw> através do formulário do site, depois colocar criar um ficheiro zip com o pr.xml e os seus deliverables. Ao submeter por zip vamos ainda validar o xml com o \n            <kw>schema</kw> (\n            <kw>xsd</kw>).\n        </p>\n    </abstract>', 1, '2012/01/15/843f4fb938b039d8dae0df90a1e79c4b/', 0),
-(30, 'Zip File', 'Teste de Submissão por Zip', '', '2012-01-28', '2012-01-14', '2012-01-15 01:40:50', '<abstract>\n        <p>\nAqui vamos \n            <b>testar uma submissão</b> por \n            <kw>zip</kw>. Vamos criar o \n            <kw>xml</kw> através do formulário do site, depois colocar criar um ficheiro zip com o pr.xml e os seus deliverables. Ao submeter por zip vamos ainda validar o xml com o \n            <kw>schema</kw> (\n            <kw>xsd</kw>).\n        </p>\n    </abstract>', 1, '2012/01/15/843f4fb938b039d8dae0df90a1e79c4b/', 0),
-(31, 'Zip File', 'Teste de Submissão por Zip', '', '2012-01-28', '2012-01-14', '2012-01-15 01:42:10', '<abstract>\n        <p>\nAqui vamos \n            <b>testar uma submissão</b> por \n            <kw>zip</kw>. Vamos criar o \n            <kw>xml</kw> através do formulário do site, depois colocar criar um ficheiro zip com o pr.xml e os seus deliverables. Ao submeter por zip vamos ainda validar o xml com o \n            <kw>schema</kw> (\n            <kw>xsd</kw>).\n        </p>\n    </abstract>', 1, '2012/01/15/843f4fb938b039d8dae0df90a1e79c4b/', 0),
-(32, 'Zip File', 'Teste de Submissão por Zip', '', '2012-01-28', '2012-01-14', '2012-01-15 01:42:58', '<abstract>\n        <p>\nAqui vamos \n            <b>testar uma submissão</b> por \n            <kw>zip</kw>. Vamos criar o \n            <kw>xml</kw> através do formulário do site, depois colocar criar um ficheiro zip com o pr.xml e os seus deliverables. Ao submeter por zip vamos ainda validar o xml com o \n            <kw>schema</kw> (\n            <kw>xsd</kw>).\n        </p>\n    </abstract>', 1, '2012/01/15/843f4fb938b039d8dae0df90a1e79c4b/', 0),
-(33, 'kjhkj', 'kljdfgklj', '', '2012-01-21', '2012-01-14', '2012-01-15 01:59:16', '<abstract><p>\nAqui vai ter um paragrafo.\n</p></abstract>', 1, '2012/01/15/dedfa11751c0be48682dd0f1fb3ec5fd/', 0);
+--
+-- Dumping data for table `Project`
+--
+
+INSERT INTO `Project` (`projcode`, `keyname`, `title`, `subtitle`, `bdate`, `edate`, `subdate`, `abstract`, `coursecode`, `path`, `remove`, `private`) VALUES
+(1, 'a', 'a', NULL, '2012-01-10', '2012-01-17', '2012-01-16 00:00:00', '<para>Teste de uma submissao para listagem</para>', 1, '', 0, 0),
+(2, 'b', 'b', 'b', '2012-01-05', '2012-01-12', '2012-01-11 00:00:00', '<para>Teste de uma submissao para listagem</para>', 1, '', 0, 0),
+(4, 'Download', 'Testar download de ficheiros', '', '2012-01-10', '2012-01-10', '2012-01-09 09:27:13', 'Vai ser testado o download de ficheiros.', 1, '', 0, 0),
+(5, 'Download de Imagens', 'Testar download de imagens', '', '2012-01-10', '2012-01-08', '2012-01-09 09:32:20', 'Vai ser testado o download de imagens.', 1, '', 0, 0),
+(6, 'Download', 'Testar download de imagens 2', '', '2012-01-10', '2012-01-08', '2012-01-09 09:33:10', 'Testar novamente o download de imagens.', 1, '', 0, 0),
+(7, 'asXML', 'Testar abstract', '', '2012-01-10', '2012-01-08', '2012-01-09 14:12:00', '<abstract>Supostamente agora já aparecem as tags.\n\n<p>Aqui tem um programa. palavras a <b>negrito</b></p>\n</abstract>', 1, '', 0, 0),
+(8, 'uuuu', 'uuuuuu', '', '2012-01-12', '2012-01-09', '2012-01-14 00:26:45', '<abstract><p>\nEste abstract já tens <kw>key words</kw>.\no <kw>XML</kw> é uma key word.\n</p></abstract>', 1, '', 0, 0),
+(9, 'kljlkj', 'lkjlkj', '', '2012-01-11', '2012-01-09', '2012-01-14 00:52:12', '<abstract><p>\numa <kw>kw</kw> mais outra <kw>XML</kw>.\n</p></abstract>', 1, '', 1, 0),
+(10, 'jjjj', 'jjjj', '', '2012-01-13', '2012-01-13', '2012-01-14 00:54:31', '<abstract><p>\nasdasd\n<kw>ooo</kw>\n</p></abstract>', 1, '', 0, 0),
+(11, 'xxxx', 'xxxxxxx', '', '2012-01-11', '2012-01-09', '2012-01-14 01:12:35', '<abstract><p>\nqualquer coisas para <kw>kw</kw>, mais outra <kw>xml</kw>.\n</p></abstract>', 1, '', 0, 0),
+(12, 'nnn', 'nnnnn', '', '2012-01-21', '2012-01-11', '2012-01-14 01:14:49', '<abstract><p>\nmais <kw>xsl</kw> e <kw>xml</kw>.\n</p></abstract>', 1, '', 0, 0),
+(13, 'mm', 'mmm', '', '2012-02-14', '2012-01-22', '2012-01-14 01:17:06', '<abstract><p>\n<kw>xml</kw> e <kw>xsl</kw>\n</p></abstract>', 1, '', 0, 0),
+(14, 'ggg', 'ggggg', '', '2012-01-15', '2012-01-14', '2012-01-14 11:23:13', '<abstract><p>\n<kw>php</kw>\n<kw>html</kw>\n</p></abstract>', 1, '', 0, 0),
+(15, 'hhhh', 'hhhhhhh', '', '2012-01-15', '2012-01-11', '2012-01-14 11:25:07', '<abstract><kw>php 5</kw>\n<kw>html 5</kw></abstract>', 1, '', 0, 0),
+(16, 'ooo', 'oooooo', '', '2012-01-17', '2012-01-16', '2012-01-14 11:31:45', '<abstract><kw>\nphp\n</kw></abstract>', 1, '', 0, 0),
+(17, 'ttt', 'ttttt', '', '2012-02-15', '2012-01-18', '2012-01-14 11:33:09', '<abstract><kw>php 4</kw></abstract>', 1, '', 0, 0),
+(18, 'iii', 'iiiiii', '', '2012-02-23', '2012-01-18', '2012-01-14 11:34:39', '<abstract><kw>php 4</kw></abstract>', 1, '', 0, 0),
+(19, 'llll', 'lllllll', '', '2012-01-18', '2012-01-12', '2012-01-14 11:35:38', '<abstract><kw>php 4</kw></abstract>', 1, '', 1, 0),
+(20, 'llllll', 'lllllll', '', '2012-01-17', '2012-01-12', '2012-01-14 11:36:09', '<abstract><kw>php 4</kw></abstract>', 1, '', 0, 0),
+(21, 'jkhkh', 'kjhjkh', '', '2012-01-18', '2012-01-10', '2012-01-14 11:39:09', '<abstract><kw>php 4</kw></abstract>', 1, '', 0, 0),
+(22, 'uyu', 'yutuygt', '', '2012-01-17', '2012-01-13', '2012-01-14 11:39:55', '<abstract><kw>php 4</kw></abstract>', 1, '', 0, 0),
+(23, 'yyy', 'yyyyy', '', '2012-01-19', '2012-01-16', '2012-01-14 12:26:35', '<abstract><kw>xml</kw>\n\n<kw>php 4</kw></abstract>', 1, '', 0, 0),
+(24, 'kkkk', 'kkkkk', '', '2012-01-18', '2012-01-18', '2012-01-14 12:48:07', '<abstract><p>\nAqui vai ter várias key words, entre elas <kw>xml</kw>, <kw>html</kw>, <kw>php</kw>, <kw>javascript</kw> e <kw>ajax</kw>.\n</p></abstract>', 1, '', 0, 0),
+(25, 'jyh', 'jjhyyu', '', '2012-03-15', '2012-01-26', '2012-01-14 13:05:32', '<abstract><kw>php</kw> \n<kw>html</kw></abstract>', 1, '', 0, 0),
+(26, 'hjhg', 'hjhyu', '', '2012-02-19', '2012-01-16', '2012-01-14 13:07:27', '<abstract><p>algumas kw\n<kw>php</kw> e <kw>html</kw> e <kw>javascript</kw>\n</p></abstract>', 1, '', 0, 0),
+(27, 'fghj', 'lkjdgh', '', '2012-01-17', '2012-01-11', '2012-01-14 15:18:47', '<abstract><p>nada com <kw>php</kw></p></abstract>', 1, '2012/01/14/0835b99fc16c863b8d09a94959b89088/', 0, 0),
+(28, 'Zip File', 'Teste de Submissão por Zip', '', '2012-01-28', '2012-01-14', '2012-01-15 01:35:38', '<abstract>\n        <p>\nAqui vamos \n            <b>testar uma submissão</b> por \n            <kw>zip</kw>. Vamos criar o \n            <kw>xml</kw> através do formulário do site, depois colocar criar um ficheiro zip com o pr.xml e os seus deliverables. Ao submeter por zip vamos ainda validar o xml com o \n            <kw>schema</kw> (\n            <kw>xsd</kw>).\n        </p>\n    </abstract>', 1, '2012/01/15/843f4fb938b039d8dae0df90a1e79c4b/', 0, 0),
+(29, 'Zip File', 'Teste de Submissão por Zip', '', '2012-01-28', '2012-01-14', '2012-01-15 01:39:47', '<abstract>\n        <p>\nAqui vamos \n            <b>testar uma submissão</b> por \n            <kw>zip</kw>. Vamos criar o \n            <kw>xml</kw> através do formulário do site, depois colocar criar um ficheiro zip com o pr.xml e os seus deliverables. Ao submeter por zip vamos ainda validar o xml com o \n            <kw>schema</kw> (\n            <kw>xsd</kw>).\n        </p>\n    </abstract>', 1, '2012/01/15/843f4fb938b039d8dae0df90a1e79c4b/', 0, 0),
+(30, 'Zip File', 'Teste de Submissão por Zip', '', '2012-01-28', '2012-01-14', '2012-01-15 01:40:50', '<abstract>\n        <p>\nAqui vamos \n            <b>testar uma submissão</b> por \n            <kw>zip</kw>. Vamos criar o \n            <kw>xml</kw> através do formulário do site, depois colocar criar um ficheiro zip com o pr.xml e os seus deliverables. Ao submeter por zip vamos ainda validar o xml com o \n            <kw>schema</kw> (\n            <kw>xsd</kw>).\n        </p>\n    </abstract>', 1, '2012/01/15/843f4fb938b039d8dae0df90a1e79c4b/', 0, 0),
+(31, 'Zip File', 'Teste de Submissão por Zip', '', '2012-01-28', '2012-01-14', '2012-01-15 01:42:10', '<abstract>\n        <p>\nAqui vamos \n            <b>testar uma submissão</b> por \n            <kw>zip</kw>. Vamos criar o \n            <kw>xml</kw> através do formulário do site, depois colocar criar um ficheiro zip com o pr.xml e os seus deliverables. Ao submeter por zip vamos ainda validar o xml com o \n            <kw>schema</kw> (\n            <kw>xsd</kw>).\n        </p>\n    </abstract>', 1, '2012/01/15/843f4fb938b039d8dae0df90a1e79c4b/', 0, 0),
+(32, 'Zip File', 'Teste de Submissão por Zip', '', '2012-01-28', '2012-01-14', '2012-01-15 01:42:58', '<abstract>\n        <p>\nAqui vamos \n            <b>testar uma submissão</b> por \n            <kw>zip</kw>. Vamos criar o \n            <kw>xml</kw> através do formulário do site, depois colocar criar um ficheiro zip com o pr.xml e os seus deliverables. Ao submeter por zip vamos ainda validar o xml com o \n            <kw>schema</kw> (\n            <kw>xsd</kw>).\n        </p>\n    </abstract>', 1, '2012/01/15/843f4fb938b039d8dae0df90a1e79c4b/', 0, 0),
+(33, 'kjhkj', 'kljdfgklj', '', '2012-01-21', '2012-01-14', '2012-01-15 01:59:16', '<abstract><p>\nAqui vai ter um paragrafo.\n</p></abstract>', 1, '2012/01/15/dedfa11751c0be48682dd0f1fb3ec5fd/', 0, 0);
 
 -- --------------------------------------------------------
 
 --
--- Estrutura da tabela `ProjKW`
+-- Table structure for table `ProjKW`
 --
 
 CREATE TABLE IF NOT EXISTS `ProjKW` (
@@ -546,7 +605,15 @@ CREATE TABLE IF NOT EXISTS `ProjKW` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Extraindo dados da tabela `ProjKW`
+-- RELATIONS FOR TABLE `ProjKW`:
+--   `kwcode`
+--       `KeyWord` -> `kwcode`
+--   `projcode`
+--       `Project` -> `projcode`
+--
+
+--
+-- Dumping data for table `ProjKW`
 --
 
 INSERT INTO `ProjKW` (`projcode`, `kwcode`) VALUES
@@ -589,7 +656,7 @@ INSERT INTO `ProjKW` (`projcode`, `kwcode`) VALUES
 -- --------------------------------------------------------
 
 --
--- Estrutura da tabela `ProjSup`
+-- Table structure for table `ProjSup`
 --
 
 CREATE TABLE IF NOT EXISTS `ProjSup` (
@@ -600,7 +667,15 @@ CREATE TABLE IF NOT EXISTS `ProjSup` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Extraindo dados da tabela `ProjSup`
+-- RELATIONS FOR TABLE `ProjSup`:
+--   `projcode`
+--       `Project` -> `projcode`
+--   `supcode`
+--       `Supervisor` -> `supcode`
+--
+
+--
+-- Dumping data for table `ProjSup`
 --
 
 INSERT INTO `ProjSup` (`projcode`, `supcode`) VALUES
@@ -653,7 +728,7 @@ INSERT INTO `ProjSup` (`projcode`, `supcode`) VALUES
 -- --------------------------------------------------------
 
 --
--- Estrutura da tabela `Queries`
+-- Table structure for table `Queries`
 --
 
 CREATE TABLE IF NOT EXISTS `Queries` (
@@ -668,10 +743,22 @@ CREATE TABLE IF NOT EXISTS `Queries` (
   KEY `projcode` (`projcode`,`authorcode`,`supcode`),
   KEY `authorcode` (`authorcode`),
   KEY `supcode` (`supcode`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=102 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=118 ;
 
 --
--- Extraindo dados da tabela `Queries`
+-- RELATIONS FOR TABLE `Queries`:
+--   `username`
+--       `Users` -> `username`
+--   `projcode`
+--       `Project` -> `projcode`
+--   `authorcode`
+--       `Author` -> `authorcode`
+--   `supcode`
+--       `Supervisor` -> `supcode`
+--
+
+--
+-- Dumping data for table `Queries`
 --
 
 INSERT INTO `Queries` (`id`, `username`, `projcode`, `authorcode`, `supcode`, `datahora`) VALUES
@@ -774,12 +861,28 @@ INSERT INTO `Queries` (`id`, `username`, `projcode`, `authorcode`, `supcode`, `d
 (98, 'miguel', NULL, NULL, 1, '2012-01-15 15:54:26'),
 (99, 'miguel', NULL, NULL, 1, '2012-01-15 15:54:33'),
 (100, 'miguel', NULL, 1, NULL, '2012-01-15 15:54:49'),
-(101, 'miguel', NULL, 1, NULL, '2012-01-15 15:56:30');
+(101, 'miguel', NULL, 1, NULL, '2012-01-15 15:56:30'),
+(102, 'miguel', 22, NULL, NULL, '2012-01-16 10:57:10'),
+(103, 'miguel', 32, NULL, NULL, '2012-01-16 10:57:20'),
+(104, 'miguel', 13, NULL, NULL, '2012-01-16 10:58:38'),
+(105, 'miguel', 33, NULL, NULL, '2012-01-16 10:58:43'),
+(106, 'miguel', 2, NULL, NULL, '2012-01-16 14:27:03'),
+(107, 'miguel', 24, NULL, NULL, '2012-01-16 15:04:31'),
+(108, 'miguel', 1, NULL, NULL, '2012-01-16 15:04:44'),
+(109, 'miguel', 1, NULL, NULL, '2012-01-16 15:06:56'),
+(110, 'miguel', NULL, 4, NULL, '2012-01-16 15:18:16'),
+(111, 'miguel', 1, NULL, NULL, '2012-01-16 15:36:32'),
+(112, 'miguel', 24, NULL, NULL, '2012-01-16 15:37:06'),
+(113, 'miguel', NULL, NULL, 2, '2012-01-16 15:53:01'),
+(114, 'miguel', NULL, NULL, 3, '2012-01-16 15:53:08'),
+(115, 'miguel', NULL, NULL, 3, '2012-01-16 15:53:14'),
+(116, 'miguel', NULL, 6, NULL, '2012-01-16 16:02:45'),
+(117, 'miguel', 33, NULL, NULL, '2012-01-16 16:31:25');
 
 -- --------------------------------------------------------
 
 --
--- Estrutura da tabela `Supervisor`
+-- Table structure for table `Supervisor`
 --
 
 CREATE TABLE IF NOT EXISTS `Supervisor` (
@@ -788,22 +891,23 @@ CREATE TABLE IF NOT EXISTS `Supervisor` (
   `email` varchar(50) NOT NULL,
   `url` varchar(2002) DEFAULT NULL,
   `affil` varchar(50) DEFAULT NULL,
+  `remove` int(11) NOT NULL,
   PRIMARY KEY (`supcode`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=4 ;
 
 --
--- Extraindo dados da tabela `Supervisor`
+-- Dumping data for table `Supervisor`
 --
 
-INSERT INTO `Supervisor` (`supcode`, `name`, `email`, `url`, `affil`) VALUES
-(1, 'José Carlos Ramalho', 'jcr@di.uminho.pt', 'http://www.di.uminho.pt/~jcr', 'Departamento de Informática'),
-(2, 'Pedro Rangel Henriques', 'prh@di.uminho.pt', 'http://www.di.uminho.pt/~prh', 'Departamento de Informática'),
-(3, 'José João', 'jj@di.uminho.pt', 'http://www.di.uminho.pt/~jj', 'Departamento de Informática');
+INSERT INTO `Supervisor` (`supcode`, `name`, `email`, `url`, `affil`, `remove`) VALUES
+(1, 'José Carlos Ramalho', 'jcr@di.uminho.pt', 'http://www.di.uminho.pt/~jcr', 'Departamento de Informática', 0),
+(2, 'Pedro Rangel Henriques', 'prh@di.uminho.pt', 'http://www.di.uminho.pt/~prh', 'Departamento de Informática', 0),
+(3, 'José João', 'jj@di.uminho.pt', 'http://www.di.uminho.pt/~jj', 'Departamento de Informática', 0);
 
 -- --------------------------------------------------------
 
 --
--- Estrutura da tabela `Users`
+-- Table structure for table `Users`
 --
 
 CREATE TABLE IF NOT EXISTS `Users` (
@@ -814,37 +918,38 @@ CREATE TABLE IF NOT EXISTS `Users` (
   `affil` varchar(255) DEFAULT NULL,
   `url` varchar(255) DEFAULT NULL,
   `type` varchar(10) NOT NULL,
+  `remove` int(11) NOT NULL,
   PRIMARY KEY (`username`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Extraindo dados da tabela `Users`
+-- Dumping data for table `Users`
 --
 
-INSERT INTO `Users` (`name`, `username`, `password`, `email`, `affil`, `url`, `type`) VALUES
-('Nome ad1', 'ad1', 'ad1_p', 'ad1@email.com', 'UM', 'http://google.com', 'a'),
-('Nome ad2', 'ad2', 'ad2_p', 'ad2@email.com', 'UM', 'http://google.com', 'a'),
-('Nome ad3', 'ad3', 'ad3_p', 'ad3@email.com', 'UM', 'http://google.com', 'a'),
-('Nome ad4', 'ad4', 'ad4_p', 'ad4@email.com', '', '', 'a'),
-('Bruno Azevedo', 'bruno', 'bruno', 'azevedo.252@gmail.com', 'Departamento de Informática', '', 'p'),
-('Nome c1', 'c1', 'ci_p', 'ci@email.com', 'Física', 'http://google.com', 'c'),
-('Nome c2', 'c2', 'c2_p', 'c2@email.com', 'Biologia', 'http://google.com', 'c'),
-('Nome c3', 'c3', 'c3_p', 'c3@email.com', 'Letras', 'http://google.com', 'c'),
-('Nome c4', 'c4', 'c4_p', 'c4@email.com', 'Direito', 'http://google.com', 'c'),
-('José Carlos Ramalho', 'jcr', 'jcr', 'jcr@di.uminho.pt', 'Departamento de Informática', 'http://www3.di.uminho.pt/~jcr/', 'c'),
-('Miguel Costa', 'miguel', 'miguel', 'miguelpintodacosta@gmail.com', 'Departamento de Informática', 'http://gplus.to/miguelcosta', 'a'),
-('p1', 'p1_u', 'p1_p', 'p1@email.com', '', '', 'p'),
-('p2', 'p2_u', 'p2_p', 'p2@email.com', 'aa', '', 'p'),
-('p3', 'p3_u', 'p3_p', 'p3@gmail.com', '', 'google.com', 'p'),
-('p4', 'p4_u', 'p4_p', 'p4@email.com', '', '', 'p'),
-('Palhas', 'palhas', 'palhas', 'mpalhas@gmail.com', 'CPD', 'www.mpalhas.com', 'c'),
-('Nome do Utilizador', 'ut', 'utut', 'ut@gmail.com', 'LCC', 'http://google.com', 'a'),
-('Vitor', 'vitor', 'vitor', 'vitor@gmail.com', 'BI', 'www.vitor.com', 'p');
+INSERT INTO `Users` (`name`, `username`, `password`, `email`, `affil`, `url`, `type`, `remove`) VALUES
+('Nome ad1', 'ad1', 'ad1_p', 'ad1@email.com', 'UM', 'http://google.com', 'a', 0),
+('Nome ad2', 'ad2', 'ad2_p', 'ad2@email.com', 'UM', 'http://google.com', 'a', 0),
+('Nome ad3', 'ad3', 'ad3_p', 'ad3@email.com', 'UM', 'http://google.com', 'a', 0),
+('Nome ad4', 'ad4', 'ad4_p', 'ad4@email.com', '', '', 'a', 0),
+('Bruno Azevedo', 'bruno', 'bruno', 'azevedo.252@gmail.com', 'Departamento de Informática', '', 'p', 0),
+('Nome c1', 'c1', 'ci_p', 'ci@email.com', 'Física', 'http://google.com', 'c', 0),
+('Nome c2', 'c2', 'c2_p', 'c2@email.com', 'Biologia', 'http://google.com', 'c', 0),
+('Nome c3', 'c3', 'c3_p', 'c3@email.com', 'Letras', 'http://google.com', 'c', 0),
+('Nome c4', 'c4', 'c4_p', 'c4@email.com', 'Direito', 'http://google.com', 'c', 0),
+('José Carlos Ramalho', 'jcr', 'jcr', 'jcr@di.uminho.pt', 'Departamento de Informática', 'http://www3.di.uminho.pt/~jcr/', 'c', 0),
+('Miguel Costa', 'miguel', 'miguel', 'miguelpintodacosta@gmail.com', 'Departamento de Informática', 'http://gplus.to/miguelcosta', 'a', 0),
+('p1', 'p1_u', 'p1_p', 'p1@email.com', '', '', 'p', 0),
+('p2', 'p2_u', 'p2_p', 'p2@email.com', 'aa', '', 'p', 0),
+('p3', 'p3_u', 'p3_p', 'p3@gmail.com', '', 'google.com', 'p', 0),
+('p4', 'p4_u', 'p4_p', 'p4@email.com', '', '', 'p', 0),
+('Palhas', 'palhas', 'palhas', 'mpalhas@gmail.com', 'CPD', 'www.mpalhas.com', 'c', 0),
+('Nome do Utilizador', 'ut', 'utut', 'ut@gmail.com', 'LCC', 'http://google.com', 'a', 0),
+('Vitor', 'vitor', 'vitor', 'vitor@gmail.com', 'BI', 'www.vitor.com', 'p', 0);
 
 -- --------------------------------------------------------
 
 --
--- Estrutura stand-in para visualizar `ViewNumAccessData`
+-- Stand-in structure for view `ViewNumAccessData`
 --
 CREATE TABLE IF NOT EXISTS `ViewNumAccessData` (
 `month` int(2)
@@ -854,7 +959,7 @@ CREATE TABLE IF NOT EXISTS `ViewNumAccessData` (
 -- --------------------------------------------------------
 
 --
--- Estrutura stand-in para visualizar `ViewNumAccessTotal`
+-- Stand-in structure for view `ViewNumAccessTotal`
 --
 CREATE TABLE IF NOT EXISTS `ViewNumAccessTotal` (
 `accesses` bigint(21)
@@ -862,7 +967,7 @@ CREATE TABLE IF NOT EXISTS `ViewNumAccessTotal` (
 -- --------------------------------------------------------
 
 --
--- Estrutura stand-in para visualizar `ViewNumAccessUser`
+-- Stand-in structure for view `ViewNumAccessUser`
 --
 CREATE TABLE IF NOT EXISTS `ViewNumAccessUser` (
 `username` varchar(255)
@@ -871,7 +976,7 @@ CREATE TABLE IF NOT EXISTS `ViewNumAccessUser` (
 -- --------------------------------------------------------
 
 --
--- Estrutura stand-in para visualizar `ViewNumDepositsCourse`
+-- Stand-in structure for view `ViewNumDepositsCourse`
 --
 CREATE TABLE IF NOT EXISTS `ViewNumDepositsCourse` (
 `curso` int(11)
@@ -880,7 +985,7 @@ CREATE TABLE IF NOT EXISTS `ViewNumDepositsCourse` (
 -- --------------------------------------------------------
 
 --
--- Estrutura stand-in para visualizar `ViewNumDepositsDate`
+-- Stand-in structure for view `ViewNumDepositsDate`
 --
 CREATE TABLE IF NOT EXISTS `ViewNumDepositsDate` (
 `month` int(2)
@@ -890,7 +995,7 @@ CREATE TABLE IF NOT EXISTS `ViewNumDepositsDate` (
 -- --------------------------------------------------------
 
 --
--- Estrutura stand-in para visualizar `ViewNumDepositsTotal`
+-- Stand-in structure for view `ViewNumDepositsTotal`
 --
 CREATE TABLE IF NOT EXISTS `ViewNumDepositsTotal` (
 `numProjsTotal` bigint(21)
@@ -898,7 +1003,7 @@ CREATE TABLE IF NOT EXISTS `ViewNumDepositsTotal` (
 -- --------------------------------------------------------
 
 --
--- Estrutura stand-in para visualizar `ViewNumDepositsUser`
+-- Stand-in structure for view `ViewNumDepositsUser`
 --
 CREATE TABLE IF NOT EXISTS `ViewNumDepositsUser` (
 `username` varchar(255)
@@ -907,7 +1012,7 @@ CREATE TABLE IF NOT EXISTS `ViewNumDepositsUser` (
 -- --------------------------------------------------------
 
 --
--- Estrutura stand-in para visualizar `ViewNumDownloadsTotal`
+-- Stand-in structure for view `ViewNumDownloadsTotal`
 --
 CREATE TABLE IF NOT EXISTS `ViewNumDownloadsTotal` (
 `numDownloads` bigint(21)
@@ -915,7 +1020,7 @@ CREATE TABLE IF NOT EXISTS `ViewNumDownloadsTotal` (
 -- --------------------------------------------------------
 
 --
--- Estrutura stand-in para visualizar `ViewNumQueriesAuthorTotal`
+-- Stand-in structure for view `ViewNumQueriesAuthorTotal`
 --
 CREATE TABLE IF NOT EXISTS `ViewNumQueriesAuthorTotal` (
 `queries` bigint(21)
@@ -923,7 +1028,7 @@ CREATE TABLE IF NOT EXISTS `ViewNumQueriesAuthorTotal` (
 -- --------------------------------------------------------
 
 --
--- Estrutura stand-in para visualizar `ViewNumQueriesProjTotal`
+-- Stand-in structure for view `ViewNumQueriesProjTotal`
 --
 CREATE TABLE IF NOT EXISTS `ViewNumQueriesProjTotal` (
 `queries` bigint(21)
@@ -931,7 +1036,7 @@ CREATE TABLE IF NOT EXISTS `ViewNumQueriesProjTotal` (
 -- --------------------------------------------------------
 
 --
--- Estrutura stand-in para visualizar `ViewNumQueriesSupTotal`
+-- Stand-in structure for view `ViewNumQueriesSupTotal`
 --
 CREATE TABLE IF NOT EXISTS `ViewNumQueriesSupTotal` (
 `queries` bigint(21)
@@ -939,16 +1044,7 @@ CREATE TABLE IF NOT EXISTS `ViewNumQueriesSupTotal` (
 -- --------------------------------------------------------
 
 --
--- Estrutura stand-in para visualizar `ViewNumSupervisedProj`
---
-CREATE TABLE IF NOT EXISTS `ViewNumSupervisedProj` (
-`supcode` int(11)
-,`numProjs` bigint(21)
-);
--- --------------------------------------------------------
-
---
--- Estrutura stand-in para visualizar `ViewTopDownloads`
+-- Stand-in structure for view `ViewTopDownloads`
 --
 CREATE TABLE IF NOT EXISTS `ViewTopDownloads` (
 `projcode` int(11)
@@ -957,7 +1053,7 @@ CREATE TABLE IF NOT EXISTS `ViewTopDownloads` (
 -- --------------------------------------------------------
 
 --
--- Estrutura stand-in para visualizar `ViewTopQueriesAuthor`
+-- Stand-in structure for view `ViewTopQueriesAuthor`
 --
 CREATE TABLE IF NOT EXISTS `ViewTopQueriesAuthor` (
 `authorcode` int(11)
@@ -966,7 +1062,7 @@ CREATE TABLE IF NOT EXISTS `ViewTopQueriesAuthor` (
 -- --------------------------------------------------------
 
 --
--- Estrutura stand-in para visualizar `ViewTopQueriesProj`
+-- Stand-in structure for view `ViewTopQueriesProj`
 --
 CREATE TABLE IF NOT EXISTS `ViewTopQueriesProj` (
 `projcode` int(11)
@@ -975,7 +1071,7 @@ CREATE TABLE IF NOT EXISTS `ViewTopQueriesProj` (
 -- --------------------------------------------------------
 
 --
--- Estrutura stand-in para visualizar `ViewTopQueriesSup`
+-- Stand-in structure for view `ViewTopQueriesSup`
 --
 CREATE TABLE IF NOT EXISTS `ViewTopQueriesSup` (
 `supcode` int(11)
@@ -984,7 +1080,7 @@ CREATE TABLE IF NOT EXISTS `ViewTopQueriesSup` (
 -- --------------------------------------------------------
 
 --
--- Estrutura para visualizar `ViewNumAccessData`
+-- Structure for view `ViewNumAccessData`
 --
 DROP TABLE IF EXISTS `ViewNumAccessData`;
 
@@ -993,7 +1089,7 @@ CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW 
 -- --------------------------------------------------------
 
 --
--- Estrutura para visualizar `ViewNumAccessTotal`
+-- Structure for view `ViewNumAccessTotal`
 --
 DROP TABLE IF EXISTS `ViewNumAccessTotal`;
 
@@ -1002,52 +1098,52 @@ CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW 
 -- --------------------------------------------------------
 
 --
--- Estrutura para visualizar `ViewNumAccessUser`
+-- Structure for view `ViewNumAccessUser`
 --
 DROP TABLE IF EXISTS `ViewNumAccessUser`;
 
-CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `ViewNumAccessUser` AS select `Access`.`username` AS `username`,count(0) AS `accesses` from `Access` group by `Access`.`username` order by count(0);
+CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `ViewNumAccessUser` AS select `Access`.`username` AS `username`,count(0) AS `accesses` from `Access` group by `Access`.`username` order by count(0) desc;
 
 -- --------------------------------------------------------
 
 --
--- Estrutura para visualizar `ViewNumDepositsCourse`
+-- Structure for view `ViewNumDepositsCourse`
 --
 DROP TABLE IF EXISTS `ViewNumDepositsCourse`;
 
-CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `ViewNumDepositsCourse` AS select `P`.`coursecode` AS `curso`,count(`P`.`projcode`) AS `depositos` from `Project` `P` group by `P`.`coursecode`;
+CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `ViewNumDepositsCourse` AS select `P`.`coursecode` AS `curso`,count(`D`.`projcode`) AS `depositos` from (`Project` `P` join `Deposits` `D`) where (`P`.`projcode` = `D`.`projcode`) group by `P`.`coursecode` order by count(`D`.`projcode`) desc;
 
 -- --------------------------------------------------------
 
 --
--- Estrutura para visualizar `ViewNumDepositsDate`
+-- Structure for view `ViewNumDepositsDate`
 --
 DROP TABLE IF EXISTS `ViewNumDepositsDate`;
 
-CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `ViewNumDepositsDate` AS select month(`P`.`subdate`) AS `month`,year(`P`.`subdate`) AS `year`,count(0) AS `deposits` from `Project` `P` group by month(`P`.`subdate`),year(`P`.`subdate`) order by month(`P`.`subdate`),year(`P`.`subdate`);
+CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `ViewNumDepositsDate` AS select month(`P`.`subdate`) AS `month`,year(`P`.`subdate`) AS `year`,count(`Deposits`.`projcode`) AS `deposits` from (`Project` `P` join `Deposits`) where (`Deposits`.`projcode` = `P`.`projcode`) group by month(`P`.`subdate`),year(`P`.`subdate`) order by month(`P`.`subdate`),year(`P`.`subdate`);
 
 -- --------------------------------------------------------
 
 --
--- Estrutura para visualizar `ViewNumDepositsTotal`
+-- Structure for view `ViewNumDepositsTotal`
 --
 DROP TABLE IF EXISTS `ViewNumDepositsTotal`;
 
-CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `ViewNumDepositsTotal` AS select count(1) AS `numProjsTotal` from `Project`;
+CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `ViewNumDepositsTotal` AS select count(1) AS `numProjsTotal` from `Deposits`;
 
 -- --------------------------------------------------------
 
 --
--- Estrutura para visualizar `ViewNumDepositsUser`
+-- Structure for view `ViewNumDepositsUser`
 --
 DROP TABLE IF EXISTS `ViewNumDepositsUser`;
 
-CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `ViewNumDepositsUser` AS select `Deposits`.`username` AS `username`,count(`Deposits`.`projcode`) AS `depositos` from `Deposits` group by `Deposits`.`username`;
+CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `ViewNumDepositsUser` AS select `Deposits`.`username` AS `username`,count(`Deposits`.`projcode`) AS `depositos` from `Deposits` group by `Deposits`.`username` order by count(`Deposits`.`projcode`) desc;
 
 -- --------------------------------------------------------
 
 --
--- Estrutura para visualizar `ViewNumDownloadsTotal`
+-- Structure for view `ViewNumDownloadsTotal`
 --
 DROP TABLE IF EXISTS `ViewNumDownloadsTotal`;
 
@@ -1056,7 +1152,7 @@ CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW 
 -- --------------------------------------------------------
 
 --
--- Estrutura para visualizar `ViewNumQueriesAuthorTotal`
+-- Structure for view `ViewNumQueriesAuthorTotal`
 --
 DROP TABLE IF EXISTS `ViewNumQueriesAuthorTotal`;
 
@@ -1065,16 +1161,16 @@ CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW 
 -- --------------------------------------------------------
 
 --
--- Estrutura para visualizar `ViewNumQueriesProjTotal`
+-- Structure for view `ViewNumQueriesProjTotal`
 --
 DROP TABLE IF EXISTS `ViewNumQueriesProjTotal`;
 
-CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `ViewNumQueriesProjTotal` AS select count(1) AS `queries` from `Queries` where ((`Queries`.`projcode` is not null) and isnull(`Queries`.`authorcode`) and isnull(`Queries`.`supcode`));
+CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `ViewNumQueriesProjTotal` AS select count(1) AS `queries` from (`Queries` join `Project`) where ((`Queries`.`projcode` is not null) and (`Project`.`projcode` = `Queries`.`projcode`) and (`Project`.`remove` <> 1) and isnull(`Queries`.`authorcode`) and isnull(`Queries`.`supcode`));
 
 -- --------------------------------------------------------
 
 --
--- Estrutura para visualizar `ViewNumQueriesSupTotal`
+-- Structure for view `ViewNumQueriesSupTotal`
 --
 DROP TABLE IF EXISTS `ViewNumQueriesSupTotal`;
 
@@ -1083,106 +1179,104 @@ CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW 
 -- --------------------------------------------------------
 
 --
--- Estrutura para visualizar `ViewNumSupervisedProj`
---
-DROP TABLE IF EXISTS `ViewNumSupervisedProj`;
-
-CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `ViewNumSupervisedProj` AS select `ProjSup`.`supcode` AS `supcode`,count(`ProjSup`.`projcode`) AS `numProjs` from `ProjSup` group by `ProjSup`.`supcode`;
-
--- --------------------------------------------------------
-
---
--- Estrutura para visualizar `ViewTopDownloads`
+-- Structure for view `ViewTopDownloads`
 --
 DROP TABLE IF EXISTS `ViewTopDownloads`;
 
-CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `ViewTopDownloads` AS select `Downloads`.`projcode` AS `projcode`,count(`Downloads`.`projcode`) AS `downloads` from `Downloads` group by `Downloads`.`projcode` order by count(`Downloads`.`projcode`) limit 0,10;
+CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `ViewTopDownloads` AS select `Downloads`.`projcode` AS `projcode`,count(`Downloads`.`projcode`) AS `downloads` from `Downloads` group by `Downloads`.`projcode` order by count(`Downloads`.`projcode`) desc limit 0,10;
 
 -- --------------------------------------------------------
 
 --
--- Estrutura para visualizar `ViewTopQueriesAuthor`
+-- Structure for view `ViewTopQueriesAuthor`
 --
 DROP TABLE IF EXISTS `ViewTopQueriesAuthor`;
 
-CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `ViewTopQueriesAuthor` AS select `Queries`.`authorcode` AS `authorcode`,count(1) AS `queries` from `Queries` where (isnull(`Queries`.`projcode`) and (`Queries`.`authorcode` is not null) and isnull(`Queries`.`supcode`)) group by `Queries`.`authorcode` order by count(1) limit 0,10;
+CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `ViewTopQueriesAuthor` AS select `Queries`.`authorcode` AS `authorcode`,count(1) AS `queries` from `Queries` where (isnull(`Queries`.`projcode`) and (`Queries`.`authorcode` is not null) and isnull(`Queries`.`supcode`)) group by `Queries`.`authorcode` order by count(1) desc limit 0,10;
 
 -- --------------------------------------------------------
 
 --
--- Estrutura para visualizar `ViewTopQueriesProj`
+-- Structure for view `ViewTopQueriesProj`
 --
 DROP TABLE IF EXISTS `ViewTopQueriesProj`;
 
-CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `ViewTopQueriesProj` AS select `Queries`.`projcode` AS `projcode`,count(1) AS `queries` from `Queries` where ((`Queries`.`projcode` is not null) and isnull(`Queries`.`authorcode`) and isnull(`Queries`.`supcode`)) group by `Queries`.`projcode` order by count(1) limit 0,10;
+CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `ViewTopQueriesProj` AS select `Q`.`projcode` AS `projcode`,count(1) AS `queries` from `Queries` `Q` where ((`Q`.`projcode` is not null) and isnull(`Q`.`authorcode`) and isnull(`Q`.`supcode`)) group by `Q`.`projcode` order by count(1) desc limit 0,10;
 
 -- --------------------------------------------------------
 
 --
--- Estrutura para visualizar `ViewTopQueriesSup`
+-- Structure for view `ViewTopQueriesSup`
 --
 DROP TABLE IF EXISTS `ViewTopQueriesSup`;
 
-CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `ViewTopQueriesSup` AS select `Queries`.`supcode` AS `supcode`,count(1) AS `queries` from `Queries` where (isnull(`Queries`.`projcode`) and isnull(`Queries`.`authorcode`) and (`Queries`.`supcode` is not null)) group by `Queries`.`supcode` order by count(1) limit 0,10;
+CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `ViewTopQueriesSup` AS select `Queries`.`supcode` AS `supcode`,count(1) AS `queries` from `Queries` where (isnull(`Queries`.`projcode`) and isnull(`Queries`.`authorcode`) and (`Queries`.`supcode` is not null)) group by `Queries`.`supcode` order by count(1) desc limit 0,10;
 
 --
--- Restrições para as tabelas dumpadas
+-- Constraints for dumped tables
 --
 
 --
--- Restrições para a tabela `Access`
+-- Constraints for table `Access`
 --
 ALTER TABLE `Access`
   ADD CONSTRAINT `Access_ibfk_1` FOREIGN KEY (`username`) REFERENCES `Users` (`username`) ON DELETE NO ACTION ON UPDATE NO ACTION;
 
 --
--- Restrições para a tabela `Author`
+-- Constraints for table `Author`
 --
 ALTER TABLE `Author`
   ADD CONSTRAINT `Author_ibfk_1` FOREIGN KEY (`coursecode`) REFERENCES `Course` (`coursecode`) ON DELETE NO ACTION ON UPDATE NO ACTION;
 
 --
--- Restrições para a tabela `Deliverable`
+-- Constraints for table `Deliverable`
 --
 ALTER TABLE `Deliverable`
   ADD CONSTRAINT `Deliverable_ibfk_1` FOREIGN KEY (`projcode`) REFERENCES `Project` (`projcode`) ON DELETE NO ACTION ON UPDATE NO ACTION;
 
 --
--- Restrições para a tabela `Downloads`
+-- Constraints for table `Deposits`
+--
+ALTER TABLE `Deposits`
+  ADD CONSTRAINT `Deposits_ibfk_2` FOREIGN KEY (`projcode`) REFERENCES `Project` (`projcode`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+  ADD CONSTRAINT `Deposits_ibfk_1` FOREIGN KEY (`username`) REFERENCES `Users` (`username`) ON DELETE NO ACTION ON UPDATE NO ACTION;
+
+--
+-- Constraints for table `Downloads`
 --
 ALTER TABLE `Downloads`
   ADD CONSTRAINT `Downloads_ibfk_1` FOREIGN KEY (`username`) REFERENCES `Users` (`username`) ON DELETE NO ACTION ON UPDATE NO ACTION,
   ADD CONSTRAINT `Downloads_ibfk_2` FOREIGN KEY (`projcode`) REFERENCES `Project` (`projcode`) ON DELETE NO ACTION ON UPDATE NO ACTION;
 
 --
--- Restrições para a tabela `ProjAut`
+-- Constraints for table `ProjAut`
 --
 ALTER TABLE `ProjAut`
   ADD CONSTRAINT `ProjAut_ibfk_1` FOREIGN KEY (`projcode`) REFERENCES `Project` (`projcode`) ON DELETE NO ACTION ON UPDATE NO ACTION,
   ADD CONSTRAINT `ProjAut_ibfk_2` FOREIGN KEY (`authorcode`) REFERENCES `Author` (`authorcode`) ON DELETE NO ACTION ON UPDATE NO ACTION;
 
 --
--- Restrições para a tabela `Project`
+-- Constraints for table `Project`
 --
 ALTER TABLE `Project`
   ADD CONSTRAINT `Project_ibfk_1` FOREIGN KEY (`coursecode`) REFERENCES `Course` (`coursecode`) ON DELETE NO ACTION ON UPDATE NO ACTION;
 
 --
--- Restrições para a tabela `ProjKW`
+-- Constraints for table `ProjKW`
 --
 ALTER TABLE `ProjKW`
   ADD CONSTRAINT `ProjKW_ibfk_1` FOREIGN KEY (`kwcode`) REFERENCES `KeyWord` (`kwcode`) ON DELETE NO ACTION ON UPDATE NO ACTION,
   ADD CONSTRAINT `ProjKW_ibfk_2` FOREIGN KEY (`projcode`) REFERENCES `Project` (`projcode`) ON DELETE NO ACTION ON UPDATE NO ACTION;
 
 --
--- Restrições para a tabela `ProjSup`
+-- Constraints for table `ProjSup`
 --
 ALTER TABLE `ProjSup`
   ADD CONSTRAINT `ProjSup_ibfk_1` FOREIGN KEY (`projcode`) REFERENCES `Project` (`projcode`) ON DELETE NO ACTION ON UPDATE NO ACTION,
   ADD CONSTRAINT `ProjSup_ibfk_2` FOREIGN KEY (`supcode`) REFERENCES `Supervisor` (`supcode`) ON DELETE NO ACTION ON UPDATE NO ACTION;
 
 --
--- Restrições para a tabela `Queries`
+-- Constraints for table `Queries`
 --
 ALTER TABLE `Queries`
   ADD CONSTRAINT `Queries_ibfk_1` FOREIGN KEY (`username`) REFERENCES `Users` (`username`) ON DELETE NO ACTION ON UPDATE NO ACTION,

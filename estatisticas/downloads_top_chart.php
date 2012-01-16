@@ -14,7 +14,7 @@ if (!$con) {
 
     if ($result) {
         while ($ors = mysql_fetch_array($result)) {
-            $strXML .= "<set name='" . $ors['title'] . "' value='" . $ors['downloads'] . "' link='" . urlencode("../gerirU/gerirS_Show.php?projcode=" . $ors['pc']) . "' />";
+            $strXML .= "<set name='" . $ors['pc'] . "' value='" . $ors['downloads'] . "' link='" . urlencode("../gerirU/gerirS_Show.php?projcode=" . $ors['pc']) . "' />";
         }
         mysql_free_result($result);
     }

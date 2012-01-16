@@ -42,21 +42,28 @@ if (!isset($_SESSION['username']) || !$_SESSION['username'] || ((isset($_SESSION
                             while ($rows = mysql_fetch_array($result)) {
                                 $path = $rows["path"];
                             }
+                            $origem = "../uploads/$path";
+                            $valido = true;
+                            if (!is_dir($origem)) {
+                                echo "A pasta do projeto já não existe... Contacte um administrador.";
+                                $valido = false;
+                            }
 
-                            //echo " Path: $path";
-                            $t = time();
-                            if ($path != "") {
-                                $destino = "../uploads/zip/" . $projcode . "-" . $t . ".zip";
-                                $origem = "../uploads/$path";
-                                Zip($origem, $destino);
-                                ?>
-                                <div id="download">
-                                    <a href="getFile.php?file=<? echo $destino; ?>">
-                                        <input type="image" src="../css/images/zip2.png"/><br/>
-                                        <b>Clique para guardar o ficheiro no seu computador.</b>
-                                    </a>
-                                </div>
-                                <?php
+                            if($valido) {
+                                $t = time();
+                                if ($path != "") {
+                                    $destino = "../uploads/zip/" . $projcode . "-" . $t . ".zip";
+                                    $origem = "../uploads/$path";
+                                    Zip($origem, $destino);
+                                    ?>
+                                    <div id="download">
+                                        <a href="getFile.php?file=<? echo $destino; ?>">
+                                            <input type="image" src="../css/images/zip2.png"/><br/>
+                                            <b>Clique para guardar o ficheiro no seu computador.</b>
+                                        </a>
+                                    </div>
+                                    <?php
+                                }
                             }
                         }
                         ?>

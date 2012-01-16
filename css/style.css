@@ -202,15 +202,16 @@ a:hover
 
 #leftmenu_main h3
 {
-    font-size: 20px;
+    font-size: 15px;
     font-variant: small-caps;
     list-style: none;
     padding: 0px;
     width:204px;
     color:#FFFFFF;
-    padding-left:10px;
+    /*padding-left:10px;*/
     padding-top: 14px;
     padding-bottom:1px;
+    text-align: center;
 }
 
 #leftmenu_main ul li
@@ -227,7 +228,7 @@ a:hover
     list-style: none;
     padding: 0px;
     width:192px;
-    padding-left:12px;
+    /*padding-left:12px;*/
     padding-top:4px;
     height:30px;
     text-align:left;
@@ -236,8 +237,9 @@ a:hover
     margin-top:5px;
     color:#FFFFFF;
     text-decoration:none;
-    font-size:15px;
+    font-size:12px;
     font-weight:bold;
+    text-align: center;
 }
 
 #leftmenu_main ul li a:hover

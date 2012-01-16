@@ -294,7 +294,7 @@ if (!isset($_SESSION['username']) || !$_SESSION['username'] || ((isset($_SESSION
                         if ($xml == "") {
                             return "";
                         }
-                        return "<deliverabels>" . $xml . "</deliverabels>";
+                        return "<deliverables>" . $xml . "</deliverables>";
                     }
 
                     /**

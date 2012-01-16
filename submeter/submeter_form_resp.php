@@ -149,6 +149,25 @@ if (!isset($_SESSION['username']) || !$_SESSION['username'] || ((isset($_SESSION
                             $xml .= delivarables($deliverable_path);
                             $xml .= "</pr>";
 
+                            /*
+                              $f = fopen("pr.xml", "w");
+                              fwrite($f, $xml);
+                              fclose($f);
+                             * */
+
+                            /* Verificação com o schema */
+                            $doc = new DOMDocument();       // DOM xml
+                            $doc->loadXML($xml);
+
+                            $valido = false;
+                            if (!$doc->schemavalidate('../util/pr.xsd')) {
+                                echo "<h3>Erros</h3>Ocorreram erros ao validar o xml, Verifique se o abstract está correcto.";
+                                //print '<b>DOMDocument::schemaValidate() Generated Errors!</b>';
+                                libxml_display_errors();
+                            } else {
+                                $valido = true;
+                            }
+
                             $xml_md5 = md5($xml);   // atenção que aqui é o md5 do texto do ficheiro e não do ficheiro
                             $xml_name = "$xml_md5.xml";
 
@@ -159,41 +178,42 @@ if (!isset($_SESSION['username']) || !$_SESSION['username'] || ((isset($_SESSION
 
                             fclose($f);
 
-                            // aqui é preciso verificar se o ficheiro está correcto com o xsd
-                            ?>
-                            <h3>Resultado</h3>
-                            Foi criado um ficheiro xml que contêm toda a informação que foi submetida no formulário
-                            anterior.
-                            <div class="clr"></div>
-                            Clique no link para abrir esse ficheiro:
+                            if ($valido) {
+                                ?>
+                                <h3>Resultado</h3>
+                                Foi criado um ficheiro xml que contêm toda a informação que foi submetida no formulário
+                                anterior.
+                                <div class="clr"></div>
+                                Clique no link para abrir esse ficheiro:
 
-                            <a href="<?php echo $xml_file; ?>" target="_blank">Ficheiro XML</a>
-                            <?php
-                            //echo "<a href=\"" . $xml_file . "\" target=\"_blank\">Clique para ver o resultado do que foi carregado.</a>";
-                            /* ________________________________________________________________________________________________ */
+                                <a href="<?php echo $xml_file; ?>" target="_blank">Ficheiro XML</a>
+                                <?php
+                                //echo "<a href=\"" . $xml_file . "\" target=\"_blank\">Clique para ver o resultado do que foi carregado.</a>";
+                                /* ________________________________________________________________________________________________ */
 
 
-                            /* ____________________________________ INSERIR NA BASE DE DADOS __________________________________ */
-                            ?>
-                            <div class="clr"></div>
-                            <h3>Confirmação</h3>
-                            A informação apenas foi carregada para o servidor, para inserir o que foi carregado 
-                            terá de confirmar a informação.
-                            <div class="clr"></div>
-                            <form id ="form_xml_submit"
-                                  name="xml_submit"
-                                  method="post"
-                                  autocomplete="on"
-                                  action="submeter_form_resp_xml.php"
-                                  >
-                                <input name="xml_file" type="text" readonly="" required="" value="<?php echo $xml_name; ?>" hidden="" style="display: none"/>
-                                <input name="private" type="text" readonly="" required="" value="<?php echo $private_int; ?>" hidden="hidden"/>
-                                <A HREF="javascript:javascript:history.go(-1)"></A>
-                                <input name="btn_go_back" type="button" value="voltar" onclick="go_back()"/>
-                                <input name="btn_submit_form" type="submit" value="Confirmar Informação"/>
-                            </form>
-                            <div class="clr"></div>
-                            <?php
+                                /* ____________________________________ INSERIR NA BASE DE DADOS __________________________________ */
+                                ?>
+                                <div class="clr"></div>
+                                <h3>Confirmação</h3>
+                                A informação apenas foi carregada para o servidor, para inserir o que foi carregado 
+                                terá de confirmar a informação.
+                                <div class="clr"></div>
+                                <form id ="form_xml_submit"
+                                      name="xml_submit"
+                                      method="post"
+                                      autocomplete="on"
+                                      action="submeter_form_resp_xml.php"
+                                      >
+                                    <input name="xml_file" type="text" readonly="" required="" value="<?php echo $xml_name; ?>" hidden="" style="display: none"/>
+                                    <input name="private" type="text" readonly="" required="" value="<?php echo $private_int; ?>" hidden="hidden"/>
+                                    <A HREF="javascript:javascript:history.go(-1)"></A>
+                                    <input name="btn_go_back" type="button" value="voltar" onclick="go_back()"/>
+                                    <input name="btn_submit_form" type="submit" value="Confirmar Informação"/>
+                                </form>
+                                <div class="clr"></div>
+                                <?php
+                            }
                             /* ________________________________________________________________________________________________ */
                         } else {
                             echo "$msg_erro";
@@ -264,15 +284,17 @@ if (!isset($_SESSION['username']) || !$_SESSION['username'] || ((isset($_SESSION
 
                         echo "<h3>Ficheiros Carregados</h3>";
 
-                        $xml = "<deliverables>";
+                        $xml = "";
                         $xml .= delivarable_create("deliverable1_file", "deliverable1_name", $delivarable_path);
                         $xml .= delivarable_create("deliverable2_file", "deliverable2_name", $delivarable_path);
                         $xml .= delivarable_create("deliverable3_file", "deliverable3_name", $delivarable_path);
                         $xml .= delivarable_create("deliverable4_file", "deliverable4_name", $delivarable_path);
                         $xml .= delivarable_create("deliverable5_file", "deliverable5_name", $delivarable_path);
                         $xml .= delivarable_create("deliverable6_file", "deliverable6_name", $delivarable_path);
-                        $xml .= "</deliverables>";
-                        return $xml;
+                        if ($xml == "") {
+                            return "";
+                        }
+                        return "<deliverabels>" . $xml . "</deliverabels>";
                     }
 
                     /**

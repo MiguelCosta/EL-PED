@@ -36,6 +36,7 @@ if (!isset($_SESSION['username']) || !$_SESSION['username'] || ((isset($_SESSION
                     try {
                         $path_folder = $_REQUEST['zip_local_path'];
                         $foler = $_REQUEST['zip_local_folder'];
+                        $private = $_REQUEST['private'];
 
                         $xml_path = "$path_folder/pr.xml";                        // local onde está o xml
 
@@ -132,7 +133,7 @@ if (!isset($_SESSION['username']) || !$_SESSION['username'] || ((isset($_SESSION
                              */
 
                             $lig = $link;
-                            inserir_xml_base_dados($lig, $keyname, $title, $subtitle, $bdate, $edate, $abstract, $supervisores_emails, $authors_emails, $keywords, $deliverables, $xml_path, $path_folder);
+                            inserir_xml_base_dados($lig, $keyname, $title, $subtitle, $bdate, $edate, $abstract, $supervisores_emails, $authors_emails, $keywords, $deliverables, $xml_path, $path_folder, $private);
                         } else {
                             echo "<div class=\"failure\">Já não é possível submeter o trabalho.
                                 Isto pode acontecer porque já foi submtido. Caso não tenha sido,
@@ -155,7 +156,7 @@ if (!isset($_SESSION['username']) || !$_SESSION['username'] || ((isset($_SESSION
                      * @param type $deliverables        array associativo path => description
                      * @param type $xml_path
                      */
-                    function inserir_xml_base_dados($link, $keyname, $title, $subtitle, $bdate, $edate, $abstract, $supervisores_emails, $authors_emails, $keywords, $deliverables, $xml_path, $path) {
+                    function inserir_xml_base_dados($link, $keyname, $title, $subtitle, $bdate, $edate, $abstract, $supervisores_emails, $authors_emails, $keywords, $deliverables, $xml_path, $path, $private) {
                         if (!$link) {
                             printf("Can't connect to localhost. Error: %s\n", mysqli_connect_error());
                             exit();
@@ -197,7 +198,7 @@ if (!isset($_SESSION['username']) || !$_SESSION['username'] || ((isset($_SESSION
 
 
                             // caso não existe informação parecida na Base de Dados, vai inseri-la
-                            $sql = "INSERT INTO `PED`.`Project` VALUES (NULL, '$keyname', '$title', '$subtitle', '$bdate', '$edate', NOW(), '$abstract', '1', '$local_projeto_bd','0')";
+                            $sql = "INSERT INTO `PED`.`Project` VALUES (NULL, '$keyname', '$title', '$subtitle', '$bdate', '$edate', NOW(), '$abstract', '1', '$local_projeto_bd','0', $private)";
                             //echo "$sql";
                             $result = mysqli_query($link, $sql);
 

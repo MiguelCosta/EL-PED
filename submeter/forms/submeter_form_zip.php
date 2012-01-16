@@ -21,8 +21,10 @@ include '../ini.php';
         <label class="required">Ficheiro zip:</label>
 
         <input id="zip_file" type="file" name="zip_file" required="" onchange="check_file()"/>
+        <br/>
+        <input type="checkbox" name="private"/> <b>Tornar o projeto privado</b>.
         <hr />
-
+        
         <div id="btn_user">
             <!-- Aqui era para testar com java script
                 <input id="submit_btn" type="button" value="Enviar" onclick="submeter()" /> 

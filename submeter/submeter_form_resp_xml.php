@@ -39,7 +39,7 @@ if (!isset($_SESSION['username']) || !$_SESSION['username'] || ((isset($_SESSION
 
                         $xml_name = $_REQUEST["xml_file"];                      // nome que é passado como parametro
                         $xml_path = $xml_local . $xml_name;                 // local onde está o ficheiro xml
-
+                        $private = $_REQUEST["private"];
                         if (file_exists("$xml_path")) {
                             $xml = simplexml_load_file("$xml_path");            // carrega o ficheiro xml
                             //echo $xml->getName();
@@ -124,7 +124,7 @@ if (!isset($_SESSION['username']) || !$_SESSION['username'] || ((isset($_SESSION
                             //var_dump($deliverables);
 
                             $lig = $link;
-                            inserir_xml_base_dados($lig, $keyname, $title, $subtitle, $bdate, $edate, $abstract, $supervisores_emails, $authors_emails, $keywords, $deliverables, $xml_path);
+                            inserir_xml_base_dados($lig, $keyname, $title, $subtitle, $bdate, $edate, $abstract, $supervisores_emails, $authors_emails, $keywords, $deliverables, $xml_path, $private);
                         } else {
                             echo "<div class=\"failure\">Já não é possível submeter o trabalho.
                                 Isto pode acontecer porque já foi submtido. Caso não tenha sido,
@@ -147,7 +147,7 @@ if (!isset($_SESSION['username']) || !$_SESSION['username'] || ((isset($_SESSION
                      * @param type $deliverables        array associativo path => description
                      * @param type $xml_path
                      */
-                    function inserir_xml_base_dados($link, $keyname, $title, $subtitle, $bdate, $edate, $abstract, $supervisores_emails, $authors_emails, $keywords, $deliverables, $xml_path) {
+                    function inserir_xml_base_dados($link, $keyname, $title, $subtitle, $bdate, $edate, $abstract, $supervisores_emails, $authors_emails, $keywords, $deliverables, $xml_path, $private) {
                         if (!$link) {
                             printf("Can't connect to localhost. Error: %s\n", mysqli_connect_error());
                             exit();
@@ -184,7 +184,7 @@ if (!isset($_SESSION['username']) || !$_SESSION['username'] || ((isset($_SESSION
                             }
 
                             // caso não existe informação parecida na Base de Dados, vai inseri-la
-                            $sql = "INSERT INTO `PED`.`Project` VALUES (NULL, '$keyname', '$title', '$subtitle', '$bdate', '$edate', NOW(), '$abstract', '1', '$local_projeto_bd','0')";
+                            $sql = "INSERT INTO `PED`.`Project` VALUES (NULL, '$keyname', '$title', '$subtitle', '$bdate', '$edate', NOW(), '$abstract', '1', '$local_projeto_bd','0', '$private')";
                             //echo "$sql";
                             $result = mysqli_query($link, $sql);
 

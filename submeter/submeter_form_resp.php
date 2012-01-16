@@ -50,6 +50,15 @@ if (!isset($_SESSION['username']) || !$_SESSION['username'] || ((isset($_SESSION
                         $edate = $_REQUEST["end_date"];                     // end date
                         $abstract = $_REQUEST["abstract_text"];             // abstract
 
+                        $private = "off";
+                        if (isset($_POST['private'])) {
+                            $private = $_REQUEST["private"];                    // verificar se o projecto é privado ou não
+                        }
+                        //echo "<br/>PRIVATE: $private<br/>";
+                        $private_int = 0;
+                        if ($private == "on") {
+                            $private_int = 1;
+                        }
 
                         if ($_REQUEST["key_name"] == null) {                // verifica se os campos estão preenchidos
                             $msg_erro .= "key name invalid.<br/>";
@@ -177,7 +186,8 @@ if (!isset($_SESSION['username']) || !$_SESSION['username'] || ((isset($_SESSION
                                   autocomplete="on"
                                   action="submeter_form_resp_xml.php"
                                   >
-                                <input name="xml_file" type="text" readonly="" required="" value="<?php echo $xml_name ?>" style="display: none"/>
+                                <input name="xml_file" type="text" readonly="" required="" value="<?php echo $xml_name; ?>" hidden="" style="display: none"/>
+                                <input name="private" type="text" readonly="" required="" value="<?php echo $private_int; ?>" hidden="hidden"/>
                                 <A HREF="javascript:javascript:history.go(-1)"></A>
                                 <input name="btn_go_back" type="button" value="voltar" onclick="go_back()"/>
                                 <input name="btn_submit_form" type="submit" value="Confirmar Informação"/>

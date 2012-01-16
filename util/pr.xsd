@@ -9,7 +9,7 @@
                         <xs:sequence>
                             <xs:element name="keyname" type="xs:string"/>
                             <xs:element name="title" type="xs:string"/>
-                            <xs:element minOccurs="0" name="subtile" type="xs:string"/>
+                            <xs:element minOccurs="0" name="subtitle" type="xs:string"/>
                             <xs:element name="bdate" type="xs:date"/>
                             <xs:element name="edate" type="xs:date"/>
                             <xs:element name="supervisors">
@@ -18,11 +18,11 @@
                                         <xs:element maxOccurs="unbounded" name="supervisor">
                                             <xs:complexType>
                                                 <xs:sequence>
-                                                  <xs:element name="name" type="xs:string"/>
-                                                  <xs:element name="email" type="xs:string"/>
-                                                  <xs:element minOccurs="0" name="url"
+                                                    <xs:element name="name" type="xs:string"/>
+                                                    <xs:element name="email" type="xs:string"/>
+                                                    <xs:element minOccurs="0" name="url"
                                                   type="xs:string"/>
-                                                  <xs:element minOccurs="0" name="affil"
+                                                    <xs:element minOccurs="0" name="affil"
                                                   type="xs:string"/>
                                                 </xs:sequence>
                                             </xs:complexType>
@@ -58,30 +58,30 @@
                                         <xs:element name="b">
                                             <xs:complexType mixed="true">
                                                 <xs:choice maxOccurs="unbounded" minOccurs="0">
-                                                  <xs:element name="i" type="xs:string"/>
-                                                  <xs:element name="u" type="xs:string"/>
+                                                    <xs:element name="i" type="xs:string"/>
+                                                    <xs:element name="u" type="xs:string"/>
                                                 </xs:choice>
                                             </xs:complexType>
                                         </xs:element>
                                         <xs:element name="i">
                                             <xs:complexType mixed="true">
                                                 <xs:choice maxOccurs="unbounded" minOccurs="0">
-                                                  <xs:element name="b" type="xs:string"/>
-                                                  <xs:element name="u" type="xs:string"/>
+                                                    <xs:element name="b" type="xs:string"/>
+                                                    <xs:element name="u" type="xs:string"/>
                                                 </xs:choice>
                                             </xs:complexType>
                                         </xs:element>
                                         <xs:element name="u">
                                             <xs:complexType mixed="true">
                                                 <xs:choice maxOccurs="unbounded" minOccurs="0">
-                                                  <xs:element name="b" type="xs:string"/>
-                                                  <xs:element name="i" type="xs:string"/>
+                                                    <xs:element name="b" type="xs:string"/>
+                                                    <xs:element name="i" type="xs:string"/>
                                                 </xs:choice>
                                             </xs:complexType>
                                         </xs:element>
                                         <xs:element name="kw" type="xs:string"/>
                                         <xs:element name="xref">
-                                            <xs:complexType>
+                                            <xs:complexType mixed="true">
                                                 <xs:attribute name="url" type="xs:string"/>
                                             </xs:complexType>
                                         </xs:element>

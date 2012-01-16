@@ -101,19 +101,21 @@ if (!isset($_SESSION['username']) || !$_SESSION['username'] || ((isset($_SESSION
                         //var_dump($authors_id);
                         //echo "<br/><br/>";
                         // verifica se a pasta já existe ou não
-                        
-                        $local = "../uploads/pr/";
-                        if (!is_dir($local)) {
-                            if (!mkdir($local_projeto, 0777, true)) {
-                                die("Ocoreu um erro ao criar a pasta $local");
+
+                        if (!is_dir("../uploads")) {
+                            mkdir("../uploads", 0777, true);
+                        }
+
+                        if (!is_dir("../uploads/pr/")) {
+                            if (!mkdir("../uploads/pr/", 0777, true)) {
+                                die("Ocoreu um erro ao criar a pasta pr");
                                 return;
                             }
                         }
-                        
-                        $local = "../uploads/deliverables/";
-                        if (!is_dir($local)) {
-                            if (!mkdir($local_projeto, 0777, true)) {
-                                die("Ocoreu um erro ao criar a pasta $local");
+
+                        if (!is_dir("../uploads/deliverables/")) {
+                            if (!mkdir("../uploads/deliverables/", 0777, true)) {
+                                die("Ocoreu um erro ao criar a pasta deliverables");
                                 return;
                             }
                         }

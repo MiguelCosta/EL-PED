@@ -25,8 +25,6 @@
 			<div id="content_top"></div>
 			<div id="content_main">
 			   <h2>Logs</h2>
-			   <br/>
-			   <br/>
 			   <div id="containt_main_users">
 				  <?php
 					include '../ini.php';

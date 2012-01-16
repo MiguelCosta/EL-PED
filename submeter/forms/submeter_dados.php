@@ -289,7 +289,9 @@ include '../ini.php';
             <input id="rem_del" type="button" name="rem_deli" value="remove" onclick="removeDeliverable()" style="width: 100px; text-align: center"/>
         </div>
         <hr />
-
+        
+        <input type="checkbox" name="private"/> <b>Tornar o projeto privado</b>. 
+        
         <div id="btn_user">
             <!-- Aqui era para testar com java script
                 <input id="submit_btn" type="button" value="Enviar" onclick="submeter()" /> 

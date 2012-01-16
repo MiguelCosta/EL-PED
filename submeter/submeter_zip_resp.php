@@ -40,6 +40,16 @@ if (!isset($_SESSION['username']) || !$_SESSION['username'] || ((isset($_SESSION
                         mkdir("../uploads/zip/", 0777, true);
                     }
 
+                    $private = "off";
+                    if (isset($_POST['private'])) {
+                        $private = $_REQUEST["private"];                    // verificar se o projecto é privado ou não
+                    }
+                    //echo "<br/>PRIVATE: $private<br/>";
+                    $private_int = 0;
+                    if ($private == "on") {
+                        $private_int = 1;
+                    }
+
                     if (!$_FILES[$file]["error"] > 0) {
                         if (file_exists("uploads/" . $_FILES[$file]["name"])) {         // verifica se o ficheiro existe
                             echo $_FILES[$file]["name"] . "já existe.";
@@ -194,6 +204,7 @@ if (!isset($_SESSION['username']) || !$_SESSION['username'] || ((isset($_SESSION
                                         <form id ="form_xml_submit" name="zip_pr" action="submeter_zip_resp_folder.php" method="post">
                                             <input name="zip_local_path" hidden="" type="text" value="<? echo $l; ?>"/>
                                             <input name="zip_local_folder" hidden="" type="text" value="<? echo $l_bd; ?>"/>
+                                            <input name="private" type="text" readonly="" required="" value="<?php echo $private_int; ?>" hidden="hidden"/>
 
                                             <A HREF="javascript:javascript:history.go(-1)"></A>
                                             <input name="btn_go_back" type="button" value="voltar" onclick="go_back()"/>

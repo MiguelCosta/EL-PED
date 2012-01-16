@@ -103,19 +103,21 @@ if (!isset($_SESSION['username']) || !$_SESSION['username'] || ((isset($_SESSION
                             /**
                              * DELIVERABLES
                              */
-                            foreach ($xml->deliverables->children() as $child) {
-                                if ($child->getName() == "deliverable") {
-                                    foreach ($child->children() as $child_s) {
-                                        if ($child_s->getName() == "description") {
-                                            $description = $child_s;
-                                            //echo "$description";
+                            if ($xml->deliverables) {
+                                foreach ($xml->deliverables->children() as $child) {
+                                    if ($child->getName() == "deliverable") {
+                                        foreach ($child->children() as $child_s) {
+                                            if ($child_s->getName() == "description") {
+                                                $description = $child_s;
+                                                //echo "$description";
+                                            }
+                                            if ($child_s->getName() == "path") {
+                                                $path = $child_s;
+                                                //echo "$path";
+                                            }
                                         }
-                                        if ($child_s->getName() == "path") {
-                                            $path = $child_s;
-                                            //echo "$path";
-                                        }
+                                        $deliverables["$path"] = $description;
                                     }
-                                    $deliverables["$path"] = $description;
                                 }
                             }
 
@@ -183,8 +185,17 @@ if (!isset($_SESSION['username']) || !$_SESSION['username'] || ((isset($_SESSION
                                 return;
                             }
 
+                            $autor = $authors_emails[0];
+                            $course = 0;
+                            $sql = "SELECT coursecode FROM Author WHERE email='$autor'";
+                            $result = mysqli_query($link, $sql);
+                            while ($rows = mysqli_fetch_row($result)) {
+                                $course = $rows[0];
+                            }
+                            //echo "<br/>Course: $course<br/>";
+
                             // caso não existe informação parecida na Base de Dados, vai inseri-la
-                            $sql = "INSERT INTO `PED`.`Project` VALUES (NULL, '$keyname', '$title', '$subtitle', '$bdate', '$edate', NOW(), '$abstract', '1', '$local_projeto_bd','0', '$private')";
+                            $sql = "INSERT INTO `PED`.`Project` VALUES (NULL, '$keyname', '$title', '$subtitle', '$bdate', '$edate', NOW(), '$abstract', '$course', '$local_projeto_bd','0', '$private')";
                             //echo "$sql";
                             $result = mysqli_query($link, $sql);
 

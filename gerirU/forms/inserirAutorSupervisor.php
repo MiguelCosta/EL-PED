@@ -91,7 +91,7 @@
 
             <input type="hidden" name="tipo_utilizador" value="author"/>
 
-            <label class="required">Name:</label>
+            <label class="required">Nome:</label>
             <input id="a_name_id" name="a_name" type="text"/>
 
             <div class="clr"></div>
@@ -104,7 +104,7 @@
             <input id="a_email_id" name="a_email" type="text"/>
             <div class="clr"></div>
 
-            <label class="required">URL:</label>
+            <label>URL:</label>
             <input id="a_url_id" name="a_url" type="text" />
             <div class="clr"></div>
 
@@ -126,7 +126,7 @@
             <div class="clr"></div>
 
             <div id="a_btn_submit">
-                <input type="button" value="Submit Author" onclick="inserir_user()" />
+                <input type="button" value="Inserir Autor" onclick="inserir_user()" />
             </div>
 
         </form>
@@ -137,7 +137,7 @@
 
             <input type="hidden" name="tipo_utilizador" value="supervisor"/>
 
-            <label class="required">Name:</label>
+            <label class="required">Nome:</label>
             <input id="s_name_id" name="s_name" type="text"/>
             <div class="clr"></div>
 
@@ -145,16 +145,16 @@
             <input id="s_email_id" name="s_email" type="text"/>
             <div class="clr"></div>
 
-            <label class="required">URL:</label>
+            <label>URL:</label>
             <input id="s_url_id" name="s_url" type="text" />
             <div class="clr"></div>
 
-            <label class="required">Affil:</label>
+            <label>Depart.:</label>
             <input id="s_affil_id" name="s_affil" type="text" />
             <div class="clr"></div>
 
             <div id="s_btn_submit">
-                <input type="button" value="Submit Supervisor" onclick="inserir_user()" />
+                <input type="button" value="Inserir Supervisor" onclick="inserir_user()" />
             </div>
 
             <div class="clr"></div>

@@ -55,7 +55,7 @@ if (!isset($_SESSION['username']) || !$_SESSION['username'] || ((isset($_SESSION
                             $res = mysql_query($sql, $con);
                             $row = mysql_fetch_row($res);
                             if ($row) {
-                                $username = $row["username"];
+                                $username = $row[0];
                             }
                             /*                             * * Ve se pode ou não mostrar o projeto *** */
                             if ($_SESSION['type'] == 'a') {

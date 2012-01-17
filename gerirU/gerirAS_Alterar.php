@@ -25,7 +25,8 @@ if (!isset($_SESSION['username']) || !$_SESSION['username'] || ((isset($_SESSION
             <div id="content">
                 <div id="content_top"></div>
                 <div id="content_main">
-                    <h2>Lista de Autores e Supervisores</h2>
+                    <h2>Alterar Autores e Supervisores</h2>
+                    <br/>
                     <br/>
                     <div id="containt_main_users">
                         <?php
@@ -81,6 +82,7 @@ function author_to_table($titulo, $res, $con) {
     echo "<th class=\"user\">Email</th>";
     //echo "<th class=\"user\">URL</th>";
     echo "<th class=\"user\">Course</th>";
+    echo "<th class=\"user\">Alterar</th>";
     echo "</tr>";
 
     while ($reg = mysql_fetch_array($res)) {
@@ -105,6 +107,11 @@ function author_to_table($titulo, $res, $con) {
                 <a href=\"gerirCourse_Show.php?id=$course\" >" .
         $course_name .
         "</a></td>";
+        echo "<td class=\"user\">
+                <a href=\"gerirAS_Alterar_Author.php?authorcode=" . $id . "\">" .
+        "<div id=\"edit\">                        
+                     </div>
+                </a>";
         echo "</tr>";
     }
     echo "</table>";
@@ -121,6 +128,7 @@ function supervisor_to_table($titulo, $res) {
     echo "<th class=\"user\">Email</th>";
     echo "<th class=\"user\">URL</th>";
     echo "<th class=\"user\">Affil</th>";
+    echo "<th class=\"user\">Alterar</th>";
     echo "</tr>";
 
     while ($reg = mysql_fetch_array($res)) {
@@ -131,7 +139,12 @@ function supervisor_to_table($titulo, $res) {
         echo "<td class=\"user\">" . $reg["email"] . "</td>";
         echo "<td class=\"user\"><a href=\"" . $reg["url"] . "\" target=\"_blank\">" . $reg["url"] . "</a></td>";
         echo "<td class=\"user\">" . $reg["affil"] . "</td>";
-        echo "</tr>";
+        echo "<td class=\"user\">
+                <a href=\"gerirAS_Alterar_Supervisor.php?supcode=" . $id . "\">" .
+        "<div id=\"edit\">                        
+                     </div>
+                </a> 
+              </td>";
     }
     echo "</table>";
     echo "</div>";

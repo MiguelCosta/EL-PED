@@ -32,7 +32,60 @@ if (!isset($_SESSION['username']) || !$_SESSION['username'] || ((isset($_SESSION
                         if (!$con) {
                             echo "<h3>Erro ao ligar ao servidor.</h3><br/>" . mysql_error();
                         } else {
-                            require_once('forms/showProject.php');
+
+                            $projcode = -1;
+                            $indice = array_search("projcode", $_REQUEST);
+                            if (array_key_exists('projcode', $_REQUEST)) {
+                                $projcode = $_REQUEST["projcode"];
+                            }
+
+                            $sql = "SELECT projcode, remove, private FROM Project WHERE projcode='$projcode'";
+                            //echo "$sql";
+                            $res = mysql_query($sql, $con);
+                            $remove = 0;
+                            $private = 0;
+                            $row = mysql_fetch_row($res);
+                            //var_dump($row);
+                            $remove = $row[1];
+                            $private = $row[2];
+
+
+                            $username = "";
+                            $sql = "SELECT username FROM Deposits WHERE projcode='$projcode'";
+                            $res = mysql_query($sql, $con);
+                            $row = mysql_fetch_row($res);
+                            if ($row) {
+                                $username = $row["username"];
+                            }
+                            /*                             * * Ve se pode ou não mostrar o projeto *** */
+                            if ($_SESSION['type'] == 'a') {
+                                // se for um administrador
+                                if ($remove == 1) {
+                                    echo "<b>Atenção:</b> Este projecto já foi removido.<br/>";
+                                }
+                                if ($private == 1) {
+                                    echo "<b>Atenção:</b> Este projecto é privado.<br/>";
+                                }
+                                require_once('forms/showProject.php');
+                            } elseif ($private == 0 && remove == 0) {
+                                // se não foi removido nem é privado mostra
+                                require_once('forms/showProject.php');
+                            } elseif ($_SESSION['username'] == $username && $remove == 0) {
+                                // se foi submetido pela pessoa que está com login
+                                if ($private == 1) {
+                                    echo "<b>Atenção:</b> Este projecto é privado. Você pode visualiza-lo porque foi quem o submeteu.<br/>";
+                                }
+                                require_once('forms/showProject.php');
+                            } else {
+                                // se não consegue mostrar, vai dizer porquê
+                                if ($private == 1) {
+                                    echo "<br/><br/>Não pode ver este projeto porque é privado.<br/>";
+                                } elseif ($remove == 1) {
+                                    echo "<br/><br/>Não pode ver este projeto porque foi removido.<br/>";
+                                } else {
+                                    echo "ERRO ao mostrar o projeto.";
+                                }
+                            }
                         }
                         ?>
                     </div>

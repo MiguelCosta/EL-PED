@@ -22,7 +22,7 @@ if (!isset($_SESSION['username']) || !$_SESSION['username'] || ((isset($_SESSION
             <div id="content">
                 <div id="content_top"></div>
                 <div id="content_main">
-                    <h2>Inserir Autor</h2>
+                    <h2>Alterar Autor</h2>
                     <br/>
                     <br/>
                     <div id="containt_main_users">
@@ -32,6 +32,8 @@ if (!isset($_SESSION['username']) || !$_SESSION['username'] || ((isset($_SESSION
                         } else {
                             $msg_erro = "";
 
+
+                            $authorcode = $_REQUEST["authorcode"];
                             $name = $_REQUEST["a_name"];
                             $id = $_REQUEST["a_id"];
                             $email = $_REQUEST["a_email"];
@@ -50,7 +52,7 @@ if (!isset($_SESSION['username']) || !$_SESSION['username'] || ((isset($_SESSION
                                 echo $msg_erro;
                             } else {
                                 // verificar se o email não existe para outro utilizador
-                                $sql = "SELECT authorcode FROM Author WHERE email='$email'";
+                                $sql = "SELECT authorcode FROM Author WHERE authorcode!='$authorcode' AND email='$email'";
                                 $valido = true;
                                 $res = mysql_query($sql, $con);
                                 while ($row = mysql_fetch_array($res)) {
@@ -58,24 +60,20 @@ if (!isset($_SESSION['username']) || !$_SESSION['username'] || ((isset($_SESSION
                                 }
 
                                 if ($valido) {
-
-                                    $sql = "SELECT coursecode From Course WHERE coursedescription='$course'";
+                                    $sql = "SELECT coursecode FROM Course WHERE coursedescription='$course'";
                                     $res = mysql_query($sql, $con) or die(mysql_error());
                                     $course_id = 0;
                                     while ($reg = mysql_fetch_array($res)) {
                                         $course_id = $reg["coursecode"];
                                     }
-
-                                    $sql = "INSERT INTO `PED`.`Author` VALUES (NULL, '$name', '$id', '$email', '$url', $course_id,'0')";
+                                    $sql = "UPDATE Author SET name='$name', id='$id', email='$email', url='$url', coursecode='$course_id' WHERE authorcode='$authorcode'";
                                     mysql_query($sql, $con) or die(mysql_error());
-                                    echo "<div class=\"success\">Author inserido com sucesso!</div>";
-
-                                    // Insercao no registo de logs
-                                    log_insert($_SESSION['username'], $_SESSION['name'], agora(), $log_msg["ins_aut"]["act"], $log_msg["ins_aut"]["desc"] . " $name");
+                                    echo "<div class=\"success\">Autor alterado com sucesso!</div>";
                                 } else {
-                                    echo "<div class=\"failure\"> Não foi possível inserir na base de dados, 
+                                    echo "<div class=\"failure\"> Não foi possível submeter na base de dados, 
                                         provavelmente porque esse email já existe para outro autor.</div>";
                                 }
+                                // Insercao no registo de logs
                             }
                         }
                         ?>

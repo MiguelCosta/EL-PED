@@ -22,8 +22,7 @@ if (!isset($_SESSION['username']) || !$_SESSION['username'] || ((isset($_SESSION
             <div id="content">
                 <div id="content_top"></div>
                 <div id="content_main">
-                    <h2>Inserir Utilizador</h2>
-                    <br/>
+                    <h2>Inserir Supervisor</h2>
                     <br/>
                     <div id="containt_main_users">
                         <?php
@@ -34,28 +33,43 @@ if (!isset($_SESSION['username']) || !$_SESSION['username'] || ((isset($_SESSION
 
                             $name = $_REQUEST["s_name"];
                             $email = $_REQUEST["s_email"];
-                            $url = $_REQUEST["s_url"];
-                            $affil = $_REQUEST["s_affil"];
+                            $url = null;
+                            if ($_REQUEST["s_url"]) {
+                                $url = $_REQUEST["s_url"];
+                            }
+                            $affil = null;
+                            if ($_REQUEST["s_affil"]) {
+                                $affil = $_REQUEST["s_affil"];
+                            }
 
                             if ($name == null) {
                                 $msg_erro .= "Campo Name incorrecto!<br/>";
                             } else if ($email == null) {
                                 $msg_erro .= "Campo Email incorrecto!<br/>";
-                            } else if ($url == null) {
-                                $msg_erro .= "Campo URL incorrecto!<br/>";
-                            } else if ($affil == null) {
-                                $msg_erro .= "Campo Affil incorrecto!<br/>";
                             }
 
                             if ($msg_erro != "") {
                                 echo $msg_erro;
                             } else {
-                                $sql = "INSERT INTO `PED`.`Supervisor` VALUES (NULL, '$name', '$email', '$url', '$affil')";
-                                mysql_query($sql, $con) or die(mysql_error());
-                                echo "Supervisor inserido com sucesso!";
 
-								// Insercao no registo de logs
-								log_insert($_SESSION['username'], $_SESSION['name'], agora(), $log_msg["ins_sup"]["act"], $log_msg["ins_sup"]["desc"]." $name");
+                                // se já existir uma pessoa com o email, não vai deixar alterar
+                                $sql = "SELECT supcode FROM Supervisor WHERE email='$email'";
+                                $valido = true;
+                                $res = mysql_query($sql, $con);
+                                while ($row = mysql_fetch_array($res)) {
+                                    $valido = false;
+                                }
+                                if ($valido) {
+                                    $sql = "INSERT INTO `PED`.`Supervisor` VALUES (NULL, '$name', '$email', '$url', '$affil', '0')";
+                                    mysql_query($sql, $con) or die(mysql_error());
+                                    echo "<div class=\"success\">Supervisor inserido com sucesso!</div>";
+
+                                    // Insercao no registo de logs
+                                    log_insert($_SESSION['username'], $_SESSION['name'], agora(), $log_msg["ins_sup"]["act"], $log_msg["ins_sup"]["desc"] . " $name");
+                                } else {
+                                    echo "<div class=\"failure\"> Não foi possível submeter na base de dados, 
+                                        provavelmente porque esse email já existe para outro supervisor.</div>";
+                                }
                             }
                         }
                         ?>

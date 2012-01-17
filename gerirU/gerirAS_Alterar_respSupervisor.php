@@ -22,7 +22,7 @@ if (!isset($_SESSION['username']) || !$_SESSION['username'] || ((isset($_SESSION
             <div id="content">
                 <div id="content_top"></div>
                 <div id="content_main">
-                    <h2>Inserir Autor</h2>
+                    <h2>Alterar Supervisor</h2>
                     <br/>
                     <br/>
                     <div id="containt_main_users">
@@ -32,16 +32,15 @@ if (!isset($_SESSION['username']) || !$_SESSION['username'] || ((isset($_SESSION
                         } else {
                             $msg_erro = "";
 
-                            $name = $_REQUEST["a_name"];
-                            $id = $_REQUEST["a_id"];
-                            $email = $_REQUEST["a_email"];
-                            $url = $_REQUEST["a_url"];
-                            $course = $_REQUEST["a_course"];
+
+                            $supcode = $_REQUEST["supcode"];
+                            $name = $_REQUEST["s_name"];
+                            $email = $_REQUEST["s_email"];
+                            $url = $_REQUEST["s_url"];
+                            $affil = $_REQUEST["s_affil"];
 
                             if ($name == null) {
                                 $msg_erro .= "Campo Name incorrecto!<br/>";
-                            } else if ($id == null) {
-                                $msg_erro .= "Campo ID incorrecto!<br/>";
                             } else if ($email == null) {
                                 $msg_erro .= "Campo Email incorrecto!<br/>";
                             }
@@ -49,8 +48,8 @@ if (!isset($_SESSION['username']) || !$_SESSION['username'] || ((isset($_SESSION
                             if ($msg_erro != "") {
                                 echo $msg_erro;
                             } else {
-                                // verificar se o email não existe para outro utilizador
-                                $sql = "SELECT authorcode FROM Author WHERE email='$email'";
+                                // se já existir uma pessoa com o email, não vai deixar alterar
+                                $sql = "SELECT supcode FROM Supervisor WHERE supcode!='$supcode' AND email='$email'";
                                 $valido = true;
                                 $res = mysql_query($sql, $con);
                                 while ($row = mysql_fetch_array($res)) {
@@ -58,24 +57,14 @@ if (!isset($_SESSION['username']) || !$_SESSION['username'] || ((isset($_SESSION
                                 }
 
                                 if ($valido) {
-
-                                    $sql = "SELECT coursecode From Course WHERE coursedescription='$course'";
-                                    $res = mysql_query($sql, $con) or die(mysql_error());
-                                    $course_id = 0;
-                                    while ($reg = mysql_fetch_array($res)) {
-                                        $course_id = $reg["coursecode"];
-                                    }
-
-                                    $sql = "INSERT INTO `PED`.`Author` VALUES (NULL, '$name', '$id', '$email', '$url', $course_id,'0')";
+                                    $sql = "UPDATE Supervisor SET name='$name', email='$email', url='$url', affil='$affil' WHERE supcode='$supcode'";
                                     mysql_query($sql, $con) or die(mysql_error());
-                                    echo "<div class=\"success\">Author inserido com sucesso!</div>";
-
-                                    // Insercao no registo de logs
-                                    log_insert($_SESSION['username'], $_SESSION['name'], agora(), $log_msg["ins_aut"]["act"], $log_msg["ins_aut"]["desc"] . " $name");
+                                    echo "<div class=\"success\">Supervisor alterado com sucesso!</div>";
                                 } else {
-                                    echo "<div class=\"failure\"> Não foi possível inserir na base de dados, 
+                                    echo "<div class=\"failure\"> Não foi possível submeter na base de dados, 
                                         provavelmente porque esse email já existe para outro autor.</div>";
                                 }
+                                // Insercao no registo de logs
                             }
                         }
                         ?>

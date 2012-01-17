@@ -18,7 +18,6 @@
             if(document.getElementById("a_name_id").valueOf().value == ""){alert("Campo Name inválido!");return;}
             if(document.getElementById("a_id_id").valueOf().value == ""){alert("Campo ID inválido!");return;}
             if(document.getElementById("a_email_id").valueOf().value == ""){alert("Campo Email inválido!");return;}
-            if(document.getElementById("a_url_id").valueOf().value == ""){alert("Campo URL inválido!");return;}
             
             if (confirm('Pertende submeter a informação?')) document.forms["inserirAuthor"].submit(); else alert("Utilizador não foi inserido!");
         }
@@ -26,8 +25,6 @@
         if (radioCheck()=="supervisor"){
             if(document.getElementById("s_name_id").valueOf().value == ""){alert("Campo Name inválido!");return;}
             if(document.getElementById("s_email_id").valueOf().value == ""){alert("Campo Email inválido!");return;}
-            if(document.getElementById("s_url_id").valueOf().value == ""){alert("Campo URL inválido!");return;}
-            if(document.getElementById("s_affil_id").valueOf().value == ""){alert("Campo Affil inválido!");return;}
             
             if (confirm('Pertende submeter a informação?')) document.forms["inserirSupervisor"].submit(); else alert("Utilizador não foi inserido!");
         }

@@ -69,11 +69,13 @@ if (!isset($_SESSION['username']) || !$_SESSION['username'] || ((isset($_SESSION
                                     $sql = "UPDATE Author SET name='$name', id='$id', email='$email', url='$url', coursecode='$course_id' WHERE authorcode='$authorcode'";
                                     mysql_query($sql, $con) or die(mysql_error());
                                     echo "<div class=\"success\">Autor alterado com sucesso!</div>";
+                            	
+									// Insercao no registo de logs
+									log_insert($_SESSION['username'], $_SESSION['name'], agora(), $log_msg["alt_aut"]["act"], $log_msg["alt_aut"]["desc"] . " $name");
                                 } else {
                                     echo "<div class=\"failure\"> Não foi possível submeter na base de dados, 
                                         provavelmente porque esse email já existe para outro autor.</div>";
                                 }
-                                // Insercao no registo de logs
                             }
                         }
                         ?>

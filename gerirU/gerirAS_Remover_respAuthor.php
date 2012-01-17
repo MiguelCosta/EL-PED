@@ -37,6 +37,7 @@ if (!isset($_SESSION['username']) || !$_SESSION['username'] || ((isset($_SESSION
                             echo "<div class=\"success\">Autor removido com sucesso!</div>";
 
                             // Insercao no registo de logs
+							log_insert($_SESSION['username'], $_SESSION['name'], agora(), $log_msg["rem_aut"]["act"], $log_msg["rem_aut"]["desc"] . " $authorcode");
                         }
                         ?>
                     </div>

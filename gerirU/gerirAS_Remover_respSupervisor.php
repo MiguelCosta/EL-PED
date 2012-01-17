@@ -39,6 +39,7 @@ if (!isset($_SESSION['username']) || !$_SESSION['username'] || ((isset($_SESSION
 
 
                             // Insercao no registo de logs
+							log_insert($_SESSION['username'], $_SESSION['name'], agora(), $log_msg["rem_sup"]["act"], $log_msg["rem_sup"]["desc"] . " $supcode");
                         }
                         ?>
                     </div>

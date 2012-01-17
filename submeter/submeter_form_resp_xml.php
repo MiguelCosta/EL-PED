@@ -126,7 +126,7 @@ if (!isset($_SESSION['username']) || !$_SESSION['username'] || ((isset($_SESSION
                             //var_dump($deliverables);
 
                             $lig = $link;
-                            inserir_xml_base_dados($lig, $keyname, $title, $subtitle, $bdate, $edate, $abstract, $supervisores_emails, $authors_emails, $keywords, $deliverables, $xml_path, $private);
+                            inserir_xml_base_dados($lig, $keyname, $title, $subtitle, $bdate, $edate, $abstract, $supervisores_emails, $authors_emails, $keywords, $deliverables, $xml_path, $private, $log_msg);
                         } else {
                             echo "<div class=\"failure\">Já não é possível submeter o trabalho.
                                 Isto pode acontecer porque já foi submtido. Caso não tenha sido,
@@ -149,7 +149,7 @@ if (!isset($_SESSION['username']) || !$_SESSION['username'] || ((isset($_SESSION
                      * @param type $deliverables        array associativo path => description
                      * @param type $xml_path
                      */
-                    function inserir_xml_base_dados($link, $keyname, $title, $subtitle, $bdate, $edate, $abstract, $supervisores_emails, $authors_emails, $keywords, $deliverables, $xml_path, $private) {
+                    function inserir_xml_base_dados($link, $keyname, $title, $subtitle, $bdate, $edate, $abstract, $supervisores_emails, $authors_emails, $keywords, $deliverables, $xml_path, $private, $lm) {
                         if (!$link) {
                             printf("Can't connect to localhost. Error: %s\n", mysqli_connect_error());
                             exit();
@@ -313,11 +313,17 @@ if (!isset($_SESSION['username']) || !$_SESSION['username'] || ((isset($_SESSION
                                 $result = mysqli_query($link, $sql);
                             }
 
+							$sql = "INSERT INTO Deposits(username, projcode) VALUES ('" . $_SESSION['username'] . "', $new_projcode)";
+                            $result = mysqli_query($link, $sql);
+
                             mysqli_commit($link);
 
                             mysqli_autocommit($link, TRUE);
 
                             mysqli_close($link);
+
+							// Insercao no registo de logs
+							log_insert($_SESSION['username'], $_SESSION['name'], agora(), $lm["ing_sip"]["act"], $lm["ing_sip"]["desc"] . " " . $_SESSION['username']);
                             ?>
                             <div class="clr"></div>
                             <div class="success">Informação submetida com sucesso!</div>

@@ -29,7 +29,8 @@
 				  <?php
 					include '../ini.php';
 					log_reverse();
-					 require_once('apaging.htm');
+					//require_once('apaging.htm');
+					 require_once('pagination.php');
 				  ?>  
 			   </div>
 			   <br/>

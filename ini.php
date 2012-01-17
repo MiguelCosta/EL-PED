@@ -38,7 +38,7 @@
    $sip = "SIP";
 
    // Hash que contem todas as accoes e respectivas descricoes que podem ser escritas no log
-   $log_msg = array("lis_uti" => array("act" => "$adm:$lis:$uti", "desc" => "TESTETarefa de $adm: $lis de $uti"."es"), "ins_uti" => array("act" => "$adm:$ins:$uti", "desc" => "Tarefa de $adm: $ins do $uti"), "alt_uti" => array("act" => "$adm:$alt:$uti", "desc" => "Tarefa de $adm: $alt do $uti"), "rem_uti" => array("act" => "$adm:$rem:$uti", "desc" => "Tarefa de $adm: $rem do $uti"), "lis_as" => array("act" => "$adm:$lis:$aut$sup", "desc" => "Tarefa de $adm: $lis de $aut"."es e $sup"."es"), "ins_aut" => array("act" => "$adm:$ins:$aut", "desc" => "Tarefa de $adm: $ins do $aut"), "ins_sup" => array("act" => "$adm:$ins:$sup", "desc" => "Tarefa de $adm: $ins do $sup"), "lis_aut" => array("act" => "$adm:$lis:$aut", "desc" => "Tarefa de $adm: $lis do $aut"), "lis_sup" => array("act" => "$adm:$lis:$sup", "desc" => "Tarefa de $adm: $lis do $sup"), "lis_pros" => array("act" => "$adm:$lis:$pro"."s", "desc" => "Tarefa de $adm: $lis de $pro"."s"), "lis_pro" => array("act" => "$adm:$lis:$pro", "desc" => "Tarefa de $adm: $lis do $pro"), "lis_dis_as" => array("act" => "$dis:$lis:$aut$sup", "desc" => "Tarefa de $dis: $lis de $aut"."es e $sup"."es"), "lis_dis_aut" => array("act" => "$dis:$lis:$aut", "desc" => "Tarefa de $dis: $lis do $aut"), "lis_dis_sup" => array("act" => "$dis:$lis:$sup", "desc" => "Tarefa de $dis: $lis do $sup"), "lis_dis_pros" => array("act" => "$dis:$lis:$pro"."s", "desc" => "Tarefa de $dis: $lis de $pro"."s"), "lis_dis_pro" => array("act" => "$dis:$lis:$pro", "desc" => "Tarefa de $dis: $lis do $pro"),"lis_dis_uti" => array("act" => "$dis:$lis:$uti", "desc" => "Tarefa de $dis: $lis de $uti"."es"), "login" => array("act" => "Login", "desc" => "Login no sistema pelo $uti"), "ing_sip" => array("act" => "$ing:$sip", "desc" => "Tarefa de $ing de um $sip no sistema pelo $uti")); //TODO:acabar
+   $log_msg = array("lis_uti" => array("act" => "$adm:$lis:$uti", "desc" => "Tarefa de $adm: $lis de $uti"."es"), "ins_uti" => array("act" => "$adm:$ins:$uti", "desc" => "Tarefa de $adm: $ins do $uti"), "alt_uti" => array("act" => "$adm:$alt:$uti", "desc" => "Tarefa de $adm: $alt do $uti"), "rem_uti" => array("act" => "$adm:$rem:$uti", "desc" => "Tarefa de $adm: $rem do $uti"), "lis_as" => array("act" => "$adm:$lis:$aut$sup", "desc" => "Tarefa de $adm: $lis de $aut"."es e $sup"."es"), "ins_aut" => array("act" => "$adm:$ins:$aut", "desc" => "Tarefa de $adm: $ins do $aut"), "ins_sup" => array("act" => "$adm:$ins:$sup", "desc" => "Tarefa de $adm: $ins do $sup"), "lis_aut" => array("act" => "$adm:$lis:$aut", "desc" => "Tarefa de $adm: $lis do $aut"), "lis_sup" => array("act" => "$adm:$lis:$sup", "desc" => "Tarefa de $adm: $lis do $sup"), "lis_pros" => array("act" => "$adm:$lis:$pro"."s", "desc" => "Tarefa de $adm: $lis de $pro"."s"), "lis_pro" => array("act" => "$adm:$lis:$pro", "desc" => "Tarefa de $adm: $lis do $pro"), "lis_dis_as" => array("act" => "$dis:$lis:$aut$sup", "desc" => "Tarefa de $dis: $lis de $aut"."es e $sup"."es"), "lis_dis_aut" => array("act" => "$dis:$lis:$aut", "desc" => "Tarefa de $dis: $lis do $aut"), "lis_dis_sup" => array("act" => "$dis:$lis:$sup", "desc" => "Tarefa de $dis: $lis do $sup"), "lis_dis_pros" => array("act" => "$dis:$lis:$pro"."s", "desc" => "Tarefa de $dis: $lis de $pro"."s"), "lis_dis_pro" => array("act" => "$dis:$lis:$pro", "desc" => "Tarefa de $dis: $lis do $pro"),"lis_dis_uti" => array("act" => "$dis:$lis:$uti", "desc" => "Tarefa de $dis: $lis de $uti"."es"), "login" => array("act" => "Login", "desc" => "Login no sistema pelo $uti"), "ing_sip" => array("act" => "$ing:$sip", "desc" => "Tarefa de $ing de um $sip no sistema pelo $uti"), "dis_exp" => array("act" => "$dis:$exp", "desc" => "Tarefa de $dis: $exp do projeto"), "rem_pro" => array("act" => "$adm:$rem:$pro", "desc" => "Tarefa de $adm: $rem do $pro")); //TODO:acabar
 
 
    /* * ****************
@@ -49,6 +49,7 @@
 	  echo "<span class=\"go_back\"><A HREF=\"javascript:javascript:history.go(-1)\">Voltar</A></span>";
    }
 
+   // Funcao que devolve a hora atual
    function agora() {
 	  date_default_timezone_set("Europe/Lisbon");
 	  return date("Y-m-d\TH:i:s");
@@ -78,34 +79,6 @@
 	  }
    }
 
-   // TODO insere no inicio do ficheiro de logs
-   function log_insert_DOM($username, $name, $date, $action, $description) {
-	  log_exists("../logs/logs.xml");
-
-	  $xml = new DOMDocument();       // DOM xml
-	  $xml->load('../logs/logs.xml');
-
-
-	  $log = $xml->createElement('log','teste');	// cria o novo nodo
-	  //Set the reference node
-	  $allContents = $xml->getElementsByTagName('log');
-	  $contents = $allContents->item(0);
-
-	  //This function inserts a new child as the first child of $currentNode 
-	  $contents->insertBefore($log, $contents->firstChild);   
-
-	  //$xpath = new DOMXPath($xml);
-	  //$fst = $xpath->query('//log')->item(0); // obter o primeiro nodo
-	  //$log = $xml->createElement('log','teste');	// cria o novo nodo
-	  //$log->appendChild($xml->CreateElement('username', utf8_decode($username))); 
-	  //$log->appendChild($xml->CreateElement('name', utf8_decode($name))); 
-	  //$log->appendChild($xml->CreateElement('date', utf8_decode($date))); 
-	  //$log->appendChild($xml->CreateElement('action', utf8_decode($action))); 
-	  //$log->appendChild($xml->CreateElement('description', utf8_decode($description))); 
-	  //$fst->parentNode->insertBefore($log, $fst);	// inserir antes do primeiro nodo
-	  echo $xml->saveXML();
-   }
-
    // insere no final do ficheiro de logs
    function log_insert($username, $name, $date, $action, $description) {
 	  log_exists("../logs/logs.xml");
@@ -119,6 +92,22 @@
 	  $log->addChild('description', utf8_decode($description));
 
 	  $logs->asXML("../logs/logs.xml");
+   }
+
+   /** Retorna os logs correspondentes a uma página **/
+   function log_page($start, $per_page) {
+	  log_exists("logs_sorted.xml");
+
+	  $logs = simplexml_load_file("logs_sorted.xml");
+	  $str="<table class=\"user\"><tr class=\"user\"><th class=\"user\">Username</th><th class=\"user\">Nome</th><th class=\"user\">Data</th><th class=\"user\">Acao</th><th class=\"user\">Descricao</th></tr>";
+		 for ($i = 0; $i < $start + $per_page and $logs->log[$i] != null; $i++) {
+			if ($i >= $start) {
+			   $log = $logs->log[$i];
+			   $str .= "<tr class=\"user\"><td class=\"user\">" . $log->username . " </td><td class=\"user\">" . $log->name .  " </td><td class=\"user\">" . $log->date . " </td><td class=\"user\">" . $log->action . "</td><td class=\"user\">" . $log->description . "</td></tr>";
+			}
+		 }
+		 $str .= "</table>";
+	  return $str;
    }
 
    // lista $limit logs comecando no nodo numero $eu
@@ -191,4 +180,68 @@
 	  }
    }
 
+   /** 
+   * Passar um objeto para a linha da tabela de listagem
+   * @param type $titulo
+   * @param type $res 
+   */
+   function obj_to_table($type, $res) {
+	  switch ($type) {
+		 case '1':
+		 $titulo = "Projetos"; 
+		 $head = "<tr><th class=\"user\">Codigo</th><th class=\"user\">Keyname</th><th class=\"user\">Title</th></tr>";
+		 $data = "";
+		 while ($reg = mysql_fetch_array($res)) {
+			$data .= "<tr>";
+			   $data .= "<td class=\"user\"><a href=\"../gerirU/gerirS_Show.php?projcode=".$reg["projcode"]."\">" . $reg["projcode"]  . "</a></td>";
+			   $data .= "<td class=\"user\">" . $reg["keyname"] . "</td>";
+			   $data .= "<td class=\"user\">" . $reg["title"] . "</td>";
+			   $data .= "</tr>";
+		 }   
+		 break;
+		 case '2':
+		 $titulo = "Cursos"; 
+		 $head = "<tr><th class=\"user\">Codigo</th><th class=\"user\">Curso</th></tr>";
+		 $data = "";
+		 while ($reg = mysql_fetch_array($res)) {
+			$data .= "<tr>";
+			   $data .= "<td class=\"user\">" . $reg["coursecode"] . "</td>";
+			   $data .= "<td class=\"user\">" . $reg["coursedescription"] . "</td>";
+			   $data .= "</tr>";
+		 }   
+		 break;
+		 case '3':
+		 $titulo = "Autores"; 
+		 $head = "<tr><th class=\"user\">ID</th><th class=\"user\">Name</th><th class=\"user\">Email</th></tr>";
+		 $data = "";
+		 while ($reg = mysql_fetch_array($res)) {
+			$data .= "<tr>";
+			   $data .= "<td class=\"user\"><a href=\"../gerirU/gerirAS_Show_author.php?authorcode=".$reg["authorcode"]."\">" . $reg["id"]  . "</a></td>";
+			   $data .= "<td class=\"user\">" . $reg["name"] . "</td>";
+			   $data .= "<td class=\"user\">" . $reg["email"] . "</td>";
+			   $data .= "</tr>";
+		 }
+		 break;
+		 case '4':
+		 $titulo = "Supervisores"; 
+		 $head = "<tr><th class=\"user\">Codigo</th><th class=\"user\">Name</th><th class=\"user\">Email</th></tr>";
+		 $data = "";
+		 while ($reg = mysql_fetch_array($res)) {
+			$data .= "<tr>";
+			   $data .= "<td class=\"user\"><a href=\"../gerirU/gerirAS_Show_supervisor.php?supcode=".$reg["supcode"]."&page_p=1\">" . $reg["supcode"]  . "</a></td>";
+			   $data .= "<td class=\"user\">" . $reg["name"] . "</td>";
+			   $data .= "<td class=\"user\">" . $reg["email"] . "</td>";
+			   $data .= "</tr>";
+		 }
+		 break;
+		 default: break;
+	  }
+	  echo "<h3 class=\"user\">" . $titulo . "</h3>";
+	  echo "<div id=\"containt_main_users_column_label\">";
+		 echo "<table class=\"user\">";
+			echo $head;
+			echo $data;
+			echo "</table>";
+		 echo "</div>";
+   }
 ?>

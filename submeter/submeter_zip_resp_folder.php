@@ -133,7 +133,7 @@ if (!isset($_SESSION['username']) || !$_SESSION['username'] || ((isset($_SESSION
                              */
 
                             $lig = $link;
-                            inserir_xml_base_dados($lig, $keyname, $title, $subtitle, $bdate, $edate, $abstract, $supervisores_emails, $authors_emails, $keywords, $deliverables, $xml_path, $path_folder, $private);
+							inserir_xml_base_dados($lig, $keyname, $title, $subtitle, $bdate, $edate, $abstract, $supervisores_emails, $authors_emails, $keywords, $deliverables, $xml_path, $path_folder, $private, $log_msg);
                         } else {
                             echo "<div class=\"failure\">Já não é possível submeter o trabalho.
                                 Isto pode acontecer porque já foi submtido. Caso não tenha sido,
@@ -156,7 +156,7 @@ if (!isset($_SESSION['username']) || !$_SESSION['username'] || ((isset($_SESSION
                      * @param type $deliverables        array associativo path => description
                      * @param type $xml_path
                      */
-                    function inserir_xml_base_dados($link, $keyname, $title, $subtitle, $bdate, $edate, $abstract, $supervisores_emails, $authors_emails, $keywords, $deliverables, $xml_path, $path, $private) {
+                    function inserir_xml_base_dados($link, $keyname, $title, $subtitle, $bdate, $edate, $abstract, $supervisores_emails, $authors_emails, $keywords, $deliverables, $xml_path, $path, $private, $lm) {
                         if (!$link) {
                             printf("Can't connect to localhost. Error: %s\n", mysqli_connect_error());
                             exit();
@@ -196,16 +196,9 @@ if (!isset($_SESSION['username']) || !$_SESSION['username'] || ((isset($_SESSION
                                 return;
                             }
 
-                            $autor = $authors_emails[0];
-                            $course = 0;
-                            $sql = "SELECT coursecode FROM Author WHERE email='$autor'";
-                            $result = mysqli_query($link, $sql);
-                            while ($rows = mysqli_fetch_row($result)) {
-                                $course = $rows[0];
-                            }
 
                             // caso não existe informação parecida na Base de Dados, vai inseri-la
-                            $sql = "INSERT INTO `PED`.`Project` VALUES (NULL, '$keyname', '$title', '$subtitle', '$bdate', '$edate', NOW(), '$abstract', '$course', '$local_projeto_bd','0', $private)";
+                            $sql = "INSERT INTO `PED`.`Project` VALUES (NULL, '$keyname', '$title', '$subtitle', '$bdate', '$edate', NOW(), '$abstract', '1', '$local_projeto_bd','0', $private)";
                             //echo "$sql";
                             $result = mysqli_query($link, $sql);
 
@@ -308,7 +301,7 @@ if (!isset($_SESSION['username']) || !$_SESSION['username'] || ((isset($_SESSION
                             foreach ($deliverables as $key => $value) {
                                 $f1 = "$path/$key";
                                 $f2 = "$local_projeto" . "$key";
-                                if (!is_dir(dirname($f2))) {
+                                if(!is_dir(dirname($f2))){
                                     mkdir(dirname($f2), 0777, true);
                                 }
                                 rename($f1, $f2);               // isto faz um move do ficheiro

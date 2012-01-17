@@ -1,6 +1,10 @@
 
 <div id="login">
-    <form action="forms/login_answer.php" method="post" name="loginForm">
+   <?php
+	  $dir = "forms/";
+	  if (basename(getcwd()) != 'PED-Project') $dir = "../forms/";
+	echo "<form action=\"".$dir."login_answer.php\" method=\"post\" name=\"loginForm\">";
+   ?>
         <div id="login_form">
             <label>Username:</label> 
             <input type="text" 

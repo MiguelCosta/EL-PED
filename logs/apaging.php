@@ -9,7 +9,7 @@ if (strlen($endrecord) > 0 and !is_numeric($endrecord)) {
     exit;
 }
 
-$limit = 4; // numero de registos por pagina
+$limit = 10; // numero de registos por pagina
 if ($endrecord < $limit) {
     $endrecord = 0;
 } // se o $endrecord for menor que o limite significa que já nao existem mais registos depois desta pagina.

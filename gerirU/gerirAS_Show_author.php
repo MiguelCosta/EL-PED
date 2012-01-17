@@ -1,12 +1,14 @@
 <?php
    session_start();
-   if (!isset($_SESSION['username']) || !$_SESSION['username'] || ((isset($_SESSION['username']) && isset($_SESSION['type']) && $_SESSION['type'] == 'p'))) {
+   if (isset($_SESSION['username']) && isset($_SESSION['type']) && $_SESSION['type'] == 'p') {
 	  header("Location: ../home.php");
+   }  
+   else if (!isset($_SESSION['username'])) {
+	  $_SESSION['type'] = 'u'; // Unknown
    }
 ?>
 
 <!DOCTYPE html>
-
 <html>
    <head>
 	  <title>Gerir->Autores e Supervisores->Listar - RepositórioPED</title>
@@ -191,16 +193,18 @@
 												echo "</tr>";
 										  }
 
-											// Actualiza as consultas na BD
-											$sql = "INSERT INTO Queries VALUES (NULL,'" . $_SESSION['username'] . "',NULL," . $authorcode . ",NULL, NOW())";
-											mysql_query($sql) or die(mysql_error());
+										  $username = isset($_SESSION['username'])?$_SESSION['username']:"Unknown";
+										  $name = isset($_SESSION['name'])?$_SESSION['name']:"Unknown";
 
-										  	// Insercao no registo de logs
-										  	if ($_SESSION['type'] == 'a')
-											  log_insert($_SESSION['username'], $_SESSION['name'], agora(), $log_msg["lis_aut"]["act"], $log_msg["lis_aut"]["desc"]." $authorcode");
-										  	else if ($_SESSION['type'] == 'c')
-											  log_insert($_SESSION['username'], $_SESSION['name'], agora(), $log_msg["lis_dis_aut"]["act"], $log_msg["lis_dis_aut"]["desc"]." $authorcode");
-
+										  // Actualiza as consultas na BD
+										  $sql = "INSERT INTO Queries VALUES (NULL, '$username', NULL, $authorcode, NULL, NOW())";
+										  mysql_query($sql) or die(mysql_error());
+										  
+										  // Insercao no registo de logs
+										  if ($_SESSION['type'] == 'a')
+										  log_insert($username, $name, agora(), $log_msg["lis_aut"]["act"], $log_msg["lis_aut"]["desc"]." $authorcode");
+										  else if ($_SESSION['type'] == 'c' || $_SESSION['type'] == 'u')
+										  log_insert($username, $name, agora(), $log_msg["lis_dis_aut"]["act"], $log_msg["lis_dis_aut"]["desc"]." $authorcode");
 									   ?>
 									</table>
 									<?php

@@ -1,6 +1,6 @@
 <?php
 session_start();
-if (!isset($_SESSION['username']) || !$_SESSION['username'] || ((isset($_SESSION['username']) && isset($_SESSION['type']) && $_SESSION['type'] == 'p'))) {
+if (!isset($_SESSION['username']) || !$_SESSION['username'] || ((isset($_SESSION['username']) && isset($_SESSION['type']) && $_SESSION['type'] != 'a'))) {
     header("Location: ../home.php");
 }
 ?>
@@ -50,7 +50,7 @@ if (!isset($_SESSION['username']) || !$_SESSION['username'] || ((isset($_SESSION
                             if ($msg_erro != "") {
                                 echo $msg_erro;
                             } else {
-                                $sql = "INSERT INTO `PED`.`Supervisor` VALUES (NULL, '$name', '$email', '$url', '$affil')";
+                                $sql = "INSERT INTO `PED`.`Supervisor` VALUES (NULL, '$name', '$email', '$url', '$affil', 0)";
                                 mysql_query($sql, $con) or die(mysql_error());
                                 echo "Supervisor inserido com sucesso!";
 

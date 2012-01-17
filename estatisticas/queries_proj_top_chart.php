@@ -9,7 +9,7 @@ if (!$con) {
     //Generate the graph element
     $strXML = "<graph caption='Top Consultas de projetos' xAxisName='Projetos' yAxisName='Consultas' decimalPrecision='0' formatNumberScale='0' showAlternateHGridColor='1' AlternateHGridColor='ff5904' divLineColor='ff5904' divLineAlpha='20' alternateHGridAlpha='5'>";
 
-    $sql = "SELECT V.projcode AS pc, title, queries FROM ViewTopQueriesProj AS V, Project AS P WHERE V.projcode=P.projcode";
+    $sql = "SELECT V.projcode AS pc, title, queries FROM ViewTopQueriesProj AS V, Project AS P WHERE V.projcode=P.projcode ORDER BY queries DESC";
     $result = mysql_query($sql) or die(mysql_error());
 
     if ($result) {

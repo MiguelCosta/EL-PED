@@ -20,7 +20,7 @@ if (!isset($_SESSION['username']) || !$_SESSION['username'] || ((isset($_SESSION
             include '../menus/leftmenuSubmeter.php';
             ?>
 
-
+            
             <div id="content">
                 <div id="content_top"></div>
                 <div id="content_main">
@@ -28,6 +28,7 @@ if (!isset($_SESSION['username']) || !$_SESSION['username'] || ((isset($_SESSION
                     <br/>
                     <br/>
                     <p>Aqui pode submeter os trabalhos.</p>
+                    <p>Pode ser por zip ou por formulário.</p>
                     <br/>
                     <br/>
                 </div>

@@ -74,7 +74,7 @@
    function log_exists($l) {
 	  if (!file_exists($l)) {
 		 $fh = fopen($l, 'w') or die("can't open file");
-		 fwrite($fh, "<?xml version=\"1.0\" encoding=\"ISO-8859-1\"?><logs></logs>");
+		 fwrite($fh, "<?xml version=\"1.0\" encoding=\"UTF-8\"?><logs></logs>");
 		 fclose($fh);
 	  }
    }
@@ -90,6 +90,11 @@
 	  $log->addChild('date', utf8_decode($date));
 	  $log->addChild('action', utf8_decode($action));
 	  $log->addChild('description', utf8_decode($description));
+	  //$log->addChild('username', $username); //TODO:caracteres estranhos sao subsituidos por '?'
+	  //$log->addChild('name', $name);
+	  //$log->addChild('date', $date);
+	  //$log->addChild('action', $action);
+	  //$log->addChild('description', $description);
 
 	  $logs->asXML("../logs/logs.xml");
    }
@@ -103,7 +108,7 @@
 		 for ($i = 0; $i < $start + $per_page and $logs->log[$i] != null; $i++) {
 			if ($i >= $start) {
 			   $log = $logs->log[$i];
-			   $str .= "<tr class=\"user\"><td class=\"user\">" . $log->username . " </td><td class=\"user\">" . $log->name .  " </td><td class=\"user\">" . $log->date . " </td><td class=\"user\">" . $log->action . "</td><td class=\"user\">" . $log->description . "</td></tr>";
+			   $str .= "<tr class=\"user\"><td class=\"user\">" . $log->username . " </td><td class=\"user\">" . utf8_decode($log->name) .  " </td><td class=\"user\">" . $log->date . " </td><td class=\"user\">" . $log->action . "</td><td class=\"user\">" . $log->description . "</td></tr>";
 			}
 		 }
 		 $str .= "</table>";

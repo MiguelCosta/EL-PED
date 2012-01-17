@@ -28,16 +28,12 @@ body {
     text-align:left;
 }
 
-a, a:visited
-{
-    color: blue;
-}
-
 a:hover
 {
     color: blue;
     text-decoration: underline;
 }
+
 #container
 {
     display: block; 
@@ -337,18 +333,23 @@ table.user
 {
     clear: both;
     border: 1px solid black;
-    padding:5px;
+    /*padding:5px;*/
     word-wrap:break-word;
     width: 100%;
     table-layout: fixed;
     height: 35px;
     overflow: visible;
 }
+tr.user
+{
+    
+    
+}
 
 th.user
 {
     text-align: center;
-    font-size: 14px;
+    font-size: 12px;
     color: white;
     background-color:black;
 }
@@ -356,19 +357,18 @@ th.user
 td.user
 {
     text-align: center;
+    font-size: 11px;
+    border-bottom-style: dotted;
+    border-bottom-width: 1px;
+    border-bottom-color: #ccc2c2;
 }
 
-td.user a:hover
+a:visited, a
 {
-    color: blue;
+    color: #100556;
     text-align: center;
-    text-decoration: underline;
-}
-td.user a:hover, a:visited
-{
-    color: blue;
-    text-align: center;
-    text-decoration: underline;
+    text-decoration: none;
+    font-weight: bold;
 }
 
 

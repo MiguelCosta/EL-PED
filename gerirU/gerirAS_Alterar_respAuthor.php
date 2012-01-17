@@ -1,6 +1,6 @@
 <?php
 session_start();
-if (!isset($_SESSION['username']) || !$_SESSION['username'] || ((isset($_SESSION['username']) && isset($_SESSION['type']) && $_SESSION['type'] != 'a'))) {
+if (!isset($_SESSION['username']) || !$_SESSION['username'] || ((isset($_SESSION['username']) && isset($_SESSION['type']) && $_SESSION['type'] == 'p'))) {
     header("Location: ../home.php");
 }
 ?>
@@ -22,7 +22,8 @@ if (!isset($_SESSION['username']) || !$_SESSION['username'] || ((isset($_SESSION
             <div id="content">
                 <div id="content_top"></div>
                 <div id="content_main">
-                    <h2>Inserir Supervisor</h2>
+                    <h2>Alterar Autor</h2>
+                    <br/>
                     <br/>
                     <div id="containt_main_users">
                         <?php
@@ -31,19 +32,18 @@ if (!isset($_SESSION['username']) || !$_SESSION['username'] || ((isset($_SESSION
                         } else {
                             $msg_erro = "";
 
-                            $name = $_REQUEST["s_name"];
-                            $email = $_REQUEST["s_email"];
-                            $url = null;
-                            if ($_REQUEST["s_url"]) {
-                                $url = $_REQUEST["s_url"];
-                            }
-                            $affil = null;
-                            if ($_REQUEST["s_affil"]) {
-                                $affil = $_REQUEST["s_affil"];
-                            }
+
+                            $authorcode = $_REQUEST["authorcode"];
+                            $name = $_REQUEST["a_name"];
+                            $id = $_REQUEST["a_id"];
+                            $email = $_REQUEST["a_email"];
+                            $url = $_REQUEST["a_url"];
+                            $course = $_REQUEST["a_course"];
 
                             if ($name == null) {
                                 $msg_erro .= "Campo Name incorrecto!<br/>";
+                            } else if ($id == null) {
+                                $msg_erro .= "Campo ID incorrecto!<br/>";
                             } else if ($email == null) {
                                 $msg_erro .= "Campo Email incorrecto!<br/>";
                             }
@@ -51,25 +51,29 @@ if (!isset($_SESSION['username']) || !$_SESSION['username'] || ((isset($_SESSION
                             if ($msg_erro != "") {
                                 echo $msg_erro;
                             } else {
-
-                                // se já existir uma pessoa com o email, não vai deixar alterar
-                                $sql = "SELECT supcode FROM Supervisor WHERE email='$email'";
+                                // verificar se o email não existe para outro utilizador
+                                $sql = "SELECT authorcode FROM Author WHERE authorcode!='$authorcode' AND email='$email'";
                                 $valido = true;
                                 $res = mysql_query($sql, $con);
                                 while ($row = mysql_fetch_array($res)) {
                                     $valido = false;
                                 }
-                                if ($valido) {
-                                    $sql = "INSERT INTO `PED`.`Supervisor` VALUES (NULL, '$name', '$email', '$url', '$affil', '0')";
-                                    mysql_query($sql, $con) or die(mysql_error());
-                                    echo "<div class=\"success\">Supervisor inserido com sucesso!</div>";
 
-                                    // Insercao no registo de logs
-                                    log_insert($_SESSION['username'], $_SESSION['name'], agora(), $log_msg["ins_sup"]["act"], $log_msg["ins_sup"]["desc"] . " $name");
+                                if ($valido) {
+                                    $sql = "SELECT coursecode FROM Course WHERE coursedescription='$course'";
+                                    $res = mysql_query($sql, $con) or die(mysql_error());
+                                    $course_id = 0;
+                                    while ($reg = mysql_fetch_array($res)) {
+                                        $course_id = $reg["coursecode"];
+                                    }
+                                    $sql = "UPDATE Author SET name='$name', id='$id', email='$email', url='$url', coursecode='$course_id' WHERE authorcode='$authorcode'";
+                                    mysql_query($sql, $con) or die(mysql_error());
+                                    echo "<div class=\"success\">Autor alterado com sucesso!</div>";
                                 } else {
                                     echo "<div class=\"failure\"> Não foi possível submeter na base de dados, 
-                                        provavelmente porque esse email já existe para outro supervisor.</div>";
+                                        provavelmente porque esse email já existe para outro autor.</div>";
                                 }
+                                // Insercao no registo de logs
                             }
                         }
                         ?>

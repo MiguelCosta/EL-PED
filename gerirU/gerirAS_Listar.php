@@ -72,75 +72,75 @@
 
 <?php
 
-   /**
-   * Passar um utilizador para a linha da tabela de listagem
-   * @param type $titulo
-   * @param type $res 
-   */
-   function author_to_table($titulo, $res, $con) {
-	  echo "<h3 class=\"user\">" . $titulo . "</h3>";
-	  echo "<div id=\"containt_main_users_column_label\">";
-		 echo "<table class=\"user\">";
-			echo "<tr>";
-			   //echo "<th class=\"user\">Authorcode</th>";
-			   echo "<th class=\"user\">Name</th>";
-			   echo "<th class=\"user\">ID</th>";
-			   echo "<th class=\"user\">Email</th>";
-			   //echo "<th class=\"user\">URL</th>";
-			   echo "<th class=\"user\">Course</th>";
-			   echo "</tr>";
+/**
+ * Passar um utilizador para a linha da tabela de listagem
+ * @param type $titulo
+ * @param type $res 
+ */
+function author_to_table($titulo, $res, $con) {
+    echo "<h3 class=\"user\">" . $titulo . "</h3>";
+    echo "<div id=\"containt_main_users_column_label\">";
+    echo "<table class=\"user\">";
+    echo "<tr>";
+    //echo "<th class=\"user\">Authorcode</th>";
+    echo "<th class=\"user\">Name</th>";
+    echo "<th class=\"user\">ID</th>";
+    echo "<th class=\"user\">Email</th>";
+    //echo "<th class=\"user\">URL</th>";
+    echo "<th class=\"user\">Course</th>";
+    echo "</tr>";
 
-			while ($reg = mysql_fetch_array($res)) {
-			   $id = $reg["authorcode"];
-			   echo "<tr class=\"user\">";
-				  echo "<td class=\"user\"><a href=\"gerirAS_Show_author.php?authorcode=$id\">" . $reg["name"] . "</a></td>";
-				  //echo "<td class=\"user\">" . $reg["name"] . "</td>";
-				  echo "<td class=\"user\">" . $reg["id"] . "</td>";
-				  echo "<td class=\"user\">" . $reg["email"] . "</td>";
-				  //echo "<td class=\"user\"><a href=\"" . $reg["url"] . "\" target=\"_blank\">" . $reg["url"] . "</a></td>";
+    while ($reg = mysql_fetch_array($res)) {
+        $id = $reg["authorcode"];
+        echo "<tr class=\"user\">";
+        echo "<td class=\"user\"><a href=\"gerirAS_Show_author.php?authorcode=$id\">" . $reg["name"] . "</a></td>";
+        //echo "<td class=\"user\">" . $reg["name"] . "</td>";
+        echo "<td class=\"user\">" . $reg["id"] . "</td>";
+        echo "<td class=\"user\">" . $reg["email"] . "</td>";
+        //echo "<td class=\"user\"><a href=\"" . $reg["url"] . "\" target=\"_blank\">" . $reg["url"] . "</a></td>";
 
-				  $course = $reg["coursecode"];
+        $course = $reg["coursecode"];
 
-				  $sql2 = "SELECT coursedescription FROM Course WHERE coursecode=$course";
-				  $res2 = mysql_query($sql2, $con);
-				  $course_name = "";
-				  while ($reg2 = mysql_fetch_array($res2)){
-					 $course_name = $reg2["coursedescription"];
-				  }
+        $sql2 = "SELECT coursedescription FROM Course WHERE coursecode=$course";
+        $res2 = mysql_query($sql2, $con);
+        $course_name = "";
+        while ($reg2 = mysql_fetch_array($res2)) {
+            $course_name = $reg2["coursedescription"];
+        }
 
-				  echo "<td class=\"user\">
-					 <a href=\"gerirCourse_Show.php?id=$course\" >" . 
-						$course_name . 
-						"</a></td>";
-				  echo "</tr>";
-			}
-			echo "</table>";
-		 echo "</div>";
-   }
+        echo "<td class=\"user\">
+                <a href=\"gerirCourse_Show.php?id=$course\" >" .
+        $course_name .
+        "</a></td>";
+        echo "</tr>";
+    }
+    echo "</table>";
+    echo "</div>";
+}
 
-   function supervisor_to_table($titulo, $res) {
-	  echo "<h3 class=\"user\">" . $titulo . "</h3>";
-	  echo "<div id=\"containt_main_users_column_label\">";
-		 echo "<table class=\"user\">";
-			echo "<tr>";
-			   //echo "<th class=\"user\">Supcode</th>";
-			   echo "<th class=\"user\">Name</th>";
-			   echo "<th class=\"user\">Email</th>";
-			   echo "<th class=\"user\">URL</th>";
-			   echo "<th class=\"user\">Affil</th>";
-			   echo "</tr>";
+function supervisor_to_table($titulo, $res) {
+    echo "<h3 class=\"user\">" . $titulo . "</h3>";
+    echo "<div id=\"containt_main_users_column_label\">";
+    echo "<table class=\"user\">";
+    echo "<tr>";
+    //echo "<th class=\"user\">Supcode</th>";
+    echo "<th class=\"user\">Name</th>";
+    echo "<th class=\"user\">Email</th>";
+    echo "<th class=\"user\">URL</th>";
+    echo "<th class=\"user\">Affil</th>";
+    echo "</tr>";
 
-			while ($reg = mysql_fetch_array($res)) {
-			   $id = $reg["supcode"];
-			   echo "<tr class=\"user\">";
-				  echo "<td class=\"user\"><a href=\"gerirAS_Show_supervisor.php?supcode=$id&page_p=1\">" . $reg["name"] . "</a></td>";
-				  //echo "<td class=\"user\">" . $reg["name"] . "</td>";
-				  echo "<td class=\"user\">" . $reg["email"] . "</td>";
-				  echo "<td class=\"user\"><a href=\"" . $reg["url"] . "\" target=\"_blank\">" . $reg["url"] . "</a></td>";
-				  echo "<td class=\"user\">" . $reg["affil"] . "</td>";
-				  echo "</tr>";
-			}
-			echo "</table>";
-		 echo "</div>";
-   }
+    while ($reg = mysql_fetch_array($res)) {
+        $id = $reg["supcode"];
+        echo "<tr class=\"user\">";
+        echo "<td class=\"user\"><a href=\"gerirAS_Show_supervisor.php?supcode=$id&page_p=1\">" . $reg["name"] . "</a></td>";
+        //echo "<td class=\"user\">" . $reg["name"] . "</td>";
+        echo "<td class=\"user\">" . $reg["email"] . "</td>";
+        echo "<td class=\"user\"><a href=\"" . $reg["url"] . "\" target=\"_blank\">" . $reg["url"] . "</a></td>";
+        echo "<td class=\"user\">" . $reg["affil"] . "</td>";
+        echo "</tr>";
+    }
+    echo "</table>";
+    echo "</div>";
+}
 ?>

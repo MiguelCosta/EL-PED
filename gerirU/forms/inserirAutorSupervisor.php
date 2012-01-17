@@ -14,6 +14,7 @@
 </script>
 
 <script type="text/javascript">
+<<<<<<< HEAD
    function inserir_user()
    {
 		 if (radioCheck()=="author"){
@@ -79,6 +80,71 @@
 		 }
 		 return true;
    }
+=======
+    function inserir_user()
+    {
+        if (radioCheck()=="author"){
+            if(document.getElementById("a_name_id").valueOf().value == ""){alert("Campo Name inválido!");return;}
+            if(document.getElementById("a_id_id").valueOf().value == ""){alert("Campo ID inválido!");return;}
+            if(document.getElementById("a_email_id").valueOf().value == ""){alert("Campo Email inválido!");return;}
+            
+            if (confirm('Pertende submeter a informação?')) document.forms["inserirAuthor"].submit(); else alert("Utilizador não foi inserido!");
+        }
+        
+        if (radioCheck()=="supervisor"){
+            if(document.getElementById("s_name_id").valueOf().value == ""){alert("Campo Name inválido!");return;}
+            if(document.getElementById("s_email_id").valueOf().value == ""){alert("Campo Email inválido!");return;}
+            
+            if (confirm('Pertende submeter a informação?')) document.forms["inserirSupervisor"].submit(); else alert("Utilizador não foi inserido!");
+        }
+                
+         
+    }
+    
+    function radioCheck(){ 
+        var i 
+        for (i=0;i<document.tipos.tipo.length;i++){ 
+            if (document.tipos.tipo[i].checked){
+                var c = document.tipos.tipo[i].value;
+                break; 
+            }
+        } 
+        return c;
+    } 
+    
+    function NameChanger()
+    {
+        if(document.tipos.author.checked == true) {
+            
+            var a = document.getElementById('formAuthor');
+            a.style.visibility = "visible";
+            
+            var div_a = document.getElementById('formInsertAS_Author')
+            div_a.style.zIndex="2";
+            
+            var s = document.getElementById('formSupervisor');
+            s.style.visibility = "hidden";
+            
+            var div_s = document.getElementById('formInsertAS_Supervisor')
+            div_s.style.zIndex="1";
+            
+        }
+        if(document.tipos.supervisor.checked == true) {
+            //window.alert("supervisor");
+            var a = document.getElementById('formAuthor');
+            a.style.visibility = "hidden";
+            var div_a = document.getElementById('formInsertAS_Author')
+            div_a.style.zIndex="1";
+            
+            var s = document.getElementById('formSupervisor');
+            s.style.visibility = "visible";
+            
+            var div_s = document.getElementById('formInsertAS_Supervisor')
+            div_s.style.zIndex="2";
+        }
+        return true;
+    }
+>>>>>>> 21108adf97c891dea20696ea3f3c22bd387ece04
 </script>
 
 <form id="formInsertAS_Type" name="tipos" method="post">

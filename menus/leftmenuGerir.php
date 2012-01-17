@@ -20,8 +20,8 @@
             <?php
             if ($_SESSION['type'] == 'a') {
                 echo "<li><a href=\"gerirAS_Inserir.php\">Inserir</a></li>
-            		<li><a href=\"#\">Alterar</a></li>
-					<li><a href=\"#\">Remover</a></li>";
+            		<li><a href=\"gerirAS_Alterar.php\">Alterar</a></li>
+					<li><a href=\"gerirAS_Remover.php\">Remover</a></li>";
             }
             ?>
         </ul>

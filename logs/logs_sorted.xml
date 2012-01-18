@@ -3,6 +3,209 @@
   <log>
     <username>miguel</username>
     <name>Miguel Costa</name>
+    <date>2012-01-18T00:00:04</date>
+    <action>Login</action>
+    <description>Login no sistema pelo Utilizador miguel</description>
+  </log>
+  <log>
+    <username>Unknown</username>
+    <name>Unknown</name>
+    <date>2012-01-18T00:00:03</date>
+    <action>Disseminacao:Listagem:AutorSupervisor</action>
+    <description>Tarefa de Disseminacao: Listagem de Autores e Supervisores</description>
+  </log>
+  <log>
+    <username>Unknown</username>
+    <name>Unknown</name>
+    <date>2012-01-18T00:00:02</date>
+    <action>Disseminacao:Listagem:Projetos</action>
+    <description>Tarefa de Disseminacao: Listagem de Projetos</description>
+  </log>
+  <log>
+    <username>Unknown</username>
+    <name>Unknown</name>
+    <date>2012-01-17T23:59:58</date>
+    <action>Disseminacao:Exportacao</action>
+    <description>Tarefa de Disseminacao: Exportacao do projeto 45</description>
+  </log>
+  <log>
+    <username>Unknown</username>
+    <name>Unknown</name>
+    <date>2012-01-17T23:59:53</date>
+    <action>Disseminacao:Listagem:Projeto</action>
+    <description>Tarefa de Disseminacao: Listagem do Projeto 45</description>
+  </log>
+  <log>
+    <username>Unknown</username>
+    <name>Unknown</name>
+    <date>2012-01-17T23:57:05</date>
+    <action>Disseminacao:Listagem:AutorSupervisor</action>
+    <description>Tarefa de Disseminacao: Listagem de Autores e Supervisores</description>
+  </log>
+  <log>
+    <username>Unknown</username>
+    <name>Unknown</name>
+    <date>2012-01-17T23:57:04</date>
+    <action>Disseminacao:Listagem:Projetos</action>
+    <description>Tarefa de Disseminacao: Listagem de Projetos</description>
+  </log>
+  <log>
+    <username>Unknown</username>
+    <name>Unknown</name>
+    <date>2012-01-17T23:57:03</date>
+    <action>Disseminacao:Listagem:AutorSupervisor</action>
+    <description>Tarefa de Disseminacao: Listagem de Autores e Supervisores</description>
+  </log>
+  <log>
+    <username>Unknown</username>
+    <name>Unknown</name>
+    <date>2012-01-17T23:57:01</date>
+    <action>Disseminacao:Listagem:AutorSupervisor</action>
+    <description>Tarefa de Disseminacao: Listagem de Autores e Supervisores</description>
+  </log>
+  <log>
+    <username>Unknown</username>
+    <name>Unknown</name>
+    <date>2012-01-17T23:54:29</date>
+    <action>Disseminacao:Listagem:AutorSupervisor</action>
+    <description>Tarefa de Disseminacao: Listagem de Autores e Supervisores</description>
+  </log>
+  <log>
+    <username>Unknown</username>
+    <name>Unknown</name>
+    <date>2012-01-17T23:54:27</date>
+    <action>Disseminacao:Listagem:Projeto</action>
+    <description>Tarefa de Disseminacao: Listagem do Projeto 39</description>
+  </log>
+  <log>
+    <username>Unknown</username>
+    <name>Unknown</name>
+    <date>2012-01-17T23:54:26</date>
+    <action>Disseminacao:Listagem:Projetos</action>
+    <description>Tarefa de Disseminacao: Listagem de Projetos</description>
+  </log>
+  <log>
+    <username>Unknown</username>
+    <name>Unknown</name>
+    <date>2012-01-17T23:54:23</date>
+    <action>Disseminacao:Listagem:Projeto</action>
+    <description>Tarefa de Disseminacao: Listagem do Projeto 42</description>
+  </log>
+  <log>
+    <username>Unknown</username>
+    <name>Unknown</name>
+    <date>2012-01-17T23:54:21</date>
+    <action>Disseminacao:Listagem:Projetos</action>
+    <description>Tarefa de Disseminacao: Listagem de Projetos</description>
+  </log>
+  <log>
+    <username>Unknown</username>
+    <name>Unknown</name>
+    <date>2012-01-17T23:53:24</date>
+    <action>Disseminacao:Listagem:Projeto</action>
+    <description>Tarefa de Disseminacao: Listagem do Projeto 42</description>
+  </log>
+  <log>
+    <username>Unknown</username>
+    <name>Unknown</name>
+    <date>2012-01-17T23:53:22</date>
+    <action>Disseminacao:Listagem:Projetos</action>
+    <description>Tarefa de Disseminacao: Listagem de Projetos</description>
+  </log>
+  <log>
+    <username>Unknown</username>
+    <name>Unknown</name>
+    <date>2012-01-17T23:53:20</date>
+    <action>Disseminacao:Listagem:Supervisor</action>
+    <description>Tarefa de Disseminacao: Listagem do Supervisor 1</description>
+  </log>
+  <log>
+    <username>Unknown</username>
+    <name>Unknown</name>
+    <date>2012-01-17T23:53:19</date>
+    <action>Disseminacao:Listagem:AutorSupervisor</action>
+    <description>Tarefa de Disseminacao: Listagem de Autores e Supervisores</description>
+  </log>
+  <log>
+    <username>Unknown</username>
+    <name>Unknown</name>
+    <date>2012-01-17T23:53:18</date>
+    <action>Disseminacao:Listagem:Autor</action>
+    <description>Tarefa de Disseminacao: Listagem do Autor 4</description>
+  </log>
+  <log>
+    <username>Unknown</username>
+    <name>Unknown</name>
+    <date>2012-01-17T23:53:17</date>
+    <action>Disseminacao:Listagem:AutorSupervisor</action>
+    <description>Tarefa de Disseminacao: Listagem de Autores e Supervisores</description>
+  </log>
+  <log>
+    <username>Unknown</username>
+    <name>Unknown</name>
+    <date>2012-01-17T23:53:15</date>
+    <action>Disseminacao:Listagem:Projeto</action>
+    <description>Tarefa de Disseminacao: Listagem do Projeto 48</description>
+  </log>
+  <log>
+    <username>Unknown</username>
+    <name>Unknown</name>
+    <date>2012-01-17T23:53:13</date>
+    <action>Disseminacao:Listagem:Projetos</action>
+    <description>Tarefa de Disseminacao: Listagem de Projetos</description>
+  </log>
+  <log>
+    <username>Unknown</username>
+    <name>Unknown</name>
+    <date>2012-01-17T23:53:12</date>
+    <action>Disseminacao:Listagem:AutorSupervisor</action>
+    <description>Tarefa de Disseminacao: Listagem de Autores e Supervisores</description>
+  </log>
+  <log>
+    <username>Unknown</username>
+    <name>Unknown</name>
+    <date>2012-01-17T23:52:57</date>
+    <action>Disseminacao:Listagem:Projeto</action>
+    <description>Tarefa de Disseminacao: Listagem do Projeto 48</description>
+  </log>
+  <log>
+    <username>Unknown</username>
+    <name>Unknown</name>
+    <date>2012-01-17T23:52:55</date>
+    <action>Disseminacao:Listagem:Projetos</action>
+    <description>Tarefa de Disseminacao: Listagem de Projetos</description>
+  </log>
+  <log>
+    <username>Unknown</username>
+    <name>Unknown</name>
+    <date>2012-01-17T23:52:54</date>
+    <action>Disseminacao:Listagem:Autor</action>
+    <description>Tarefa de Disseminacao: Listagem do Autor 1</description>
+  </log>
+  <log>
+    <username>Unknown</username>
+    <name>Unknown</name>
+    <date>2012-01-17T23:52:51</date>
+    <action>Disseminacao:Listagem:AutorSupervisor</action>
+    <description>Tarefa de Disseminacao: Listagem de Autores e Supervisores</description>
+  </log>
+  <log>
+    <username/>
+    <name/>
+    <date>2012-01-17T23:52:47</date>
+    <action>Administracao:Listagem:Utilizador</action>
+    <description>Tarefa de Administracao: Listagem de Utilizadores</description>
+  </log>
+  <log>
+    <username/>
+    <name/>
+    <date>2012-01-17T23:52:39</date>
+    <action>Administracao:Listagem:Utilizador</action>
+    <description>Tarefa de Administracao: Listagem de Utilizadores</description>
+  </log>
+  <log>
+    <username>miguel</username>
+    <name>Miguel Costa</name>
     <date>2012-01-17T23:19:41</date>
     <action>Login</action>
     <description>Login no sistema pelo Utilizador miguel</description>

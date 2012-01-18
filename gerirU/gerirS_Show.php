@@ -1,4 +1,6 @@
 <?php
+   //if (!isset($_SESSION))
+   session_start();
    if (isset($_SESSION['username']) && isset($_SESSION['type']) && $_SESSION['type'] == 'p') {
 	  header("Location: ../home.php");
    }  
@@ -69,7 +71,7 @@
                                     echo "<b>Atenção:</b> Este projecto é privado.<br/>";
                                 }
                                 require_once('forms/showProject.php');
-                            } elseif ($private == 0 && remove == 0) {
+							 } elseif ($private == 0 && $remove == 0) {
                                 // se não foi removido nem é privado mostra
                                 require_once('forms/showProject.php');
                             } elseif ($_SESSION['username'] == $username && $remove == 0) {

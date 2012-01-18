@@ -10,7 +10,7 @@
 	  $strXML = "<graph caption='Depositos por mês' xAxisName='Meses' yAxisName='Depositos' decimalPrecision='0' formatNumberScale='0' showAlternateHGridColor='1' AlternateHGridColor='ff5904' divLineColor='ff5904' divLineAlpha='20' alternateHGridAlpha='5'>";
 
 	  //$sql = "SELECT month AS grp, SUM(deposits) AS acc FROM ViewNumDepositsDate GROUP BY grp ORDER BY grp";
-	  $sql = "SELECT * FROM (SELECT * FROM ViewNumDepositsDate ORDER BY month, year DESC LIMIT 0,12) AS tb ORDER BY month, year";
+	  $sql = "SELECT * FROM (SELECT * FROM ViewNumDepositsDate ORDER BY month, year DESC LIMIT 0,12) AS tb ORDER BY year, month";
 	  $result = mysql_query($sql) or die(mysql_error());
 
 	  if ($result) {

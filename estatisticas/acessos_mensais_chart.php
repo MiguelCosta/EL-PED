@@ -10,7 +10,7 @@ if (!$con) {
     $strXML = "<graph caption='Acessos por mês' xAxisName='Meses' yAxisName='Acessos' decimalPrecision='0' formatNumberScale='0' showAlternateHGridColor='1' AlternateHGridColor='ff5904' divLineColor='ff5904' divLineAlpha='20' alternateHGridAlpha='5'>";
 
 	//$sql = "SELECT month AS grp, SUM(accesses) AS acc FROM ViewNumAccessData GROUP BY grp ORDER BY grp";
-	$sql = "SELECT * FROM (SELECT * FROM ViewNumAccessData ORDER BY month, year DESC LIMIT 0,12) AS tb ORDER BY month, year";
+	$sql = "SELECT * FROM (SELECT * FROM ViewNumAccessData ORDER BY month, year DESC LIMIT 0,12) AS tb ORDER BY year, month";
     $result = mysql_query($sql) or die(mysql_error());
 
     if ($result) {

@@ -827,16 +827,25 @@ textarea#abstract:b
 {
     clear: both;
     border: 1px solid black;
-    padding:5px;
+    /*padding:5px;*/
     word-wrap:break-word;
-    table-layout: fixed;
-    height: 35px;
     width: 100%;
+    /*table-layout: fixed;*/
+    height: 35px;
     overflow: visible;
 }
+
+
+td.user
+{
+
+}
+
+
 #details th
 {
     text-align: center;
+    font-size: 12px;
     color: white;
     background-color:black;
 }
@@ -845,18 +854,10 @@ textarea#abstract:b
 {
 
     text-align: center;
-    border-right-style: solid;
-    border-left-style: solid;
-    border-bottom-style: solid;
-    border-top-style: solid;
-    border-right-color: #ded9d9;
-    border-left-color: #ded9d9;
-    border-bottom-color: #ded9d9;
-    border-top-color: #ded9d9;
-    border-right-width: 1px;
-    border-left-width: 1px;
+    font-size: 11px;
+    border-bottom-style: dotted;
     border-bottom-width: 1px;
-    border-top-width: 1px;
+    border-bottom-color: #ccc2c2;
 }
 
 

@@ -54,7 +54,7 @@
 						if($valido) {
 						   $t = time();
 						   if ($path != "") {
-							  $destino = "../uploads/zip/" . $projcode . "-" . $t . ".zip";
+							  $destino = "../uploads/zip/" . $projcode . ".zip";
 							  $origem = "../uploads/$path";
 							  Zip($origem, $destino);
 						   ?>

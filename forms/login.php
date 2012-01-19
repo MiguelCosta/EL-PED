@@ -1,4 +1,3 @@
-
 <div id="login">
    <?php
 	  $dir = "forms/";

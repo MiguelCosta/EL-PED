@@ -3,6 +3,419 @@
   <log>
     <username>miguel</username>
     <name>Miguel Costa</name>
+    <date>2012-01-19T18:20:39</date>
+    <action>Login</action>
+    <description>Login no sistema pelo Utilizador miguel</description>
+  </log>
+  <log>
+    <username>bruno</username>
+    <name>Bruno Azevedo</name>
+    <date>2012-01-19T18:20:24</date>
+    <action>Ingestao:SIP</action>
+    <description>Tarefa de Ingestao de um SIP no sistema pelo Utilizador bruno</description>
+  </log>
+  <log>
+    <username>bruno</username>
+    <name>Bruno Azevedo</name>
+    <date>2012-01-19T18:09:28</date>
+    <action>Login</action>
+    <description>Login no sistema pelo Utilizador bruno</description>
+  </log>
+  <log>
+    <username>miguel</username>
+    <name>Miguel Costa</name>
+    <date>2012-01-19T18:09:20</date>
+    <action>Login</action>
+    <description>Login no sistema pelo Utilizador miguel</description>
+  </log>
+  <log>
+    <username>miguel</username>
+    <name>Miguel Costa</name>
+    <date>2012-01-19T16:05:47</date>
+    <action>Login</action>
+    <description>Login no sistema pelo Utilizador miguel</description>
+  </log>
+  <log>
+    <username>Unknown</username>
+    <name>Unknown</name>
+    <date>2012-01-19T16:03:07</date>
+    <action>Disseminacao:Listagem:Projeto</action>
+    <description>Tarefa de Disseminacao: Listagem do Projeto 48</description>
+  </log>
+  <log>
+    <username>Unknown</username>
+    <name>Unknown</name>
+    <date>2012-01-19T15:37:21</date>
+    <action>Disseminacao:Listagem:Projeto</action>
+    <description>Tarefa de Disseminacao: Listagem do Projeto 33</description>
+  </log>
+  <log>
+    <username>Unknown</username>
+    <name>Unknown</name>
+    <date>2012-01-19T15:27:35</date>
+    <action>Disseminacao:Listagem:Projeto</action>
+    <description>Tarefa de Disseminacao: Listagem do Projeto 2</description>
+  </log>
+  <log>
+    <username>miguel</username>
+    <name>Miguel Costa</name>
+    <date>2012-01-19T14:33:55</date>
+    <action>Login</action>
+    <description>Login no sistema pelo Utilizador miguel</description>
+  </log>
+  <log>
+    <username>miguel</username>
+    <name>Miguel Costa</name>
+    <date>2012-01-19T04:04:35</date>
+    <action>Administracao:Listagem:Projeto</action>
+    <description>Tarefa de Administracao: Listagem do Projeto 2</description>
+  </log>
+  <log>
+    <username>miguel</username>
+    <name>Miguel Costa</name>
+    <date>2012-01-19T04:04:31</date>
+    <action>Administracao:Listagem:Projeto</action>
+    <description>Tarefa de Administracao: Listagem do Projeto 2</description>
+  </log>
+  <log>
+    <username>miguel</username>
+    <name>Miguel Costa</name>
+    <date>2012-01-19T02:14:24</date>
+    <action>Login</action>
+    <description>Login no sistema pelo Utilizador miguel</description>
+  </log>
+  <log>
+    <username>miguel</username>
+    <name>Miguel Costa</name>
+    <date>2012-01-18T15:56:41</date>
+    <action>Login</action>
+    <description>Login no sistema pelo Utilizador miguel</description>
+  </log>
+  <log>
+    <username>Unknown</username>
+    <name>Unknown</name>
+    <date>2012-01-18T15:38:30</date>
+    <action>Disseminacao:Listagem:Projeto</action>
+    <description>Tarefa de Disseminacao: Listagem do Projeto 51</description>
+  </log>
+  <log>
+    <username>Unknown</username>
+    <name>Unknown</name>
+    <date>2012-01-18T15:38:24</date>
+    <action>Disseminacao:Listagem:Projetos</action>
+    <description>Tarefa de Disseminacao: Listagem de Projetos</description>
+  </log>
+  <log>
+    <username>miguel</username>
+    <name>Miguel Costa</name>
+    <date>2012-01-18T15:09:41</date>
+    <action>Login</action>
+    <description>Login no sistema pelo Utilizador miguel</description>
+  </log>
+  <log>
+    <username>miguel</username>
+    <name>Miguel Costa</name>
+    <date>2012-01-18T03:53:35</date>
+    <action>Login</action>
+    <description>Login no sistema pelo Utilizador miguel</description>
+  </log>
+  <log>
+    <username>miguel</username>
+    <name>Miguel Costa</name>
+    <date>2012-01-18T03:08:40</date>
+    <action>Login</action>
+    <description>Login no sistema pelo Utilizador miguel</description>
+  </log>
+  <log>
+    <username>miguel</username>
+    <name>Miguel Costa</name>
+    <date>2012-01-18T03:08:11</date>
+    <action>Login</action>
+    <description>Login no sistema pelo Utilizador miguel</description>
+  </log>
+  <log>
+    <username>miguel</username>
+    <name>Miguel Costa</name>
+    <date>2012-01-18T03:07:07</date>
+    <action>Login</action>
+    <description>Login no sistema pelo Utilizador miguel</description>
+  </log>
+  <log>
+    <username>miguel</username>
+    <name>Miguel Costa</name>
+    <date>2012-01-18T03:04:18</date>
+    <action>Login</action>
+    <description>Login no sistema pelo Utilizador miguel</description>
+  </log>
+  <log>
+    <username>jcr</username>
+    <name>Jos? Carlos Ramalho</name>
+    <date>2012-01-18T03:04:13</date>
+    <action>Login</action>
+    <description>Login no sistema pelo Utilizador jcr</description>
+  </log>
+  <log>
+    <username>jcr</username>
+    <name>Jos? Carlos Ramalho</name>
+    <date>2012-01-18T03:03:16</date>
+    <action>Login</action>
+    <description>Login no sistema pelo Utilizador jcr</description>
+  </log>
+  <log>
+    <username>jcr</username>
+    <name>Jos? Carlos Ramalho</name>
+    <date>2012-01-18T02:15:20</date>
+    <action>Login</action>
+    <description>Login no sistema pelo Utilizador jcr</description>
+  </log>
+  <log>
+    <username>jcr</username>
+    <name>Jos? Carlos Ramalho</name>
+    <date>2012-01-18T00:06:37</date>
+    <action>Disseminacao:Listagem:AutorSupervisor</action>
+    <description>Tarefa de Disseminacao: Listagem de Autores e Supervisores</description>
+  </log>
+  <log>
+    <username>jcr</username>
+    <name>Jos? Carlos Ramalho</name>
+    <date>2012-01-18T00:06:33</date>
+    <action>Disseminacao:Listagem:Autor</action>
+    <description>Tarefa de Disseminacao: Listagem do Autor 7</description>
+  </log>
+  <log>
+    <username>jcr</username>
+    <name>Jos? Carlos Ramalho</name>
+    <date>2012-01-18T00:06:24</date>
+    <action>Disseminacao:Listagem:Projetos</action>
+    <description>Tarefa de Disseminacao: Listagem de Projetos</description>
+  </log>
+  <log>
+    <username>jcr</username>
+    <name>Jos? Carlos Ramalho</name>
+    <date>2012-01-18T00:06:07</date>
+    <action>Disseminacao:Listagem:Projetos</action>
+    <description>Tarefa de Disseminacao: Listagem de Projetos</description>
+  </log>
+  <log>
+    <username>jcr</username>
+    <name>Jos? Carlos Ramalho</name>
+    <date>2012-01-18T00:06:06</date>
+    <action>Disseminacao:Listagem:Projeto</action>
+    <description>Tarefa de Disseminacao: Listagem do Projeto 42</description>
+  </log>
+  <log>
+    <username>jcr</username>
+    <name>Jos? Carlos Ramalho</name>
+    <date>2012-01-18T00:06:04</date>
+    <action>Disseminacao:Listagem:Projetos</action>
+    <description>Tarefa de Disseminacao: Listagem de Projetos</description>
+  </log>
+  <log>
+    <username>jcr</username>
+    <name>Jos? Carlos Ramalho</name>
+    <date>2012-01-18T00:06:01</date>
+    <action>Disseminacao:Listagem:Projeto</action>
+    <description>Tarefa de Disseminacao: Listagem do Projeto 44</description>
+  </log>
+  <log>
+    <username>jcr</username>
+    <name>Jos? Carlos Ramalho</name>
+    <date>2012-01-18T00:05:59</date>
+    <action>Disseminacao:Listagem:Projetos</action>
+    <description>Tarefa de Disseminacao: Listagem de Projetos</description>
+  </log>
+  <log>
+    <username>jcr</username>
+    <name>Jos? Carlos Ramalho</name>
+    <date>2012-01-18T00:05:38</date>
+    <action>Disseminacao:Listagem:Projeto</action>
+    <description>Tarefa de Disseminacao: Listagem do Projeto 42</description>
+  </log>
+  <log>
+    <username>jcr</username>
+    <name>Jos? Carlos Ramalho</name>
+    <date>2012-01-18T00:05:37</date>
+    <action>Disseminacao:Listagem:Projetos</action>
+    <description>Tarefa de Disseminacao: Listagem de Projetos</description>
+  </log>
+  <log>
+    <username>jcr</username>
+    <name>Jos? Carlos Ramalho</name>
+    <date>2012-01-18T00:05:35</date>
+    <action>Disseminacao:Listagem:Projeto</action>
+    <description>Tarefa de Disseminacao: Listagem do Projeto 43</description>
+  </log>
+  <log>
+    <username>jcr</username>
+    <name>Jos? Carlos Ramalho</name>
+    <date>2012-01-18T00:05:18</date>
+    <action>Disseminacao:Listagem:Projeto</action>
+    <description>Tarefa de Disseminacao: Listagem do Projeto 43</description>
+  </log>
+  <log>
+    <username>jcr</username>
+    <name>Jos? Carlos Ramalho</name>
+    <date>2012-01-18T00:05:17</date>
+    <action>Disseminacao:Listagem:Projetos</action>
+    <description>Tarefa de Disseminacao: Listagem de Projetos</description>
+  </log>
+  <log>
+    <username>jcr</username>
+    <name>Jos? Carlos Ramalho</name>
+    <date>2012-01-18T00:05:13</date>
+    <action>Disseminacao:Listagem:Projetos</action>
+    <description>Tarefa de Disseminacao: Listagem de Projetos</description>
+  </log>
+  <log>
+    <username>jcr</username>
+    <name>Jos? Carlos Ramalho</name>
+    <date>2012-01-18T00:04:10</date>
+    <action>Disseminacao:Listagem:Projeto</action>
+    <description>Tarefa de Disseminacao: Listagem do Projeto 44</description>
+  </log>
+  <log>
+    <username>jcr</username>
+    <name>Jos? Carlos Ramalho</name>
+    <date>2012-01-18T00:04:08</date>
+    <action>Disseminacao:Listagem:Projetos</action>
+    <description>Tarefa de Disseminacao: Listagem de Projetos</description>
+  </log>
+  <log>
+    <username>jcr</username>
+    <name>Jos? Carlos Ramalho</name>
+    <date>2012-01-18T00:04:02</date>
+    <action>Disseminacao:Listagem:Projeto</action>
+    <description>Tarefa de Disseminacao: Listagem do Projeto 45</description>
+  </log>
+  <log>
+    <username>jcr</username>
+    <name>Jos? Carlos Ramalho</name>
+    <date>2012-01-18T00:04:01</date>
+    <action>Disseminacao:Listagem:Projetos</action>
+    <description>Tarefa de Disseminacao: Listagem de Projetos</description>
+  </log>
+  <log>
+    <username>jcr</username>
+    <name>Jos? Carlos Ramalho</name>
+    <date>2012-01-18T00:02:54</date>
+    <action>Disseminacao:Listagem:Projetos</action>
+    <description>Tarefa de Disseminacao: Listagem de Projetos</description>
+  </log>
+  <log>
+    <username>jcr</username>
+    <name>Jos? Carlos Ramalho</name>
+    <date>2012-01-18T00:02:42</date>
+    <action>Disseminacao:Listagem:Projeto</action>
+    <description>Tarefa de Disseminacao: Listagem do Projeto 45</description>
+  </log>
+  <log>
+    <username>jcr</username>
+    <name>Jos? Carlos Ramalho</name>
+    <date>2012-01-18T00:02:39</date>
+    <action>Disseminacao:Listagem:Projetos</action>
+    <description>Tarefa de Disseminacao: Listagem de Projetos</description>
+  </log>
+  <log>
+    <username>jcr</username>
+    <name>Jos? Carlos Ramalho</name>
+    <date>2012-01-18T00:02:37</date>
+    <action>Disseminacao:Listagem:Autor</action>
+    <description>Tarefa de Disseminacao: Listagem do Autor 6</description>
+  </log>
+  <log>
+    <username>jcr</username>
+    <name>Jos? Carlos Ramalho</name>
+    <date>2012-01-18T00:02:32</date>
+    <action>Disseminacao:Listagem:Projetos</action>
+    <description>Tarefa de Disseminacao: Listagem de Projetos</description>
+  </log>
+  <log>
+    <username>jcr</username>
+    <name>Jos? Carlos Ramalho</name>
+    <date>2012-01-18T00:00:50</date>
+    <action>Disseminacao:Listagem:Projeto</action>
+    <description>Tarefa de Disseminacao: Listagem do Projeto 46</description>
+  </log>
+  <log>
+    <username>jcr</username>
+    <name>Jos? Carlos Ramalho</name>
+    <date>2012-01-18T00:00:46</date>
+    <action>Disseminacao:Listagem:Projetos</action>
+    <description>Tarefa de Disseminacao: Listagem de Projetos</description>
+  </log>
+  <log>
+    <username>jcr</username>
+    <name>Jos? Carlos Ramalho</name>
+    <date>2012-01-18T00:00:42</date>
+    <action>Disseminacao:Listagem:Projeto</action>
+    <description>Tarefa de Disseminacao: Listagem do Projeto 44</description>
+  </log>
+  <log>
+    <username>jcr</username>
+    <name>Jos? Carlos Ramalho</name>
+    <date>2012-01-18T00:00:40</date>
+    <action>Disseminacao:Listagem:Projetos</action>
+    <description>Tarefa de Disseminacao: Listagem de Projetos</description>
+  </log>
+  <log>
+    <username>jcr</username>
+    <name>Jos? Carlos Ramalho</name>
+    <date>2012-01-18T00:00:37</date>
+    <action>Disseminacao:Listagem:Autor</action>
+    <description>Tarefa de Disseminacao: Listagem do Autor 4</description>
+  </log>
+  <log>
+    <username>jcr</username>
+    <name>Jos? Carlos Ramalho</name>
+    <date>2012-01-18T00:00:35</date>
+    <action>Disseminacao:Listagem:AutorSupervisor</action>
+    <description>Tarefa de Disseminacao: Listagem de Autores e Supervisores</description>
+  </log>
+  <log>
+    <username>jcr</username>
+    <name>Jos? Carlos Ramalho</name>
+    <date>2012-01-18T00:00:33</date>
+    <action>Login</action>
+    <description>Login no sistema pelo Utilizador jcr</description>
+  </log>
+  <log>
+    <username>jcr</username>
+    <name>Jos? Carlos Ramalho</name>
+    <date>2012-01-18T00:00:29</date>
+    <action>Disseminacao:Listagem:Projeto</action>
+    <description>Tarefa de Disseminacao: Listagem do Projeto 46</description>
+  </log>
+  <log>
+    <username>jcr</username>
+    <name>Jos? Carlos Ramalho</name>
+    <date>2012-01-18T00:00:27</date>
+    <action>Disseminacao:Listagem:Projetos</action>
+    <description>Tarefa de Disseminacao: Listagem de Projetos</description>
+  </log>
+  <log>
+    <username>jcr</username>
+    <name>Jos? Carlos Ramalho</name>
+    <date>2012-01-18T00:00:26</date>
+    <action>Disseminacao:Listagem:Autor</action>
+    <description>Tarefa de Disseminacao: Listagem do Autor 4</description>
+  </log>
+  <log>
+    <username>jcr</username>
+    <name>Jos? Carlos Ramalho</name>
+    <date>2012-01-18T00:00:25</date>
+    <action>Disseminacao:Listagem:AutorSupervisor</action>
+    <description>Tarefa de Disseminacao: Listagem de Autores e Supervisores</description>
+  </log>
+  <log>
+    <username>jcr</username>
+    <name>Jos? Carlos Ramalho</name>
+    <date>2012-01-18T00:00:17</date>
+    <action>Login</action>
+    <description>Login no sistema pelo Utilizador jcr</description>
+  </log>
+  <log>
+    <username>miguel</username>
+    <name>Miguel Costa</name>
     <date>2012-01-18T00:00:04</date>
     <action>Login</action>
     <description>Login no sistema pelo Utilizador miguel</description>

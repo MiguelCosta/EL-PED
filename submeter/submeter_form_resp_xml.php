@@ -19,6 +19,7 @@ if (!isset($_SESSION['username']) || !$_SESSION['username'] || ((isset($_SESSION
             include '../menus/menu_submeter.php';
             include '../menus/leftmenuSubmeter.php';
             include '../ini.php';
+			require_once '../indexing/functions.php';
             ?>
 
 
@@ -307,12 +308,18 @@ if (!isset($_SESSION['username']) || !$_SESSION['username'] || ((isset($_SESSION
 
                             mysqli_commit($link);
 
-                            mysqli_autocommit($link, TRUE);
+							$success = mysqli_autocommit($link, TRUE);
 
                             mysqli_close($link);
+							if ($success) {
+								// Atualizacao do indice
+								global $indexPath;
+								updateIndexNew($indexPath, $new_projcode);
 
-							// Insercao no registo de logs
-							log_insert($_SESSION['username'], $_SESSION['name'], agora(), $lm["ing_sip"]["act"], $lm["ing_sip"]["desc"] . " " . $_SESSION['username']);
+								// Insercao no registo de logs
+								log_insert($_SESSION['username'], $_SESSION['name'], agora(), $lm["ing_sip"]["act"], $lm["ing_sip"]["desc"] . " " . $_SESSION['username']);
+							 }
+
                             ?>
                             <div class="clr"></div>
                             <div class="success">Informação submetida com sucesso!</div>

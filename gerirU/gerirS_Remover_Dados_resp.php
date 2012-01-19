@@ -19,6 +19,7 @@
 			require_once '../menus/menu_gerirU.php';
 			require_once '../menus/leftmenuGerir.php';
 			include '../ini.php';
+			require_once '../indexing/functions.php';
 		 ?>
 
 
@@ -58,6 +59,10 @@
 
 							  // Insercao no registo de logs
 							  log_insert($_SESSION['username'], $_SESSION['name'], agora(), $log_msg["rem_pro"]["act"], $log_msg["rem_pro"]["desc"] . " $projcode");
+
+							  // Atualizacao do indice
+							  global $indexPath;
+							  updateIndexOld($indexPath, $projcode);
 						   }
 						}
 					 }

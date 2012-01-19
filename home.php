@@ -11,6 +11,7 @@
 			require_once 'header.php';
 			require_once 'menus/menu.php';
 			require_once 'menus/leftmenuHome.php';
+			//ini_set('include_path',ini_get('include_path').':.');
 		 ?>
 
 
@@ -21,6 +22,11 @@
 			   <br/>
 			   <br/>
 			   <h3>Finalidade deste Repositório</h3>
+			   <?php
+				  require_once 'indexing/functions.php';
+				  require_once 'ini.php';
+				  loadIndex($indexPath);
+			   ?>
 			   <p>Dizer alguma coisa sobre o que é pretendido com este repositório.</p>
 			   <br/>
 			   <h3>Utilidade</h3>

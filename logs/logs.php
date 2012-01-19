@@ -30,7 +30,7 @@ if (!isset($_SESSION['username']) || !$_SESSION['username'] || ((isset($_SESSION
                         include '../ini.php';
                         log_reverse();
                         //require_once('apaging.htm');
-                        include 'pagination.php';
+						require_once 'pagination.php';
                         ?>  
                     </div>
                     <br/>

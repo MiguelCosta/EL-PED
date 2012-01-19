@@ -1,4 +1,10 @@
 <?php
+   /******** Zend ********/
+   //ini_set('include_path',ini_get('include_path').':../includes:');
+   /* NOTE: para o Zend funcionar é necessario incluir a biblioteca do zend no include_path do PHP
+   * adicionar ao ficheiro httpd.conf: php_value include_path .:opt/lampp/lib/php:/usr/local/lib/php:/usr/local/lib/zend/library
+   */
+
    basename(getcwd()) == 'PED-Project'?require_once ('ini.php'):require_once ('../ini.php');
    require_once('Zend/Search/Lucene.php');
 
@@ -68,7 +74,7 @@
 	  $query = new Zend_Search_Lucene_Search_Query_Term($term);
 	  $hits  = $index->find($query);
 	  foreach ($hits as $hit)
-		  $index->delete($hit->id);
+	  $index->delete($hit->id);
 	  return $index;
    }
 
@@ -80,7 +86,7 @@
 	  if (!$con) {
 		 echo "<h3>Erro ao ligar ao servidor.</h3><br/>" . mysql_error();
 	  } else {
-		 $sql = "SELECT projcode, keyname, title, subtitle, subdate, private FROM Project WHERE projcode=$projcode and remove=0 and private=0 ORDER BY subdate";
+		 $sql = "SELECT projcode, keyname, title, subtitle, subdate, private FROM Project WHERE projcode=$projcode and remove=0 ORDER BY subdate";
 		 $res = mysql_query($sql, $con);
 		 while ($reg = mysql_fetch_array($res)) {
 			$doc = createDoc($reg);
@@ -97,7 +103,7 @@
 	  if (!$con) {
 		 echo "<h3>Erro ao ligar ao servidor.</h3><br/>" . mysql_error();
 	  } else {
-		 $sql = "SELECT projcode, keyname, title, subtitle, subdate, private FROM Project WHERE remove=0 and private=0 ORDER BY subdate";
+		 $sql = "SELECT projcode, keyname, title, subtitle, subdate, private FROM Project WHERE remove=0 ORDER BY subdate";
 		 $res = mysql_query($sql, $con);
 		 while ($reg = mysql_fetch_array($res)) {
 			$doc = createDoc($reg); 
@@ -117,7 +123,7 @@
 	  $doc->addField(Zend_Search_Lucene_Field::Keyword('projcode', $projcode, 'iso-8859-1'));
 	  $doc->addField(Zend_Search_Lucene_Field::Keyword('keyname',$reg['keyname'], 'iso-8859-1'));
 	  $doc->addField(Zend_Search_Lucene_Field::UnIndexed('subdate',$reg['subdate'], 'iso-8859-1'));
-	  $doc->addField(Zend_Search_Lucene_Field::UnIndexed('private',$reg['private'], 'iso-8859-1'));
+	  $doc->addField(Zend_Search_Lucene_Field::UnIndexed('privat',$reg['private'], 'iso-8859-1'));
 	  $doc->addField(Zend_Search_Lucene_Field::Text('title',$reg['title'], 'iso-8859-1'));
 	  $doc->addField(Zend_Search_Lucene_Field::UnStored('subtitle',$reg['subtitle'], 'iso-8859-1'));
 
@@ -141,6 +147,12 @@
 		 $kw .= $reg3['keyword'].",";
 	  }
 	  $doc->addField(Zend_Search_Lucene_Field::UnStored('keywords',substr($kw, 0, (strLen($kw) - 1)), 'iso-8859-1'));
+
+	  $sql = "SELECT username FROM Deposits WHERE projcode = $projcode";
+	  $res4 = mysql_query($sql, $con);
+	  while ($reg4 = mysql_fetch_array($res4)) {
+		 $doc->addField(Zend_Search_Lucene_Field::UnIndexed('username',$reg4['username']));
+	  }
 
 	  return $doc;
    }

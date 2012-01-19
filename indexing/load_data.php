@@ -42,10 +42,14 @@
 
 		 $msg .= "<h3>Encontrados $count resultados</h3></br>";
 		 foreach ($paginator as $hit) {
-			$msg .= "<h3>Projeto:<a href=\"../gerirU/gerirS_Show.php?projcode=".$hit->projcode."\">" . $hit->projcode . "</a> -> ".$hit->keyname."</h3>";
-			$msg .= "<p>Título: ".($hit->title)."</p>";
-			$msg .= "<p>Autor: ".utf8_decode($hit->author)."</p></br>";
-		 }
+			// TODO:acabar esta condicao
+			//if (($hit->privat==0) || ($hit->privat==1  and (isset($_SESSION[]) && $hit->username==$_SESSION['username'])) {
+			   //if (($hit->privat==0)){
+			   $msg .= "<h3>Projeto:<a href=\"../gerirU/gerirS_Show.php?projcode=".$hit->projcode."\">" . $hit->projcode . "</a> -> ".$hit->keyname."</h3>";
+			   $msg .= "<p>Título: ".($hit->title)."</p>";
+			   $msg .= "<p>Autor: ".utf8_decode($hit->author)."</p></br>";
+			   //}
+			}
 
 		 /* ------------------- Configuration -------------------- */
 		 $msg = page_config($msg,$count,$per_page,$cur_page,$first_btn,$previous_btn,$next_btn,$last_btn);

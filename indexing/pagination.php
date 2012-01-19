@@ -2,6 +2,7 @@
 <!-- This is a pagination script using Jquery, Ajax and PHP
 The enhancements done in this script pagination with first,last, previous, next buttons -->
 
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"></script> 
 <script type="text/javascript">
     $(document).ready(function(){
@@ -17,7 +18,7 @@ The enhancements done in this script pagination with first,last, previous, next 
             ({
                 type: "POST",
                 url: "load_data.php",
-                data: "page="+page,
+				data: "page="+page,
                 success: function(msg)
                 {
                     $("#container_p").ajaxComplete(function(event, request, settings)
@@ -49,7 +50,6 @@ The enhancements done in this script pagination with first,last, previous, next 
         });
     });
 </script>
-
 
 
 <div id="loading"></div>

@@ -1,4 +1,6 @@
 <?php
+   if (!isset($_SESSION)) session_start();
+   require_once('Zend/Paginator.php');
 
    $con = mysql_connect("localhost", "miguel", "miguel");
    mysql_select_db("PED", $con);
@@ -8,6 +10,13 @@
    */
    $link = mysqli_connect("localhost", "miguel", "miguel", "PED");
 
+   // variavel que indica o caminho onde os indices do Zend_Search_Lucene estao
+   basename(getcwd()) == 'PED-Project'?$indexPath = 'data/docindex':$indexPath='../data/docindex';
+
+   // Variavel que guarda o objecto Zend_Paginator, que ira conter os resultados das pesquisas e servira para ajudar na sua paginacao
+   // $paginator=new Zend_Paginator();
+   //$numHits=0;
+   //$hits = array();
 
    /* * ****************
    * CONSTANTES *
@@ -17,7 +26,6 @@
    $num_sup = 5;
 
 
-   // Pacotes de informacao
    // Megaprocessos
    $adm = "Administracao";
    $dis = "Disseminacao";
@@ -90,20 +98,16 @@
 	  $log->addChild('date', utf8_decode($date));
 	  $log->addChild('action', utf8_decode($action));
 	  $log->addChild('description', utf8_decode($description));
-	  //$log->addChild('username', $username); //TODO:caracteres estranhos sao subsituidos por '?'
-	  //$log->addChild('name', $name);
-	  //$log->addChild('date', $date);
-	  //$log->addChild('action', $action);
-	  //$log->addChild('description', $description);
 
 	  $logs->asXML("../logs/logs.xml");
    }
 
    /** Retorna os logs correspondentes a uma página **/
    function log_page($start, $per_page) {
-	  log_exists("logs_sorted.xml");
+	  $log_file = "../logs/logs_sorted.xml";
+	  log_exists($log_file);
 
-	  $logs = simplexml_load_file("logs_sorted.xml");
+	  $logs = simplexml_load_file($log_file);
 	  $str="<table class=\"user\"><tr class=\"user\"><th class=\"user\">Username</th><th class=\"user\">Nome</th><th class=\"user\">Data</th><th class=\"user\">Acao</th><th class=\"user\">Descricao</th></tr>";
 		 for ($i = 0; $i < $start + $per_page and $logs->log[$i] != null; $i++) {
 			if ($i >= $start) {
@@ -134,8 +138,10 @@
 
    // conta o numero de nodos
    function log_count() {
-	  log_exists("logs_sorted.xml");
-	  return simplexml_load_file("logs_sorted.xml")->count();
+	  $log_file = "../logs/logs_sorted.xml";
+	  log_exists($log_file);
+
+	  return simplexml_load_file($log_file)->count();
    }
 
    // valdiação de um xml

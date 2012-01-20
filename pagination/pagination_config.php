@@ -59,7 +59,7 @@
 			} else if ($last_btn) {
 			   $msg .= "<li p='$no_of_paginations' class='inactive'>>></li>"; // TODO: alterar
 			}
-			$goto = "<input type='text' class='goto' size='1' style='margin-top:-1px;margin-left:10px;'/><input type='button' id='go_btn' class='go_button' value='Go'/>"; // TODO: alterar
+			$goto = "<input type='text' class='goto' size='1' style='margin-top:-1px;margin-left:10px;'/><input type='button' id='go_btn' class='go_button' value='Ir'/>"; // TODO: alterar
 			$total_string = "<span class='total' a='$no_of_paginations'>Página <b>" . $cur_page . "</b> de <b>$no_of_paginations</b></span>"; // TODO: alterar
 			$msg = $msg . "</ul>" . $goto . $total_string . "</div>";  // Content for pagination
 

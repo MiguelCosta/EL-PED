@@ -1,98 +1,97 @@
 <?php
-   //if (isset($_SESSION['username']) && isset($_SESSION['type']) && $_SESSION['type'] == 'p') {
-	  //header("Location: ../home.php");
-	  //}
-   if (!isset($_SESSION['username'])) {
-	  $_SESSION['type'] = 'u'; // Unknown
-   } 
+if (isset($_SESSION['username']) && isset($_SESSION['type']) && $_SESSION['type'] == 'p') {
+    header("Location: ../home.php");
+} else if (!isset($_SESSION['username'])) {
+    $_SESSION['type'] = 'u'; // Unknown
+}
 
-   $projcode = $_REQUEST['projcode'];
-   //echo "<br/>Projecto: $projcode <br/>";
+$projcode = $_REQUEST['projcode'];
+//echo "<br/>Projecto: $projcode <br/>";
 
-   if (!$con) {
-	  echo "<h3>Erro ao ligar ao servidor.</h3><br/>" . mysql_error();
-   } else {
-	  $sql = "SELECT * FROM Project WHERE projcode='$projcode'";
-	  $result = mysql_query($sql);
+if (!$con) {
+    echo "<h3>Erro ao ligar ao servidor.</h3><br/>" . mysql_error();
+} else {
+    $sql = "SELECT * FROM Project WHERE projcode='$projcode'";
+    $result = mysql_query($sql);
 
-	  while ($rows = mysql_fetch_array($result)) {
-	  ?>
+    while ($rows = mysql_fetch_array($result)) {
+        ?>
 
-	  <div id="form_submeter">
+        <div id="form_submeter">
 
-		 <h3>Header</h3>
+            <h3>Header</h3>
 
-		 <div id="form_input_left">
-			<label class="required">Key Name: </label>
-			<input id="key_name" 
-			name="key_name" 
-			type="text" 
-			required="" 
-			pattern="^[a-zA-ZáàãõéíóúçÁÀÃÕÉÍÓÚÇ][\wáàãõéíóúçÁÀÃÕÉÍÓÚÇ:_.-&/|\s]*"
-			readonly
-			value="<?php echo $rows['keyname']; ?>"
-			/>
+            <div id="form_input_left">
+                <label class="required">Key Name: </label>
+                <input id="key_name" 
+                       name="key_name" 
+                       type="text" 
+                       required="" 
+                       pattern="^[a-zA-ZáàãõéíóúçÁÀÃÕÉÍÓÚÇ][\wáàãõéíóúçÁÀÃÕÉÍÓÚÇ:_.-&/|\s]*"
+                       readonly
+                       value="<?php echo $rows['keyname']; ?>"
+                       />
 
-			<div class="clr"></div>
+                <div class="clr"></div>
 
-			<label class="required">Title: </label>
-			<input id="title" 
-			name="title" 
-			type="text" 
-			required="" 
-			pattern="^[a-zA-ZáàãõéíóúçÁÀÃÕÉÍÓÚÇ][\wáàãõéíóúçÁÀÃÕÉÍÓÚÇ:_.-&/|\s]*"
-			readonly
-			value="<?php echo $rows['title']; ?>"
-			/>
+                <label class="required">Title: </label>
+                <input id="title" 
+                       name="title" 
+                       type="text" 
+                       required="" 
+                       pattern="^[a-zA-ZáàãõéíóúçÁÀÃÕÉÍÓÚÇ][\wáàãõéíóúçÁÀÃÕÉÍÓÚÇ:_.-&/|\s]*"
+                       readonly
+                       value="<?php echo $rows['title']; ?>"
+                       />
 
-			<div class="clr"></div>
+                <div class="clr"></div>
 
-			<label>Subtitle: </label>
-			<input name="subtitle" 
-			type="text"
-			pattern="^[a-zA-ZáàãõéíóúçÁÀÃÕÉÍÓÚÇ][\wáàãõéíóúçÁÀÃÕÉÍÓÚÇ:_.-&/|\s]*"
-			readonly
-			value="<?php echo $rows['subtitle']; ?>"
-			/>
-		 </div>
+                <label>Subtitle: </label>
+                <input name="subtitle" 
+                       type="text"
+                       pattern="^[a-zA-ZáàãõéíóúçÁÀÃÕÉÍÓÚÇ][\wáàãõéíóúçÁÀÃÕÉÍÓÚÇ:_.-&/|\s]*"
+                       readonly
+                       value="<?php echo $rows['subtitle']; ?>"
+                       />
+            </div>
 
-		 <div id="form_input_right">
-			<label class="required">Begin Date: </label>
-			<input id="begin_date" 
-			name="begin_date" 
-			type="date" 
-			required="" 
-			pattern="\d{4}\-\d{2}\-\d{2}" 
-			placeholder="aaaa-mm-dd" 
-			readonly
-			value="<?php echo $rows['bdate']; ?>"
-			/>
+            <div id="form_input_right">
+                <label class="required">Begin Date: </label>
+                <input id="begin_date" 
+                       name="begin_date" 
+                       type="date" 
+                       required="" 
+                       pattern="\d{4}\-\d{2}\-\d{2}" 
+                       placeholder="aaaa-mm-dd" 
+                       readonly
+                       value="<?php echo $rows['bdate']; ?>"
+                       />
 
-			<div class="clr"></div>
-			<label class="required">End Date: </label>
-			<input id="end_date" 
-			name="end_date" 
-			type="date" 
-			required="" 
-			pattern="\d{4}\-\d{2}\-\d{2}" 
-			placeholder="aaaa-mm-dd"
-			readonly
-			value="<?php echo $rows['edate']; ?>"
-			/>
+                <div class="clr"></div>
+                <label class="required">End Date: </label>
+                <input id="end_date" 
+                       name="end_date" 
+                       type="date" 
+                       required="" 
+                       pattern="\d{4}\-\d{2}\-\d{2}" 
+                       placeholder="aaaa-mm-dd"
+                       readonly
+                       value="<?php echo $rows['edate']; ?>"
+                       />
 
-		 </div>
+            </div>
 
-		 <div class="clr"></div>
+            <div class="clr"></div>
 
-		 <div id="form_submeter_supervisor">
-			<h3>Supervisors</h3>
-			<div class="clr"></div>
+            <div id="form_submeter_supervisor">
+                <h3>Supervisors</h3>
+                <div class="clr"></div>
 
-			<?php
-			   if (!$con) {
-				  echo "<h3>Erro ao ligar ao servidor.</h3><br/>" . mysql_error();
-			   } else {
-				  $sql2 = "SELECT * FROM Supervisor WHERE supcode IN (
+                <?php
+                if (!$con) {
+                    echo "<h3>Erro ao ligar ao servidor.</h3><br/>" . mysql_error();
+                } else {
+                    $sql2 = "SELECT * FROM Supervisor WHERE supcode IN (
 					 SELECT supcode FROM ProjSup WHERE projcode='$projcode'
 				  ) ORDER BY name";
                     $result2 = mysql_query($sql2);
@@ -242,7 +241,7 @@
                             while ($rows4 = mysql_fetch_array($result4)) {
                                 ?>
                                 <li>
-                                    <a href="getFile.php?file=../uploads/<? echo $rows4['path']; ?>" target="_blank">
+                                    <a href="../uploads/<? echo $rows4['path']; ?>" target="_blank">
                                         <?
                                         if ($rows4['description'] == "" || !$rows4['description']) {
                                             echo "Sem nome";

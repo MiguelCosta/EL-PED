@@ -28,14 +28,7 @@
 
 		 /** TODO:Tentar armazenar o resultado da procura para reutilizar */
 		 try {
-			if (isset($_SESSION['type']) && $_SESSION['type']=='a')
-			$hits = $index->find($query); // aqui serao encontrados todos os projetos publicos e privados
-			elseif (isset($_SESSION['type']) && $_SESSION['type']=='p')
-			$hits = $index->find("+".$query." +(privat:0 (+privat:1 +username:".$_SESSION['username']."))"); // aqui tem que so serao encontrados os projetos publicos (private==0) e o os privados cujo produtor seja o utilizador "logado"
-			else
-			$hits = $index->find("+".$query." +privat:0"); // aqui tem que so serao encontrados os publicos (private==0)
-
-
+			$hits = $index->find($query);
 		 }
 		 catch (Zend_Search_Lucene_Exception $ex) {
 			$hits = array();
@@ -47,17 +40,20 @@
 		 $paginator->setCurrentPagenumber($cur_page);
 		 $paginator->setItemCountPerPage($per_page);
 
-		 $msg .= "<h3>Encontrados $count resultados para a pesquisa $query.</h3></br>";
+		 $msg .= "<h3>Encontrados $count resultados</h3></br>";
 		 foreach ($paginator as $hit) {
-			$msg .= "<h3>Projeto:<a href=\"../gerirU/gerirS_Show.php?projcode=".$hit->projcode."\">" . $hit->projcode . "</a> -> ".$hit->keyname."</h3>";
-			$msg .= "<p>Título: ".($hit->title)."</p>";
-			$msg .= "<p>Autor: ".utf8_decode($hit->author)."</p></br>";
-		 }
+			// TODO:acabar esta condicao
+			//if (($hit->privat==0) || ($hit->privat==1  and (isset($_SESSION[]) && $hit->username==$_SESSION['username'])) {
+			   //if (($hit->privat==0)){
+			   $msg .= "<h3>Projeto:<a href=\"../gerirU/gerirS_Show.php?projcode=".$hit->projcode."\">" . $hit->projcode . "</a> -> ".$hit->keyname."</h3>";
+			   $msg .= "<p>Título: ".($hit->title)."</p>";
+			   $msg .= "<p>Autor: ".utf8_decode($hit->author)."</p></br>";
+			   //}
+			}
 
 		 /* ------------------- Configuration -------------------- */
 		 $msg = page_config($msg,$count,$per_page,$cur_page,$first_btn,$previous_btn,$next_btn,$last_btn);
 	  }
-	  
 	  echo $msg;
    }
 ?>

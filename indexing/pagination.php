@@ -54,7 +54,7 @@ The enhancements done in this script pagination with first,last, previous, next 
 
 <div id="loading"></div>
 <div id="container_p">
-   <div class="data"></div>
+    <div class="data"></div>
     <div class="pagination"></div>
 
 </div>

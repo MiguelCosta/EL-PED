@@ -1,30 +1,29 @@
 <?php
-   //if (!isset($_SESSION))
-   session_start();
-   //if (isset($_SESSION['username']) && isset($_SESSION['type']) && $_SESSION['type'] == 'p') {
-	  //header("Location: ../home.php");
-	  //}  
-   if (!isset($_SESSION['username'])) {
-	  $_SESSION['type'] = 'u'; // Unknown
-   }
+//if (!isset($_SESSION))
+session_start();
+if (isset($_SESSION['username']) && isset($_SESSION['type']) && $_SESSION['type'] == 'p') {
+    header("Location: ../home.php");
+} else if (!isset($_SESSION['username'])) {
+    $_SESSION['type'] = 'u'; // Unknown
+}
 ?>
 
 <!DOCTYPE html>
 
 <html>
-   <head>
-	  <title>Gerir->Submissoes->Listar - RepositórioPED</title>
-	  <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-	  <link rel="stylesheet" type="text/css" href="../css/style.css" />
-   </head>
-   <body>
-	  <div id="container">
-		 <?php
-			require_once '../header.php';
-			require_once '../menus/menu_gerirU.php';
-			require_once '../menus/leftmenuGerir.php';
-			include '../ini.php';
-		 ?>
+    <head>
+        <title>Gerir->Submissoes->Listar - RepositórioPED</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+        <link rel="stylesheet" type="text/css" href="../css/style.css" />
+    </head>
+    <body>
+        <div id="container">
+            <?php
+            require_once '../header.php';
+            require_once '../menus/menu_gerirU.php';
+            require_once '../menus/leftmenuGerir.php';
+            include '../ini.php';
+            ?>
 
 
             <div id="content">
@@ -65,43 +64,47 @@
                             if ($_SESSION['type'] == 'a') {
                                 // se for um administrador
                                 if ($remove == 1) {
-                                    echo "<b>Atenção:</b> Este projecto já foi removido.<br/>";
+                                echo "<b>Atenção:</b> Este projecto já foi removido.<br/>";
                                 }
                                 if ($private == 1) {
-                                    echo "<b>Atenção:</b> Este projecto é privado.<br/>";
+                                echo "<b>Atenção:</b> Este projecto é privado.<br/>";
                                 }
-                                require_once('forms/showProject.php');
-							 } elseif ($private == 0 && $remove == 0) {
+                                require_once ('forms/showProject.php');
+                                } elseif ($private == 0 && $remove == 0) {
                                 // se não foi removido nem é privado mostra
-                                require_once('forms/showProject.php');
-                            } elseif ($_SESSION['username'] == $username && $remove == 0) {
-                                // se foi submetido pela pessoa que está com login
-                                if ($private == 1) {
-                                    echo "<b>Atenção:</b> Este projecto é privado. Você pode visualiza-lo porque foi quem o submeteu.<br/>";
+                                require_once ('forms/showProject.php');
+                                } elseif (isset ($_SESSION['username'])) {
+                                if ($_SESSION['username'] == $username && $remove == 0) {
+                                    // se foi submetido pela pessoa que está com login
+                                    if ($private == 1) {
+                                        echo "<b>Atenção:</b> Este projecto é privado. Você pode visualiza-lo porque foi quem o submeteu.<br/>";
+                                    }
                                 }
                                 require_once('forms/showProject.php');
                             } else {
                                 // se não consegue mostrar, vai dizer porquê
-                                if ($private == 1) {
-                                    echo "<br/><br/>Não pode ver este projeto porque é privado.<br/>";
+                                if ($private == 1 && $remove == 1) {
+                                    echo "<div class=\"failure\">Não pode ver este projeto porque era privado e já foi removido.</div>";
+                                } elseif ($private == 1) {
+                                    echo "<div class=\"failure\">Não pode ver este projeto porque é privado.</div>";
                                 } elseif ($remove == 1) {
-                                    echo "<br/><br/>Não pode ver este projeto porque foi removido.<br/>";
+                                    echo "<div class=\"failure\">Não pode ver este projeto porque foi removido.</div>";
                                 } else {
-                                    echo "ERRO ao mostrar o projeto.";
+                                    echo "<div class=\"failure\">ERRO ao mostrar o projeto.</div>";
                                 }
                             }
                         }
                         ?>
                     </div>
 
-			   <br/>
-			</div>
-			<div id="content_bottom"></div>
+                    <br/>
+                </div>
+                <div id="content_bottom"></div>
 
-			<?php
-			   require_once '../menus/footer.php';
-			?>
-		 </div>
-	  </div>
-   </body>
+                <?php
+                require_once '../menus/footer.php';
+                ?>
+            </div>
+        </div>
+    </body>
 </html>

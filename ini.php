@@ -13,6 +13,11 @@
    // variavel que indica o caminho onde os indices do Zend_Search_Lucene estao
    basename(getcwd()) == 'PED-Project'?$indexPath = 'data/docindex':$indexPath='../data/docindex';
 
+   // Variavel que guarda o objecto Zend_Paginator, que ira conter os resultados das pesquisas e servira para ajudar na sua paginacao
+   // $paginator=new Zend_Paginator();
+   //$numHits=0;
+   //$hits = array();
+
    /* * ****************
    * CONSTANTES *
    * **************** */

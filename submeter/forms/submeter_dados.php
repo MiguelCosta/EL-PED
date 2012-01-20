@@ -142,38 +142,47 @@ include '../ini.php';
             if (!$con) {
                 echo "<h3>Erro ao ligar ao servidor.</h3><br/>" . mysql_error();
             } else {
-                $sql = "SELECT supcode, name, email,url, affil FROM Supervisor ORDER BY name";
+                $sql = "SELECT supcode, name, email,url, affil FROM Supervisor WHERE remove=0 ORDER BY name";
                 $result = mysql_query($sql);
                 $count_supervisors = mysql_num_rows($result);
+                $limit_supervisors = 5;
+                if ($count_supervisors > $limit_supervisors) {
+                    echo "<div style=\"height:130px; overflow: auto; border: 1px solid\">";
+                }
                 ?>
-                <div style="height:130px; overflow: auto; border: 1px solid">
-                    <table class="user">
-                        <tr>
-                            <th class="user">Select</th>
-                            <th class="user">Name</th>
-                            <th class="user">Email</th>
-                            <th class="user">URL</th>
-                            <th class="user">Affil</th>
+
+                <table class="user">
+                    <tr>
+                        <th class="user" style="width: 80px;">Select</th>
+                        <th class="user">Name</th>
+                        <th class="user">Email</th>
+                        <th class="user">URL</th>
+                        <th class="user">Affil</th>
+                    </tr>
+
+                    <?php
+                    while ($rows = mysql_fetch_array($result)) {
+                        /* <?php echo "$l"; ?> */
+                        ?>
+                        <tr class="user">
+                            <td class="user"><input name="checkbox_supervisor[]" type="checkbox" value="<? echo $rows['supcode']; ?>"/></td>
+                            <td class="user"><? echo $rows['name']; ?></td>
+                            <td class="user"><? echo $rows['email']; ?></td>
+                            <td class="user"><? echo $rows['url']; ?></td>
+                            <td class="user"><? echo $rows['affil']; ?></td>
                         </tr>
 
                         <?php
-                        while ($rows = mysql_fetch_array($result)) {
-                            /* <?php echo "$l"; ?> */
-                            ?>
-                            <tr class="user">
-                                <td class="user"><input name="checkbox_supervisor[]" type="checkbox" value="<? echo $rows['supcode']; ?>"/></td>
-                                <td class="user"><? echo $rows['name']; ?></td>
-                                <td class="user"><? echo $rows['email']; ?></td>
-                                <td class="user"><? echo $rows['url']; ?></td>
-                                <td class="user"><? echo $rows['affil']; ?></td>
-                            </tr>
+                    }
+                    ?>
+                </table>
+                <?php
+            }
+            if ($count_supervisors > $limit_supervisors) {
+                echo "</div>";
+            }
+            ?>
 
-                            <?php
-                        }
-                        ?>
-                    </table>
-                <?php } ?>
-            </div>
 
         </div>
 
@@ -185,38 +194,58 @@ include '../ini.php';
             if (!$con) {
                 echo "<h3>Erro ao ligar ao servidor.</h3><br/>" . mysql_error();
             } else {
-                $sql = "SELECT * FROM Author ORDER BY name";
+                $sql = "SELECT * FROM Author WHERE remove=0 ORDER BY name";
                 $result = mysql_query($sql);
-                $count = mysql_num_rows($result);
+                $count_authors = mysql_num_rows($result);
+                $limit_authors = 10;
+                if ($count_authors > $limit_authors) {
+                    echo "<div style=\"height:200px; overflow: auto; border: 1px solid\">";
+                }
                 ?>
 
-                <div style="height:200px; overflow: auto; border: 1px solid">
-                    <table class="user">
-                        <tr>
-                            <th class="user">Select</th>
-                            <th class="user">Name</th>
-                            <th class="user">ID</th>
-                            <th class="user">EMAIL</th>
-                            <th class="user">URL</th>
+                <table class="user">
+                    <tr>
+                        <th class="user" style="width: 80px;">Select</th>
+                        <th class="user">Name</th>
+                        <th class="user">ID</th>
+                        <th class="user">EMAIL</th>
+                        <th class="user">COURSE</th>
+                    </tr>
+
+                    <?php
+                    while ($rows = mysql_fetch_array($result)) {
+                        ?>
+                        <tr class="user">
+                            <td class="user"><input name="checkbox_author[]" type="checkbox" value="<? echo $rows['authorcode']; ?>"/></td>
+                            <td class="user"><? echo $rows['name']; ?></td>
+                            <td class="user"><? echo $rows['id']; ?></td>
+                            <td class="user"><? echo $rows['email']; ?></td>
+
+                            <?php
+                            $course = $rows['coursecode'];
+                            $sql2 = "SELECT coursedescription FROM Course WHERE coursecode=$course";
+                            $res2 = mysql_query($sql2, $con);
+                            $course_name = "";
+                            while ($reg2 = mysql_fetch_array($res2)) {
+                                $course_name = $reg2["coursedescription"];
+                            }
+                            //echo $course_name;
+                            ?>
+
+                            <td class="user"><? echo $course_name; ?></td>
                         </tr>
 
                         <?php
-                        while ($rows = mysql_fetch_array($result)) {
-                            ?>
-                            <tr class="user">
-                                <td class="user"><input name="checkbox_author[]" type="checkbox" value="<? echo $rows['authorcode']; ?>"/></td>
-                                <td class="user"><? echo $rows['name']; ?></td>
-                                <td class="user"><? echo $rows['id']; ?></td>
-                                <td class="user"><? echo $rows['email']; ?></td>
-                                <td class="user"><? echo $rows['url']; ?></td>
-                            </tr>
+                    }
+                    ?>
+                </table>
+                <?php
+            }
+            if ($count_authors > $limit_authors) {
+                echo "</div>";
+            }
+            ?>
 
-                            <?php
-                        }
-                        ?>
-                    </table>
-                <?php } ?>
-            </div>
 
         </div>
 
@@ -289,9 +318,9 @@ include '../ini.php';
             <input id="rem_del" type="button" name="rem_deli" value="remove" onclick="removeDeliverable()" style="width: 100px; text-align: center"/>
         </div>
         <hr />
-        
+
         <input type="checkbox" name="private"/> <b>Tornar o projeto privado</b>. 
-        
+
         <div id="btn_user">
             <!-- Aqui era para testar com java script
                 <input id="submit_btn" type="button" value="Enviar" onclick="submeter()" /> 

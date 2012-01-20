@@ -3,6 +3,174 @@
   <log>
     <username>miguel</username>
     <name>Miguel Costa</name>
+    <date>2012-01-20T00:25:29</date>
+    <action>Login</action>
+    <description>Login no sistema pelo Utilizador miguel</description>
+  </log>
+  <log>
+    <username>Unknown</username>
+    <name>Unknown</name>
+    <date>2012-01-20T00:18:46</date>
+    <action>Disseminacao:Listagem:Projetos</action>
+    <description>Tarefa de Disseminacao: Listagem de Projetos</description>
+  </log>
+  <log>
+    <username>Unknown</username>
+    <name>Unknown</name>
+    <date>2012-01-19T23:53:19</date>
+    <action>Disseminacao:Listagem:Projetos</action>
+    <description>Tarefa de Disseminacao: Listagem de Projetos</description>
+  </log>
+  <log>
+    <username>miguel</username>
+    <name>Miguel Costa</name>
+    <date>2012-01-19T23:52:45</date>
+    <action>Administracao:Listagem:Utilizador</action>
+    <description>Tarefa de Administracao: Listagem de Utilizadores</description>
+  </log>
+  <log>
+    <username>miguel</username>
+    <name>Miguel Costa</name>
+    <date>2012-01-19T23:52:41</date>
+    <action>Administracao:Listagem:AutorSupervisor</action>
+    <description>Tarefa de Administracao: Listagem de Autores e Supervisores</description>
+  </log>
+  <log>
+    <username>miguel</username>
+    <name>Miguel Costa</name>
+    <date>2012-01-19T23:52:38</date>
+    <action>Administracao:Listagem:Utilizador</action>
+    <description>Tarefa de Administracao: Listagem de Utilizadores</description>
+  </log>
+  <log>
+    <username>miguel</username>
+    <name>Miguel Costa</name>
+    <date>2012-01-19T23:52:37</date>
+    <action>Administracao:Listagem:AutorSupervisor</action>
+    <description>Tarefa de Administracao: Listagem de Autores e Supervisores</description>
+  </log>
+  <log>
+    <username>miguel</username>
+    <name>Miguel Costa</name>
+    <date>2012-01-19T23:52:21</date>
+    <action>Administracao:Listagem:Projeto</action>
+    <description>Tarefa de Administracao: Listagem do Projeto 31</description>
+  </log>
+  <log>
+    <username>miguel</username>
+    <name>Miguel Costa</name>
+    <date>2012-01-19T23:52:20</date>
+    <action>Administracao:Listagem:Projetos</action>
+    <description>Tarefa de Administracao: Listagem de Projetos</description>
+  </log>
+  <log>
+    <username>miguel</username>
+    <name>Miguel Costa</name>
+    <date>2012-01-19T23:52:18</date>
+    <action>Administracao:Listagem:AutorSupervisor</action>
+    <description>Tarefa de Administracao: Listagem de Autores e Supervisores</description>
+  </log>
+  <log>
+    <username>miguel</username>
+    <name>Miguel Costa</name>
+    <date>2012-01-19T23:52:02</date>
+    <action>Administracao:Listagem:Projeto</action>
+    <description>Tarefa de Administracao: Listagem do Projeto 2</description>
+  </log>
+  <log>
+    <username>miguel</username>
+    <name>Miguel Costa</name>
+    <date>2012-01-19T23:51:55</date>
+    <action>Administracao:Listagem:Projeto</action>
+    <description>Tarefa de Administracao: Listagem do Projeto 1</description>
+  </log>
+  <log>
+    <username>miguel</username>
+    <name>Miguel Costa</name>
+    <date>2012-01-19T23:50:49</date>
+    <action>Login</action>
+    <description>Login no sistema pelo Utilizador miguel</description>
+  </log>
+  <log>
+    <username>Unknown</username>
+    <name>Unknown</name>
+    <date>2012-01-19T23:50:43</date>
+    <action>Disseminacao:Listagem:AutorSupervisor</action>
+    <description>Tarefa de Disseminacao: Listagem de Autores e Supervisores</description>
+  </log>
+  <log>
+    <username>Unknown</username>
+    <name>Unknown</name>
+    <date>2012-01-19T23:50:25</date>
+    <action>Disseminacao:Listagem:Projetos</action>
+    <description>Tarefa de Disseminacao: Listagem de Projetos</description>
+  </log>
+  <log>
+    <username>miguel</username>
+    <name>Miguel Costa</name>
+    <date>2012-01-19T23:49:10</date>
+    <action>Administracao:Listagem:Projeto</action>
+    <description>Tarefa de Administracao: Listagem do Projeto 28</description>
+  </log>
+  <log>
+    <username>miguel</username>
+    <name>Miguel Costa</name>
+    <date>2012-01-19T23:49:09</date>
+    <action>Administracao:Listagem:Projetos</action>
+    <description>Tarefa de Administracao: Listagem de Projetos</description>
+  </log>
+  <log>
+    <username>miguel</username>
+    <name>Miguel Costa</name>
+    <date>2012-01-19T23:49:06</date>
+    <action>Login</action>
+    <description>Login no sistema pelo Utilizador miguel</description>
+  </log>
+  <log>
+    <username>Unknown</username>
+    <name>Unknown</name>
+    <date>2012-01-19T23:49:02</date>
+    <action>Disseminacao:Listagem:Projetos</action>
+    <description>Tarefa de Disseminacao: Listagem de Projetos</description>
+  </log>
+  <log>
+    <username>Unknown</username>
+    <name>Unknown</name>
+    <date>2012-01-19T23:47:55</date>
+    <action>Disseminacao:Listagem:Projetos</action>
+    <description>Tarefa de Disseminacao: Listagem de Projetos</description>
+  </log>
+  <log>
+    <username>Unknown</username>
+    <name>Unknown</name>
+    <date>2012-01-19T23:47:42</date>
+    <action>Disseminacao:Listagem:Projetos</action>
+    <description>Tarefa de Disseminacao: Listagem de Projetos</description>
+  </log>
+  <log>
+    <username>Unknown</username>
+    <name>Unknown</name>
+    <date>2012-01-19T23:32:31</date>
+    <action>Disseminacao:Listagem:Projetos</action>
+    <description>Tarefa de Disseminacao: Listagem de Projetos</description>
+  </log>
+  <log>
+    <username>Unknown</username>
+    <name>Unknown</name>
+    <date>2012-01-19T23:32:30</date>
+    <action>Disseminacao:Listagem:Projetos</action>
+    <description>Tarefa de Disseminacao: Listagem de Projetos</description>
+  </log>
+  <log>
+    <username>miguel</username>
+    <name>Miguel Costa</name>
+    <date>2012-01-19T20:34:07</date>
+    <action>Ingestao:SIP</action>
+    <description>Tarefa de Ingestao de um SIP no sistema pelo Utilizador miguel</description>
+  </log>
+  <log>
+    <username>miguel</username>
+    <name>Miguel Costa</name>
     <date>2012-01-19T19:55:12</date>
     <action>Login</action>
     <description>Login no sistema pelo Utilizador miguel</description>

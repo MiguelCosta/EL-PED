@@ -122,8 +122,8 @@
 
 	  $doc->addField(Zend_Search_Lucene_Field::Keyword('projcode', $projcode, 'iso-8859-1'));
 	  $doc->addField(Zend_Search_Lucene_Field::Keyword('keyname',$reg['keyname'], 'iso-8859-1'));
-	  //$doc->addField(Zend_Search_Lucene_Field::UnIndexed('subdate',$reg['subdate'], 'iso-8859-1'));
-	  $doc->addField(Zend_Search_Lucene_Field::Keyword('privat',$reg['private'], 'iso-8859-1'));
+	  $doc->addField(Zend_Search_Lucene_Field::UnIndexed('subdate',$reg['subdate'], 'iso-8859-1'));
+	  $doc->addField(Zend_Search_Lucene_Field::UnIndexed('privat',$reg['private'], 'iso-8859-1'));
 	  $doc->addField(Zend_Search_Lucene_Field::Text('title',$reg['title'], 'iso-8859-1'));
 	  $doc->addField(Zend_Search_Lucene_Field::UnStored('subtitle',$reg['subtitle'], 'iso-8859-1'));
 
@@ -151,7 +151,7 @@
 	  $sql = "SELECT username FROM Deposits WHERE projcode = $projcode";
 	  $res4 = mysql_query($sql, $con);
 	  while ($reg4 = mysql_fetch_array($res4)) {
-		 $doc->addField(Zend_Search_Lucene_Field::UnStored('username',$reg4['username']));
+		 $doc->addField(Zend_Search_Lucene_Field::UnIndexed('username',$reg4['username']));
 	  }
 
 	  return $doc;

@@ -21,7 +21,6 @@
 			   <br/>
 			   <?php
 				  if(!isset($_SESSION)) session_start();
-				  if(!isset($_SESSION['type'])) $_SESSION['type']='u';
 				  $_SESSION['query'] = isset($_REQUEST['query']) ? trim($_REQUEST['query']) : ''; 
 
 				  require_once 'pagination.php';

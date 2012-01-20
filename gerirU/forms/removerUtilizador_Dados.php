@@ -31,6 +31,11 @@ while ($user_r = mysql_fetch_array($user)) {
     $url = $user_r["url"];
     $type = $user_r["type"];
 }
+$username2 = $_SESSION['username'];
+if($type == 'a' && $username != $username2){
+    echo "<div class=\"failure\">O administrador não pode ser removido por si!</div>";
+    return;
+}
 
 if ($name == null || $name == "") {
     echo "Dados incorrectos!";

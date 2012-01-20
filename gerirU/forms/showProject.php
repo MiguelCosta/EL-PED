@@ -98,10 +98,10 @@ if (!$con) {
                     <table class="user">
                         <tr>
                             <th class="user">Supcode</th>
-                            <th class="user">Name</th>
+                            <th class="user">Nome</th>
                             <th class="user">Email</th>
                             <th class="user">URL</th>
-                            <th class="user">Affil</th>
+                            <th class="user">Depart.</th>
                         </tr>
 
                         <?php
@@ -142,10 +142,11 @@ if (!$con) {
                     <table class="user">
                         <tr>
                             <th class="user">Code</th>
-                            <th class="user">Name</th>
+                            <th class="user">Nome</th>
                             <th class="user">ID</th>
                             <th class="user">EMAIL</th>
                             <th class="user">URL</th>
+                            <th class="user">Curso</th>
                         </tr>
 
                         <?php
@@ -158,6 +159,19 @@ if (!$con) {
                                 <td class="user"><? echo $rows3['id']; ?></td>
                                 <td class="user"><? echo $rows3['email']; ?></td>
                                 <td class="user"><? echo $rows3['url']; ?></td>
+
+                                <?php
+                                $course = $rows3['coursecode'];
+                                $sql2 = "SELECT coursedescription FROM Course WHERE coursecode=$course";
+                                $res2 = mysql_query($sql2, $con);
+                                $course_name = "";
+                                while ($reg2 = mysql_fetch_array($res2)) {
+                                    $course_name = $reg2["coursedescription"];
+                                }
+                                echo "<td class=\"user\"><a href=\"gerirCourse_Show.php?id=$course\" >";
+                                echo $course_name;
+                                echo "</a></td>";
+                                ?>
                             </tr>
 
                             <?php

@@ -66,6 +66,9 @@
 
 	  // Insercao no registo de logs
 	  log_insert($username, $name, agora(), $log_msg["dis_exp"]["act"], $log_msg["dis_exp"]["desc"]." $projcode");
+          
+          // download de todo o repositorio
+          log_insert($username, $name, agora(), $log_msg["dis_exp_tot"]["act"], $log_msg["dis_exp_tot"]["desc"]);
 
 	  exit();
    ?>

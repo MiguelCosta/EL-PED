@@ -156,26 +156,33 @@ function submission_to_table($titulo, $res) {
         echo "<td class=\"user\">" . $reg["title"] . "</td>";
         echo "<td class=\"user\">" . $reg["subdate"] . "</td>";
 
-        $sql = "SELECT authorcode FROM ProjAut WHERE projcode='$id'";
+        $sql ="SELECT authorcode, name FROM Author WHERE authorcode IN (
+                SELECT authorcode FROM ProjAut WHERE projcode='$id')";
+        //echo "$sql";
         $result = mysql_query($sql);
         $autores = "";
+        echo "<ul>";
         while ($rows = mysql_fetch_array($result)) {
-            $autores .= "<a href=\"gerirAS_Show_author.php?authorcode=" . $rows['authorcode'] . "\" >";
-            $autores .= $rows['authorcode'];
-            $autores .= "</a>, ";
+            $autores .= "<li><a href=\"gerirAS_Show_author.php?authorcode=" . $rows['authorcode'] . "\" >";
+            $autores .= $rows['name'];
+            $autores .= "</a></li>";
         }
         echo "<td class=\"user\">" . $autores . "</td>";
+        echo "</ul>";
 
-
-        $sql = "SELECT supcode FROM ProjSup WHERE projcode='$id'";
+        //$sql = "SELECT supcode FROM ProjSup WHERE projcode='$id'";
+        $sql ="SELECT supcode, name FROM Supervisor WHERE supcode IN (
+                SELECT supcode FROM ProjSup WHERE projcode='$id')";
         $result = mysql_query($sql);
         $supervisores = "";
+        echo "<ul>";
         while ($rows = mysql_fetch_array($result)) {
-            $supervisores .= "<a href=\"gerirAS_Show_supervisor.php?supcode=" . $rows['supcode'] . "&page_p=1\" >";
-            $supervisores .= $rows['supcode'];
-            $supervisores .= "</a>, ";
+            $supervisores .= "<li><a href=\"gerirAS_Show_supervisor.php?supcode=" . $rows['supcode'] . "&page_p=1\" >";
+            $supervisores .= $rows['name'];
+            $supervisores .= "</a></li>";
         }
         echo "<td class=\"user\">" . $supervisores . "</td>";
+        echo "<ul>";
 
         echo "</tr>";
     }

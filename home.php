@@ -25,7 +25,7 @@
 			   <?php
 				  require_once 'indexing/functions.php';
 				  require_once 'ini.php';
-				  var_dump(loadIndex($indexPath));
+				  loadIndex($indexPath);
 			   ?>
 			   <p>Dizer alguma coisa sobre o que é pretendido com este repositório.</p>
 			   <br/>

@@ -1,9 +1,9 @@
 <?php
    session_start();
-   if (isset($_SESSION['username']) && isset($_SESSION['type']) && $_SESSION['type'] == 'p') {
-	  header("Location: ../home.php");
-   }  
-   else if (!isset($_SESSION['username'])) {
+   //if (isset($_SESSION['username']) && isset($_SESSION['type']) && $_SESSION['type'] == 'p') {
+	  //header("Location: ../home.php");
+	  //}  
+   if (!isset($_SESSION['username'])) {
 	  $_SESSION['type'] = 'u'; // Unknown
    }
 ?>

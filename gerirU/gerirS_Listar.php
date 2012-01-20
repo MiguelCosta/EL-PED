@@ -1,7 +1,7 @@
 <?php
 session_start();
 if (isset($_SESSION['username']) && isset($_SESSION['type']) && $_SESSION['type'] == 'p') {
-    header("Location: ../home.php");
+    //header("Location: ../home.php");
 } else if (!isset($_SESSION['username'])) {
     $_SESSION['type'] = 'u'; // Unknown
 }
@@ -44,8 +44,16 @@ if (isset($_SESSION['username']) && isset($_SESSION['type']) && $_SESSION['type'
 
                             $max = $page_p * $num_proj;
                             $min = $max - $num_proj;
+
                             if ($_SESSION['type'] == 'a') {
+                                // se for administrador pode ver tudo
                                 $sql = "SELECT * FROM Project ORDER BY subdate DESC LIMIT $min , $num_proj";
+                            } elseif ($_SESSION['type'] == 'p') {
+                                // se for produtor, pode ver os seus projetos (mesmo que privados) e os publicos
+                                $sql = "SELECT * FROM Project WHERE (remove=0 AND private=0) OR projcode IN (
+                                           SELECT projcode FROM Deposits WHERE username='" . $_SESSION['username'] . "') 
+                                        GROUP BY projcode ORDER BY subdate DESC LIMIT $min , $num_proj";
+                                //echo "$sql";
                             } else {
                                 $sql = "SELECT * FROM Project WHERE remove=0 AND private=0 ORDER BY subdate DESC LIMIT $min , $num_proj";
                             }

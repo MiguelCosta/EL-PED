@@ -1,9 +1,7 @@
 <?php
 //if (!isset($_SESSION))
 session_start();
-if (isset($_SESSION['username']) && isset($_SESSION['type']) && $_SESSION['type'] == 'p') {
-    header("Location: ../home.php");
-} else if (!isset($_SESSION['username'])) {
+if (!isset($_SESSION['username'])) {
     $_SESSION['type'] = 'u'; // Unknown
 }
 ?>
@@ -64,16 +62,16 @@ if (isset($_SESSION['username']) && isset($_SESSION['type']) && $_SESSION['type'
                             if ($_SESSION['type'] == 'a') {
                                 // se for um administrador
                                 if ($remove == 1) {
-                                echo "<b>Atenção:</b> Este projecto já foi removido.<br/>";
+                                    echo "<b>Atenção:</b> Este projecto já foi removido.<br/>";
                                 }
                                 if ($private == 1) {
-                                echo "<b>Atenção:</b> Este projecto é privado.<br/>";
+                                    echo "<b>Atenção:</b> Este projecto é privado.<br/>";
                                 }
                                 require_once ('forms/showProject.php');
-                                } elseif ($private == 0 && $remove == 0) {
+                            } elseif ($private == 0 && $remove == 0) {
                                 // se não foi removido nem é privado mostra
                                 require_once ('forms/showProject.php');
-                                } elseif (isset ($_SESSION['username'])) {
+                            } elseif (isset($_SESSION['username'])) {
                                 if ($_SESSION['username'] == $username && $remove == 0) {
                                     // se foi submetido pela pessoa que está com login
                                     if ($private == 1) {

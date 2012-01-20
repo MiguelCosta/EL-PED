@@ -1,9 +1,7 @@
 <?php
 session_start();
-if (isset($_SESSION['username']) && isset($_SESSION['type']) && $_SESSION['type'] == 'p') {
+if (!isset($_SESSION['username']) || !isset($_SESSION['type']) || $_SESSION['type'] != 'a') {
     header("Location: ../home.php");
-} else if (!isset($_SESSION['username'])) {
-    $_SESSION['type'] = 'u'; // Unknown
 }
 ?>
 

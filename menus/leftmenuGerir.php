@@ -36,6 +36,14 @@
             }
             ?>
         </ul>
+        <?php
+            if ($_SESSION['type'] == 'a') {
+                echo "<h3>Exportar</h3>";
+                echo "<ul>";
+                echo "<li><a href=\"gerirExportar.php\">Exportar para zip</a></li>";
+                echo "</ul>";
+            }
+            ?>
     </div>
     <div id="leftmenu_bottom"></div>
 </div>

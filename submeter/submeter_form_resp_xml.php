@@ -162,9 +162,9 @@ if (!isset($_SESSION['username']) || !$_SESSION['username'] || ((isset($_SESSION
                             $mes = date("m");
                             $dia = date("d");
                             $md5_xml = trim(md5_file($xml_path));
-                            $local_projeto = "../uploads/$ano/$mes/$dia/$md5_xml/";
+                            $local_projeto = "../uploads/bd/$ano/$mes/$dia/$md5_xml/";
                             //este é o que vai ficar na base de dados
-                            $local_projeto_bd = "$ano/$mes/$dia/$md5_xml/";
+                            $local_projeto_bd = "bd/$ano/$mes/$dia/$md5_xml/";
 
                             // verifica se já existe um project record praticamente igual $keyname
                             $sql = "SELECT projcode FROM Project WHERE keyname='$keyname' AND title='$title' AND subtitle='$subtitle' AND abstract='$abstract'";
@@ -267,14 +267,6 @@ if (!isset($_SESSION['username']) || !$_SESSION['username'] || ((isset($_SESSION
                             /* _________________________________________________________ */
                             /*                       FICHEIROS                           */
                             // mover os ficheiros de sítio
-                            $ano = date("Y");
-                            $mes = date("m");
-                            $dia = date("d");
-                            $md5_xml = trim(md5_file($xml_path));
-                            $local_projeto = "../uploads/$ano/$mes/$dia/$md5_xml/";
-                            //este é o que vai ficar na base de dados
-                            $local_projeto_bd = "$ano/$mes/$dia/$md5_xml/";
-
                             // verifica se a pasta já existe ou não
                             if (!is_dir($local_projeto)) {
                                 if (!mkdir($local_projeto, 0777, true)) {

@@ -62,7 +62,7 @@ if (isset($_SESSION['username']) && isset($_SESSION['type']) && $_SESSION['type'
                                     Zip($origem, $destino);
                                     ?>
                                     <div id="download">
-                                        <a href="<? echo $destino; ?>">
+                                        <a href="getFile.php?file=<? echo $destino; ?>">
                                             <input type="image" src="../css/images/zip2.png"/><br/>
                                             <b>Clique para guardar o ficheiro no seu computador.</b>
                                         </a>

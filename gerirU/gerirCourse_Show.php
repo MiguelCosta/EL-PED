@@ -26,20 +26,22 @@ if (!isset($_SESSION['username'])) {
             <div id="content">
                 <div id="content_top"></div>
                 <div id="content_main">
-                    <h2>Detalhes do Curso <?php echo $_REQUEST['id']; ?></h2>
-                    <br/>
-                    <br/>
+                    <h2>Detalhes do Curso</h2>
+
                     <div id="containt_main_users">
                         <?php
                         if (!$con) {
                             echo "<h3>Erro ao ligar ao servidor.</h3><br/>" . mysql_error();
                         } else {
                             $coursecode = $_REQUEST['id'];
+                            $coursename = "";
+                            $sql = "SELECT coursedescription FROM Course WHERE coursecode = '$coursecode'";
+                            $res = mysql_query($sql, $con);
+                            while ($reg = mysql_fetch_array($res)) {
+                                $coursename = $reg['coursedescription'];
+                            }
 
-                            echo "falta listar todas as pessaos de cada curso! e colocar algumas estatiscas ou assim";
-                            echo "<br/>";
-                            echo "ID: $coursecode";
-
+                            $sql = "";
                             if ($_SESSION['type'] == 'a') {
                                 // se for administrador pode ver tudo
                                 $sql = "SELECT * FROM Project WHERE coursecode='$coursecode' ORDER BY subdate DESC";
@@ -54,7 +56,12 @@ if (!isset($_SESSION['username'])) {
                             }
                             //echo "$sql";
                             $res = mysql_query($sql, $con);
-                            submission_to_table("Submissões", $res);
+                            $count = mysql_num_rows($res);
+                            if ($count > 0) {
+                                submission_to_table("Submissões do curso $coursename", $res);
+                            } else {
+                                echo "<div class=\"failure\">Não há projectos submetidos por este curso.</div>";
+                            }
                         }
                         ?>
                     </div>
@@ -63,9 +70,9 @@ if (!isset($_SESSION['username'])) {
                 </div>
                 <div id="content_bottom"></div>
 
-<?php
-require_once '../menus/footer.php';
-?>
+                <?php
+                require_once '../menus/footer.php';
+                ?>
             </div>
         </div>
     </body>

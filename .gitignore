@@ -3,7 +3,9 @@ uploads
 uploads/*
 nbproject
 nbproject/*
-data
-data/*
 tmp
 tmp/*
+uploads
+uploads/*
+data
+data/*

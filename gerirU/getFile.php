@@ -56,19 +56,24 @@
 	  readfile("$filename");
 
 	  include '../ini.php';
-	  $projcode = $_REQUEST['projcode'];
+	  
+	  $tipo = $_REQUEST['tipo'];
 	  $username = isset($_SESSION['username'])?$_SESSION['username']:"Unknown";
 	  $name = isset($_SESSION['name'])?$_SESSION['name']:"Unknown";
 
-	  // Atualizacao dos Downloads na BD
-	  $sql = "INSERT INTO Downloads(username, projcode, datahora) VALUES ('".$username."', $projcode, NOW())";
-	  mysql_query($sql, $con) or die(mysql_error());
-
-	  // Insercao no registo de logs
-	  log_insert($username, $name, agora(), $log_msg["dis_exp"]["act"], $log_msg["dis_exp"]["desc"]." $projcode");
+          if($tipo == "exportar"){
+              // download de todo o repositorio
+            log_insert($username, $name, agora(), $log_msg["dis_exp_tot"]["act"], $log_msg["dis_exp_tot"]["desc"]);
+            exit();
+          }
           
-          // download de todo o repositorio
-          log_insert($username, $name, agora(), $log_msg["dis_exp_tot"]["act"], $log_msg["dis_exp_tot"]["desc"]);
+          // Atualizacao dos Downloads na BD
+          $projcode = $_REQUEST['projcode'];
+          $sql = "INSERT INTO Downloads(username, projcode, datahora) VALUES ('".$username."', $projcode, NOW())";
+          mysql_query($sql, $con) or die(mysql_error());
 
+          // Insercao no registo de logs
+          log_insert($username, $name, agora(), $log_msg["dis_exp"]["act"], $log_msg["dis_exp"]["desc"]." $projcode");
 	  exit();
+          
    ?>

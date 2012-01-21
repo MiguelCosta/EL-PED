@@ -3,6 +3,41 @@
   <log>
     <username>miguel</username>
     <name>Miguel Costa</name>
+    <date>2012-01-21T15:36:04</date>
+    <action>Administracao:Listagem:Projetos</action>
+    <description>Tarefa de Administracao: Listagem de Projetos</description>
+  </log>
+  <log>
+    <username>miguel</username>
+    <name>Miguel Costa</name>
+    <date>2012-01-21T15:35:29</date>
+    <action>Administracao:Listagem:Utilizador</action>
+    <description>Tarefa de Administracao: Listagem de Utilizadores</description>
+  </log>
+  <log>
+    <username>miguel</username>
+    <name>Miguel Costa</name>
+    <date>2012-01-21T15:35:27</date>
+    <action>Administracao:Listagem:Utilizador</action>
+    <description>Tarefa de Administracao: Listagem de Utilizadores</description>
+  </log>
+  <log>
+    <username>miguel</username>
+    <name>Miguel Costa</name>
+    <date>2012-01-21T15:35:21</date>
+    <action>Administracao:Listagem:AutorSupervisor</action>
+    <description>Tarefa de Administracao: Listagem de Autores e Supervisores</description>
+  </log>
+  <log>
+    <username>miguel</username>
+    <name>Miguel Costa</name>
+    <date>2012-01-21T15:35:12</date>
+    <action>Administracao:Listagem:Projetos</action>
+    <description>Tarefa de Administracao: Listagem de Projetos</description>
+  </log>
+  <log>
+    <username>miguel</username>
+    <name>Miguel Costa</name>
     <date>2012-01-21T15:10:48</date>
     <action>Login</action>
     <description>Login no sistema pelo Utilizador miguel</description>

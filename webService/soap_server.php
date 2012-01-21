@@ -84,7 +84,7 @@ function get_kw($kw) {
 
     if ($count_pr == 0) {
         // não há resultado
-        //return "ERRO 1002";
+        return "ERRO 1002";
     }
     $resultado = "<prs>";
     while ($row = mysql_fetch_array($res)) {

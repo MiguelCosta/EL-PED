@@ -9,7 +9,7 @@ if (!isset($_SESSION['username'])) {
 <html>
     <head>
         <title>Web Service</title>
-        <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-15"/>
+        <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-15">
         <link rel="stylesheet" type="text/css" href="../css/style.css" />
     </head>
     <body>
@@ -25,12 +25,12 @@ if (!isset($_SESSION['username'])) {
             <div id="content">
                 <div id="content_top"></div>
                 <div id="content_main">
-                    <h2>Web Service - get_project</h2>
+                    <h2>Web Service - Key Word</h2>
                     <br/>
                     <div id="containt_main_users">
 
                         <?php
-                        require_once 'soap_client_get_project.php';
+                        require_once 'soap_client_get_kw.php';
                         ?>
 
                     </div>

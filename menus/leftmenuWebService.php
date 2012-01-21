@@ -6,7 +6,7 @@
         <h3>Serviços Disponíveis</h3>
         <ul>
             <li><a href="get_project.php">Pedir Projecto</a></li>
-            <li><a href="submeter_zip.php">Projetos com Key Words</a></li>
+            <li><a href="get_kw.php">Projetos com Key Words</a></li>
         </ul>
     </div>
     <div id="leftmenu_bottom"></div>

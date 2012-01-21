@@ -3,6 +3,125 @@
   <log>
     <username>miguel</username>
     <name>Miguel Costa</name>
+    <date>2012-01-21T15:10:48</date>
+    <action>Login</action>
+    <description>Login no sistema pelo Utilizador miguel</description>
+  </log>
+  <log>
+    <username>miguel</username>
+    <name>Miguel Costa</name>
+    <date>2012-01-21T04:41:35</date>
+    <action>Login</action>
+    <description>Login no sistema pelo Utilizador miguel</description>
+  </log>
+  <log>
+    <username>miguel</username>
+    <name>Miguel Costa</name>
+    <date>2012-01-21T04:17:11</date>
+    <action>Login</action>
+    <description>Login no sistema pelo Utilizador miguel</description>
+  </log>
+  <log>
+    <username>miguel</username>
+    <name>Miguel Costa</name>
+    <date>2012-01-21T04:16:58</date>
+    <action>Login</action>
+    <description>Login no sistema pelo Utilizador miguel</description>
+  </log>
+  <log>
+    <username>miguel</username>
+    <name>Miguel Costa</name>
+    <date>2012-01-21T04:16:16</date>
+    <action>Login</action>
+    <description>Login no sistema pelo Utilizador miguel</description>
+  </log>
+  <log>
+    <username>miguel</username>
+    <name>Miguel Costa</name>
+    <date>2012-01-21T04:14:50</date>
+    <action>Login</action>
+    <description>Login no sistema pelo Utilizador miguel</description>
+  </log>
+  <log>
+    <username>miguel</username>
+    <name>Miguel Costa</name>
+    <date>2012-01-21T04:11:10</date>
+    <action>Login</action>
+    <description>Login no sistema pelo Utilizador miguel</description>
+  </log>
+  <log>
+    <username>miguel</username>
+    <name>Miguel Costa</name>
+    <date>2012-01-21T03:58:37</date>
+    <action>Administracao:Listagem:Projeto</action>
+    <description>Tarefa de Administracao: Listagem do Projeto 2</description>
+  </log>
+  <log>
+    <username>miguel</username>
+    <name>Miguel Costa</name>
+    <date>2012-01-21T03:58:26</date>
+    <action>Administracao:Listagem:Autor</action>
+    <description>Tarefa de Administracao: Listagem do Autor 4</description>
+  </log>
+  <log>
+    <username>miguel</username>
+    <name>Miguel Costa</name>
+    <date>2012-01-21T03:56:50</date>
+    <action>Administracao:Listagem:Autor</action>
+    <description>Tarefa de Administracao: Listagem do Autor 6</description>
+  </log>
+  <log>
+    <username>miguel</username>
+    <name>Miguel Costa</name>
+    <date>2012-01-21T03:56:46</date>
+    <action>Administracao:Listagem:Autor</action>
+    <description>Tarefa de Administracao: Listagem do Autor 4</description>
+  </log>
+  <log>
+    <username>miguel</username>
+    <name>Miguel Costa</name>
+    <date>2012-01-21T03:21:16</date>
+    <action>Login</action>
+    <description>Login no sistema pelo Utilizador miguel</description>
+  </log>
+  <log>
+    <username>bruno</username>
+    <name>Bruno Azevedo</name>
+    <date>2012-01-21T03:20:17</date>
+    <action>Login</action>
+    <description>Login no sistema pelo Utilizador bruno</description>
+  </log>
+  <log>
+    <username>miguel</username>
+    <name>Miguel Costa</name>
+    <date>2012-01-21T03:20:10</date>
+    <action>Login</action>
+    <description>Login no sistema pelo Utilizador miguel</description>
+  </log>
+  <log>
+    <username>miguel</username>
+    <name>Miguel Costa</name>
+    <date>2012-01-21T03:16:23</date>
+    <action>Login</action>
+    <description>Login no sistema pelo Utilizador miguel</description>
+  </log>
+  <log>
+    <username>miguel</username>
+    <name>Miguel Costa</name>
+    <date>2012-01-21T03:05:56</date>
+    <action>Administracao:Listagem:Autor</action>
+    <description>Tarefa de Administracao: Listagem do Autor 4</description>
+  </log>
+  <log>
+    <username>miguel</username>
+    <name>Miguel Costa</name>
+    <date>2012-01-21T02:30:08</date>
+    <action>Administracao:Listagem:AutorSupervisor</action>
+    <description>Tarefa de Administracao: Listagem de Autores e Supervisores</description>
+  </log>
+  <log>
+    <username>miguel</username>
+    <name>Miguel Costa</name>
     <date>2012-01-21T02:14:02</date>
     <action>Login</action>
     <description>Login no sistema pelo Utilizador miguel</description>

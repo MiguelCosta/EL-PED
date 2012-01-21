@@ -147,7 +147,7 @@ if (!isset($_SESSION['username']) || !$_SESSION['username'] || ((isset($_SESSION
                                   var_dump($files_zip);
                                  */
                                 // verifica se os ficheiros que estão no xml, também estão dentro do zip
-                                if ($valido) {
+                                if ($valido && isset ($ficheiros2)) {
                                     foreach ($ficheiros2 as $f) {
                                         $encontrado = false;
                                         foreach ($files_zip as $f_z) {

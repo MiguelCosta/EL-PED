@@ -19,7 +19,7 @@ if (!isset($_SESSION['username']) || !$_SESSION['username'] || ((isset($_SESSION
             include '../menus/menu_submeter.php';
             include '../menus/leftmenuSubmeter.php';
             include '../ini.php';
-			require_once '../indexing/functions.php';
+            require_once '../indexing/functions.php';
             ?>
 
 
@@ -104,19 +104,21 @@ if (!isset($_SESSION['username']) || !$_SESSION['username'] || ((isset($_SESSION
                             /**
                              * DELIVERABLES
                              */
-                            foreach ($xml->deliverables->children() as $child) {
-                                if ($child->getName() == "deliverable") {
-                                    foreach ($child->children() as $child_s) {
-                                        if ($child_s->getName() == "description") {
-                                            $description = $child_s;
-                                            //echo "$description";
+                            if ($xml->deliverables) {
+                                foreach ($xml->deliverables->children() as $child) {
+                                    if ($child->getName() == "deliverable") {
+                                        foreach ($child->children() as $child_s) {
+                                            if ($child_s->getName() == "description") {
+                                                $description = $child_s;
+                                                //echo "$description";
+                                            }
+                                            if ($child_s->getName() == "path") {
+                                                $path = $child_s;
+                                                //echo "$path";
+                                            }
                                         }
-                                        if ($child_s->getName() == "path") {
-                                            $path = $child_s;
-                                            //echo "$path";
-                                        }
+                                        $deliverables["$path"] = $description;
                                     }
-                                    $deliverables["$path"] = $description;
                                 }
                             }
 
@@ -183,9 +185,16 @@ if (!isset($_SESSION['username']) || !$_SESSION['username'] || ((isset($_SESSION
                                 //echo "$msg";
                                 return;
                             }
+                            $autor = $authors_emails[0];
+                            $course = 0;
+                            $sql = "SELECT coursecode FROM Author WHERE email='$autor'";
+                            $result = mysqli_query($link, $sql);
+                            while ($rows = mysqli_fetch_row($result)) {
+                                $course = $rows[0];
+                            }
 
                             // caso não existe informação parecida na Base de Dados, vai inseri-la
-                            $sql = "INSERT INTO `PED`.`Project` VALUES (NULL, '$keyname', '$title', '$subtitle', '$bdate', '$edate', NOW(), '$abstract', '1', '$local_projeto_bd','0', '$private')";
+                            $sql = "INSERT INTO `PED`.`Project` VALUES (NULL, '$keyname', '$title', '$subtitle', '$bdate', '$edate', NOW(), '$abstract', '$course', '$local_projeto_bd','0', $private)";
                             //echo "$sql";
                             $result = mysqli_query($link, $sql);
 
@@ -295,23 +304,22 @@ if (!isset($_SESSION['username']) || !$_SESSION['username'] || ((isset($_SESSION
                                 $result = mysqli_query($link, $sql);
                             }
 
-							$sql = "INSERT INTO Deposits(username, projcode) VALUES ('" . $_SESSION['username'] . "', $new_projcode)";
+                            $sql = "INSERT INTO Deposits(username, projcode) VALUES ('" . $_SESSION['username'] . "', $new_projcode)";
                             $result = mysqli_query($link, $sql);
 
                             mysqli_commit($link);
 
-							$success = mysqli_autocommit($link, TRUE);
+                            $success = mysqli_autocommit($link, TRUE);
 
                             mysqli_close($link);
-							if ($success) {
-								// Atualizacao do indice
-								global $indexPath;
-								updateIndexNew($indexPath, $new_projcode);
+                            if ($success) {
+                                // Atualizacao do indice
+                                global $indexPath;
+                                updateIndexNew($indexPath, $new_projcode);
 
-								// Insercao no registo de logs
-								log_insert($_SESSION['username'], $_SESSION['name'], agora(), $lm["ing_sip"]["act"], $lm["ing_sip"]["desc"] . " " . $_SESSION['username']);
-							 }
-
+                                // Insercao no registo de logs
+                                log_insert($_SESSION['username'], $_SESSION['name'], agora(), $lm["ing_sip"]["act"], $lm["ing_sip"]["desc"] . " " . $_SESSION['username']);
+                            }
                             ?>
                             <div class="clr"></div>
                             <div class="success">Informação submetida com sucesso!</div>

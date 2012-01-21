@@ -41,7 +41,7 @@
    $sip = "SIP";
 
    // Hash que contem todas as accoes e respectivas descricoes que podem ser escritas no log
-   $log_msg = array("lis_uti" => array("act" => "$adm:$lis:$uti", "desc" => "Tarefa de $adm: $lis de $uti"."es"), "ins_uti" => array("act" => "$adm:$ins:$uti", "desc" => "Tarefa de $adm: $ins do $uti"), "alt_uti" => array("act" => "$adm:$alt:$uti", "desc" => "Tarefa de $adm: $alt do $uti"), "rem_uti" => array("act" => "$adm:$rem:$uti", "desc" => "Tarefa de $adm: $rem do $uti"), "lis_as" => array("act" => "$adm:$lis:$aut$sup", "desc" => "Tarefa de $adm: $lis de $aut"."es e $sup"."es"), "ins_aut" => array("act" => "$adm:$ins:$aut", "desc" => "Tarefa de $adm: $ins do $aut"), "alt_aut" => array("act" => "$adm:$alt:$aut", "desc" => "Tarefa de $adm: $alt do $aut"), "rem_aut" => array("act" => "$adm:$rem:$aut", "desc" => "Tarefa de $adm: $rem do $aut"), "ins_sup" => array("act" => "$adm:$ins:$sup", "desc" => "Tarefa de $adm: $ins do $sup"), "alt_sup" => array("act" => "$adm:$alt:$sup", "desc" => "Tarefa de $adm: $alt do $sup"), "rem_sup" => array("act" => "$adm:$rem:$sup", "desc" => "Tarefa de $adm: $rem do $sup"), "lis_aut" => array("act" => "$adm:$lis:$aut", "desc" => "Tarefa de $adm: $lis do $aut"), "lis_sup" => array("act" => "$adm:$lis:$sup", "desc" => "Tarefa de $adm: $lis do $sup"), "lis_pros" => array("act" => "$adm:$lis:$pro"."s", "desc" => "Tarefa de $adm: $lis de $pro"."s"), "lis_pro" => array("act" => "$adm:$lis:$pro", "desc" => "Tarefa de $adm: $lis do $pro"), "lis_dis_as" => array("act" => "$dis:$lis:$aut$sup", "desc" => "Tarefa de $dis: $lis de $aut"."es e $sup"."es"), "lis_dis_aut" => array("act" => "$dis:$lis:$aut", "desc" => "Tarefa de $dis: $lis do $aut"), "lis_dis_sup" => array("act" => "$dis:$lis:$sup", "desc" => "Tarefa de $dis: $lis do $sup"), "lis_dis_pros" => array("act" => "$dis:$lis:$pro"."s", "desc" => "Tarefa de $dis: $lis de $pro"."s"), "lis_dis_pro" => array("act" => "$dis:$lis:$pro", "desc" => "Tarefa de $dis: $lis do $pro"),"lis_dis_uti" => array("act" => "$dis:$lis:$uti", "desc" => "Tarefa de $dis: $lis de $uti"."es"), "login" => array("act" => "Login", "desc" => "Login no sistema pelo $uti"), "ing_sip" => array("act" => "$ing:$sip", "desc" => "Tarefa de $ing de um $sip no sistema pelo $uti"), "dis_exp" => array("act" => "$dis:$exp", "desc" => "Tarefa de $dis: $exp do projeto"), "rem_pro" => array("act" => "$adm:$rem:$pro", "desc" => "Tarefa de $adm: $rem do $pro"));
+   $log_msg = array("lis_uti" => array("act" => "$adm:$lis:$uti", "desc" => "Tarefa de $adm: $lis de $uti"."es"), "ins_uti" => array("act" => "$adm:$ins:$uti", "desc" => "Tarefa de $adm: $ins do $uti"), "alt_uti" => array("act" => "$adm:$alt:$uti", "desc" => "Tarefa de $adm: $alt do $uti"), "rem_uti" => array("act" => "$adm:$rem:$uti", "desc" => "Tarefa de $adm: $rem do $uti"), "lis_as" => array("act" => "$adm:$lis:$aut$sup", "desc" => "Tarefa de $adm: $lis de $aut"."es e $sup"."es"), "ins_aut" => array("act" => "$adm:$ins:$aut", "desc" => "Tarefa de $adm: $ins do $aut"), "alt_aut" => array("act" => "$adm:$alt:$aut", "desc" => "Tarefa de $adm: $alt do $aut"), "rem_aut" => array("act" => "$adm:$rem:$aut", "desc" => "Tarefa de $adm: $rem do $aut"), "ins_sup" => array("act" => "$adm:$ins:$sup", "desc" => "Tarefa de $adm: $ins do $sup"), "alt_sup" => array("act" => "$adm:$alt:$sup", "desc" => "Tarefa de $adm: $alt do $sup"), "rem_sup" => array("act" => "$adm:$rem:$sup", "desc" => "Tarefa de $adm: $rem do $sup"), "lis_aut" => array("act" => "$adm:$lis:$aut", "desc" => "Tarefa de $adm: $lis do $aut"), "lis_sup" => array("act" => "$adm:$lis:$sup", "desc" => "Tarefa de $adm: $lis do $sup"), "lis_pros" => array("act" => "$adm:$lis:$pro"."s", "desc" => "Tarefa de $adm: $lis de $pro"."s"), "lis_pro" => array("act" => "$adm:$lis:$pro", "desc" => "Tarefa de $adm: $lis do $pro"), "lis_dis_as" => array("act" => "$dis:$lis:$aut$sup", "desc" => "Tarefa de $dis: $lis de $aut"."es e $sup"."es"), "lis_dis_aut" => array("act" => "$dis:$lis:$aut", "desc" => "Tarefa de $dis: $lis do $aut"), "lis_dis_sup" => array("act" => "$dis:$lis:$sup", "desc" => "Tarefa de $dis: $lis do $sup"), "lis_dis_pros" => array("act" => "$dis:$lis:$pro"."s", "desc" => "Tarefa de $dis: $lis de $pro"."s"), "lis_dis_pro" => array("act" => "$dis:$lis:$pro", "desc" => "Tarefa de $dis: $lis do $pro"),"lis_dis_uti" => array("act" => "$dis:$lis:$uti", "desc" => "Tarefa de $dis: $lis de $uti"."es"), "login" => array("act" => "Login", "desc" => "Login no sistema pelo $uti"), "ing_sip" => array("act" => "$ing:$sip", "desc" => "Tarefa de $ing de um $sip no sistema pelo $uti"), "dis_exp" => array("act" => "$dis:$exp", "desc" => "Tarefa de $dis: $exp do projeto"), "dis_exp_tot" => array("act" => "$dis:$exp:Total", "desc" => "Tarefa de $dis: $exp do do repositório"), "rem_pro" => array("act" => "$adm:$rem:$pro", "desc" => "Tarefa de $adm: $rem do $pro"));
 
 
    /* * ****************
@@ -50,6 +50,11 @@
 
    function go_back() {
 	  echo "<span class=\"go_back\"><A HREF=\"javascript:javascript:history.go(-1)\">Voltar</A></span>";
+   }
+
+   function create_cache_id($id) {
+	  $cache_id = md5('myRecord_' . $id);
+	  return $cache_id;
    }
 
    // Funcao que devolve a hora atual
@@ -250,37 +255,37 @@
 			echo "</table>";
 		 echo "</div>";
    }
-   
+
    function Zip($source, $destination) {
-    if (!extension_loaded('zip') || !file_exists($source)) {
-        return false;
-    }
+	  if (!extension_loaded('zip') || !file_exists($source)) {
+		 return false;
+	  }
 
-    $zip = new ZipArchive();
-    if (!$zip->open($destination, ZIPARCHIVE::CREATE)) {
-        return false;
-    }
+	  $zip = new ZipArchive();
+	  if (!$zip->open($destination, ZIPARCHIVE::CREATE)) {
+		 return false;
+	  }
 
-    $source = str_replace('\\', '/', realpath($source));
-    //echo "<br/>Source = $source<br/>";
-    //echo "<br/>Destino = $destination<br/>";
+	  $source = str_replace('\\', '/', realpath($source));
+	  //echo "<br/>Source = $source<br/>";
+	  //echo "<br/>Destino = $destination<br/>";
 
-    if (is_dir($source) === true) {
-        $files = new RecursiveIteratorIterator(new RecursiveDirectoryIterator($source), RecursiveIteratorIterator::SELF_FIRST);
+	  if (is_dir($source) === true) {
+		 $files = new RecursiveIteratorIterator(new RecursiveDirectoryIterator($source), RecursiveIteratorIterator::SELF_FIRST);
 
-        foreach ($files as $file) {
-            $file = str_replace('\\', '/', realpath($file));
+		 foreach ($files as $file) {
+			$file = str_replace('\\', '/', realpath($file));
 
-            if (is_dir($file) === true) {
-                $zip->addEmptyDir(str_replace($source . '/', '', $file . '/'));
-            } else if (is_file($file) === true) {
-                $zip->addFromString(str_replace($source . '/', '', $file), file_get_contents($file));
-            }
-        }
-    } else if (is_file($source) === true) {
-        $zip->addFromString(basename($source), file_get_contents($source));
-    }
+			if (is_dir($file) === true) {
+			   $zip->addEmptyDir(str_replace($source . '/', '', $file . '/'));
+			} else if (is_file($file) === true) {
+			   $zip->addFromString(str_replace($source . '/', '', $file), file_get_contents($file));
+			}
+		 }
+	  } else if (is_file($source) === true) {
+		 $zip->addFromString(basename($source), file_get_contents($source));
+	  }
 
-    return $zip->close();
-}
+	  return $zip->close();
+   }
 ?>

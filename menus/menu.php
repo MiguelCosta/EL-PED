@@ -16,6 +16,6 @@
 	  ?>
 	  <li class="menuitem"><a href="#">Acerca</a></li>
 	  <li class="menuitem"><a href="#">Contactos</a></li>
-	  <?php require_once('indexing/search.php'); ?>
+	  <?php basename(getcwd()) == 'PED-Project'?require_once('indexing/search.php'):require_once('../indexing/search.php'); ?>
    </ul>
 </div>

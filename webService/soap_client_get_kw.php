@@ -19,7 +19,16 @@ if ($resultado == "ERRO 1002") {
     return;
 }
 
-var_dump($resultado);
+$doc = new DOMDocument();
+$doc->loadXML(utf8_encode($resultado));
+
+$xslt = new XSLTProcessor();
+$XSL = new DOMDocument();
+$XSL->load('../util/list_webService.xsl', LIBXML_NOCDATA);
+$xslt->importStylesheet($XSL);
+echo $xslt->transformToXML($doc);
+
+//var_dump($resultado);
 //echo "RESULTADO: $resultado";
 
 

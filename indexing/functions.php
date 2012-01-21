@@ -10,21 +10,20 @@
 
    /** Obtem o indice que se encontra no $indexPath **/
    function getIndex($ixP) {
-	  //global $indexPath;
 	  if(is_dir($ixP) == 1) {
 		 // Abre indice existente
 		 $index = Zend_Search_Lucene::open($ixP);
 	  }   
 	  else {
 		 // Cria um novo indice
-		 $index = Zend_Search_Lucene::create($ixP);
+		 //$index = Zend_Search_Lucene::create($ixP);
+		 $index = loadIndex($ixP);
 	  }   
 	  return $index;
    } 
 
    /** Cria um novo indice com todos os projetos da BD  **/
    function loadIndex($ixP) {
-	  //if(is_dir($ixP) !== 1) system("rm -rf $ixP");
 	  $index = Zend_Search_Lucene::create($ixP);
 
 	  // funcao que recolhe os dados da Base de Dados
@@ -122,7 +121,7 @@
 
 	  $doc->addField(Zend_Search_Lucene_Field::Keyword('projcode', $projcode, 'iso-8859-1'));
 	  $doc->addField(Zend_Search_Lucene_Field::Keyword('keyname',$reg['keyname'], 'iso-8859-1'));
-	  //$doc->addField(Zend_Search_Lucene_Field::UnIndexed('subdate',$reg['subdate'], 'iso-8859-1'));
+	  $doc->addField(Zend_Search_Lucene_Field::UnIndexed('subdate',$reg['subdate'], 'iso-8859-1'));
 	  $doc->addField(Zend_Search_Lucene_Field::Keyword('privat',$reg['private'], 'iso-8859-1'));
 	  $doc->addField(Zend_Search_Lucene_Field::Text('title',$reg['title'], 'iso-8859-1'));
 	  $doc->addField(Zend_Search_Lucene_Field::UnStored('subtitle',$reg['subtitle'], 'iso-8859-1'));
@@ -136,7 +135,7 @@
 		 $ai .= $reg2['id'].",";
 	  }
 
-	  $doc->addField(Zend_Search_Lucene_Field::UnStored('authorcode',substr($ac, 0, (strLen($ac) - 1))));
+	  $doc->addField(Zend_Search_Lucene_Field::UnIndexed('authorcode',substr($ac, 0, (strLen($ac) - 1))));
 	  $doc->addField(Zend_Search_Lucene_Field::Text('author',substr($a, 0, (strLen($a) - 1)), 'iso-8859-1'));
 	  $doc->addField(Zend_Search_Lucene_Field::Text('authorid',substr($ai, 0, (strLen($ai) - 1)), 'iso-8859-1'));
 

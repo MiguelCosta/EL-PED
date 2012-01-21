@@ -1,6 +1,6 @@
 <?php
+   require_once('Zend/Cache.php');
    if (!isset($_SESSION)) session_start();
-   require_once('Zend/Paginator.php');
 
    $con = mysql_connect("localhost", "miguel", "miguel");
    mysql_select_db("PED", $con);
@@ -12,6 +12,7 @@
 
    // variavel que indica o caminho onde os indices do Zend_Search_Lucene estao
    basename(getcwd()) == 'PED-Project'?$indexPath = 'data/docindex':$indexPath='../data/docindex';
+
 
    /* * ****************
    * CONSTANTES *
@@ -50,11 +51,6 @@
 
    function go_back() {
 	  echo "<span class=\"go_back\"><A HREF=\"javascript:javascript:history.go(-1)\">Voltar</A></span>";
-   }
-
-   function create_cache_id($id) {
-	  $cache_id = md5('myRecord_' . $id);
-	  return $cache_id;
    }
 
    // Funcao que devolve a hora atual

@@ -68,26 +68,51 @@
 	  $count = count($hits);
 	  $msg .= "<h3>Encontrados $count resultados para a pesquisa \"$query\".</h3></br>";
 	  if($count){ // Se nenhum resultado foi encontrado, nada é imprimido
-		 /* Zend_Paginator is a flexible component for paginating collections of data and presenting that data to users. */
-		 // Inicaliza instancia 
-		 $paginator = Zend_Paginator::factory($hits);
-		 // Definine o numero da pagina que se pretende listar
-		 $paginator->setCurrentPagenumber($cur_page);
-		 // Define o numero de item a mostrar por pagina
-		 $paginator->setItemCountPerPage($per_page);
+	  /* Zend_Paginator is a flexible component for paginating collections of data and presenting that data to users. */
+	  // Inicaliza instancia 
+	  $paginator = Zend_Paginator::factory($hits);
+	  // Definine o numero da pagina que se pretende listar
+	  $paginator->setCurrentPagenumber($cur_page);
+	  // Define o numero de item a mostrar por pagina
+	  $paginator->setItemCountPerPage($per_page);
 
-		 foreach ($paginator as $hit) { // percorre os resultados da pagina $cur_page
-		 $msg .= "<h3>Projeto:<a href=\"../gerirU/gerirS_Show.php?projcode=".$hit->projcode."\">" . $hit->projcode . "</a> -> ".$hit->keyname."</h3>";
-		 $msg .= "<p>Título: ".($hit->title)."</p>";
-		 $msg .= "<p>Autor: ".utf8_decode($hit->author)."</p></br>";
-	  }
+	  foreach ($paginator as $hit) { // percorre os resultados da pagina $cur_page
+	  $msg .= "<h3>Projeto: <a href=\"../gerirU/gerirS_Show.php?projcode=".$hit->projcode."\">" . $hit->projcode . "</a> -> ".$hit->keyname."</h3>";
+	  $msg .= "<p>Submetido em: ".date("d-m-Y", strtotime($hit->subdate))."</p>";
+	  $msg .= "<p>Título: ".$hit->title."</p>";
+	  $msg .= "<p>Autor: ".authorsTokenized($hit->author,$hit->authorcode)."</p></br>";
    }
+}
 
-   /* -------------------------------------------------------------------------------------------------------------------------- */
-   /* --------------------------------------------------- Configuration -------------------------------------------------------- */
-   /* -------------------------------------------------------------------------------------------------------------------------- */
-   $msg = page_config($msg,$count,$per_page,$cur_page,$first_btn,$previous_btn,$next_btn,$last_btn);
+/* -------------------------------------------------------------------------------------------------------------------------- */
+/* --------------------------------------------------- Configuration -------------------------------------------------------- */
+/* -------------------------------------------------------------------------------------------------------------------------- */
+$msg = page_config($msg,$count,$per_page,$cur_page,$first_btn,$previous_btn,$next_btn,$last_btn);
 }
 echo $msg;
+   }
+
+   /** Funcao que devolve uma string correspondente a todos os autores de um projeto e um link para a respetiva pagina  **/
+   function authorsTokenized($authors, $codes) {
+	  $tok = strtok($authors,",");
+	  $ma = array();
+	  while ($tok !== false) {
+		 array_push($ma,$tok);
+		 $tok = strtok(",");
+	  }
+
+	  $tok = strtok($codes,",");
+	  $mc = array();
+	  while ($tok !== false) {
+		 array_push($mc,$tok);
+		 $tok = strtok(",");
+	  }
+	  $msg="";
+
+	  for ($i = 0; $i < count($ma); $i++) {
+		 $msg .= "<a href=\"../gerirU/gerirAS_Show_author.php?authorcode=".$mc[$i]."\">".$ma[$i]."</a>, ";
+	  }
+
+	  return substr($msg, 0, (strLen($msg) - 2));
    }
 ?>

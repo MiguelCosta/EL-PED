@@ -121,6 +121,42 @@ a:hover
     color: silver;
 }
 
+/**** Search ****/
+#search
+{
+    width: 200px;
+    float:right;
+    padding:10px 60px 0 0px;
+
+}
+
+#search_form
+{
+    padding-left: 5px;
+    padding-right: 5px;
+    padding-top: 5px;
+    text-align: right;
+    border-color:#f3f3f3 #bbb #bbb #f3f3f3;
+    border-radius: 10px;
+}
+
+#search_form_text
+{
+    text-align: right;
+    width: 150px;
+    float: left;
+}
+
+#search_form_text input
+{
+    padding-left: 10px;
+    width: 100%;
+    float: left;
+    border:1px solid;
+    border-color:#f3f3f3 #bbb #bbb #f3f3f3;
+    border-radius: 10px;
+}
+
 
 #header h2
 {

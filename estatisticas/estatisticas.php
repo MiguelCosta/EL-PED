@@ -24,6 +24,7 @@ session_start();
                     <h2>Estatísticas</h2>
                     <br/>
                     <br/>
+					Aqui poderão visualizar algumas estatísticas relativas a acessos ao sistema e aos depósitos, downloads e consultas de projetos.
                 </div>
                 <div id="content_bottom"></div>
 

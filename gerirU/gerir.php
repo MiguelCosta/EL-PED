@@ -30,9 +30,9 @@
 			   <h3>Gestão de Utilizadores</h3>
 			   <p>Aqui pode realizar as tarefas de gestão relacionadas com os utilizadores.</p>
 			   <br/>
-			   <h3>Gestãpo de Submissões</h3>
-			   <p>Relativamente ás tarefas de gestão do que foi submetido, apenas os administradores
-			   pode apagar, alterar e/ou remover o que foi ingerido no repositório.</p>
+			   <h3>Gestão de Submissões</h3>
+			   <p>Relativamente às tarefas de gestão do que foi submetido, apenas os administradores
+			   podem apagar, alterar e/ou remover o que foi ingerido no repositório.</p>
 			   <br/>
 			   <br/>
 			</div>

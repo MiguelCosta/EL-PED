@@ -1,8 +1,8 @@
 <?php
-   session_start();
-   if (!isset($_SESSION['username'])) {
-	  $_SESSION['type'] = 'u'; // Unknown
-   }
+session_start();
+if (!isset($_SESSION['username'])) {
+    $_SESSION['type'] = 'u'; // Unknown
+}
 ?>
 
 <!DOCTYPE html>
@@ -32,82 +32,30 @@
                         if (!$con) {
                             echo "<h3>Erro ao ligar ao servidor.</h3><br/>" . mysql_error();
                         } else {
-                            //$page_p = $_REQUEST["page_p"];
-                            $indice = array_search("page_p", $_REQUEST);
-                            if (array_key_exists('page_p', $_REQUEST)) {
-                                $page_p = $_REQUEST["page_p"];
-                            } else {
-                                $page_p = 1;
-                            }
-
-                            $max = $page_p * $num_proj;
-                            $min = $max - $num_proj;
 
                             if ($_SESSION['type'] == 'a') {
                                 // se for administrador pode ver tudo
-                                $sql = "SELECT * FROM Project ORDER BY subdate DESC LIMIT $min , $num_proj";
+                                $sql = "SELECT * FROM Project ORDER BY subdate DESC";
                             } elseif ($_SESSION['type'] == 'p') {
                                 // se for produtor, pode ver os seus projetos (mesmo que privados) e os publicos
                                 $sql = "SELECT * FROM Project WHERE (remove=0 AND private=0) OR projcode IN (
                                            SELECT projcode FROM Deposits WHERE username='" . $_SESSION['username'] . "') 
-                                        GROUP BY projcode ORDER BY subdate DESC LIMIT $min , $num_proj";
+                                        GROUP BY projcode ORDER BY subdate DESC";
                                 //echo "$sql";
                             } else {
-                                $sql = "SELECT * FROM Project WHERE remove=0 AND private=0 ORDER BY subdate DESC LIMIT $min , $num_proj";
+                                $sql = "SELECT * FROM Project WHERE remove=0 AND private=0 ORDER BY subdate DESC";
                             }
 
                             $res = mysql_query($sql, $con);
                             submission_to_table("Submissões", $res);
-                            ?>
-                            <div id="page">
-                                <?php
-                                $page_menos = 1;
-                                $page_mais = $page_p + 1;
-                                if ($page_p > 1) {
-                                    $page_menos = $page_p - 1;
-                                } else {
-                                    $page_menos = 1;
-                                }
-                                $link_menos = "gerirS_Listar.php?page_p=$page_menos";
-                                $link_mais = "gerirS_Listar.php?page_p=$page_mais";
-                                ?>
-                                <?php
-                                if ($page_p > 1) {
-                                    ?>
-                                    <a href="<?php echo $link_menos; ?>">
-                                        <div id="page_less">
-                                        </div>
-                                    </a> 
-                                    <?php
-                                }
-                                $sql = "SELECT COUNT(projcode) AS total FROM Project WHERE remove=0";
-                                $res = mysql_query($sql, $con);
-                                $total = 0;
-                                while ($row = mysql_fetch_array($res)) {
-                                    $total = $row["total"];
-                                }
 
-                                if ($page_p * $num_proj < $total) {
-                                    ?>
-
-                                    <a href="<?php echo $link_mais; ?>">
-                                        <div id="page_more">
-                                        </div>
-                                    </a>
-
-                                    <?php
-                                    $username = isset($_SESSION['username']) ? $_SESSION['username'] : "Unknown";
-                                    $name = isset($_SESSION['name']) ? $_SESSION['name'] : "Unknown";
-
-                                    // Insercao no registo de logs
-                                    if ($_SESSION['type'] == 'a')
-                                        log_insert($username, $name, agora(), $log_msg["lis_pros"]["act"], $log_msg["lis_pros"]["desc"]);
-                                    else if ($_SESSION['type'] == 'c' || $_SESSION['type'] == 'u')
-                                        log_insert($username, $name, agora(), $log_msg["lis_dis_pros"]["act"], $log_msg["lis_dis_pros"]["desc"]);
-                                }
-                                ?>
-                            </div>
-                            <?php
+                            // Insercao no registo de logs
+                            $username = isset($_SESSION['username']) ? $_SESSION['username'] : "Unknown";
+                            $name = isset($_SESSION['name']) ? $_SESSION['name'] : "Unknown";
+                            if ($_SESSION['type'] == 'a')
+                                log_insert($username, $name, agora(), $log_msg["lis_pros"]["act"], $log_msg["lis_pros"]["desc"]);
+                            else if ($_SESSION['type'] == 'c' || $_SESSION['type'] == 'u')
+                                log_insert($username, $name, agora(), $log_msg["lis_dis_pros"]["act"], $log_msg["lis_dis_pros"]["desc"]);
                         }
                         ?>
                     </div>
@@ -154,7 +102,7 @@ function submission_to_table($titulo, $res) {
         echo "<td class=\"user\">" . $reg["title"] . "</td>";
         echo "<td class=\"user\">" . $reg["subdate"] . "</td>";
 
-        $sql ="SELECT authorcode, name FROM Author WHERE authorcode IN (
+        $sql = "SELECT authorcode, name FROM Author WHERE authorcode IN (
                 SELECT authorcode FROM ProjAut WHERE projcode='$id')";
         //echo "$sql";
         $result = mysql_query($sql);
@@ -169,7 +117,7 @@ function submission_to_table($titulo, $res) {
         echo "</ul>";
 
         //$sql = "SELECT supcode FROM ProjSup WHERE projcode='$id'";
-        $sql ="SELECT supcode, name FROM Supervisor WHERE supcode IN (
+        $sql = "SELECT supcode, name FROM Supervisor WHERE supcode IN (
                 SELECT supcode FROM ProjSup WHERE projcode='$id')";
         $result = mysql_query($sql);
         $supervisores = "";

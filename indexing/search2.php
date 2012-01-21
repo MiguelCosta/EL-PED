@@ -10,10 +10,10 @@
 		 <?php
 			require_once '../header.php';
 			require_once '../menus/menu_search.php';
-			require_once '../menus/leftmenuLogs.php';
+			//require_once '../menus/leftmenuLogs.php';
 		 ?>
 
-		 <div id="content">
+		 <div id="content_no_left">
 			<div id="content_top"></div>
 			<div id="content_main">
 			   <h2>Resultados da Procura</h2>

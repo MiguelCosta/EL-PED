@@ -147,8 +147,14 @@ if (!isset($_SESSION['username']) || !$_SESSION['username'] || ((isset($_SESSION
                                   var_dump($files_zip);
                                  */
                                 // verifica se os ficheiros que estão no xml, também estão dentro do zip
-                                if ($valido && isset ($ficheiros2)) {
+                                // se o documento estiver validado pelo schema, se existir ficheiros mensionados no pr.xml
+                                if ($valido && isset($ficheiros2)) {
                                     foreach ($ficheiros2 as $f) {
+                                        // se não houverem ficheiros no $files_zip sai
+                                        if(!isset ($files_zip)){
+                                            $contem_ficheiros = false;
+                                            break;
+                                        }
                                         $encontrado = false;
                                         foreach ($files_zip as $f_z) {
                                             if ($f == $f_z) {
@@ -216,7 +222,11 @@ if (!isset($_SESSION['username']) || !$_SESSION['username'] || ((isset($_SESSION
                                         echo 'Não foi possível extrair o zip!';
                                     }
                                 } else {
-                                    echo "<br/>O documento não está correcto.";
+                                    if ($contem_ficheiros == false) {
+                                        echo "<div class=\"failure\">O zip não contêm os ficheiros mencionados no pr.xml.</div>";
+                                    } else {
+                                        echo "<div class=\"failure\">O documento não está correcto.</div>";
+                                    }
                                 }
                                 zip_close($zip);
                             }

@@ -11,6 +11,8 @@
             <li><a href="#">XSD</a></li>
             <li><a href="#">XSL</a></li>
             <li><a href="#">PHP</a></li>
+            <li><a href="#">JavaScript</a></li>
+            <li><a href="#">Entre outras...</a></li>
         </ul>
     </div>
     <div id="leftmenu_bottom"></div>

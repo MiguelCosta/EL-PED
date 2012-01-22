@@ -8,7 +8,7 @@
 <!DOCTYPE html>
 <html>
    <head>
-	  <title>Gerir - RepositórioPED</title>
+	  <title>RepositórioPED</title>
 	  <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-15">
 	  <link rel="stylesheet" type="text/css" href="../css/style.css" />
    </head>
@@ -24,16 +24,16 @@
 		 <div id="content">
 			<div id="content_top"></div>
 			<div id="content_main">
-			   <h2>Gerir o Repositório</h2>
+			   <h2>Repositório</h2>
 			   <br/>
 			   <br/>
-			   <h3>Gestão de Utilizadores</h3>
-			   <p>Aqui pode realizar as tarefas de gestão relacionadas com os utilizadores.</p>
+                           <p>Nesta categoria, as opções existentes variam dependendo do tipo de utilizador que é.</p>
+                           <p>No entanto, todos tem acesso à listagem dos projectos, por isso consulte
+                           todos os projectos que lhe parecem interessantes.</p>
 			   <br/>
-			   <h3>Gestão de Submissões</h3>
-			   <p>Relativamente às tarefas de gestão do que foi submetido, apenas os administradores
-			   podem apagar, alterar e/ou remover o que foi ingerido no repositório.</p>
-			   <br/>
+                           <div style="width: 100%; text-align: center;">
+                           <img src="../css/images/box.png"/>
+                           </div>
 			   <br/>
 			</div>
 			<div id="content_bottom"></div>

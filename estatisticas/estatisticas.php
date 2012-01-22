@@ -24,7 +24,13 @@ session_start();
                     <h2>Estatísticas</h2>
                     <br/>
                     <br/>
-					Aqui poderão visualizar algumas estatísticas relativas a acessos ao sistema e aos depósitos, downloads e consultas de projetos.
+                    Aqui poderão visualizar algumas estatísticas relativas a acessos ao sistema e 
+                    aos depósitos, downloads e consultas de projetos.
+                    <br/>
+                    <br/>
+                    <div style="width: 100%; text-align: center;">
+                        <img src="../css/images/statistics.png"/>
+                    </div>
                 </div>
                 <div id="content_bottom"></div>
 

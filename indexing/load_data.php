@@ -80,7 +80,7 @@
 	  $msg .= "<h3>Projeto: <a href=\"../gerirU/gerirS_Show.php?projcode=".$hit->projcode."\">" . $hit->projcode . "</a> -> ".$hit->keyname."</h3>";
 	  $msg .= "<p>Submetido em: ".date("d-m-Y", strtotime($hit->subdate))."</p>";
 	  $msg .= "<p>Título: ".$hit->title."</p>";
-	  $msg .= "<p>Autor: ".authorsTokenized($hit->author,$hit->authorcode)."</p></br>";
+	  $msg .= "<p>Autor: ".authorsTokenized($hit->authorid,$hit->author,$hit->authorcode)."</p></br>";
    }
 }
 
@@ -93,7 +93,14 @@ echo $msg;
    }
 
    /** Funcao que devolve uma string correspondente a todos os autores de um projeto e um link para a respetiva pagina  **/
-   function authorsTokenized($authors, $codes) {
+   function authorsTokenized($ids, $authors, $codes) {
+	  $tok = strtok($ids,",");
+	  $mi = array();
+	  while ($tok !== false) {
+		 array_push($mi,$tok);
+		 $tok = strtok(",");
+	  }
+
 	  $tok = strtok($authors,",");
 	  $ma = array();
 	  while ($tok !== false) {
@@ -110,7 +117,7 @@ echo $msg;
 	  $msg="";
 
 	  for ($i = 0; $i < count($ma); $i++) {
-		 $msg .= "<a href=\"../gerirU/gerirAS_Show_author.php?authorcode=".$mc[$i]."\">".$ma[$i]."</a>, ";
+		 $msg .= "<a href=\"../gerirU/gerirAS_Show_author.php?authorcode=".$mc[$i]."\">".$mi[$i]." - ".$ma[$i]."</a>, ";
 	  }
 
 	  return substr($msg, 0, (strLen($msg) - 2));

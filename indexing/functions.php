@@ -136,7 +136,7 @@
 	  }
 
 	  $doc->addField(Zend_Search_Lucene_Field::UnIndexed('authorcode',substr($ac, 0, (strLen($ac) - 1))));
-	  $doc->addField(Zend_Search_Lucene_Field::Text('author',substr($a, 0, (strLen($a) - 1)), 'iso-8859-1'));
+	  $doc->addField(Zend_Search_Lucene_Field::Keyword('author',substr($a, 0, (strLen($a) - 1)), 'iso-8859-1'));
 	  $doc->addField(Zend_Search_Lucene_Field::Text('authorid',substr($ai, 0, (strLen($ai) - 1)), 'iso-8859-1'));
 
 	  $sql = "SELECT keyword FROM ProjKW AS PK, KeyWord AS K WHERE PK.projcode = $projcode and PK.kwcode=K.kwcode";

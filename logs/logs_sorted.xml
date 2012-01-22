@@ -3,6 +3,349 @@
   <log>
     <username>miguel</username>
     <name>Miguel Costa</name>
+    <date>2012-01-22T22:22:06</date>
+    <action>Login</action>
+    <description>Login no sistema pelo Utilizador miguel</description>
+  </log>
+  <log>
+    <username>Unknown</username>
+    <name>Unknown</name>
+    <date>2012-01-22T22:21:16</date>
+    <action>Disseminacao:Listagem:Autor</action>
+    <description>Tarefa de Disseminacao: Listagem do Autor 5</description>
+  </log>
+  <log>
+    <username>miguel</username>
+    <name>Miguel Costa</name>
+    <date>2012-01-22T20:38:24</date>
+    <action>Administracao:Listagem:Projetos</action>
+    <description>Tarefa de Administracao: Listagem de Projetos</description>
+  </log>
+  <log>
+    <username>miguel</username>
+    <name>Miguel Costa</name>
+    <date>2012-01-22T20:38:13</date>
+    <action>Login</action>
+    <description>Login no sistema pelo Utilizador miguel</description>
+  </log>
+  <log>
+    <username>miguel</username>
+    <name>Miguel Costa</name>
+    <date>2012-01-22T17:30:06</date>
+    <action>Login</action>
+    <description>Login no sistema pelo Utilizador miguel</description>
+  </log>
+  <log>
+    <username>miguel</username>
+    <name>Miguel Costa</name>
+    <date>2012-01-22T16:05:39</date>
+    <action>Administracao:Listagem:Projeto</action>
+    <description>Tarefa de Administracao: Listagem do Projeto 37</description>
+  </log>
+  <log>
+    <username>miguel</username>
+    <name>Miguel Costa</name>
+    <date>2012-01-22T14:52:50</date>
+    <action>Administracao:Listagem:Projeto</action>
+    <description>Tarefa de Administracao: Listagem do Projeto 5</description>
+  </log>
+  <log>
+    <username>miguel</username>
+    <name>Miguel Costa</name>
+    <date>2012-01-22T14:52:44</date>
+    <action>Administracao:Listagem:Projetos</action>
+    <description>Tarefa de Administracao: Listagem de Projetos</description>
+  </log>
+  <log>
+    <username>miguel</username>
+    <name>Miguel Costa</name>
+    <date>2012-01-22T14:52:38</date>
+    <action>Administracao:Listagem:Projeto</action>
+    <description>Tarefa de Administracao: Listagem do Projeto 5</description>
+  </log>
+  <log>
+    <username>miguel</username>
+    <name>Miguel Costa</name>
+    <date>2012-01-22T14:52:27</date>
+    <action>Administracao:Listagem:Projeto</action>
+    <description>Tarefa de Administracao: Listagem do Projeto 9</description>
+  </log>
+  <log>
+    <username>miguel</username>
+    <name>Miguel Costa</name>
+    <date>2012-01-22T14:52:16</date>
+    <action>Administracao:Listagem:Projeto</action>
+    <description>Tarefa de Administracao: Listagem do Projeto 7</description>
+  </log>
+  <log>
+    <username>miguel</username>
+    <name>Miguel Costa</name>
+    <date>2012-01-22T14:52:09</date>
+    <action>Administracao:Listagem:Projetos</action>
+    <description>Tarefa de Administracao: Listagem de Projetos</description>
+  </log>
+  <log>
+    <username>miguel</username>
+    <name>Miguel Costa</name>
+    <date>2012-01-22T14:52:05</date>
+    <action>Administracao:Listagem:Projeto</action>
+    <description>Tarefa de Administracao: Listagem do Projeto 55</description>
+  </log>
+  <log>
+    <username>miguel</username>
+    <name>Miguel Costa</name>
+    <date>2012-01-22T14:52:04</date>
+    <action>Administracao:Listagem:Projetos</action>
+    <description>Tarefa de Administracao: Listagem de Projetos</description>
+  </log>
+  <log>
+    <username>miguel</username>
+    <name>Miguel Costa</name>
+    <date>2012-01-22T14:52:03</date>
+    <action>Administracao:Listagem:Projeto</action>
+    <description>Tarefa de Administracao: Listagem do Projeto 56</description>
+  </log>
+  <log>
+    <username>miguel</username>
+    <name>Miguel Costa</name>
+    <date>2012-01-22T14:52:02</date>
+    <action>Administracao:Listagem:Projetos</action>
+    <description>Tarefa de Administracao: Listagem de Projetos</description>
+  </log>
+  <log>
+    <username>miguel</username>
+    <name>Miguel Costa</name>
+    <date>2012-01-22T14:52:01</date>
+    <action>Administracao:Listagem:Projeto</action>
+    <description>Tarefa de Administracao: Listagem do Projeto 45</description>
+  </log>
+  <log>
+    <username>miguel</username>
+    <name>Miguel Costa</name>
+    <date>2012-01-22T14:52:00</date>
+    <action>Administracao:Listagem:Projetos</action>
+    <description>Tarefa de Administracao: Listagem de Projetos</description>
+  </log>
+  <log>
+    <username>miguel</username>
+    <name>Miguel Costa</name>
+    <date>2012-01-22T14:51:59</date>
+    <action>Administracao:Listagem:Projeto</action>
+    <description>Tarefa de Administracao: Listagem do Projeto 47</description>
+  </log>
+  <log>
+    <username>miguel</username>
+    <name>Miguel Costa</name>
+    <date>2012-01-22T14:51:56</date>
+    <action>Administracao:Listagem:Projetos</action>
+    <description>Tarefa de Administracao: Listagem de Projetos</description>
+  </log>
+  <log>
+    <username>miguel</username>
+    <name>Miguel Costa</name>
+    <date>2012-01-22T14:51:53</date>
+    <action>Administracao:Listagem:Projeto</action>
+    <description>Tarefa de Administracao: Listagem do Projeto 49</description>
+  </log>
+  <log>
+    <username>miguel</username>
+    <name>Miguel Costa</name>
+    <date>2012-01-22T14:51:51</date>
+    <action>Administracao:Listagem:Projetos</action>
+    <description>Tarefa de Administracao: Listagem de Projetos</description>
+  </log>
+  <log>
+    <username>miguel</username>
+    <name>Miguel Costa</name>
+    <date>2012-01-22T14:51:34</date>
+    <action>Administracao:Listagem:Projeto</action>
+    <description>Tarefa de Administracao: Listagem do Projeto 5</description>
+  </log>
+  <log>
+    <username>miguel</username>
+    <name>Miguel Costa</name>
+    <date>2012-01-22T14:48:51</date>
+    <action>Administracao:Listagem:Autor</action>
+    <description>Tarefa de Administracao: Listagem do Autor 4</description>
+  </log>
+  <log>
+    <username>miguel</username>
+    <name>Miguel Costa</name>
+    <date>2012-01-22T14:48:31</date>
+    <action>Administracao:Listagem:Autor</action>
+    <description>Tarefa de Administracao: Listagem do Autor 7</description>
+  </log>
+  <log>
+    <username>miguel</username>
+    <name>Miguel Costa</name>
+    <date>2012-01-21T16:48:18</date>
+    <action>Administracao:Listagem:Projetos</action>
+    <description>Tarefa de Administracao: Listagem de Projetos</description>
+  </log>
+  <log>
+    <username>miguel</username>
+    <name>Miguel Costa</name>
+    <date>2012-01-21T16:48:06</date>
+    <action>Administracao:Listagem:Projetos</action>
+    <description>Tarefa de Administracao: Listagem de Projetos</description>
+  </log>
+  <log>
+    <username>miguel</username>
+    <name>Miguel Costa</name>
+    <date>2012-01-21T16:47:29</date>
+    <action>Administracao:Listagem:Projetos</action>
+    <description>Tarefa de Administracao: Listagem de Projetos</description>
+  </log>
+  <log>
+    <username>miguel</username>
+    <name>Miguel Costa</name>
+    <date>2012-01-21T16:47:11</date>
+    <action>Administracao:Listagem:Projetos</action>
+    <description>Tarefa de Administracao: Listagem de Projetos</description>
+  </log>
+  <log>
+    <username>miguel</username>
+    <name>Miguel Costa</name>
+    <date>2012-01-21T16:46:29</date>
+    <action>Administracao:Listagem:Projetos</action>
+    <description>Tarefa de Administracao: Listagem de Projetos</description>
+  </log>
+  <log>
+    <username>miguel</username>
+    <name>Miguel Costa</name>
+    <date>2012-01-21T16:45:41</date>
+    <action>Administracao:Listagem:Projetos</action>
+    <description>Tarefa de Administracao: Listagem de Projetos</description>
+  </log>
+  <log>
+    <username>miguel</username>
+    <name>Miguel Costa</name>
+    <date>2012-01-21T16:44:39</date>
+    <action>Administracao:Listagem:Projetos</action>
+    <description>Tarefa de Administracao: Listagem de Projetos</description>
+  </log>
+  <log>
+    <username>miguel</username>
+    <name>Miguel Costa</name>
+    <date>2012-01-21T16:43:36</date>
+    <action>Administracao:Listagem:Projetos</action>
+    <description>Tarefa de Administracao: Listagem de Projetos</description>
+  </log>
+  <log>
+    <username>miguel</username>
+    <name>Miguel Costa</name>
+    <date>2012-01-21T16:42:42</date>
+    <action>Administracao:Listagem:Projetos</action>
+    <description>Tarefa de Administracao: Listagem de Projetos</description>
+  </log>
+  <log>
+    <username>miguel</username>
+    <name>Miguel Costa</name>
+    <date>2012-01-21T16:39:31</date>
+    <action>Administracao:Listagem:Projetos</action>
+    <description>Tarefa de Administracao: Listagem de Projetos</description>
+  </log>
+  <log>
+    <username>miguel</username>
+    <name>Miguel Costa</name>
+    <date>2012-01-21T16:38:54</date>
+    <action>Administracao:Listagem:Projetos</action>
+    <description>Tarefa de Administracao: Listagem de Projetos</description>
+  </log>
+  <log>
+    <username>miguel</username>
+    <name>Miguel Costa</name>
+    <date>2012-01-21T16:37:55</date>
+    <action>Administracao:Listagem:Projetos</action>
+    <description>Tarefa de Administracao: Listagem de Projetos</description>
+  </log>
+  <log>
+    <username>miguel</username>
+    <name>Miguel Costa</name>
+    <date>2012-01-21T16:37:16</date>
+    <action>Administracao:Listagem:Projetos</action>
+    <description>Tarefa de Administracao: Listagem de Projetos</description>
+  </log>
+  <log>
+    <username>miguel</username>
+    <name>Miguel Costa</name>
+    <date>2012-01-21T16:36:20</date>
+    <action>Administracao:Listagem:Projetos</action>
+    <description>Tarefa de Administracao: Listagem de Projetos</description>
+  </log>
+  <log>
+    <username>miguel</username>
+    <name>Miguel Costa</name>
+    <date>2012-01-21T16:33:40</date>
+    <action>Administracao:Listagem:Projetos</action>
+    <description>Tarefa de Administracao: Listagem de Projetos</description>
+  </log>
+  <log>
+    <username>miguel</username>
+    <name>Miguel Costa</name>
+    <date>2012-01-21T16:32:23</date>
+    <action>Administracao:Listagem:Projetos</action>
+    <description>Tarefa de Administracao: Listagem de Projetos</description>
+  </log>
+  <log>
+    <username>miguel</username>
+    <name>Miguel Costa</name>
+    <date>2012-01-21T16:32:19</date>
+    <action>Administracao:Listagem:Autor</action>
+    <description>Tarefa de Administracao: Listagem do Autor 8</description>
+  </log>
+  <log>
+    <username>miguel</username>
+    <name>Miguel Costa</name>
+    <date>2012-01-21T16:31:42</date>
+    <action>Administracao:Listagem:Projetos</action>
+    <description>Tarefa de Administracao: Listagem de Projetos</description>
+  </log>
+  <log>
+    <username>miguel</username>
+    <name>Miguel Costa</name>
+    <date>2012-01-21T16:27:54</date>
+    <action>Administracao:Listagem:Projetos</action>
+    <description>Tarefa de Administracao: Listagem de Projetos</description>
+  </log>
+  <log>
+    <username>miguel</username>
+    <name>Miguel Costa</name>
+    <date>2012-01-21T16:25:28</date>
+    <action>Administracao:Listagem:Projetos</action>
+    <description>Tarefa de Administracao: Listagem de Projetos</description>
+  </log>
+  <log>
+    <username>miguel</username>
+    <name>Miguel Costa</name>
+    <date>2012-01-21T16:25:27</date>
+    <action>Administracao:Listagem:Projetos</action>
+    <description>Tarefa de Administracao: Listagem de Projetos</description>
+  </log>
+  <log>
+    <username>miguel</username>
+    <name>Miguel Costa</name>
+    <date>2012-01-21T16:24:08</date>
+    <action>Administracao:Listagem:Projetos</action>
+    <description>Tarefa de Administracao: Listagem de Projetos</description>
+  </log>
+  <log>
+    <username>miguel</username>
+    <name>Miguel Costa</name>
+    <date>2012-01-21T16:23:32</date>
+    <action>Administracao:Listagem:Projetos</action>
+    <description>Tarefa de Administracao: Listagem de Projetos</description>
+  </log>
+  <log>
+    <username>miguel</username>
+    <name>Miguel Costa</name>
+    <date>2012-01-21T15:59:08</date>
+    <action>Administracao:Listagem:Projetos</action>
+    <description>Tarefa de Administracao: Listagem de Projetos</description>
+  </log>
+  <log>
+    <username>miguel</username>
+    <name>Miguel Costa</name>
     <date>2012-01-21T15:36:04</date>
     <action>Administracao:Listagem:Projetos</action>
     <description>Tarefa de Administracao: Listagem de Projetos</description>

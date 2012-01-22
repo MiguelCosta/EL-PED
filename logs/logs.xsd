@@ -1,21 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified">
 
-    <xs:element name="logs">
-        <xs:complexType>
-            <xs:sequence>
-                <xs:element maxOccurs="unbounded" minOccurs="0" name="log">
-                    <xs:complexType>
-                        <xs:sequence>
-                            <xs:element name="username" type="xs:string"/>
-                            <xs:element name="name" type="xs:string"/>
-                            <xs:element name="date" type="xs:dateTime"/>
-                            <xs:element name="action" type="xs:string"/>
-                            <xs:element name="description" type="xs:string" minOccurs="0"/>
-                        </xs:sequence>
-                    </xs:complexType>
-                </xs:element>
-            </xs:sequence>
-        </xs:complexType>
-    </xs:element>
+   <xs:element name="logs">
+	  <xs:complexType>
+		 <xs:sequence>
+			<xs:element maxOccurs="unbounded" minOccurs="0" name="log">
+			   <xs:complexType>
+				  <xs:sequence>
+					 <xs:element name="username" type="xs:string"/>
+					 <xs:element name="name" type="xs:string"/>
+					 <xs:element name="date" type="xs:dateTime"/>
+					 <xs:element name="action" type="xs:string"/>
+					 <xs:element name="description" type="xs:string" minOccurs="0"/>
+				  </xs:sequence>
+			   </xs:complexType>
+			</xs:element>
+		 </xs:sequence>
+	  </xs:complexType>
+   </xs:element>
 </xs:schema>

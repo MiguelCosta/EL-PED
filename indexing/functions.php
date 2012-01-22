@@ -35,8 +35,8 @@
 	  }   
 
 	  // Optimiza o indice (Automatic index optimization is performed to keep indexes in a consistent state. Automatic optimization is an iterative process managed by several index options. It merges very small segments into larger ones, then merges these larger segments into even larger segments and so on.)
+	  $index->setMergeFactor(8);
 	  $index->optimize();
-
 	  // Escreve o indice no disco
 	  $index->commit();
 

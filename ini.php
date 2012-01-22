@@ -59,6 +59,11 @@
 	  return date("Y-m-d\TH:i:s");
    }
 
+
+   /* -------------------------------------------------------------------------------------------------- */
+   /* ------------------------------------------ Logs -------------------------------------------------- */
+   /* -------------------------------------------------------------------------------------------------- */
+
    // Ordena os logs por ordem decrescente de insercao
    function log_reverse() {
 	  $doc = new DOMDocument();       // DOM xml
@@ -140,148 +145,152 @@
 	  return simplexml_load_file($log_file)->count();
    }
 
-   // valdiação de um xml
+   /* -------------------------------------------------------------------------------------------------- */
+   /* ------------------------------------------ XML --------------------------------------------------- */
+   /* -------------------------------------------------------------------------------------------------- */
 
+   // validação de um xml
    function libxml_display_error($error) {
 	  $return = "<br/>\n";
 	  switch ($error->level) {
 		 case LIBXML_ERR_WARNING:
-		 $return .= "<b>Warning $error->code</b>: ";
-		 break;
+			$return .= "<b>Warning $error->code</b>: ";
+			break;
 		 case LIBXML_ERR_ERROR:
-		 $return .= "<b>Error $error->code</b>: ";
-		 break;
+			$return .= "<b>Error $error->code</b>: ";
+			break;
 		 case LIBXML_ERR_FATAL:
-		 $return .= "<b>Fatal Error $error->code</b>: ";
-		 break;
-	  }
-	  $return .= trim($error->message);
-	  if ($error->file) {
-		 $return .= " in <b>$error->file</b>";
-	  }
-	  $return .= " on line <b>$error->line</b>\n";
+			$return .= "<b>Fatal Error $error->code</b>: ";
+			break;
+		 }
+		 $return .= trim($error->message);
+		 if ($error->file) {
+			$return .= " in <b>$error->file</b>";
+		 }
+		 $return .= " on line <b>$error->line</b>\n";
 
-	  return $return;
-   }
-
-   function libxml_display_errors() {
-	  $errors = libxml_get_errors();
-	  foreach ($errors as $error) {
-		 print libxml_display_error($error);
+		 return $return;
 	  }
-	  libxml_clear_errors();
-   }
 
-   function rrmdir($dir) {
-	  if (is_dir($dir)) {
-		 $objects = scandir($dir);
-		 foreach ($objects as $object) {
-			if ($object != "." && $object != "..") {
-			   if (filetype($dir . "/" . $object) == "dir")
-			   rrmdir($dir . "/" . $object); else
-			   unlink($dir . "/" . $object);
+	  function libxml_display_errors() {
+		 $errors = libxml_get_errors();
+		 foreach ($errors as $error) {
+			print libxml_display_error($error);
+		 }
+		 libxml_clear_errors();
+	  }
+
+
+	  function rrmdir($dir) {
+		 if (is_dir($dir)) {
+			$objects = scandir($dir);
+			foreach ($objects as $object) {
+			   if ($object != "." && $object != "..") {
+				  if (filetype($dir . "/" . $object) == "dir")
+				  rrmdir($dir . "/" . $object); else
+				  unlink($dir . "/" . $object);
+			   }
 			}
+			reset($objects);
+			rmdir($dir);
 		 }
-		 reset($objects);
-		 rmdir($dir);
-	  }
-   }
-
-   /** 
-   * Passar um objeto para a linha da tabela de listagem
-   * @param type $titulo
-   * @param type $res 
-   */
-   function obj_to_table($type, $res) {
-	  switch ($type) {
-		 case '1':
-		 $titulo = "Projetos"; 
-		 $head = "<tr><th class=\"user\">Codigo</th><th class=\"user\">Keyname</th><th class=\"user\">Title</th></tr>";
-		 $data = "";
-		 while ($reg = mysql_fetch_array($res)) {
-			$data .= "<tr>";
-			   $data .= "<td class=\"user\"><a href=\"../gerirU/gerirS_Show.php?projcode=".$reg["projcode"]."\">" . $reg["projcode"]  . "</a></td>";
-			   $data .= "<td class=\"user\">" . $reg["keyname"] . "</td>";
-			   $data .= "<td class=\"user\">" . $reg["title"] . "</td>";
-			   $data .= "</tr>";
-		 }   
-		 break;
-		 case '2':
-		 $titulo = "Cursos"; 
-		 $head = "<tr><th class=\"user\">Codigo</th><th class=\"user\">Curso</th></tr>";
-		 $data = "";
-		 while ($reg = mysql_fetch_array($res)) {
-			$data .= "<tr>";
-			   $data .= "<td class=\"user\">" . $reg["coursecode"] . "</td>";
-			   $data .= "<td class=\"user\">" . $reg["coursedescription"] . "</td>";
-			   $data .= "</tr>";
-		 }   
-		 break;
-		 case '3':
-		 $titulo = "Autores"; 
-		 $head = "<tr><th class=\"user\">ID</th><th class=\"user\">Name</th><th class=\"user\">Email</th></tr>";
-		 $data = "";
-		 while ($reg = mysql_fetch_array($res)) {
-			$data .= "<tr>";
-			   $data .= "<td class=\"user\"><a href=\"../gerirU/gerirAS_Show_author.php?authorcode=".$reg["authorcode"]."\">" . $reg["id"]  . "</a></td>";
-			   $data .= "<td class=\"user\">" . $reg["name"] . "</td>";
-			   $data .= "<td class=\"user\">" . $reg["email"] . "</td>";
-			   $data .= "</tr>";
-		 }
-		 break;
-		 case '4':
-		 $titulo = "Supervisores"; 
-		 $head = "<tr><th class=\"user\">Codigo</th><th class=\"user\">Name</th><th class=\"user\">Email</th></tr>";
-		 $data = "";
-		 while ($reg = mysql_fetch_array($res)) {
-			$data .= "<tr>";
-			   $data .= "<td class=\"user\"><a href=\"../gerirU/gerirAS_Show_supervisor.php?supcode=".$reg["supcode"]."&page_p=1\">" . $reg["supcode"]  . "</a></td>";
-			   $data .= "<td class=\"user\">" . $reg["name"] . "</td>";
-			   $data .= "<td class=\"user\">" . $reg["email"] . "</td>";
-			   $data .= "</tr>";
-		 }
-		 break;
-		 default: break;
-	  }
-	  echo "<h3 class=\"user\">" . $titulo . "</h3>";
-	  echo "<div id=\"containt_main_users_column_label\">";
-		 echo "<table class=\"user\">";
-			echo $head;
-			echo $data;
-			echo "</table>";
-		 echo "</div>";
-   }
-
-   function Zip($source, $destination) {
-	  if (!extension_loaded('zip') || !file_exists($source)) {
-		 return false;
 	  }
 
-	  $zip = new ZipArchive();
-	  if (!$zip->open($destination, ZIPARCHIVE::CREATE)) {
-		 return false;
-	  }
-
-	  $source = str_replace('\\', '/', realpath($source));
-	  //echo "<br/>Source = $source<br/>";
-	  //echo "<br/>Destino = $destination<br/>";
-
-	  if (is_dir($source) === true) {
-		 $files = new RecursiveIteratorIterator(new RecursiveDirectoryIterator($source), RecursiveIteratorIterator::SELF_FIRST);
-
-		 foreach ($files as $file) {
-			$file = str_replace('\\', '/', realpath($file));
-
-			if (is_dir($file) === true) {
-			   $zip->addEmptyDir(str_replace($source . '/', '', $file . '/'));
-			} else if (is_file($file) === true) {
-			   $zip->addFromString(str_replace($source . '/', '', $file), file_get_contents($file));
+	  /** 
+	  * Passar um objeto para a linha da tabela de listagem
+	  * @param type $titulo
+	  * @param type $res 
+	  */
+	  function obj_to_table($type, $res) {
+		 switch ($type) {
+			case '1':
+			   $titulo = "Projetos"; 
+			   $head = "<tr><th class=\"user\">Codigo</th><th class=\"user\">Keyname</th><th class=\"user\">Title</th></tr>";
+			   $data = "";
+			   while ($reg = mysql_fetch_array($res)) {
+				  $data .= "<tr>";
+					 $data .= "<td class=\"user\"><a href=\"../gerirU/gerirS_Show.php?projcode=".$reg["projcode"]."\">" . $reg["projcode"]  . "</a></td>";
+					 $data .= "<td class=\"user\">" . $reg["keyname"] . "</td>";
+					 $data .= "<td class=\"user\">" . $reg["title"] . "</td>";
+					 $data .= "</tr>";
+			   }   
+			   break;
+			case '2':
+			   $titulo = "Cursos"; 
+			   $head = "<tr><th class=\"user\">Codigo</th><th class=\"user\">Curso</th></tr>";
+			   $data = "";
+			   while ($reg = mysql_fetch_array($res)) {
+				  $data .= "<tr>";
+					 $data .= "<td class=\"user\">" . $reg["coursecode"] . "</td>";
+					 $data .= "<td class=\"user\">" . $reg["coursedescription"] . "</td>";
+					 $data .= "</tr>";
+			   }   
+			   break;
+			case '3':
+			   $titulo = "Autores"; 
+			   $head = "<tr><th class=\"user\">ID</th><th class=\"user\">Name</th><th class=\"user\">Email</th></tr>";
+			   $data = "";
+			   while ($reg = mysql_fetch_array($res)) {
+				  $data .= "<tr>";
+					 $data .= "<td class=\"user\"><a href=\"../gerirU/gerirAS_Show_author.php?authorcode=".$reg["authorcode"]."\">" . $reg["id"]  . "</a></td>";
+					 $data .= "<td class=\"user\">" . $reg["name"] . "</td>";
+					 $data .= "<td class=\"user\">" . $reg["email"] . "</td>";
+					 $data .= "</tr>";
+			   }
+			   break;
+			case '4':
+			   $titulo = "Supervisores"; 
+			   $head = "<tr><th class=\"user\">Codigo</th><th class=\"user\">Name</th><th class=\"user\">Email</th></tr>";
+			   $data = "";
+			   while ($reg = mysql_fetch_array($res)) {
+				  $data .= "<tr>";
+					 $data .= "<td class=\"user\"><a href=\"../gerirU/gerirAS_Show_supervisor.php?supcode=".$reg["supcode"]."&page_p=1\">" . $reg["supcode"]  . "</a></td>";
+					 $data .= "<td class=\"user\">" . $reg["name"] . "</td>";
+					 $data .= "<td class=\"user\">" . $reg["email"] . "</td>";
+					 $data .= "</tr>";
+			   }
+			   break;
+			default: break;
 			}
+			echo "<h3 class=\"user\">" . $titulo . "</h3>";
+			echo "<div id=\"containt_main_users_column_label\">";
+			   echo "<table class=\"user\">";
+				  echo $head;
+				  echo $data;
+				  echo "</table>";
+			   echo "</div>";
 		 }
-	  } else if (is_file($source) === true) {
-		 $zip->addFromString(basename($source), file_get_contents($source));
-	  }
 
-	  return $zip->close();
-   }
-?>
+		 function Zip($source, $destination) {
+			if (!extension_loaded('zip') || !file_exists($source)) {
+			   return false;
+			}
+
+			$zip = new ZipArchive();
+			if (!$zip->open($destination, ZIPARCHIVE::CREATE)) {
+			   return false;
+			}
+
+			$source = str_replace('\\', '/', realpath($source));
+			//echo "<br/>Source = $source<br/>";
+			//echo "<br/>Destino = $destination<br/>";
+
+			if (is_dir($source) === true) {
+			   $files = new RecursiveIteratorIterator(new RecursiveDirectoryIterator($source), RecursiveIteratorIterator::SELF_FIRST);
+
+			   foreach ($files as $file) {
+				  $file = str_replace('\\', '/', realpath($file));
+
+				  if (is_dir($file) === true) {
+					 $zip->addEmptyDir(str_replace($source . '/', '', $file . '/'));
+				  } else if (is_file($file) === true) {
+					 $zip->addFromString(str_replace($source . '/', '', $file), file_get_contents($file));
+				  }
+			   }
+			} else if (is_file($source) === true) {
+			   $zip->addFromString(basename($source), file_get_contents($source));
+			}
+
+			return $zip->close();
+		 }
+	  ?>

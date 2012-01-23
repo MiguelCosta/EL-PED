@@ -220,7 +220,7 @@ if (!$con) {
                                 ?>
                                 <li>
                                     <a href="gerirS_Show_KW.php?kwcode=<? echo $rows5["kwcode"]; ?>&page_p=1">
-                                        <? echo $rows5["keyword"] ?>
+                                        <? echo utf8_decode($rows5["keyword"]) ?>
                                     </a>
                                 </li>
                                 <?php
@@ -258,7 +258,7 @@ if (!$con) {
                                         if ($rows4['description'] == "" || !$rows4['description']) {
                                             echo "Sem nome";
                                         } else {
-                                            echo $rows4['description'];
+                                            echo utf8_decode($rows4['description']);
                                         }
                                         ?>
                                     </a>

@@ -1,0 +1,198 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified">
+
+    <xs:element name="aaa">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="prs">
+                    <xs:complexType>
+                        <xs:sequence>
+                            <xs:element name="pr" maxOccurs="unbounded" minOccurs="0">
+                                <xs:complexType>
+                                    <xs:sequence>
+                                        <xs:element name="projcode" type="xs:string"/>
+                                        <xs:element name="keyname" type="xs:string"/>
+                                        <xs:element name="title" type="xs:string"/>
+                                        <xs:element name="subtitle" type="xs:string" minOccurs="0"/>
+                                        <xs:element name="bdate" type="xs:string" minOccurs="0"/>
+                                        <xs:element name="edate" type="xs:string" minOccurs="0"/>
+                                        <xs:element name="subdate" type="xs:string"/>
+                                        <xs:element name="abstract">
+                                            <xs:complexType>
+                                                <xs:sequence>
+                                                  <xs:element maxOccurs="unbounded" name="p">
+                                                  <xs:complexType mixed="true">
+                                                  <xs:choice maxOccurs="unbounded" minOccurs="0">
+                                                  <xs:element name="b">
+                                                  <xs:complexType mixed="true">
+                                                  <xs:choice maxOccurs="unbounded" minOccurs="0">
+                                                  <xs:element name="i" type="xs:string"/>
+                                                  <xs:element name="u" type="xs:string"/>
+                                                  </xs:choice>
+                                                  </xs:complexType>
+                                                  </xs:element>
+                                                  <xs:element name="i">
+                                                  <xs:complexType mixed="true">
+                                                  <xs:choice maxOccurs="unbounded" minOccurs="0">
+                                                  <xs:element name="b" type="xs:string"/>
+                                                  <xs:element name="u" type="xs:string"/>
+                                                  </xs:choice>
+                                                  </xs:complexType>
+                                                  </xs:element>
+                                                  <xs:element name="u">
+                                                  <xs:complexType mixed="true">
+                                                  <xs:choice maxOccurs="unbounded" minOccurs="0">
+                                                  <xs:element name="b" type="xs:string"/>
+                                                  <xs:element name="i" type="xs:string"/>
+                                                  </xs:choice>
+                                                  </xs:complexType>
+                                                  </xs:element>
+                                                  <xs:element name="kw" type="xs:string"/>
+                                                  <xs:element name="xref">
+                                                  <xs:complexType mixed="true">
+                                                  <xs:attribute name="url" type="xs:string"/>
+                                                  </xs:complexType>
+                                                  </xs:element>
+                                                  </xs:choice>
+                                                  </xs:complexType>
+                                                  </xs:element>
+                                                </xs:sequence>
+                                            </xs:complexType>
+                                        </xs:element>
+                                        <xs:element name="coursecode" type="xs:string"/>
+                                        <xs:element name="path" type="xs:string" minOccurs="0"/>
+                                        <xs:element name="remove" type="xs:int"/>
+                                        <xs:element name="private" type="xs:int"/>
+                                    </xs:sequence>
+                                </xs:complexType>
+                            </xs:element>
+                        </xs:sequence>
+                    </xs:complexType>
+                </xs:element>
+                <xs:element name="dels">
+                    <xs:complexType>
+                        <xs:sequence>
+                            <xs:element maxOccurs="unbounded" minOccurs="0" name="del">
+                                <xs:complexType>
+                                    <xs:sequence>
+                                        <xs:element name="delcode"/>
+                                        <xs:element name="description"/>
+                                        <xs:element name="path"/>
+                                        <xs:element name="projcode"/>
+                                    </xs:sequence>
+                                </xs:complexType>
+                            </xs:element>
+                        </xs:sequence>
+                    </xs:complexType>
+                </xs:element>
+                <xs:element name="authors">
+                    <xs:complexType>
+                        <xs:sequence>
+                            <xs:element maxOccurs="unbounded" minOccurs="0" name="author">
+                                <xs:complexType>
+                                    <xs:sequence>
+                                        <xs:element name="authorcode"/>
+                                        <xs:element name="name"/>
+                                        <xs:element name="id"/>
+                                        <xs:element name="email"/>
+                                        <xs:element name="url"/>
+                                        <xs:element name="coursecode"/>
+                                        <xs:element name="remove"/>
+                                    </xs:sequence>
+                                </xs:complexType>
+                            </xs:element>
+                        </xs:sequence>
+                    </xs:complexType>
+                </xs:element>
+                <xs:element name="supervisors">
+                    <xs:complexType>
+                        <xs:sequence>
+                            <xs:element maxOccurs="unbounded" minOccurs="0" name="supervisor">
+                                <xs:complexType>
+                                    <xs:sequence>
+                                        <xs:element name="supcode"/>
+                                        <xs:element name="name"/>
+                                        <xs:element name="email"/>
+                                        <xs:element name="url"/>
+                                        <xs:element name="affil"/>
+                                        <xs:element name="remove"/>
+                                    </xs:sequence>
+                                </xs:complexType>
+                            </xs:element>
+                        </xs:sequence>
+                    </xs:complexType>
+                </xs:element>
+                <xs:element minOccurs="0" name="kws">
+                    <xs:complexType>
+                        <xs:sequence>
+                            <xs:element maxOccurs="unbounded" minOccurs="0" name="kw">
+                                <xs:complexType>
+                                    <xs:sequence>
+                                        <xs:element name="kwcode"/>
+                                        <xs:element name="keyword"/>
+                                    </xs:sequence>
+                                </xs:complexType>
+                            </xs:element>
+                        </xs:sequence>
+                    </xs:complexType>
+                </xs:element>
+                <xs:element name="courses">
+                    <xs:complexType>
+                        <xs:sequence>
+                            <xs:element maxOccurs="unbounded" name="course">
+                                <xs:complexType>
+                                    <xs:sequence>
+                                        <xs:element name="coursecode"/>
+                                        <xs:element name="coursedescription"/>
+                                    </xs:sequence>
+                                </xs:complexType>
+                            </xs:element>
+                        </xs:sequence>
+                    </xs:complexType>
+                </xs:element>
+                <xs:element name="projauts">
+                    <xs:complexType>
+                        <xs:sequence>
+                            <xs:element maxOccurs="unbounded" minOccurs="0" name="projaut">
+                                <xs:complexType>
+                                    <xs:sequence>
+                                        <xs:element name="projcode"/>
+                                        <xs:element name="authorcode"/>
+                                    </xs:sequence>
+                                </xs:complexType>
+                            </xs:element>
+                        </xs:sequence>
+                    </xs:complexType>
+                </xs:element>
+                <xs:element name="projsups">
+                    <xs:complexType>
+                        <xs:sequence>
+                            <xs:element maxOccurs="unbounded" minOccurs="0" name="projsup">
+                                <xs:complexType>
+                                    <xs:sequence>
+                                        <xs:element name="projcode"/>
+                                        <xs:element name="supcode"/>
+                                    </xs:sequence>
+                                </xs:complexType>
+                            </xs:element>
+                        </xs:sequence>
+                    </xs:complexType>
+                </xs:element>
+                <xs:element name="projkws">
+                    <xs:complexType>
+                        <xs:sequence>
+                            <xs:element maxOccurs="unbounded" minOccurs="0" name="projkw">
+                                <xs:complexType>
+                                    <xs:sequence>
+                                        <xs:element name="projcode"/>
+                                        <xs:element name="kwcode"/>
+                                    </xs:sequence>
+                                </xs:complexType>
+                            </xs:element>
+                        </xs:sequence>
+                    </xs:complexType>
+                </xs:element>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+</xs:schema>

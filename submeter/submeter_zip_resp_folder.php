@@ -224,7 +224,12 @@ if (!isset($_SESSION['username']) || !$_SESSION['username'] || ((isset($_SESSION
                                 // seleccionar o id do supervisor
                                 $sql = "SELECT supcode FROM Supervisor WHERE email='$value';";
                                 $result = mysqli_query($link, $sql);
-
+                                $count = mysql_num_rows($result);
+                                if ($count < 1) {
+                                    echo "<div class=\"failure>Um dos autores inseridos não está 
+                                        registado no sistema.</div>\"";
+                                    return;
+                                }
                                 while ($rows = mysqli_fetch_row($result)) {
                                     $supcod = $rows[0];
                                 }
@@ -241,7 +246,12 @@ if (!isset($_SESSION['username']) || !$_SESSION['username'] || ((isset($_SESSION
                                 // seleccionar o id do supervisor
                                 $sql = "SELECT authorcode FROM Author WHERE email='$value';";
                                 $result = mysqli_query($link, $sql);
-
+                                $count = mysql_num_rows($result);
+                                if ($count < 1) {
+                                    echo "<div class=\"failure>Um dos autores inseridos não está 
+                                        registado no sistema.</div>\"";
+                                    return;
+                                }
                                 while ($rows = mysqli_fetch_row($result)) {
                                     //var_dump($rows);
                                     $authorcode = $rows["0"];

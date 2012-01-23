@@ -42,11 +42,11 @@
 		 try {
 			$index = getIndex($indexPath);
 			if (isset($_SESSION['type']) && $_SESSION['type']=='a') // Administrador
-			$hits = $index->find($query); // aqui serao encontrados todos os projetos publicos e privados
+			$hits = $index->find($query."*"); // aqui serao encontrados todos os projetos publicos e privados
 			elseif (isset($_SESSION['type']) && $_SESSION['type']=='p') // Produtor
-			$hits = $index->find("+".$query." +(privat:0 (+privat:1 +username:".$_SESSION['username']."))"); // aqui tem que so serao encontrados os projetos publicos (private==0) e o os privados cujo produtor seja o utilizador "logado"
+			$hits = $index->find("+".$query."* +(privat:0 (+privat:1 +username:".$_SESSION['username']."))"); // aqui tem que so serao encontrados os projetos publicos (private==0) e o os privados cujo produtor seja o utilizador "logado"
 			else // Outros
-			$hits = $index->find("+".$query." +privat:0"); // aqui tem que so serao encontrados os publicos (private==0)
+			$hits = $index->find("+".$query."* +privat:0"); // aqui tem que so serao encontrados os publicos (private==0)
 		 }
 		 catch (Zend_Search_Lucene_Exception $ex) {
 			$hits = array();

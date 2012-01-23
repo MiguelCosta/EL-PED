@@ -20,17 +20,33 @@ if (!isset($_SESSION['username']) || !$_SESSION['username'] || ((isset($_SESSION
             include '../menus/leftmenuSubmeter.php';
             ?>
 
-            
+
             <div id="content">
                 <div id="content_top"></div>
                 <div id="content_main">
-                    <h2>Submeter Trabalhos</h2>
+                    <h2>Submeter Trabalhos/Projectos</h2>
                     <br/>
+                    
+                    <div style="width: 100%; text-align: center;">
+                        <img src="../css/images/submit.png"/>
+                    </div>
                     <br/>
-                    <p>Aqui pode submeter os trabalhos.</p>
-                    <p>Pode ser por zip ou por formulário.</p>
+                    <p>
+                        Nesta categoria pode submeter os seus projectos.
+                    </p>
                     <br/>
+                    <p> Para submeter pode user o nosso assistente ou caso já tenho um ficheiro zip 
+                        com a devida estrutura também o pode.</p>
+                    <p>Tenha em atenção todos os requisitos necessários para a submissão, pode ver o 
+                        <a href="../util/pr.xsd" target="_blank">XML Schema
+                        aqui</a></p>
                     <br/>
+                    <h4>Descrição do pacote a submeter:</h4>
+
+                    <?php
+                    include 'text/descricao_sip.php';
+                    ?>
+
                 </div>
                 <div id="content_bottom"></div>
 

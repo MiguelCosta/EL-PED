@@ -26,14 +26,13 @@ if (!isset($_SESSION['username']) || !$_SESSION['username'] || ((isset($_SESSION
                 <div id="content_main">
                     <h2>Submissão por Zip</h2>
                     <br/>
-                    Aqui poderá fazer uma submissão através de um Ficheiro Zip.<br/>
-                    Tenha em atenção porque terá de obedecer às seguintes regras:
+                    <p>Aqui poderá fazer uma submissão através de um Ficheiro Zip.</p><br/>
+                    <p>Tenha em atenção porque terá de obedecer às seguintes regras:</p>
                     <ul>
-                        <li>regra1</li>
-                        <li>regra2</li>
-                        <li>regra3</li>
+                        <li>tem de conter um manifesto em XML com o nome <b>pr.xml</b></li>
+                        <li>todos os ficheiros mencionados no manifesto tem de estar presentes no zip</li>
                     </ul>
-                    
+                    <p><a href="../util/pr.xsd" target="_blank">XML Schema</a></p>
 
                     <?php
                     require_once 'forms/submeter_form_zip.php';

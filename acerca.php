@@ -10,24 +10,19 @@
             <?php
             require_once 'header.php';
             require_once 'menus/menu.php';
-            require_once 'menus/leftmenuHome.php';
             //ini_set('include_path',ini_get('include_path').':.');
             ?>
 
 
-            <div id="content">
+            <div id="content_no_left">
                 <div id="content_top"></div>
                 <div id="content_main">
                     <h2>Repositório para Submissão de Trabalhos</h2>
                     <br/>
                     <br/>
-                    
+                    <h3>Objectivo deste Repositório</h3>
                     <?php
                     ?>
-                    <div style="width: 100%; text-align: center;">
-                        <img src="css/images/home.png"/>
-                    </div>
-                    <h3>Objectivo deste Repositório</h3>
                     <br/>
                     <p>No mundo académico há uma enorme quantidade de trabalhos que são produzidos, 
                         muitos deles de boa qualidade que podiam ser úteis para outras pessoas aprenderem, 
@@ -39,6 +34,27 @@
                         seja possível consultar e exportar toda a informação que tenha sido submetida.</p>
                     <br/>
                     <br/>
+                    <p>
+                        <b>Todo este trabalho foi desenvolvido por:</b>
+                    </p>
+                    <ul>
+                        <li>Bruno Azevedo - <a href="malito:azevedo.252@gmail.com">azevedo.252@gmail.com</a></li>
+                        <li>Miguel Costa - <a href="malito:miguelpintodacosta@gmail.com">miguelpintodacosta@gmail.com</a></li>
+                    </ul>
+                    <br/>
+                    <p>
+                        <b>E foi supervisionado por:</b>
+                    </p>
+                    <ul>
+                        <li>José Carlos Ramalho - <a href="malito:jcr@di.uminho.pt">jcr@di.uminho.pt</a></li>
+                    </ul>
+                    <br/>
+                    Desenvolvido no âmbito do módulo de Processamento Estruturado de Dados
+                    do Mestrado de Engenharia de Linguagens (Mestrado em Engenharia Informática).
+                    <br/>
+                    <div style="width: 100%; text-align: center;">
+                        <img src="css/images/about.png"/>
+                    </div>
                 </div>
                 <div id="content_bottom"></div>
 
